@@ -1,0 +1,150 @@
+From 0643d03e1e4f5b3e911e2223bb0b9a40dcd16fb3 Mon Sep 17 00:00:00 2001
+From: Harry Sung <hsung1@lenovo.com>
+Date: Thu, 20 Jun 2019 19:38:47 +0800
+Subject: [PATCH] Add patches for ASIC support
+
+Signed-off-by: Harry Sung <hsung1@lenovo.com>
+---
+ ...-clock-max-speed-detection-and-limit-SPI-.patch | 47 ++++++++++++++++++++++
+ .../recipes-bsp/uboot/u-boot-aspeed_%.bbappend     | 10 +++++
+ .../linux/linux-aspeed/0001-support-ASIC.patch     | 44 ++++++++++++++++++++
+ .../recipes-kernel/linux/linux-aspeed_%.bbappend   |  1 +
+ 4 files changed, 102 insertions(+)
+ create mode 100644 meta-lenovo/meta-hr650x+/recipes-bsp/uboot/u-boot-aspeed/0001-Disable-SPI-clock-max-speed-detection-and-limit-SPI-.patch
+ create mode 100644 meta-lenovo/meta-hr650x+/recipes-bsp/uboot/u-boot-aspeed_%.bbappend
+ create mode 100644 meta-lenovo/meta-hr650x+/recipes-kernel/linux/linux-aspeed/0001-support-ASIC.patch
+
+diff --git a/meta-lenovo/meta-hr650x+/recipes-bsp/uboot/u-boot-aspeed/0001-Disable-SPI-clock-max-speed-detection-and-limit-SPI-.patch b/meta-lenovo/meta-hr650x+/recipes-bsp/uboot/u-boot-aspeed/0001-Disable-SPI-clock-max-speed-detection-and-limit-SPI-.patch
+new file mode 100644
+index 0000000..77a2342
+--- /dev/null
++++ b/meta-lenovo/meta-hr650x+/recipes-bsp/uboot/u-boot-aspeed/0001-Disable-SPI-clock-max-speed-detection-and-limit-SPI-.patch
+@@ -0,0 +1,47 @@
++From 61e34ab2f1b12d1976904c7310c53ce60599a606 Mon Sep 17 00:00:00 2001
++From: Oskar Senft <osk@google.com>
++Date: Fri, 19 Apr 2019 14:51:57 -0400
++Subject: [PATCH] Disable SPI clock max-speed detection and limit SPI clock to
++ 12 MHz
++
++Change-Id: I9f9fb712353fdb5f0f77b29b3cb8ac661c9e306f
++---
++ arch/arm/mach-aspeed/flash.c       | 8 ++++----
++ arch/arm/mach-aspeed/platform_g5.S | 2 +-
++ 2 files changed, 5 insertions(+), 5 deletions(-)
++
++diff --git a/arch/arm/mach-aspeed/flash.c b/arch/arm/mach-aspeed/flash.c
++index 907e785d8c..18f502e523 100644
++--- a/arch/arm/mach-aspeed/flash.c
+++++ b/arch/arm/mach-aspeed/flash.c
++@@ -1277,10 +1277,10 @@ static ulong flash_get_size (ulong base, flash_info_t *info)
++ 		info->protect[j] = 0; /* default: not protected */
++ 	}
++ 
++-	/* limit Max SPI CLK to 50MHz (Datasheet v1.2) */
++-	if (WriteClk > 50) WriteClk = 50;
++-	if (EraseClk > 50) EraseClk = 50;
++-	if (ReadClk > 50)  ReadClk  = 50;
+++	/* osk: limit Max SPI CLK to 12MHz for ASIC */
+++	if (WriteClk > 12) WriteClk = 12;
+++	if (EraseClk > 12) EraseClk = 12;
+++	if (ReadClk > 12)  ReadClk  = 12;
++ 
++ 	info->tCK_Write = ast_spi_calculate_divisor(WriteClk*1000000);
++ 	info->tCK_Erase = ast_spi_calculate_divisor(EraseClk*1000000);
++diff --git a/arch/arm/mach-aspeed/platform_g5.S b/arch/arm/mach-aspeed/platform_g5.S
++index 2ac1ca4721..43b234bbdb 100644
++--- a/arch/arm/mach-aspeed/platform_g5.S
+++++ b/arch/arm/mach-aspeed/platform_g5.S
++@@ -2331,7 +2331,7 @@ spi_checksum_wait_0:
++     ldr   r1, =0x000B0041
++     str   r1, [r0]
++ 
++-    ldr   r6, =0x00F7E6D0                        @ Init spiclk loop
+++    ldr   r6, =0x0                               @ osk: disable SPI timinig calibration. Init spiclk loop
++     mov   r8, #0x0                               @ Init delay record
++ 
++ spi_cbr_next_clkrate:
++-- 
++2.21.0.1020.gf2820cf01a-goog
++
+diff --git a/meta-lenovo/meta-hr650x+/recipes-bsp/uboot/u-boot-aspeed_%.bbappend b/meta-lenovo/meta-hr650x+/recipes-bsp/uboot/u-boot-aspeed_%.bbappend
+new file mode 100644
+index 0000000..ee16adf
+--- /dev/null
++++ b/meta-lenovo/meta-hr650x+/recipes-bsp/uboot/u-boot-aspeed_%.bbappend
+@@ -0,0 +1,10 @@
++# Copyright (c) 2019-present Lenovo
++# Licensed under BSD-3, see COPYING.BSD file for details.
++
++
++FILESEXTRAPATHS_prepend_hr650x+ := "${THISDIR}/${PN}:"
++SRC_URI += " file://0001-Disable-SPI-clock-max-speed-detection-and-limit-SPI-.patch \
++           "
++
++FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
++
+diff --git a/meta-lenovo/meta-hr650x+/recipes-kernel/linux/linux-aspeed/0001-support-ASIC.patch b/meta-lenovo/meta-hr650x+/recipes-kernel/linux/linux-aspeed/0001-support-ASIC.patch
+new file mode 100644
+index 0000000..d941bd8
+--- /dev/null
++++ b/meta-lenovo/meta-hr650x+/recipes-kernel/linux/linux-aspeed/0001-support-ASIC.patch
+@@ -0,0 +1,44 @@
++From cb1467b1304737c446988bd6e3a792aed154e3df Mon Sep 17 00:00:00 2001
++From: Lisa Liu <liuyj19@lenovo.com>
++Date: Mon, 20 May 2019 17:33:19 +0800
++Subject: [PATCH] support ASIC
++
++---
++ drivers/mtd/spi-nor/spi-nor.c | 4 ++++
++ include/linux/mtd/spi-nor.h   | 1 +
++ 2 files changed, 5 insertions(+)
++
++diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
++index 5a5a476..ea20e36 100644
++--- a/drivers/mtd/spi-nor/spi-nor.c
+++++ b/drivers/mtd/spi-nor/spi-nor.c
++@@ -476,6 +476,7 @@ static int set_4byte(struct spi_nor *nor, bool enable)
++ 		/* Some Micron need WREN command; all will accept it */
++ 		need_wren = true;
++ 		/* fall through */
+++	case SNOR_MFR_GOOGLE:
++ 	case SNOR_MFR_MACRONIX:
++ 	case SNOR_MFR_WINBOND:
++ 		if (need_wren)
++@@ -1797,6 +1798,9 @@ static const struct flash_info spi_nor_ids[] = {
++ 			.quad_enable = macronix_quad_enable,
++ 	},
++ 
+++	/* Google ASIC */
+++	{ "ASIC", INFO(0x260217, 0, 64 * 1024, 512, SECT_4K) },
+++
++ 	/* Intel/Numonyx -- xxxs33b */
++ 	{ "160s33b",  INFO(0x898911, 0, 64 * 1024,  32, 0) },
++ 	{ "320s33b",  INFO(0x898912, 0, 64 * 1024,  64, 0) },
++diff --git a/include/linux/mtd/spi-nor.h b/include/linux/mtd/spi-nor.h
++index fa2d89e..aa1765e 100644
++--- a/include/linux/mtd/spi-nor.h
+++++ b/include/linux/mtd/spi-nor.h
++@@ -18,6 +18,7 @@
++  */
++ #define SNOR_MFR_ATMEL		CFI_MFR_ATMEL
++ #define SNOR_MFR_GIGADEVICE	0xc8
+++#define SNOR_MFR_GOOGLE		0x26
++ #define SNOR_MFR_INTEL		CFI_MFR_INTEL
++ #define SNOR_MFR_ST		CFI_MFR_ST	/* ST Micro */
++ #define SNOR_MFR_MICRON		CFI_MFR_MICRON	/* Micron */
+diff --git a/meta-lenovo/meta-hr650x+/recipes-kernel/linux/linux-aspeed_%.bbappend b/meta-lenovo/meta-hr650x+/recipes-kernel/linux/linux-aspeed_%.bbappend
+index 3539651..90a4168 100644
+--- a/meta-lenovo/meta-hr650x+/recipes-kernel/linux/linux-aspeed_%.bbappend
++++ b/meta-lenovo/meta-hr650x+/recipes-kernel/linux/linux-aspeed_%.bbappend
+@@ -5,6 +5,7 @@
+ FILESEXTRAPATHS_prepend_hr650x+ := "${THISDIR}/${PN}:"
+ SRC_URI += "file://aspeed-bmc-lenovo-hr650x+.dts \
+             file://hr650x+.cfg \
++            file://0001-support-ASIC.patch \
+             "
+      
+ 			
+-- 
+2.7.4
+

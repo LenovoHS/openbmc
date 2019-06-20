@@ -1,0 +1,47 @@
+From 61e34ab2f1b12d1976904c7310c53ce60599a606 Mon Sep 17 00:00:00 2001
+From: Oskar Senft <osk@google.com>
+Date: Fri, 19 Apr 2019 14:51:57 -0400
+Subject: [PATCH] Disable SPI clock max-speed detection and limit SPI clock to
+ 12 MHz
+
+Change-Id: I9f9fb712353fdb5f0f77b29b3cb8ac661c9e306f
+---
+ arch/arm/mach-aspeed/flash.c       | 8 ++++----
+ arch/arm/mach-aspeed/platform_g5.S | 2 +-
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/arch/arm/mach-aspeed/flash.c b/arch/arm/mach-aspeed/flash.c
+index 907e785d8c..18f502e523 100644
+--- a/arch/arm/mach-aspeed/flash.c
++++ b/arch/arm/mach-aspeed/flash.c
+@@ -1277,10 +1277,10 @@ static ulong flash_get_size (ulong base, flash_info_t *info)
+ 		info->protect[j] = 0; /* default: not protected */
+ 	}
+ 
+-	/* limit Max SPI CLK to 50MHz (Datasheet v1.2) */
+-	if (WriteClk > 50) WriteClk = 50;
+-	if (EraseClk > 50) EraseClk = 50;
+-	if (ReadClk > 50)  ReadClk  = 50;
++	/* osk: limit Max SPI CLK to 12MHz for ASIC */
++	if (WriteClk > 12) WriteClk = 12;
++	if (EraseClk > 12) EraseClk = 12;
++	if (ReadClk > 12)  ReadClk  = 12;
+ 
+ 	info->tCK_Write = ast_spi_calculate_divisor(WriteClk*1000000);
+ 	info->tCK_Erase = ast_spi_calculate_divisor(EraseClk*1000000);
+diff --git a/arch/arm/mach-aspeed/platform_g5.S b/arch/arm/mach-aspeed/platform_g5.S
+index 2ac1ca4721..43b234bbdb 100644
+--- a/arch/arm/mach-aspeed/platform_g5.S
++++ b/arch/arm/mach-aspeed/platform_g5.S
+@@ -2331,7 +2331,7 @@ spi_checksum_wait_0:
+     ldr   r1, =0x000B0041
+     str   r1, [r0]
+ 
+-    ldr   r6, =0x00F7E6D0                        @ Init spiclk loop
++    ldr   r6, =0x0                               @ osk: disable SPI timinig calibration. Init spiclk loop
+     mov   r8, #0x0                               @ Init delay record
+ 
+ spi_cbr_next_clkrate:
+-- 
+2.21.0.1020.gf2820cf01a-goog
+

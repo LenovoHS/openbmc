@@ -5,6 +5,7 @@
 FILESEXTRAPATHS_prepend_hr650x+ := "${THISDIR}/${PN}:"
 SRC_URI += "file://aspeed-bmc-lenovo-hr650x+.dts \
             file://hr650x+.cfg \
+            file://0001-support-ASIC.patch \
             "
      
 			
