@@ -1,0 +1,12 @@
+#"Copyright ? 2019-present Lenovo
+#Licensed under BSD-3, see COPYING.BSD file for details."
+
+[Unit]
+Description=Power sequence control
+
+[Service]
+ExecStart=/usr/sbin/pwr-seq
+Type=oneshot
+
+[Install]
+WantedBy={SYSTEMD_DEFAULT_TARGET}
