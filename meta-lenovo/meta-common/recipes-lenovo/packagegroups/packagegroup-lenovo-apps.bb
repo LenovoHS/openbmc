@@ -57,4 +57,5 @@ RDEPENDS_${PN}-system = " \
         phosphor-sel-logger \
         dbus-sensors \
         phosphor-host-postd \
+        watchdog \
 	"
