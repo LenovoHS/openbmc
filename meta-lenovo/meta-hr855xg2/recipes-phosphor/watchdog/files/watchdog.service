@@ -1,0 +1,15 @@
+# Copyright (c) 2019-present Lenovo
+# Licensed under BSD-3, see COPYING.BSD file for details.
+
+[Unit]
+Description=BMC Watchdog Service
+
+[Service]
+Restart=no
+RemainAfterExit=true
+ExecStart=/usr/bin/env watchdog -c /etc/watchdog.conf
+ExecStartPost=/usr/bin/env wdt-setting.sh
+SyslogIdentifier=bmc-wdt
+
+[Install]
+WantedBy={SYSTEMD_DEFAULT_TARGET}
