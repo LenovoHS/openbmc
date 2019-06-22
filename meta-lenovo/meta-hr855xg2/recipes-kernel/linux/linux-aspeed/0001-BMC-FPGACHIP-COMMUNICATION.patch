@@ -27,7 +27,7 @@ index a79e01f..f8fb19c 100644
  			#address-cells = <1>;
  			#size-cells = <0>;
 -			compatible = "aspeed,ast2500-spi";
-+			compatible = "aspeed,spi-1.0";
++			compatible = "aspeed,spi-1.0","aspeed,ast2500-spi";
  			clocks = <&syscon ASPEED_CLK_AHB>;
 +            interrupts = <59>;
 +			number_of_chip_select = /bits/ 8 <1>;

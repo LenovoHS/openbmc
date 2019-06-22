@@ -6,7 +6,8 @@ FILESEXTRAPATHS_prepend_hr855xg2 := "${THISDIR}/${PN}:"
 SRC_URI += "file://aspeed-bmc-lenovo-hr855xg2.dts \
             file://hr855xg2.cfg \
             file://0001-BMC-FPGACHIP-COMMUNICATION.patch \
-			file://0001-support-ASIC.patch \
+            file://0001-support-ASIC.patch \
+            file://0002-DO-NOT-MODIFY-ADDR-REG-FOR-2M-ROM.patch \
             "     
 			
 
