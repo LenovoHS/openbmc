@@ -3,6 +3,7 @@
 
 
 0x01:
+  entityID: 0x37
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/Ambient_Temp
   sensorReadingType: 0x01
@@ -23,6 +24,7 @@
             type: int64_t
 
 0x02:
+  entityID: 0x40
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/Outlet_Temp
   sensorReadingType: 0x01
@@ -1133,6 +1135,7 @@
             type: double
 
 0x21:
+  entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P12V_AUX_1
   sensorReadingType: 0x01
@@ -1153,6 +1156,7 @@
             type: int64_t
 
 0x22:
+  entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P5V_AUX
   sensorReadingType: 0x01
@@ -1175,6 +1179,7 @@
 
 
 0x23:
+  entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P3V3_AUX
   sensorReadingType: 0x01
@@ -1194,9 +1199,8 @@
           0x0:
             type: int64_t
 
-
-
 0x24:
+  entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P1V8_PCH_AUX
   sensorReadingType: 0x01
@@ -1217,6 +1221,7 @@
             type: int64_t
 
 0x25:
+  entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/PVNN_PCH_AUX
   sensorReadingType: 0x01
@@ -1238,6 +1243,7 @@
 
  
 0x26:
+  entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P1V05_PCH_AUX
   sensorReadingType: 0x01
@@ -1258,6 +1264,7 @@
             type: int64_t
 
 0x27:
+  entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P1V2_AUX
   sensorReadingType: 0x01
@@ -1278,6 +1285,7 @@
             type: int64_t
 
 0x28:
+  entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P1V15_BMC_AUX
   sensorReadingType: 0x01
@@ -1298,6 +1306,7 @@
             type: int64_t
 
 0x2C:
+  entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/PVDDQ_CPU1
   sensorReadingType: 0x01
@@ -1318,6 +1327,7 @@
             type: int64_t
 
 0x2A:
+  entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/PVCCIO_CPU1
   sensorReadingType: 0x01
@@ -1337,6 +1347,7 @@
           0x0:
             type: int64_t
 0x29:
+  entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P12V_AUX_2
   sensorReadingType: 0x01
@@ -1357,6 +1368,7 @@
             type: int64_t
 
 0x2D:
+  entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P12V
   sensorReadingType: 0x01
@@ -1377,6 +1389,7 @@
             type: int64_t
 
 0x2E:
+  entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P5V
   sensorReadingType: 0x01
@@ -1397,6 +1410,7 @@
             type: int64_t
 
 0x2F:
+  entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P3V3
   sensorReadingType: 0x01
@@ -1417,6 +1431,7 @@
             type: int64_t             
 
 0x2B:
+  entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P12V_AUX_3
   sensorReadingType: 0x01
@@ -1437,6 +1452,7 @@
             type: int64_t
             
 0x30:
+  entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P3V_BAT
   sensorReadingType: 0x01
@@ -1457,6 +1473,7 @@
             type: int64_t
             
 0x40:
+  entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN0_Speed
   sensorReadingType: 0x01
@@ -1477,8 +1494,8 @@
             type: int64_t
 
 
-
 0x41:
+  entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN1_Speed
   sensorReadingType: 0x01
@@ -1500,6 +1517,7 @@
 
 
 0x42:
+  entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN2_Speed
   sensorReadingType: 0x01
@@ -1521,6 +1539,7 @@
 
 
 0x43:
+  entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN3_Speed
   sensorReadingType: 0x01
@@ -1541,6 +1560,7 @@
             type: int64_t
 
 0x44:
+  entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN4_Speed
   sensorReadingType: 0x01
@@ -1561,6 +1581,7 @@
             type: int64_t
 
 0x45:
+  entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN5_Speed
   sensorReadingType: 0x01
@@ -1580,6 +1601,7 @@
             type: int64_t
 
 0x46:
+  entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN6_Speed
   sensorReadingType: 0x01
@@ -1599,6 +1621,7 @@
           0x0:
             type: int64_t          
 0x47:
+  entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN7_Speed
   sensorReadingType: 0x01
@@ -1619,6 +1642,7 @@
             type: int64_t       
 
 0x48:
+  entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN8_Speed
   sensorReadingType: 0x01
@@ -1638,6 +1662,7 @@
           0x0:
             type: int64_t  
 0x49:
+  entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN9_Speed
   sensorReadingType: 0x01
@@ -1657,6 +1682,7 @@
           0x0:
             type: int64_t       
 0x4A:
+  entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN10_Speed
   sensorReadingType: 0x01
@@ -1677,6 +1703,7 @@
             type: int64_t    
 
 0x4B:
+  entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN11_Speed
   sensorReadingType: 0x01
@@ -1697,6 +1724,7 @@
             type: int64_t  
 
 0x4C:
+  entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN12_Speed
   sensorReadingType: 0x01
@@ -1716,6 +1744,7 @@
           0x0:
             type: int64_t        
 0x4D:
+  entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN13_Speed
   sensorReadingType: 0x01
@@ -1736,6 +1765,7 @@
             type: int64_t    
 
 0x4E:
+  entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/PDB_FAN0_Speed
   sensorReadingType: 0x01
@@ -1756,6 +1786,7 @@
             type: int64_t   
 
 0x4F:
+  entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/PDB_FAN1_Speed
   sensorReadingType: 0x01
@@ -1776,6 +1807,7 @@
             type: int64_t              
             
 0x50:
+  entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/PDB_FAN2_Speed
   sensorReadingType: 0x01

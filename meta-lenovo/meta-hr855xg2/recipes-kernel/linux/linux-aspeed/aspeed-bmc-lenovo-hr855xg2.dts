@@ -50,7 +50,8 @@
 		};
 
 		fault {
-			gpios = <&gpio ASPEED_GPIO(C, 6) GPIO_ACTIVE_LOW>;
+		//	gpios = <&gpio ASPEED_GPIO(C, 6) GPIO_ACTIVE_LOW>;
+			gpios = <&gpio ASPEED_GPIO(G, 3) GPIO_ACTIVE_LOW>;
 		};
 	};	
 	
@@ -223,6 +224,17 @@
 };
 &i2c1 {
 	status = "okay";
+		bus-frequency = <90000>;
+	HotSwap@10 {
+		compatible = "adm1272";
+		reg = <0x10>;
+	};
+
+	VR@45 {
+        compatible = "pmbus";
+        reg = <0x45>;
+    };
+
 
 };
 &i2c2 {
@@ -529,39 +541,11 @@
 		line-name = "FM_BMC_CPU_PWR_DEBUG_N";
 	};
 	
-	pin_gpio_g3 {
-		gpio-hog;
-		gpios = <ASPEED_GPIO(G, 3) GPIO_ACTIVE_HIGH>;
-		output-high;
-		line-name = "BMC_FAULT_N";
-	};
-	
-	pin_gpio_g4 {
-		gpio-hog;
-		gpios = <ASPEED_GPIO(G, 4) GPIO_ACTIVE_HIGH>;
-		output-low;
-		line-name = "BMC_FPGA_FLASH_MUX_SEL1";
-	};
-	
 	pin_gpio_g7 {
 		gpio-hog;
 		gpios = <ASPEED_GPIO(G, 7) GPIO_ACTIVE_HIGH>;
 		output-high;
 		line-name = "BMC_PCIE_I2C_MUX_RST_N";
-	};
-	
-	pin_gpio_h2 {
-		gpio-hog;
-		gpios = <ASPEED_GPIO(H, 2) GPIO_ACTIVE_HIGH>;
-		output-high;
-		line-name = "CP_SPI_FLASH_NCONFIG";
-	};
-	
-	pin_gpio_h3 {
-		gpio-hog;
-		gpios = <ASPEED_GPIO(H, 3) GPIO_ACTIVE_HIGH>;
-		output-high;
-		line-name = "BMC_RESET_FPGA_N";
 	};
 	
 	pin_gpio_h6 {
@@ -647,21 +631,6 @@
 		gpios = <ASPEED_GPIO(S, 6) GPIO_ACTIVE_HIGH>;
 		output-high;
 		line-name = "BMC_HW_STRAP_5";
-	};
-	
-	
-	pin_gpio_z0 {
-		gpio-hog;
-		gpios = <ASPEED_GPIO(Z, 0) GPIO_ACTIVE_HIGH>;
-		output-low;
-		line-name = "FM_BIOS_SPI_SW_CTRL_R_0";
-	};
-	
-	pin_gpio_z2 {
-		gpio-hog;
-		gpios = <ASPEED_GPIO(Z, 2) GPIO_ACTIVE_HIGH>;
-		output-high;
-		line-name = "PDB_RESTART_N";
 	};
 	
 	pin_gpio_z3 {
