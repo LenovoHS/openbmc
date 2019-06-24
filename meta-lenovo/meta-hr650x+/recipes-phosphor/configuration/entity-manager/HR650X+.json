@@ -4,7 +4,7 @@
             "Address": "0x30",
             "Bus": 0,
             "CpuID": 1,
-            "Name": "Skylake CPU 1",
+            "Name": "Xeon CPU 1",
             "Thresholds": [
                 {
                     "Direction": "greater than",
@@ -21,13 +21,13 @@
                     "Value": 89
                 }
             ],
-            "Type": "SkylakeCPU"
+            "Type": "XeonCPU"
         },
         {
             "Address": "0x31",
             "Bus": 0,
             "CpuID": 2,
-            "Name": "Skylake CPU 2",
+            "Name": "Xeon CPU 2",
             "Thresholds": [
                 {
                     "Direction": "greater than",
@@ -44,11 +44,11 @@
                     "Value": 89
                 }
             ],
-            "Type": "SkylakeCPU"
+            "Type": "XeonCPU"
         }
     ],
-    "Name": "HR610 Baseboard",
-    "Probe": "xyz.openbmc_project.FruDevice({'PRODUCT_PRODUCT_NAME': '.*HR610*'})",
+    "Name": "HR650X+ Baseboard",
+    "Probe": "xyz.openbmc_project.FruDevice({'PRODUCT_PRODUCT_NAME': '.*HR650X*'})",
     "Type": "Board",
     "xyz.openbmc_project.Inventory.Decorator.Asset": {
         "Manufacturer": "$PRODUCT_MANUFACTURER",
