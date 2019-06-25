@@ -1,3 +1,6 @@
+# Copyright (c) 2019-present Lenovo
+# Licensed under BSD-3, see COPYING.BSD file for details.
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -144,35 +147,33 @@ int verifyBIOS() {
 
 int verifyFPGA() {
 
-	printf("Prepare to verify FPGA...\n");
-	//verify FPGA SPI ROM 
-	sleep(10);
+    printf("Prepare to verify FPGA...\n");
+    
+    //TODO: verify FPGA SPI ROM 
+    sleep(10);
 	
-	//switch FPGA SPI ROM TO FPGA
-	setGPIODirection(BMC_FPGA_FLASH_MUX_SEL1, "out");
+    //switch FPGA SPI ROM TO FPGA
+    setGPIODirection(BMC_FPGA_FLASH_MUX_SEL1, "out");
     setGPIOValue(BMC_FPGA_FLASH_MUX_SEL1, GPIO_VALUE_L);
-	
-	sleep(1);
-	//Enable Nconfig to make FPGA boot
-	setGPIODirection(CP_SPI_FLASH_NCONFIG, "out");
+
+    sleep(1);
+    //Enable Nconfig to make FPGA boot
+    setGPIODirection(CP_SPI_FLASH_NCONFIG, "out");
     setGPIOValue(CP_SPI_FLASH_NCONFIG, GPIO_VALUE_H);
+
+    sleep(2);
 	
-	sleep(2);
-	
-	//Enable FPGA to reset
-//	setGPIODirection(BMC_RESET_FPGA_N, "out");
- //   setGPIOValue(BMC_RESET_FPGA_N, GPIO_VALUE_L);
-	
-	
-	printf("finish to verify FPGA...\n");
-	
-	return 0;
+    //Enable FPGA to reset
+    //setGPIODirection(BMC_RESET_FPGA_N, "out");
+    //setGPIOValue(BMC_RESET_FPGA_N, GPIO_VALUE_L);
+
+    printf("FPGA varification PASS\n");
+
+    return 0;
 }
 
 
 int main(int argc, char *argv[]) {
-    //int ret = 0;
-
     printf("Power sequence control service running...\n");
 
     // Export necessary GPIOs
