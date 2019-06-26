@@ -1,13 +1,12 @@
-#"Copyright ? 2019-present Lenovo
-#Licensed under BSD-3, see COPYING.BSD file for details."
+# Copyright (c) 2019-present Lenovo
+# Licensed under BSD-3, see COPYING.BSD file for details.
 
 [Unit]
-Description=Power sequence control
+Description=Lenovo Power sequence control
 
 [Service]
 ExecStart=/usr/sbin/pwr-seq
-Restart=always
-After=org.openbmc.HostIpmi.service
+Type=oneshot
 
 [Install]
 WantedBy={SYSTEMD_DEFAULT_TARGET}
