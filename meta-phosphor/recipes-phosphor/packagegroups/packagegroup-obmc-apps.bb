@@ -39,6 +39,9 @@ RDEPENDS_${PN}-chassis-state-mgmt = " \
 SUMMARY_${PN}-extras = "Extra features"
 RDEPENDS_${PN}-extras = " \
         bmcweb \
+        phosphor-bmcweb-cert-config \
+        phosphor-nslcd-cert-config \
+        phosphor-nslcd-authority-cert-config \
         obmc-ikvm \
         phosphor-dbus-monitor \
         phosphor-systemd-policy \
