@@ -214,6 +214,15 @@
 
 &i2c4 {
 	status = "okay";
+	pmbus@68 {
+		compatible = "ibm,cffps1";
+		reg = <0x68>;
+	};
+	
+	pmbus@69 {
+		compatible = "ibm,cffps1";
+		reg = <0x68>;
+	};
 };
 
 &i2c5 {
