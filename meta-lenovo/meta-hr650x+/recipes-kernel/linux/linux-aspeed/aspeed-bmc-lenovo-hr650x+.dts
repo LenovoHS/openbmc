@@ -613,13 +613,6 @@
 		line-name = "PSU2_SMB_RESET_N";
 	};
 
-	pin_gpio_i1 {
-		gpio-hog;
-		gpios = <ASPEED_GPIO(I, 1) GPIO_ACTIVE_HIGH>;
-		input;
-		line-name = "FP_PWR_BTN_N";
-	};
-
 	pin_gpio_i2 {
 		gpio-hog;
 		gpios = <ASPEED_GPIO(I, 2) GPIO_ACTIVE_HIGH>;
@@ -674,13 +667,6 @@
 		gpios = <ASPEED_GPIO(Q, 7) GPIO_ACTIVE_HIGH>;
 		input;
 		line-name = "NCSI_CABLE_DET_N";
-	};
-
-	pin_gpio_r0 {
-		gpio-hog;
-		gpios = <ASPEED_GPIO(R, 0) GPIO_ACTIVE_HIGH>;
-		input;
-		line-name = "FP_RST_BTN_N";
 	};
 
 	pin_gpio_r2 {
@@ -779,13 +765,6 @@
 		gpios = <ASPEED_GPIO(Y, 1) GPIO_ACTIVE_HIGH>;
 		output-low;
 		line-name = "BMC_NCSI_MUX_CTL_S1";
-	};
-
-	pin_gpio_y2 {
-		gpio-hog;
-		gpios = <ASPEED_GPIO(Y, 2) GPIO_ACTIVE_HIGH>;
-		input;
-		line-name = "UID_ALERT_N";
 	};
 
 	pin_gpio_z0 {

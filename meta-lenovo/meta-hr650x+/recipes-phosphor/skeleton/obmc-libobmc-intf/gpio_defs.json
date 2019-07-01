@@ -22,9 +22,13 @@
         },
         {
             "name": "POWER_BUTTON",
-            "pin": "I0",
+            "pin": "I1",
+            "direction": "both"
+        },
+        {
+            "name": "ID_BTN",
+            "pin": "Y2",
             "direction": "both"
         }
-
     ]
 }
