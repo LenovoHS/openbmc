@@ -1,0 +1,8 @@
+[Unit]
+Description=ID Button Pressed Service
+StartLimitIntervalSec=0
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/env toggle_identify_led.sh
+SyslogIdentifier=id-button

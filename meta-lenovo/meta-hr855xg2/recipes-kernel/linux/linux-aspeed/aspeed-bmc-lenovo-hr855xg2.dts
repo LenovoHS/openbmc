@@ -66,6 +66,16 @@
 		compatible = "iio-hwmon";
 		io-channels = <&adc 15>;
 	};
+	
+	gpio-keys {
+		compatible = "gpio-keys";
+
+		id-button {
+			label = "id-button";
+			gpios = <&gpio ASPEED_GPIO(Y, 2) GPIO_ACTIVE_LOW>;
+			linux,code = <ASPEED_GPIO(Y, 2)>;
+		};
+	}
 
 };
 
