@@ -26,9 +26,6 @@ RPROVIDES_${PN}-system += "virtual-obmc-system-mgmt"
 
 SUMMARY_${PN}-chassis = "Lenovo Chassis"
 RDEPENDS_${PN}-chassis = " \
-        obmc-phosphor-buttons-signals \
-        obmc-phosphor-buttons-handler \
-        obmc-phosphor-buttons \
         obmc-control-chassis \
         obmc-op-control-power \
         lenovo-powerctrl \
