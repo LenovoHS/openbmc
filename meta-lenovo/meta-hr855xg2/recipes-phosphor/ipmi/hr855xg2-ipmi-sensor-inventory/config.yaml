@@ -1471,6 +1471,71 @@
         Offsets:
           0x0:
             type: int64_t
+
+0x31:
+  entityID: 0x0A
+  sensorType: 0x02
+  path: /xyz/openbmc_project/sensors/voltage/PDB_VIN
+  sensorReadingType: 0x01
+  multiplierM: 122
+  offsetB: 0
+  bExp: 0
+  unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
+  scale: -3
+  rExp: -2
+  mutability: Mutability::Read
+  serviceInterface: org.freedesktop.DBus.Properties
+  readingType: readingData
+  interfaces:
+    xyz.openbmc_project.Sensor.Value:
+      Value:
+        Offsets:
+          0x0:
+            type: int64_t
+            
+
+0x32:
+  entityID: 0x0A
+  sensorType: 0x02
+  path: /xyz/openbmc_project/sensors/current/PDB_IIN
+  sensorReadingType: 0x01
+  multiplierM: 5
+  offsetB: 0
+  bExp: 0
+  unit: xyz.openbmc_project.Sensor.Value.Unit.Amperes
+  scale: -3
+  rExp: -2
+  mutability: Mutability::Read
+  serviceInterface: org.freedesktop.DBus.Properties
+  readingType: readingData
+  interfaces:
+    xyz.openbmc_project.Sensor.Value:
+      Value:
+        Offsets:
+          0x0:
+            type: int64_t
+            
+0x33:
+  entityID: 0x0A
+  sensorType: 0x0B
+  path: /xyz/openbmc_project/sensors/power/PDB_PIN
+  sensorReadingType: 0x01
+  multiplierM: 5
+  offsetB: 0
+  bExp: 0
+  unit: xyz.openbmc_project.Sensor.Value.Unit.Watts
+  scale: -6
+  rExp: 0
+  mutability: Mutability::Read
+  serviceInterface: org.freedesktop.DBus.Properties
+  readingType: readingData
+  interfaces:
+    xyz.openbmc_project.Sensor.Value:
+      Value:
+        Offsets:
+          0x0:
+            type: int64_t
+        
             
 0x40:
   entityID: 0x1D

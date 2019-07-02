@@ -3,7 +3,7 @@
 
 FILESEXTRAPATHS_prepend_hr855xg2 := "${THISDIR}/${PN}:"
 EXTRA_OECONF_append_hr855xg2 = " --enable-negative-errno-on-fail"
-NAMES = " bus@1e78a000/i2c-bus@1c0/tmp75@49  bus@1e78a000/i2c-bus@1c0/tmp75@4d pwm-tacho-controller@1e786000 "
+NAMES = " bus@1e78a000/i2c-bus@1c0/tmp75@49  bus@1e78a000/i2c-bus@1c0/tmp75@4d bus@1e78a000/i2c-bus@80/HotSwap@10 pwm-tacho-controller@1e786000 "
 ITEMSFMT = "ahb/apb/{0}.conf"
 
 ITEMS = "${@compose_list(d, 'ITEMSFMT', 'NAMES')}"
