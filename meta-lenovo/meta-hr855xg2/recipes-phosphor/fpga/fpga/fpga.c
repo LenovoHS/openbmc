@@ -139,6 +139,7 @@ int fpga_transfer(spiInfo *info)
 
 	xfer[0].tx_nbits = 1;
 	xfer[0].rx_nbits = 1;
+	xfer[0].bits_per_word = 8;
 	xfer[0].tx_buf = (unsigned long)info->tx_buff;
 	xfer[0].rx_buf = (unsigned long)info->rx_buff;
 	xfer[0].len = info->tx_len;
