@@ -1,0 +1,51 @@
+--- a/drivers/spi/ast-spi.c	2019-07-01 09:44:07.585620900 +0800
++++ b/drivers/spi/ast-spi.c	2019-07-01 19:53:04.265155535 +0800
+@@ -224,6 +224,7 @@
+ 	u8 *rx_buf;
+ 	int i=0;
+ 	unsigned long		flags;
++	u8 rw_flag = 0,rx_len = 0;
+ 	
+     host->spi_dev = spi;
+ 	spin_lock_irqsave(&host->lock, flags);
+@@ -242,9 +243,11 @@
+ 		rx_buf = xfer->rx_buf;
+ 
+ 		if(xfer->tx_buf != 0) {
++			rw_flag = tx_buf[0];
+ 			
+-			printk("tx : ");
++			printk("tx : %x,%x",tx_buf[0],rw_flag);
+ #if 1
++			
+ 			if(xfer->len > 10) {
+ 				for(i=0;i<10;i++) 
+ 					printk("%x ",tx_buf[i]);				
+@@ -263,17 +266,21 @@
+ 		
+ 		if(xfer->rx_buf != 0) {
+ 
+-			for(i=0;i<xfer->len;i++) {
++			if(rw_flag == 0){
++			rx_len = (u8)tx_buf[3];
++		    }else{
++				rx_len = 2;//status of fpga and crc
++			}
++			for(i=0;i<rx_len;i++){
+ 				rx_buf[i] = readb(host->buff);
+-		}
+-			
+-			printk("rx : ");
++			    }
++			printk("rx : %u",rx_len);
+ #if 1
+-			if(xfer->len > 10) {
++			if(rx_len > 10) {
+ 				for(i=0;i<10;i++) 
+ 					printk(" %x",rx_buf[i]);
+ 			} else {
+-				for(i=0;i<xfer->len;i++) 
++				for(i=0;i<rx_len;i++) 
+ 					printk(" %x",rx_buf[i]);
+ 			}
+ 			
