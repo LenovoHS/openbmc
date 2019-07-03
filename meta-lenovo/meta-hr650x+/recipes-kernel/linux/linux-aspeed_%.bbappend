@@ -7,6 +7,7 @@ SRC_URI += "file://aspeed-bmc-lenovo-hr650x+.dts \
             file://hr650x+.cfg \
             file://0001-support-ASIC.patch \
 	    file://002-support-more-psu-propeties.patch \
+            file://0003-Add-Infineon-PXE1610-VR-driver.patch \
             "
      
 			

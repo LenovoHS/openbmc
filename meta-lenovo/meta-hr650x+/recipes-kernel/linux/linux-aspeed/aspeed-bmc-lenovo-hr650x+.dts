@@ -206,6 +206,16 @@
 
 &i2c2 {
 	status = "okay";
+
+	pxe1610@74 {
+		compatible = "pxe1610";
+                reg = <0x74>;
+	};
+
+	pxe1610@76 {
+                compatible = "pxe1610";
+                reg = <0x76>;
+        };
 };
 
 &i2c3 {
