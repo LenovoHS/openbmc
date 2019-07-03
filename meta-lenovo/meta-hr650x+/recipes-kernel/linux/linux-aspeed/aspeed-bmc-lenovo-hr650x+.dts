@@ -221,7 +221,7 @@
 	
 	pmbus@69 {
 		compatible = "ibm,cffps1";
-		reg = <0x68>;
+		reg = <0x69>;
 	};
 };
 
