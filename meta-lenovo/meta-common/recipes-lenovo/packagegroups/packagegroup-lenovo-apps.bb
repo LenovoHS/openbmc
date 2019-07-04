@@ -33,7 +33,7 @@ RDEPENDS_${PN}-chassis = " \
 
 SUMMARY_${PN}-fans = "Lenovo Fans"
 RDEPENDS_${PN}-fans = " \
-        obmc-control-fan \
+        phosphor-pid-control \
         "
 
 SUMMARY_${PN}-flash = "Lenovo Flash"

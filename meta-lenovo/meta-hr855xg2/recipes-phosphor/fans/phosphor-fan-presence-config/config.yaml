@@ -1,23 +1,121 @@
 #"Copyright (c) 2019-present Lenovo
 #Licensed under BSD-3, see COPYING.BSD file for details."
 
-- name: fan0
-  path: /system/chassis/motherboard/fan0
+- name: FAN0_Status
+  path: /system/chassis/motherboard/FAN0_Status
   methods:
     - type: tach
       sensors:
-        - fan0
+        - FAN0_Speed
 
-- name: fan1
-  path: /system/chassis/motherboard/fan1
+- name: FAN1_Status
+  path: /system/chassis/motherboard/FAN1_Status
   methods:
     - type: tach
       sensors:
-        - fan1
+        - FAN1_Speed
 
-- name: fan2
-  path: /system/chassis/motherboard/fan2
+- name: FAN2_Status
+  path: /system/chassis/motherboard/FAN2_Status
   methods:
     - type: tach
       sensors:
-        - fan2
+        - FAN2_Speed
+
+- name: FAN3_Status
+  path: /system/chassis/motherboard/FAN3_Status
+  methods:
+    - type: tach
+      sensors:
+        - FAN3_Speed
+
+- name: FAN4_Status
+  path: /system/chassis/motherboard/FAN4_Status
+  methods:
+    - type: tach
+      sensors:
+        - FAN4_Speed
+
+- name: FAN5_Status
+  path: /system/chassis/motherboard/FAN5_Status
+  methods:
+    - type: tach
+      sensors:
+        - FAN5_Speed
+
+- name: FAN6_Status
+  path: /system/chassis/motherboard/FAN6_Status
+  methods:
+    - type: tach
+      sensors:
+        - FAN6_Speed
+
+- name: FAN7_Status
+  path: /system/chassis/motherboard/FAN7_Status
+  methods:
+    - type: tach
+      sensors:
+        - FAN7_Speed
+
+- name: FAN8_Status
+  path: /system/chassis/motherboard/FAN8_Status
+  methods:
+    - type: tach
+      sensors:
+        - FAN8_Speed
+
+- name: FAN9_Status
+  path: /system/chassis/motherboard/FAN9_Status
+  methods:
+    - type: tach
+      sensors:
+        - FAN9_Speed
+
+- name: FAN10_Status
+  path: /system/chassis/motherboard/FAN10_Status
+  methods:
+    - type: tach
+      sensors:
+        - FAN10_Speed
+
+- name: FAN11_Status
+  path: /system/chassis/motherboard/FAN11_Status
+  methods:
+    - type: tach
+      sensors:
+        - FAN11_Speed
+
+- name: FAN12_Status
+  path: /system/chassis/motherboard/FAN12_Status
+  methods:
+    - type: tach
+      sensors:
+        - FAN12_Speed
+
+- name: FAN13_Status
+  path: /system/chassis/motherboard/FAN13_Status
+  methods:
+    - type: tach
+      sensors:
+        - FAN13_Speed
+
+- name: PDB_FAN0_Status
+  path: /system/chassis/motherboard/PDB_FAN0_Status
+  methods:
+    - type: tach
+      sensors:
+        - PDB_FAN0_Speed
+
+- name: PDB_FAN1_Status
+  path: /system/chassis/motherboard/PDB_FAN1_Status
+  methods:
+    - type: tach
+      sensors:
+        - PDB_FAN1_Speed
+
+- name: PDB_FAN2_Status
+  path: /system/chassis/motherboard/PDB_FAN2_Status
+  methods:
+    - type: tach
+      sensors:
+        - PDB_FAN2_Speed
