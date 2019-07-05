@@ -3,11 +3,14 @@
 
 [Unit]
 Description=Phosphor Fan Presence Tach Daemon
+After=xyz.openbmc_project.Software.Version.service
 
 [Service]
-Restart=on-failure
+Restart=always
+RestartSec=5
+ExecStartPre=sleep 10
 ExecStart=/usr/bin/env phosphor-fan-presence-tach
 SyslogIdentifier=phosphor-fan-presence-tach
 
 [Install]
-WantedBy=basic.target
+WantedBy=multi-user.target
