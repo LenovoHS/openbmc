@@ -1079,9 +1079,9 @@
     xyz.openbmc_project.Inventory.Item:
       Present:
         Offsets:
-          0x00:
+          0x01:
             assert: true
-            deassert: true
+            deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN0_Status
@@ -1097,9 +1097,9 @@
     xyz.openbmc_project.Inventory.Item:
       Present:
         Offsets:
-          0x00:
+          0x01:
             assert: true
-            deassert: true
+            deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN1_Status
@@ -1115,9 +1115,9 @@
     xyz.openbmc_project.Inventory.Item:
       Present:
         Offsets:
-          0x00:
+          0x01:
             assert: true
-            deassert: true
+            deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN2_Status
@@ -1133,9 +1133,9 @@
     xyz.openbmc_project.Inventory.Item:
       Present:
         Offsets:
-          0x00:
+          0x01:
             assert: true
-            deassert: true
+            deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN3_Status
@@ -1151,9 +1151,9 @@
     xyz.openbmc_project.Inventory.Item:
       Present:
         Offsets:
-          0x00:
+          0x01:
             assert: true
-            deassert: true
+            deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN4_Status
@@ -1169,9 +1169,9 @@
     xyz.openbmc_project.Inventory.Item:
       Present:
         Offsets:
-          0x00:
+          0x01:
             assert: true
-            deassert: true
+            deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN5_Status
@@ -1187,9 +1187,9 @@
     xyz.openbmc_project.Inventory.Item:
       Present:
         Offsets:
-          0x00:
+          0x01:
             assert: true
-            deassert: true
+            deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN6_Status
@@ -1205,9 +1205,9 @@
     xyz.openbmc_project.Inventory.Item:
       Present:
         Offsets:
-          0x00:
+          0x01:
             assert: true
-            deassert: true
+            deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN7_Status
@@ -1223,9 +1223,9 @@
     xyz.openbmc_project.Inventory.Item:
       Present:
         Offsets:
-          0x00:
+          0x01:
             assert: true
-            deassert: true
+            deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN8_Status
@@ -1241,9 +1241,9 @@
     xyz.openbmc_project.Inventory.Item:
       Present:
         Offsets:
-          0x00:
+          0x01:
             assert: true
-            deassert: true
+            deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN9_Status
@@ -1259,9 +1259,9 @@
     xyz.openbmc_project.Inventory.Item:
       Present:
         Offsets:
-          0x00:
+          0x01:
             assert: true
-            deassert: true
+            deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN10_Status
@@ -1277,9 +1277,9 @@
     xyz.openbmc_project.Inventory.Item:
       Present:
         Offsets:
-          0x00:
+          0x01:
             assert: true
-            deassert: true
+            deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN11_Status
@@ -1295,9 +1295,9 @@
     xyz.openbmc_project.Inventory.Item:
       Present:
         Offsets:
-          0x00:
+          0x01:
             assert: true
-            deassert: true
+            deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN12_Status
@@ -1313,9 +1313,9 @@
     xyz.openbmc_project.Inventory.Item:
       Present:
         Offsets:
-          0x00:
+          0x01:
             assert: true
-            deassert: true
+            deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN13_Status
@@ -1331,9 +1331,9 @@
     xyz.openbmc_project.Inventory.Item:
       Present:
         Offsets:
-          0x00:
+          0x01:
             assert: true
-            deassert: true
+            deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/PDB_FAN0_Status
@@ -1349,9 +1349,9 @@
     xyz.openbmc_project.Inventory.Item:
       Present:
         Offsets:
-          0x00:
+          0x01:
             assert: true
-            deassert: true
+            deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/PDB_FAN1_Status
@@ -1367,9 +1367,9 @@
     xyz.openbmc_project.Inventory.Item:
       Present:
         Offsets:
-          0x00:
+          0x01:
             assert: true
-            deassert: true
+            deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/PDB_FAN2_Status

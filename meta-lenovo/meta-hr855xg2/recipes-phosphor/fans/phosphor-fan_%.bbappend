@@ -6,6 +6,10 @@ SRC_URI += "file://0001_InvenManager.patch \
            "
 
 # Package configuration
+
+TMPL_TACH = "phosphor-fan-presence-tach.service"
+FMT_TACH = ""
+SYSTEMD_LINK_${PN}-presence-tach = ""
  
 FMT_CONTROL = ""
 FMT_CONTROL_INIT = ""
