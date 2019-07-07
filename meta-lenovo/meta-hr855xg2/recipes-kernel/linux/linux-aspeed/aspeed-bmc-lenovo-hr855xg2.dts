@@ -241,7 +241,7 @@
 	};
 
 	VR@45 {
-        compatible = "pmbus";
+        compatible = "raa228006";
         reg = <0x45>;
     };
 

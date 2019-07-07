@@ -1,0 +1,142 @@
+diff -Naur a/drivers/hwmon/pmbus/Kconfig b/drivers/hwmon/pmbus/Kconfig
+--- a/drivers/hwmon/pmbus/Kconfig	2019-07-04 16:44:34.076133092 +0800
++++ b/drivers/hwmon/pmbus/Kconfig	2019-07-04 11:30:11.095202900 +0800
+@@ -202,4 +202,13 @@
+ 	  This driver can also be built as a module. If so, the module will
+ 	  be called zl6100.
+ 
++config SENSORS_RAA228006
++	tristate "RAA228006 and compatibles"
++	default y
++	help
++	  If you say yes here you get hardware monitoring support for RAA228006.
++
++	  This driver can also be built as a module. If so, the module will
++	  be called RAA228006.
++
+ endif # PMBUS
+diff -Naur a/drivers/hwmon/pmbus/Makefile b/drivers/hwmon/pmbus/Makefile
+--- a/drivers/hwmon/pmbus/Makefile	2019-07-04 16:44:34.076133092 +0800
++++ b/drivers/hwmon/pmbus/Makefile	2019-07-04 11:10:23.995631100 +0800
+@@ -23,3 +23,4 @@
+ obj-$(CONFIG_SENSORS_UCD9000)	+= ucd9000.o
+ obj-$(CONFIG_SENSORS_UCD9200)	+= ucd9200.o
+ obj-$(CONFIG_SENSORS_ZL6100)	+= zl6100.o
++obj-$(CONFIG_SENSORS_RAA228006)	+= raa228006.o
+diff -Naur a/drivers/hwmon/pmbus/raa228006.c b/drivers/hwmon/pmbus/raa228006.c
+--- a/drivers/hwmon/pmbus/raa228006.c	1970-01-01 08:00:00.000000000 +0800
++++ b/drivers/hwmon/pmbus/raa228006.c	2019-07-07 23:24:18.102062190 +0800
+@@ -0,0 +1,113 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Hardware monitoring driver for raa228006
++ *
++ * Copyright (c) 2019 Facebook Inc
++ *
++ */
++
++#include <linux/err.h>
++#include <linux/i2c.h>
++#include <linux/init.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++#include "pmbus.h"
++
++static int raa228006_probe(struct i2c_client *client,
++			 const struct i2c_device_id *id)
++{
++	struct pmbus_driver_info *info;
++	u8 buf[I2C_SMBUS_BLOCK_MAX];
++	int ret;
++		
++	if (!i2c_check_functionality(client->adapter,
++				     I2C_FUNC_SMBUS_READ_BYTE_DATA
++				| I2C_FUNC_SMBUS_READ_WORD_DATA
++				| I2C_FUNC_SMBUS_READ_BLOCK_DATA))
++		return -ENODEV;
++
++	/* By default this device doesn't boot to page 0, so set page 0
++	 * to access all pmbus registers.
++	 */
++	
++	i2c_smbus_write_byte_data(client, 0, 0);
++
++	/* Read Manufacturer id */
++	ret = i2c_smbus_read_block_data(client, PMBUS_MFR_ID, buf);
++	if (ret < 0) {
++		dev_err(&client->dev, "Failed to read PMBUS_MFR_ID\n");
++		return ret;
++	}
++
++	info = devm_kzalloc(&client->dev, sizeof(struct pmbus_driver_info),
++			    GFP_KERNEL);
++	if (!info)
++		return -ENOMEM;
++
++	info->format[PSC_VOLTAGE_IN] = direct;
++	info->format[PSC_VOLTAGE_OUT] = direct;
++	info->format[PSC_CURRENT_IN] = direct;
++	info->format[PSC_CURRENT_OUT] = direct;
++	info->format[PSC_POWER] = direct;
++	info->format[PSC_TEMPERATURE] = direct;
++	info->vrm_version = vr13;
++	
++	info->m[PSC_VOLTAGE_IN] = 1,
++	info->b[PSC_VOLTAGE_IN] = 0,
++	info->R[PSC_VOLTAGE_IN] = 3,
++	
++	info->m[PSC_VOLTAGE_OUT] = 1,
++	info->b[PSC_VOLTAGE_OUT] = 0,
++	info->R[PSC_VOLTAGE_OUT] = 0,
++	
++	info->m[PSC_CURRENT_IN] = 1,
++	info->b[PSC_CURRENT_IN] = 0,
++	info->R[PSC_CURRENT_IN] = 1,
++	
++	info->m[PSC_CURRENT_OUT] = 1,
++	info->b[PSC_CURRENT_OUT] = 0,
++	info->R[PSC_CURRENT_OUT] = 2,
++
++	info->m[PSC_POWER] = 1,
++	info->b[PSC_POWER] = 0,
++	info->R[PSC_POWER] = 3,
++
++	info->m[PSC_TEMPERATURE] = 1,
++	info->b[PSC_TEMPERATURE] = 0,
++	info->R[PSC_TEMPERATURE] = 3,
++	
++	info->func[0] = PMBUS_HAVE_VIN
++		| PMBUS_HAVE_VOUT | PMBUS_HAVE_IIN
++		| PMBUS_HAVE_IOUT | PMBUS_HAVE_PIN
++		| PMBUS_HAVE_POUT | PMBUS_HAVE_TEMP
++		| PMBUS_HAVE_TEMP2 | PMBUS_HAVE_TEMP3
++		| PMBUS_HAVE_STATUS_VOUT | PMBUS_HAVE_STATUS_IOUT
++		| PMBUS_HAVE_STATUS_INPUT | PMBUS_HAVE_STATUS_TEMP;
++
++	info->pages = id->driver_data;
++
++	return pmbus_do_probe(client, id, info);
++}
++
++static const struct i2c_device_id raa228006_id[] = {
++	{"raa228006", 1},
++	{}
++};
++
++MODULE_DEVICE_TABLE(i2c, raa228006_id);
++
++/* This is the driver that will be inserted */
++static struct i2c_driver raa228006_driver = {
++	.driver = {
++		   .name = "raa228006",
++		   },
++	.probe = raa228006_probe,
++	.remove = pmbus_do_remove,
++	.id_table = raa228006_id,
++};
++
++module_i2c_driver(raa228006_driver);
++
++MODULE_AUTHOR("Vijay Khemka <vijaykhemka@fb.com>");
++MODULE_DESCRIPTION("PMBus driver for raa228006");
++MODULE_LICENSE("GPL");

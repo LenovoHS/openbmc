@@ -1440,6 +1440,26 @@
           0x0:
             type: double
 
+0x20:
+  entityID: 0x0A
+  sensorType: 0x01
+  path: /xyz/openbmc_project/sensors/temperature/PDB_Temp
+  sensorReadingType: 0x01
+  multiplierM: 1
+  offsetB: 0
+  bExp: 0
+  unit: xyz.openbmc_project.Sensor.Value.Unit.DegreesC
+  scale: 0
+  rExp: 0
+  mutability: Mutability::Read
+  serviceInterface: org.freedesktop.DBus.Properties
+  readingType: readingData
+  interfaces:
+    xyz.openbmc_project.Sensor.Value:
+      Value:
+        Offsets:
+          0x0:
+            type: int64_t
 0x21:
   entityID: 0x07
   sensorType: 0x02
@@ -1842,7 +1862,70 @@
           0x0:
             type: int64_t
         
+0x34:
+  entityID: 0x0A
+  sensorType: 0x02
+  path: /xyz/openbmc_project/sensors/voltage/PDB_VOUT
+  sensorReadingType: 0x01
+  multiplierM: 63
+  offsetB: 0
+  bExp: 0
+  unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
+  scale: -6
+  rExp: -3
+  mutability: Mutability::Read
+  serviceInterface: org.freedesktop.DBus.Properties
+  readingType: readingData
+  interfaces:
+    xyz.openbmc_project.Sensor.Value:
+      Value:
+        Offsets:
+          0x0:
+            type: int64_t
             
+
+0x35:
+  entityID: 0x0A
+  sensorType: 0x02
+  path: /xyz/openbmc_project/sensors/current/PDB_IOUT
+  sensorReadingType: 0x01
+  multiplierM: 5
+  offsetB: 0
+  bExp: 0
+  unit: xyz.openbmc_project.Sensor.Value.Unit.Amperes
+  scale: -3
+  rExp: -2
+  mutability: Mutability::Read
+  serviceInterface: org.freedesktop.DBus.Properties
+  readingType: readingData
+  interfaces:
+    xyz.openbmc_project.Sensor.Value:
+      Value:
+        Offsets:
+          0x0:
+            type: int64_t
+            
+0x36:
+  entityID: 0x0A
+  sensorType: 0x0B
+  path: /xyz/openbmc_project/sensors/power/PDB_POUT
+  sensorReadingType: 0x01
+  multiplierM: 5
+  offsetB: 0
+  bExp: 0
+  unit: xyz.openbmc_project.Sensor.Value.Unit.Watts
+  scale: -3
+  rExp: 0
+  mutability: Mutability::Read
+  serviceInterface: org.freedesktop.DBus.Properties
+  readingType: readingData
+  interfaces:
+    xyz.openbmc_project.Sensor.Value:
+      Value:
+        Offsets:
+          0x0:
+            type: int64_t
+                    
 0x40:
   entityID: 0x1D
   sensorType: 0x04
