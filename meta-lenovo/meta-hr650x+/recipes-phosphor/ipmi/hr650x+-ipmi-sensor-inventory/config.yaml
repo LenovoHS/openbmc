@@ -3,6 +3,7 @@
 
 
 0x01:
+  entityID: 0x37
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/inlet
   sensorReadingType: 0x01
@@ -23,6 +24,7 @@
             type: int64_t
 
 0x02:
+  entityID: 0x40
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/outlet
   sensorReadingType: 0x01
@@ -44,6 +46,7 @@
 
 
 0x03:
+  entityID: 0x03
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/Die_CPU1
   sensorReadingType: 0x01
@@ -64,6 +67,7 @@
             type: double
 
 0x04:
+  entityID: 0x03
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/Die_CPU2
   sensorReadingType: 0x01
