@@ -3,6 +3,7 @@
 
 FILESEXTRAPATHS_append := "${THISDIR}/${PN}:"
 SRC_URI += "file://0001_InvenManager.patch \
+            file://0002_FanDetect.patch \
            "
 
 # Package configuration

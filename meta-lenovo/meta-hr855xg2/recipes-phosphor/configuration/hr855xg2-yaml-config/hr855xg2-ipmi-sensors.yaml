@@ -1083,6 +1083,10 @@
             assert: true
             deassert: false
             type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN0_Status
   readingType: assertion
@@ -1100,6 +1104,10 @@
           0x01:
             assert: true
             deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN1_Status
@@ -1119,6 +1127,10 @@
             assert: true
             deassert: false
             type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN2_Status
   readingType: assertion
@@ -1136,6 +1148,10 @@
           0x01:
             assert: true
             deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN3_Status
@@ -1155,6 +1171,10 @@
             assert: true
             deassert: false
             type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN4_Status
   readingType: assertion
@@ -1172,6 +1192,10 @@
           0x01:
             assert: true
             deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN5_Status
@@ -1191,6 +1215,10 @@
             assert: true
             deassert: false
             type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN6_Status
   readingType: assertion
@@ -1208,6 +1236,10 @@
           0x01:
             assert: true
             deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN7_Status
@@ -1227,6 +1259,10 @@
             assert: true
             deassert: false
             type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN8_Status
   readingType: assertion
@@ -1244,6 +1280,10 @@
           0x01:
             assert: true
             deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN9_Status
@@ -1263,6 +1303,10 @@
             assert: true
             deassert: false
             type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN10_Status
   readingType: assertion
@@ -1280,6 +1324,10 @@
           0x01:
             assert: true
             deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN11_Status
@@ -1299,6 +1347,10 @@
             assert: true
             deassert: false
             type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN12_Status
   readingType: assertion
@@ -1316,6 +1368,10 @@
           0x01:
             assert: true
             deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/FAN13_Status
@@ -1335,6 +1391,10 @@
             assert: true
             deassert: false
             type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/PDB_FAN0_Status
   readingType: assertion
@@ -1353,6 +1413,10 @@
             assert: true
             deassert: false
             type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/PDB_FAN1_Status
   readingType: assertion
@@ -1370,6 +1434,10 @@
           0x01:
             assert: true
             deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
             type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /system/chassis/motherboard/PDB_FAN2_Status
@@ -1458,7 +1526,7 @@
       Value:
         Offsets:
           0x0:
-            type: int64_t     
+            type: int64_t
 0x21:
   entityID: 0x07
   sensorType: 0x02

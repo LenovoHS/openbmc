@@ -1,0 +1,17 @@
+diff -Nurd git/sdbusplus.hpp git_mod/sdbusplus.hpp
+--- git/sdbusplus.hpp	2019-07-02 18:17:28.797201689 +0800
++++ git_mod/sdbusplus.hpp	2019-07-04 11:32:18.132541391 +0800
+@@ -614,9 +614,12 @@
+             const std::string& method,
+             Args&& ... args)
+         {
++            auto opt_service = getService(bus, path, interface);
++            if (opt_service == "xyz.openbmc_project.EntityManager")
++               opt_service = "xyz.openbmc_project.Inventory.Manager";
+             return callMethod(
+                     bus,
+-                    getService(bus, path, interface),
++                    opt_service,
+                     path,
+                     interface,
+                     method,

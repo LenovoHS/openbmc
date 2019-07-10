@@ -885,67 +885,138 @@
           0x0:
             type: int64_t
 
+0x60:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          0x01:
+            assert: true
+            deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /system/chassis/motherboard/FAN0_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  serviceInterface: xyz.openbmc_project.Inventory.Manager
 
-64:
-  entityID: 3
-  entityInstance: 1
+0x61:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
   interfaces:
     xyz.openbmc_project.Inventory.Item:
       Present:
         Offsets:
-          7:
+          0x01:
             assert: true
             deassert: false
             type: bool
-    xyz.openbmc_project.State.Decorator.OperationalStatus:
-      Functional:
-        Offsets:
-          8:
+          0x00:
             assert: false
             deassert: true
             type: bool
-        Prereqs:
-          7:
-            assert: true
-            deassert: false
-            type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/cpu0
+  path: /system/chassis/motherboard/FAN1_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
-  sensorReadingType: 111
-  sensorType: 7
   serviceInterface: xyz.openbmc_project.Inventory.Manager
-65:
-  entityID: 3
-  entityInstance: 2
+
+0x62:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
   interfaces:
     xyz.openbmc_project.Inventory.Item:
       Present:
         Offsets:
-          7:
+          0x01:
             assert: true
             deassert: false
             type: bool
-    xyz.openbmc_project.State.Decorator.OperationalStatus:
-      Functional:
-        Offsets:
-          8:
+          0x00:
             assert: false
             deassert: true
             type: bool
-        Prereqs:
-          7:
+  mutability: Mutability::Write|Mutability::Read
+  path: /system/chassis/motherboard/FAN2_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  serviceInterface: xyz.openbmc_project.Inventory.Manager
+
+0x63:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          0x01:
             assert: true
             deassert: false
             type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/cpu1
+  path: /system/chassis/motherboard/FAN3_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
-  sensorReadingType: 111
-  sensorType: 7
   serviceInterface: xyz.openbmc_project.Inventory.Manager
+
+0x64:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          0x01:
+            assert: true
+            deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /system/chassis/motherboard/FAN4_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  serviceInterface: xyz.openbmc_project.Inventory.Manager
+
+0x65:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          0x01:
+            assert: true
+            deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool    
+  mutability: Mutability::Write|Mutability::Read
+  path: /system/chassis/motherboard/FAN5_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  serviceInterface: xyz.openbmc_project.Inventory.Manager
+
 66:
   entityID: 32
   entityInstance: 1
