@@ -1,0 +1,13 @@
+diff -Naur a/writefrudata.cpp b/writefrudata.cpp
+--- a/writefrudata.cpp	2019-07-10 10:42:26.262046220 +0800
++++ b/writefrudata.cpp	2019-07-10 10:45:06.651309355 +0800
+@@ -211,6 +211,9 @@
+         return -1;
+     }
+ 
++    // Workaround
++    service = "xyz.openbmc_project.Inventory.Manager";
++
+     auto iter = frus.find(fruid);
+     if (iter == frus.end())
+     {
