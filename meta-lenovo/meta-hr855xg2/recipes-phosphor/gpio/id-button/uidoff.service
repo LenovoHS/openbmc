@@ -1,0 +1,11 @@
+#"Copyright (c) 2019-present Lenovo
+#Licensed under BSD-3, see COPYING.BSD file for details."
+
+[Unit]
+Description=UID off Service
+
+[Service]
+Type=oneshot
+Restart=no
+RemainAfterExit=true
+ExecStart=/usr/bin/env UID.sh off

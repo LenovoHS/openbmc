@@ -11,13 +11,24 @@ DEPENDS += "virtual/obmc-gpio-monitor"
 RDEPENDS_${PN} += "virtual/obmc-gpio-monitor"
 
 S = "${WORKDIR}"
-SRC_URI += "file://toggle_identify_led.sh"
+SRC_URI += "file://toggle_identify_led.sh \
+            file://uidon.service \
+            file://uidoff.service \
+            file://UID.sh \
+            "
 
 do_install() {
         install -d ${D}${sbindir}
         install -m 0755 ${WORKDIR}/toggle_identify_led.sh \
             ${D}${sbindir}/toggle_identify_led.sh
+        install -m 0755 ${WORKDIR}/UID.sh \
+            ${D}${sbindir}/UID.sh
 }
+
+SYSTEMD_SERVICE_${PN} += " \
+                        uidon.service\
+                        uidoff.service \
+                        "
 
 SYSTEMD_ENVIRONMENT_FILE_${PN} +="obmc/gpio/id_button"
 
