@@ -1,0 +1,42 @@
+# Copyright (c) 2019-present Lenovo
+# Licensed under BSD-3, see COPYING.BSD file for details.
+
+
+0x01:
+  /system/chassis/motherboard:
+    entityID: 7
+    entityInstance: 1
+    interfaces:
+      xyz.openbmc_project.Inventory.Item:
+        PrettyName:
+          IPMIFruProperty: Product Name
+          IPMIFruSection: Board
+      xyz.openbmc_project.Inventory.Decorator.Asset:
+        BuildDate:
+          IPMIFruProperty: Mfg Date
+          IPMIFruSection: Board
+        SerialNumber:
+          IPMIFruProperty: Serial Number
+          IPMIFruSection: Board
+        PartNumber:
+          IPMIFruProperty: Part Number
+          IPMIFruSection: Board
+        Manufacturer:
+          IPMIFruProperty: Manufacturer
+          IPMIFruSection: Board
+  /system:
+    entityID: 7
+    entityInstance: 1
+    interfaces:
+      xyz.openbmc_project.Inventory.Item:
+        PrettyName:
+          IPMIFruProperty: Product Name
+          IPMIFruSection: Product
+      xyz.openbmc_project.Inventory.Decorator.Asset:
+        SerialNumber:
+          IPMIFruProperty: Serial Number
+          IPMIFruSection: Product
+        Model:
+          IPMIFruProperty: Part Number
+          IPMIFruSection: Product
+
