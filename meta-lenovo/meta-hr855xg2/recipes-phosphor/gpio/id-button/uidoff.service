@@ -6,6 +6,4 @@ Description=UID off Service
 
 [Service]
 Type=oneshot
-Restart=no
-RemainAfterExit=true
 ExecStart=/usr/bin/env UID.sh off
