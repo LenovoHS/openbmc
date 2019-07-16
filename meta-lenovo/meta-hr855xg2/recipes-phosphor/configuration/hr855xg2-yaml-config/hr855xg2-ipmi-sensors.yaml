@@ -1444,6 +1444,7 @@
   readingType: assertion
   sensorNamePattern: nameLeaf
   serviceInterface: xyz.openbmc_project.Inventory.Manager
+
 0x82:
   sensorType: 0x01
   entityID: 0x20
@@ -1527,6 +1528,7 @@
         Offsets:
           0x0:
             type: int64_t
+
 0x21:
   entityID: 0x07
   sensorType: 0x02
@@ -1989,6 +1991,7 @@
         Offsets:
           0x0:
             type: int64_t
+
 0x40:
   entityID: 0x1D
   sensorType: 0x04

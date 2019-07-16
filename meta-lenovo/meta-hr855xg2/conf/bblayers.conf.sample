@@ -17,7 +17,7 @@ BBLAYERS ?= " \
   ##OEROOT##/meta-phosphor \
   ##OEROOT##/meta-aspeed \
   ##OEROOT##/meta-x86 \
-  ##OEROOT##/meta-google \  
+  ##OEROOT##/meta-google \
   ##OEROOT##/meta-lenovo \
   ##OEROOT##/meta-lenovo/meta-hr855xg2 \
   "
