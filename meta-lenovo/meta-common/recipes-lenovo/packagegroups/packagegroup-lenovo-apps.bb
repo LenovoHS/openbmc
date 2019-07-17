@@ -49,9 +49,7 @@ RDEPENDS_${PN}-system = " \
         tree \
         spitools \
         strace \
-        bmcweb \
         entity-manager \
-        phosphor-webui \
         phosphor-ipmi-ethstats \
         uart-routing \
         phosphor-sel-logger \
