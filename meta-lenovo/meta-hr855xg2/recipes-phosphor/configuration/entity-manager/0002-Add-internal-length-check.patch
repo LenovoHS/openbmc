@@ -1,17 +1,18 @@
 #"Copyright (c) 2019-present Lenovo
 #Licensed under BSD-3, see COPYING.BSD file for details."
 
---- git/src/FruDevice.cpp	2019-06-05 09:52:18.671503945 +0800
-+++ git_mod/src/FruDevice.cpp	2019-06-05 10:17:17.166147414 +0800
-@@ -226,6 +226,7 @@
+diff -Naur a/src/FruDevice.cpp b/src/FruDevice.cpp
+--- a/src/FruDevice.cpp	2019-07-17 17:44:28.389892508 +0800
++++ b/src/FruDevice.cpp	2019-07-17 17:47:50.163188403 +0800
+@@ -215,6 +215,7 @@
                  for (size_t jj = 1; jj <= FRU_AREAS.size(); jj++)
                  {
                      auto area_offset = device[jj];
 +                    auto tmp_area_offset = area_offset;
                      if (area_offset != 0)
                      {
-                         area_offset *= 8;
-@@ -236,7 +237,13 @@
+                         area_offset = static_cast<char>(area_offset * 8);
+@@ -225,7 +226,14 @@
                                        << " address " << ii << "\n";
                              return -1;
                          }
@@ -23,6 +24,7 @@
 +                            length = block_data[2] * 8;
 +                        else
 +                            length = block_data[1] * 8;
++
                          device.insert(device.end(), block_data.begin(),
                                        block_data.begin() + 8);
                          length -= 8;
