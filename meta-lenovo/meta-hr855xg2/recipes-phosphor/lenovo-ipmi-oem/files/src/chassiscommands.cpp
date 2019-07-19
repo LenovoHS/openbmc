@@ -85,7 +85,9 @@ ipmi_ret_t ipmiChassisIdentify(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
 			
 	if( request != NULL){ 
 		auto* req = reinterpret_cast<ipmi::chassis::Identify*>(request);
-	
+		if (*data_len != sizeof(Identify)){
+			req->forceIdentify = 0;	
+		}
 		if (req->identifyInterval || req->forceIdentify){
        	log<level::INFO>("force identify");
 		// stop the timer if already started;
