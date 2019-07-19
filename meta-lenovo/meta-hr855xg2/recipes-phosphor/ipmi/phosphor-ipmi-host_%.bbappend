@@ -3,6 +3,10 @@
 
 DEPENDS_append_hr855xg2 = " hr855xg2-yaml-config"
 
+FILESEXTRAPATHS_append := "${THISDIR}/${PN}:"
+SRC_URI += "file://0001-fru-workaround.patch \
+           "
+
 EXTRA_OECONF_append_hr855xg2 = " \
     SENSOR_YAML_GEN=${STAGING_DIR_HOST}${datadir}/hr855xg2-yaml-config/ipmi-sensors.yaml \
     FRU_YAML_GEN=${STAGING_DIR_HOST}${datadir}/hr855xg2-yaml-config/ipmi-fru-read.yaml \

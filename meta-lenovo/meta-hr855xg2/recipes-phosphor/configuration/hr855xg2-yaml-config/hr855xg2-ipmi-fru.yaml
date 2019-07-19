@@ -1,6 +1,50 @@
 #"Copyright (c) 2019-present Lenovo
 #Licensed under BSD-3, see COPYING.BSD file for details."
 
+0:
+  /system/chassis/motherboard:
+    entityID: 7
+    entityInstance: 1
+    interfaces:
+      xyz.openbmc_project.Inventory.Decorator.Asset:
+        BuildDate:
+          IPMIFruProperty: Mfg Date
+          IPMIFruSection: Board
+        PartNumber:
+          IPMIFruProperty: Part Number
+          IPMIFruSection: Board
+        Manufacturer:
+          IPMIFruProperty: Manufacturer
+          IPMIFruSection: Board
+        SerialNumber:
+          IPMIFruProperty: Serial Number
+          IPMIFruSection: Board
+      xyz.openbmc_project.Inventory.Item:
+        PrettyName:
+          IPMIFruProperty: Name
+          IPMIFruSection: Board
+  /system:
+    entityID: 7
+    entityInstance: 1
+    interfaces:
+      xyz.openbmc_project.Inventory.Decorator.Asset:
+        SerialNumber:
+          IPMIFruProperty: Serial Number
+          IPMIFruSection: Product
+        Manufacturer:
+          IPMIFruProperty: Manufacturer
+          IPMIFruSection: Product
+        Model:
+          IPMIFruProperty: Model Number
+          IPMIFruSection: Product
+      xyz.openbmc_project.Inventory.Decorator.Revision:
+        Version:
+          IPMIFruProperty: Version
+          IPMIFruSection: Product
+      xyz.openbmc_project.Inventory.Item:
+        PrettyName:
+          IPMIFruProperty: Name
+          IPMIFruSection: Product
 
 1:
   /system/chassis/motherboard/cpu0:
@@ -57,42 +101,8 @@
           IPMIFruProperty: Name
           IPMIFruSection: Board
           Value: False
+
 3:
-  /system/chassis/motherboard:
-    entityID: 7
-    entityInstance: 1
-    interfaces:
-      xyz.openbmc_project.Inventory.Decorator.Asset:
-        BuildDate:
-          IPMIFruProperty: Mfg Date
-          IPMIFruSection: Board
-        PartNumber:
-          IPMIFruProperty: Part Number
-          IPMIFruSection: Board
-        Manufacturer:
-          IPMIFruProperty: Manufacturer
-          IPMIFruSection: Board
-        SerialNumber:
-          IPMIFruProperty: Serial Number
-          IPMIFruSection: Board
-      xyz.openbmc_project.Inventory.Item:
-        PrettyName:
-          IPMIFruProperty: Name
-          IPMIFruSection: Board
-  /system:
-    entityID: 7
-    entityInstance: 1
-    interfaces:
-      xyz.openbmc_project.Inventory.Decorator.Asset:
-        SerialNumber:
-          IPMIFruProperty: Serial Number
-          IPMIFruSection: Chassis
-        Model:
-          IPMIFruProperty: Part Number
-          IPMIFruSection: Chassis
-
-
-4:
   /system/chassis/motherboard/CPU1_DIMMA1:
     entityID: 32
     entityInstance: 1
@@ -120,7 +130,7 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-5:
+4:
   /system/chassis/motherboard/CPU1_DIMMA2:
     entityID: 32
     entityInstance: 2
@@ -148,7 +158,7 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-6:
+5:
   /system/chassis/motherboard/CPU1_DIMMB1:
     entityID: 32
     entityInstance: 3
@@ -176,7 +186,7 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-7:
+6:
   /system/chassis/motherboard/CPU1_DIMMB2:
     entityID: 32
     entityInstance: 4
@@ -204,7 +214,7 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-8:
+7:
   /system/chassis/motherboard/CPU1_DIMMC1:
     entityID: 32
     entityInstance: 5
@@ -232,7 +242,7 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-9:
+8:
   /system/chassis/motherboard/CPU1_DIMMC2:
     entityID: 32
     entityInstance: 6
@@ -260,7 +270,7 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-10:
+9:
   /system/chassis/motherboard/CPU1_DIMMD1:
     entityID: 32
     entityInstance: 7
@@ -288,7 +298,7 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-11:
+10:
   /system/chassis/motherboard/CPU1_DIMMD2:
     entityID: 32
     entityInstance: 8
@@ -316,7 +326,7 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-12:
+11:
   /system/chassis/motherboard/CPU1_DIMME1:
     entityID: 32
     entityInstance: 9
@@ -344,7 +354,7 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-13:
+12:
   /system/chassis/motherboard/CPU1_DIMME2:
     entityID: 32
     entityInstance: 10
@@ -372,7 +382,7 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-14:
+13:
   /system/chassis/motherboard/CPU1_DIMMF1:
     entityID: 32
     entityInstance: 11
@@ -400,8 +410,8 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-15:
-  /system/chassis/motherboard/CPU1_DIMMF1:
+14:
+  /system/chassis/motherboard/CPU1_DIMMF2:
     entityID: 32
     entityInstance: 12
     interfaces:
@@ -428,7 +438,7 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-16:
+15:
   /system/chassis/motherboard/CPU2_DIMMA1:
     entityID: 32
     entityInstance: 13
@@ -456,7 +466,7 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-17:
+16:
   /system/chassis/motherboard/CPU2_DIMMA2:
     entityID: 32
     entityInstance: 14
@@ -484,7 +494,7 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-18:
+17:
   /system/chassis/motherboard/CPU2_DIMMB1:
     entityID: 32
     entityInstance: 15
@@ -512,7 +522,7 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-19:
+18:
   /system/chassis/motherboard/CPU2_DIMMB2:
     entityID: 32
     entityInstance: 16
@@ -540,7 +550,7 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-20:
+19:
   /system/chassis/motherboard/CPU2_DIMMC1:
     entityID: 32
     entityInstance: 16
@@ -568,7 +578,7 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-21:
+20:
   /system/chassis/motherboard/CPU2_DIMMC2:
     entityID: 32
     entityInstance: 16
@@ -596,7 +606,7 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-22:
+21:
   /system/chassis/motherboard/CPU2_DIMMD1:
     entityID: 32
     entityInstance: 16
@@ -624,7 +634,7 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-23:
+22:
   /system/chassis/motherboard/CPU2_DIMMD2:
     entityID: 32
     entityInstance: 16
@@ -652,7 +662,7 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-24:
+23:
   /system/chassis/motherboard/CPU2_DIMME1:
     entityID: 32
     entityInstance: 16
@@ -680,7 +690,7 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-25:
+24:
   /system/chassis/motherboard/CPU2_DIMME2:
     entityID: 32
     entityInstance: 16
@@ -708,7 +718,7 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-26:
+25:
   /system/chassis/motherboard/CPU2_DIMMF1:
     entityID: 32
     entityInstance: 16
@@ -736,7 +746,7 @@
       xyz.openbmc_project.Inventory.Decorator.Revision:
         Version:
           IPMIFruProperty: Version
-27:
+26:
   /system/chassis/motherboard/CPU2_DIMMF2:
     entityID: 32
     entityInstance: 16
