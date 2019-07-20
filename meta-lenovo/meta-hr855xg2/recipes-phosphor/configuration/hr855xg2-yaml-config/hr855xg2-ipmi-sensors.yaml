@@ -273,7 +273,7 @@
           0x0:
             type: double
 
-0x38:
+0x12:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_D2_CPU1
@@ -294,7 +294,7 @@
           0x0:
             type: double
 
-0x39:
+0x13:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_E1_CPU1
@@ -315,7 +315,7 @@
           0x0:
             type: double
 
-0x3A:
+0x14:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_E2_CPU1
@@ -336,7 +336,7 @@
           0x0:
             type: double
 
-0x3B:
+0x15:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_F1_CPU1
@@ -357,7 +357,7 @@
           0x0:
             type: double
 
-0x3C:
+0x16:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_F2_CPU1
@@ -378,7 +378,7 @@
           0x0:
             type: double
 
-0x3D:
+0x17:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_A1_CPU2
@@ -399,7 +399,7 @@
           0x0:
             type: double
 
-0x3E:
+0x18:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_A2_CPU2
@@ -420,7 +420,7 @@
           0x0:
             type: double
 
-0x3F:
+0x19:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_B1_CPU2
@@ -441,7 +441,7 @@
           0x0:
             type: double
 
-0x51:
+0x1A:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_B2_CPU2
@@ -462,7 +462,7 @@
           0x0:
             type: double
 
-0x52:
+0x1B:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_C1_CPU2
@@ -483,7 +483,7 @@
           0x0:
             type: double
 
-0x53:
+0x1C:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_C2_CPU2
@@ -504,7 +504,7 @@
           0x0:
             type: double
 
-0x54:
+0x1D:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_D1_CPU2
@@ -525,7 +525,7 @@
           0x0:
             type: double
 
-0x55:
+0x1E:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_D2_CPU2
@@ -546,7 +546,7 @@
           0x0:
             type: double
 
-0x56:
+0x1F:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_E1_CPU2
@@ -567,7 +567,7 @@
           0x0:
             type: double
 
-0x57:
+0x20:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_E2_CPU2
@@ -588,7 +588,7 @@
           0x0:
             type: double
 
-0x58:
+0x21:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_F1_CPU2
@@ -609,7 +609,7 @@
           0x0:
             type: double
 
-0x59:
+0x22:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_F2_CPU2
@@ -630,7 +630,7 @@
           0x0:
             type: double
 
-0x5A:
+0x23:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_A1_CPU3
@@ -651,7 +651,7 @@
           0x0:
             type: double
 
-0x5B:
+0x24:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_A2_CPU3
@@ -672,7 +672,7 @@
           0x0:
             type: double
 
-0x5C:
+0x25:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_B1_CPU3
@@ -693,7 +693,7 @@
           0x0:
             type: double
 
-0x5D:
+0x26:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_B2_CPU3
@@ -714,7 +714,7 @@
           0x0:
             type: double
 
-0x5E:
+0x27:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_C1_CPU3
@@ -735,7 +735,7 @@
           0x0:
             type: double
 
-0x5F:
+0x28:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_C2_CPU3
@@ -756,7 +756,7 @@
           0x0:
             type: double
 
-0x60:
+0x29:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_D1_CPU3
@@ -777,7 +777,7 @@
           0x0:
             type: double
 
-0x61:
+0x2A:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_D2_CPU3
@@ -798,7 +798,7 @@
           0x0:
             type: double
 
-0x62:
+0x2B:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_E1_CPU3
@@ -819,7 +819,7 @@
           0x0:
             type: double
 
-0x63:
+0x2C:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_E2_CPU3
@@ -840,7 +840,7 @@
           0x0:
             type: double
 
-0x64:
+0x2D:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_F1_CPU3
@@ -861,7 +861,7 @@
           0x0:
             type: double
 
-0x65:
+0x2E:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_F2_CPU3
@@ -882,7 +882,7 @@
           0x0:
             type: double
 
-0x66:
+0x2F:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_A1_CPU4
@@ -903,7 +903,7 @@
           0x0:
             type: double
 
-0x67:
+0x30:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_A2_CPU4
@@ -924,7 +924,7 @@
           0x0:
             type: double
 
-0x68:
+0x31:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_B1_CPU4
@@ -945,7 +945,7 @@
           0x0:
             type: double
 
-0x69:
+0x32:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_B2_CPU4
@@ -966,7 +966,7 @@
           0x0:
             type: double
 
-0x6A:
+0x33:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_C1_CPU4
@@ -987,7 +987,7 @@
           0x0:
             type: double
 
-0x6B:
+0x34:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_C2_CPU4
@@ -1008,7 +1008,7 @@
           0x0:
             type: double
 
-0x6C:
+0x35:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_D1_CPU4
@@ -1029,7 +1029,7 @@
           0x0:
             type: double
 
-0x6D:
+0x36:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_D2_CPU4
@@ -1050,7 +1050,7 @@
           0x0:
             type: double
 
-0x6E:
+0x37:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_E1_CPU4
@@ -1070,382 +1070,8 @@
         Offsets:
           0x0:
             type: double
-
-0x70:
-  sensorType: 0x04
-  sensorReadingType: 0x08
-  entityID: 0x1D
-  interfaces:
-    xyz.openbmc_project.Inventory.Item:
-      Present:
-        Offsets:
-          0x01:
-            assert: true
-            deassert: false
-            type: bool
-          0x00:
-            assert: false
-            deassert: true
-            type: bool
-  mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/FAN0_Status
-  readingType: assertion
-  sensorNamePattern: nameLeaf
-  serviceInterface: xyz.openbmc_project.Inventory.Manager
-
-0x71:
-  sensorType: 0x04
-  sensorReadingType: 0x08
-  entityID: 0x1D
-  interfaces:
-    xyz.openbmc_project.Inventory.Item:
-      Present:
-        Offsets:
-          0x01:
-            assert: true
-            deassert: false
-            type: bool
-          0x00:
-            assert: false
-            deassert: true
-            type: bool
-  mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/FAN1_Status
-  readingType: assertion
-  sensorNamePattern: nameLeaf
-  serviceInterface: xyz.openbmc_project.Inventory.Manager
-
-0x72:
-  sensorType: 0x04
-  sensorReadingType: 0x08
-  entityID: 0x1D
-  interfaces:
-    xyz.openbmc_project.Inventory.Item:
-      Present:
-        Offsets:
-          0x01:
-            assert: true
-            deassert: false
-            type: bool
-          0x00:
-            assert: false
-            deassert: true
-            type: bool
-  mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/FAN2_Status
-  readingType: assertion
-  sensorNamePattern: nameLeaf
-  serviceInterface: xyz.openbmc_project.Inventory.Manager
-
-0x73:
-  sensorType: 0x04
-  sensorReadingType: 0x08
-  entityID: 0x1D
-  interfaces:
-    xyz.openbmc_project.Inventory.Item:
-      Present:
-        Offsets:
-          0x01:
-            assert: true
-            deassert: false
-            type: bool
-          0x00:
-            assert: false
-            deassert: true
-            type: bool
-  mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/FAN3_Status
-  readingType: assertion
-  sensorNamePattern: nameLeaf
-  serviceInterface: xyz.openbmc_project.Inventory.Manager
-
-0x74:
-  sensorType: 0x04
-  sensorReadingType: 0x08
-  entityID: 0x1D
-  interfaces:
-    xyz.openbmc_project.Inventory.Item:
-      Present:
-        Offsets:
-          0x01:
-            assert: true
-            deassert: false
-            type: bool
-          0x00:
-            assert: false
-            deassert: true
-            type: bool
-  mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/FAN4_Status
-  readingType: assertion
-  sensorNamePattern: nameLeaf
-  serviceInterface: xyz.openbmc_project.Inventory.Manager
-
-0x75:
-  sensorType: 0x04
-  sensorReadingType: 0x08
-  entityID: 0x1D
-  interfaces:
-    xyz.openbmc_project.Inventory.Item:
-      Present:
-        Offsets:
-          0x01:
-            assert: true
-            deassert: false
-            type: bool
-          0x00:
-            assert: false
-            deassert: true
-            type: bool
-  mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/FAN5_Status
-  readingType: assertion
-  sensorNamePattern: nameLeaf
-  serviceInterface: xyz.openbmc_project.Inventory.Manager
-
-0x76:
-  sensorType: 0x04
-  sensorReadingType: 0x08
-  entityID: 0x1D
-  interfaces:
-    xyz.openbmc_project.Inventory.Item:
-      Present:
-        Offsets:
-          0x01:
-            assert: true
-            deassert: false
-            type: bool
-          0x00:
-            assert: false
-            deassert: true
-            type: bool
-  mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/FAN6_Status
-  readingType: assertion
-  sensorNamePattern: nameLeaf
-  serviceInterface: xyz.openbmc_project.Inventory.Manager
-
-0x77:
-  sensorType: 0x04
-  sensorReadingType: 0x08
-  entityID: 0x1D
-  interfaces:
-    xyz.openbmc_project.Inventory.Item:
-      Present:
-        Offsets:
-          0x01:
-            assert: true
-            deassert: false
-            type: bool
-          0x00:
-            assert: false
-            deassert: true
-            type: bool
-  mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/FAN7_Status
-  readingType: assertion
-  sensorNamePattern: nameLeaf
-  serviceInterface: xyz.openbmc_project.Inventory.Manager
-
-0x78:
-  sensorType: 0x04
-  sensorReadingType: 0x08
-  entityID: 0x1D
-  interfaces:
-    xyz.openbmc_project.Inventory.Item:
-      Present:
-        Offsets:
-          0x01:
-            assert: true
-            deassert: false
-            type: bool
-          0x00:
-            assert: false
-            deassert: true
-            type: bool
-  mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/FAN8_Status
-  readingType: assertion
-  sensorNamePattern: nameLeaf
-  serviceInterface: xyz.openbmc_project.Inventory.Manager
-
-0x79:
-  sensorType: 0x04
-  sensorReadingType: 0x08
-  entityID: 0x1D
-  interfaces:
-    xyz.openbmc_project.Inventory.Item:
-      Present:
-        Offsets:
-          0x01:
-            assert: true
-            deassert: false
-            type: bool
-          0x00:
-            assert: false
-            deassert: true
-            type: bool
-  mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/FAN9_Status
-  readingType: assertion
-  sensorNamePattern: nameLeaf
-  serviceInterface: xyz.openbmc_project.Inventory.Manager
-
-0x7A:
-  sensorType: 0x04
-  sensorReadingType: 0x08
-  entityID: 0x1D
-  interfaces:
-    xyz.openbmc_project.Inventory.Item:
-      Present:
-        Offsets:
-          0x01:
-            assert: true
-            deassert: false
-            type: bool
-          0x00:
-            assert: false
-            deassert: true
-            type: bool
-  mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/FAN10_Status
-  readingType: assertion
-  sensorNamePattern: nameLeaf
-  serviceInterface: xyz.openbmc_project.Inventory.Manager
-
-0x7B:
-  sensorType: 0x04
-  sensorReadingType: 0x08
-  entityID: 0x1D
-  interfaces:
-    xyz.openbmc_project.Inventory.Item:
-      Present:
-        Offsets:
-          0x01:
-            assert: true
-            deassert: false
-            type: bool
-          0x00:
-            assert: false
-            deassert: true
-            type: bool
-  mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/FAN11_Status
-  readingType: assertion
-  sensorNamePattern: nameLeaf
-  serviceInterface: xyz.openbmc_project.Inventory.Manager
-
-0x7C:
-  sensorType: 0x04
-  sensorReadingType: 0x08
-  entityID: 0x1D
-  interfaces:
-    xyz.openbmc_project.Inventory.Item:
-      Present:
-        Offsets:
-          0x01:
-            assert: true
-            deassert: false
-            type: bool
-          0x00:
-            assert: false
-            deassert: true
-            type: bool
-  mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/FAN12_Status
-  readingType: assertion
-  sensorNamePattern: nameLeaf
-  serviceInterface: xyz.openbmc_project.Inventory.Manager
-
-0x7D:
-  sensorType: 0x04
-  sensorReadingType: 0x08
-  entityID: 0x1D
-  interfaces:
-    xyz.openbmc_project.Inventory.Item:
-      Present:
-        Offsets:
-          0x01:
-            assert: true
-            deassert: false
-            type: bool
-          0x00:
-            assert: false
-            deassert: true
-            type: bool
-  mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/FAN13_Status
-  readingType: assertion
-  sensorNamePattern: nameLeaf
-  serviceInterface: xyz.openbmc_project.Inventory.Manager
-
-0x7E:
-  sensorType: 0x04
-  sensorReadingType: 0x08
-  entityID: 0x1D
-  interfaces:
-    xyz.openbmc_project.Inventory.Item:
-      Present:
-        Offsets:
-          0x01:
-            assert: true
-            deassert: false
-            type: bool
-          0x00:
-            assert: false
-            deassert: true
-            type: bool
-  mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/PDB_FAN0_Status
-  readingType: assertion
-  sensorNamePattern: nameLeaf
-  serviceInterface: xyz.openbmc_project.Inventory.Manager
-
-0x7F:
-  sensorType: 0x04
-  sensorReadingType: 0x08
-  entityID: 0x1D
-  interfaces:
-    xyz.openbmc_project.Inventory.Item:
-      Present:
-        Offsets:
-          0x01:
-            assert: true
-            deassert: false
-            type: bool
-          0x00:
-            assert: false
-            deassert: true
-            type: bool
-  mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/PDB_FAN1_Status
-  readingType: assertion
-  sensorNamePattern: nameLeaf
-  serviceInterface: xyz.openbmc_project.Inventory.Manager
-
-0x80:
-  sensorType: 0x04
-  sensorReadingType: 0x08
-  entityID: 0x1D
-  interfaces:
-    xyz.openbmc_project.Inventory.Item:
-      Present:
-        Offsets:
-          0x01:
-            assert: true
-            deassert: false
-            type: bool
-          0x00:
-            assert: false
-            deassert: true
-            type: bool
-  mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/PDB_FAN2_Status
-  readingType: assertion
-  sensorNamePattern: nameLeaf
-  serviceInterface: xyz.openbmc_project.Inventory.Manager
-
-0x82:
+            
+0x38:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_E2_CPU4
@@ -1466,7 +1092,7 @@
           0x0:
             type: double
 
-0x83:
+0x39:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_F1_CPU4
@@ -1487,7 +1113,7 @@
           0x0:
             type: double
 
-0x84:
+0x3A:
   sensorType: 0x01
   entityID: 0x20
   path: /xyz/openbmc_project/sensors/temperature/DIMM_F2_CPU4
@@ -1507,8 +1133,8 @@
         Offsets:
           0x0:
             type: double
-
-0x20:
+            
+0x45:
   entityID: 0x0A
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/PDB_Temp
@@ -1529,7 +1155,7 @@
           0x0:
             type: int64_t
 
-0x21:
+0x46:
   entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P12V_AUX_1
@@ -1550,7 +1176,7 @@
           0x0:
             type: int64_t
 
-0x22:
+0x47:
   entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P5V_AUX
@@ -1571,7 +1197,7 @@
           0x0:
             type: int64_t
 
-0x23:
+0x48:
   entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P3V3_AUX
@@ -1592,7 +1218,7 @@
           0x0:
             type: int64_t
 
-0x24:
+0x49:
   entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P1V8_PCH_AUX
@@ -1613,7 +1239,7 @@
           0x0:
             type: int64_t
 
-0x25:
+0x4A:
   entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/PVNN_PCH_AUX
@@ -1635,7 +1261,7 @@
             type: int64_t
 
 
-0x26:
+0x4B:
   entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P1V05_PCH_AUX
@@ -1656,7 +1282,7 @@
           0x0:
             type: int64_t
 
-0x27:
+0x4C:
   entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P1V2_AUX
@@ -1677,7 +1303,7 @@
           0x0:
             type: int64_t
 
-0x28:
+0x4D:
   entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P1V15_BMC_AUX
@@ -1697,49 +1323,8 @@
         Offsets:
           0x0:
             type: int64_t
-
-0x2C:
-  entityID: 0x07
-  sensorType: 0x02
-  path: /xyz/openbmc_project/sensors/voltage/PVDDQ_CPU1
-  sensorReadingType: 0x01
-  multiplierM: 1
-  offsetB: 0
-  bExp: 0
-  unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
-  scale: -3
-  rExp: -2
-  mutability: Mutability::Read
-  serviceInterface: org.freedesktop.DBus.Properties
-  readingType: readingData
-  interfaces:
-    xyz.openbmc_project.Sensor.Value:
-      Value:
-        Offsets:
-          0x0:
-            type: int64_t
-
-0x2A:
-  entityID: 0x07
-  sensorType: 0x02
-  path: /xyz/openbmc_project/sensors/voltage/PVCCIO_CPU1
-  sensorReadingType: 0x01
-  multiplierM: 1
-  offsetB: 0
-  bExp: 0
-  unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
-  scale: -3
-  rExp: -2
-  mutability: Mutability::Read
-  serviceInterface: org.freedesktop.DBus.Properties
-  readingType: readingData
-  interfaces:
-    xyz.openbmc_project.Sensor.Value:
-      Value:
-        Offsets:
-          0x0:
-            type: int64_t
-0x29:
+            
+0x4E:
   entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P12V_AUX_2
@@ -1759,8 +1344,70 @@
         Offsets:
           0x0:
             type: int64_t
+0x4F:
+  entityID: 0x07
+  sensorType: 0x02
+  path: /xyz/openbmc_project/sensors/voltage/PVCCIO_CPU1
+  sensorReadingType: 0x01
+  multiplierM: 1
+  offsetB: 0
+  bExp: 0
+  unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
+  scale: -3
+  rExp: -2
+  mutability: Mutability::Read
+  serviceInterface: org.freedesktop.DBus.Properties
+  readingType: readingData
+  interfaces:
+    xyz.openbmc_project.Sensor.Value:
+      Value:
+        Offsets:
+          0x0:
+            type: int64_t
 
-0x2D:
+0x50:
+  entityID: 0x07
+  sensorType: 0x02
+  path: /xyz/openbmc_project/sensors/voltage/P12V_AUX_3
+  sensorReadingType: 0x01
+  multiplierM: 63
+  offsetB: 0
+  bExp: 0
+  unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
+  scale: -3
+  rExp: -3
+  mutability: Mutability::Read
+  serviceInterface: org.freedesktop.DBus.Properties
+  readingType: readingData
+  interfaces:
+    xyz.openbmc_project.Sensor.Value:
+      Value:
+        Offsets:
+          0x0:
+            type: int64_t            
+
+0x51:
+  entityID: 0x07
+  sensorType: 0x02
+  path: /xyz/openbmc_project/sensors/voltage/PVDDQ_CPU1
+  sensorReadingType: 0x01
+  multiplierM: 1
+  offsetB: 0
+  bExp: 0
+  unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
+  scale: -3
+  rExp: -2
+  mutability: Mutability::Read
+  serviceInterface: org.freedesktop.DBus.Properties
+  readingType: readingData
+  interfaces:
+    xyz.openbmc_project.Sensor.Value:
+      Value:
+        Offsets:
+          0x0:
+            type: int64_t            
+            
+0x52:
   entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P12V
@@ -1781,7 +1428,7 @@
           0x0:
             type: int64_t
 
-0x2E:
+0x53:
   entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P5V
@@ -1802,7 +1449,7 @@
           0x0:
             type: int64_t
 
-0x2F:
+0x54:
   entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P3V3
@@ -1823,28 +1470,8 @@
           0x0:
             type: int64_t
 
-0x2B:
-  entityID: 0x07
-  sensorType: 0x02
-  path: /xyz/openbmc_project/sensors/voltage/P12V_AUX_3
-  sensorReadingType: 0x01
-  multiplierM: 63
-  offsetB: 0
-  bExp: 0
-  unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
-  scale: -3
-  rExp: -3
-  mutability: Mutability::Read
-  serviceInterface: org.freedesktop.DBus.Properties
-  readingType: readingData
-  interfaces:
-    xyz.openbmc_project.Sensor.Value:
-      Value:
-        Offsets:
-          0x0:
-            type: int64_t
 
-0x30:
+0x55:
   entityID: 0x07
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/P3V_BAT
@@ -1865,7 +1492,7 @@
           0x0:
             type: int64_t
 
-0x31:
+0x56:
   entityID: 0x0A
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/PDB_VIN
@@ -1887,9 +1514,9 @@
             type: int64_t
             
 
-0x32:
+0x57:
   entityID: 0x0A
-  sensorType: 0x02
+  sensorType: 0x03
   path: /xyz/openbmc_project/sensors/current/PDB_IIN
   sensorReadingType: 0x01
   multiplierM: 5
@@ -1908,7 +1535,7 @@
           0x0:
             type: int64_t
             
-0x33:
+0x58:
   entityID: 0x0A
   sensorType: 0x0B
   path: /xyz/openbmc_project/sensors/power/PDB_PIN
@@ -1928,7 +1555,7 @@
         Offsets:
           0x0:
             type: int64_t
-0x34:
+0x59:
   entityID: 0x0A
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/PDB_VOUT
@@ -1950,9 +1577,9 @@
             type: int64_t
             
 
-0x35:
+0x5A:
   entityID: 0x0A
-  sensorType: 0x02
+  sensorType: 0x03
   path: /xyz/openbmc_project/sensors/current/PDB_IOUT
   sensorReadingType: 0x01
   multiplierM: 5
@@ -1971,7 +1598,7 @@
           0x0:
             type: int64_t
             
-0x36:
+0x5B:
   entityID: 0x0A
   sensorType: 0x0B
   path: /xyz/openbmc_project/sensors/power/PDB_POUT
@@ -1992,7 +1619,7 @@
           0x0:
             type: int64_t
 
-0x40:
+0x5C:
   entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN0_Speed
@@ -2014,7 +1641,7 @@
             type: int64_t
 
 
-0x41:
+0x5D:
   entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN1_Speed
@@ -2036,7 +1663,7 @@
             type: int64_t
 
 
-0x42:
+0x5E:
   entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN2_Speed
@@ -2058,7 +1685,7 @@
             type: int64_t
 
 
-0x43:
+0x5F:
   entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN3_Speed
@@ -2079,7 +1706,7 @@
           0x0:
             type: int64_t
 
-0x44:
+0x60:
   entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN4_Speed
@@ -2100,7 +1727,7 @@
           0x0:
             type: int64_t
 
-0x45:
+0x61:
   entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN5_Speed
@@ -2120,7 +1747,7 @@
           0x0:
             type: int64_t
 
-0x46:
+0x62:
   entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN6_Speed
@@ -2140,7 +1767,7 @@
         Offsets:
           0x0:
             type: int64_t
-0x47:
+0x63:
   entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN7_Speed
@@ -2161,7 +1788,7 @@
           0x0:
             type: int64_t
 
-0x48:
+0x64:
   entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN8_Speed
@@ -2181,7 +1808,7 @@
         Offsets:
           0x0:
             type: int64_t
-0x49:
+0x65:
   entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN9_Speed
@@ -2201,7 +1828,7 @@
         Offsets:
           0x0:
             type: int64_t
-0x4A:
+0x66:
   entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN10_Speed
@@ -2222,7 +1849,7 @@
           0x0:
             type: int64_t
 
-0x4B:
+0x67:
   entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN11_Speed
@@ -2243,7 +1870,7 @@
           0x0:
             type: int64_t
 
-0x4C:
+0x68:
   entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN12_Speed
@@ -2263,7 +1890,7 @@
         Offsets:
           0x0:
             type: int64_t
-0x4D:
+0x69:
   entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN13_Speed
@@ -2284,7 +1911,7 @@
           0x0:
             type: int64_t
 
-0x4E:
+0x6A:
   entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/PDB_FAN0_Speed
@@ -2305,7 +1932,7 @@
           0x0:
             type: int64_t
 
-0x4F:
+0x6B:
   entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/PDB_FAN1_Speed
@@ -2326,7 +1953,7 @@
           0x0:
             type: int64_t
 
-0x50:
+0x6C:
   entityID: 0x1D
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/PDB_FAN2_Speed
@@ -2345,4 +1972,381 @@
       Value:
         Offsets:
           0x0:
-            type: int64_t
+            type: int64_t            
+
+0x80:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          0x01:
+            assert: true
+            deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /system/chassis/motherboard/FAN0_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  serviceInterface: xyz.openbmc_project.Inventory.Manager
+
+0x81:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          0x01:
+            assert: true
+            deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /system/chassis/motherboard/FAN1_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  serviceInterface: xyz.openbmc_project.Inventory.Manager
+
+0x82:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          0x01:
+            assert: true
+            deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /system/chassis/motherboard/FAN2_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  serviceInterface: xyz.openbmc_project.Inventory.Manager
+
+0x83:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          0x01:
+            assert: true
+            deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /system/chassis/motherboard/FAN3_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  serviceInterface: xyz.openbmc_project.Inventory.Manager
+
+0x84:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          0x01:
+            assert: true
+            deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /system/chassis/motherboard/FAN4_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  serviceInterface: xyz.openbmc_project.Inventory.Manager
+
+0x85:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          0x01:
+            assert: true
+            deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /system/chassis/motherboard/FAN5_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  serviceInterface: xyz.openbmc_project.Inventory.Manager
+
+0x86:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          0x01:
+            assert: true
+            deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /system/chassis/motherboard/FAN6_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  serviceInterface: xyz.openbmc_project.Inventory.Manager
+
+0x87:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          0x01:
+            assert: true
+            deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /system/chassis/motherboard/FAN7_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  serviceInterface: xyz.openbmc_project.Inventory.Manager
+
+0x88:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          0x01:
+            assert: true
+            deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /system/chassis/motherboard/FAN8_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  serviceInterface: xyz.openbmc_project.Inventory.Manager
+
+0x89:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          0x01:
+            assert: true
+            deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /system/chassis/motherboard/FAN9_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  serviceInterface: xyz.openbmc_project.Inventory.Manager
+
+0x8A:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          0x01:
+            assert: true
+            deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /system/chassis/motherboard/FAN10_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  serviceInterface: xyz.openbmc_project.Inventory.Manager
+
+0x8B:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          0x01:
+            assert: true
+            deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /system/chassis/motherboard/FAN11_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  serviceInterface: xyz.openbmc_project.Inventory.Manager
+
+0x8C:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          0x01:
+            assert: true
+            deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /system/chassis/motherboard/FAN12_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  serviceInterface: xyz.openbmc_project.Inventory.Manager
+
+0x8D:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          0x01:
+            assert: true
+            deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /system/chassis/motherboard/FAN13_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  serviceInterface: xyz.openbmc_project.Inventory.Manager
+
+0x8E:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          0x01:
+            assert: true
+            deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /system/chassis/motherboard/PDB_FAN0_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  serviceInterface: xyz.openbmc_project.Inventory.Manager
+
+0x8F:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          0x01:
+            assert: true
+            deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /system/chassis/motherboard/PDB_FAN1_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  serviceInterface: xyz.openbmc_project.Inventory.Manager
+
+0x90:
+  sensorType: 0x04
+  sensorReadingType: 0x08
+  entityID: 0x1D
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          0x01:
+            assert: true
+            deassert: false
+            type: bool
+          0x00:
+            assert: false
+            deassert: true
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /system/chassis/motherboard/PDB_FAN2_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  serviceInterface: xyz.openbmc_project.Inventory.Manager
+
+
+
