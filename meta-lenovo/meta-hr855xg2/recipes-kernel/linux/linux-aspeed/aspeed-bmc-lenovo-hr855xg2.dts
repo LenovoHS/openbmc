@@ -548,7 +548,7 @@
 	pin_gpio_s2 {
 		gpio-hog;
 		gpios = <ASPEED_GPIO(S, 2) GPIO_ACTIVE_HIGH>;
-		output-high;
+		input;
 		line-name = "PCH_RST_RSMRST_N";
 	};
 	
@@ -579,13 +579,6 @@
 		gpios = <ASPEED_GPIO(AA, 4) GPIO_ACTIVE_HIGH>;
 		output-high;
 		line-name = "DBP_CPU_PREQ_N";
-	};
-	
-	pin_gpio_ab3 {
-		gpio-hog;
-		gpios = <ASPEED_GPIO(AB, 3) GPIO_ACTIVE_HIGH>;
-		output-low;
-		line-name = "BMC_WDTRST";
 	};
 	
 	pin_gpio_ac6 {

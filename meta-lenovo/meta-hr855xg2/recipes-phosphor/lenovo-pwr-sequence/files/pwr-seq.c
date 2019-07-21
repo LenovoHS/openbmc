@@ -23,6 +23,8 @@
 #define BMC_RESET_FPGA_N			59		//GPIOH3  no enable by now
 #define FM_BIOS_SPI_SW_CTRL_R_0     200     //GPIOZ0
 #define PCH_PWROK_BMC_FPGA            3     //GPIOA3 BMC notice FPGA finish verifying BIOS, FPGA can release SYS_PWROK.
+#define PWRGD_SYS_PWROK_BMC          63     //GPIOH7
+#define PDB_RESTART_N     			202 	// GPIO_Z2
 
 #define  FPGA_READY					90	//GPIOL2
 #define  INIT_DONE					33	//GPIOE1
@@ -53,11 +55,14 @@ int exportGPIO (int num) {
 
     return 0;
 }
-/*
-int getGPIODirection (int num) {
+
+int getGPIOValue (int num) {
 	int fd;
 	char file_name[MAX_STR_LEN];
+	char rbuf[MAX_STR_LEN];
+	int value_str;
 	
+	printf("Prepare to getGPIOValue 111...\n");
 	memset(file_name, 0, sizeof(file_name));
 	snprintf(file_name, sizeof(file_name), SYSFS_GPIO_PATH "/gpio%d/value", (GPIOBASE + num));
 	
@@ -66,17 +71,20 @@ int getGPIODirection (int num) {
         printf("Open %s/gpio%d/value failed\n", SYSFS_GPIO_PATH, (GPIOBASE + num));
         return fd;
     }
-	
-	if(read(fd, value_str,3) < 0)
+	printf("Prepare to getGPIOValue 222...\n");
+	if(read(fd, rbuf,1) < 0)
 	{
 		printf("Failed to read value");
 		return -1;
 	}
-	
+	printf("Prepare to getGPIOValue 333...\n");
 	close(fd);
-	return (atoi(value_str));
+	value_str = rbuf[0];
+	
+	printf("===debug===get gpio value%d===:%d:%d\n",value_str, rbuf[0],rbuf[1]);
+	return value_str;
 }
-*/
+
 int setGPIOValue (int num, int value) {
     int fd;
     char file_name[MAX_STR_LEN];
@@ -131,15 +139,15 @@ int verifyBIOS() {
 	
 	// value = getGPIODirection(FM_BIOS_SPI_SW_CTRL_R_0);
 	// printf("====debug==value==%d\n", value);
-	printf("begin to verify BIOS...\n");
+	//printf("begin to verify BIOS...\n");
 	sleep(10);
 	
-	printf("finish verifying BIOS ...\n ");
+	//printf("finish verifying BIOS ...\n ");
 	
 //Switch BIOS SPI ROM to Host ==low
 
 	 setGPIOValue(FM_BIOS_SPI_SW_CTRL_R_0, GPIO_VALUE_L);
-	 printf("Switch BIOS SPI rom to HOST ...\n ");
+	 //printf("Switch BIOS SPI rom to HOST ...\n ");
 	 
 	
     return 0;
@@ -167,7 +175,7 @@ int verifyFPGA() {
     //setGPIODirection(BMC_RESET_FPGA_N, "out");
     //setGPIOValue(BMC_RESET_FPGA_N, GPIO_VALUE_L);
 
-    printf("FPGA varification PASS\n");
+   // printf("FPGA varification PASS\n");
 
     return 0;
 }
@@ -175,7 +183,20 @@ int verifyFPGA() {
 
 int main(int argc, char *argv[]) {
     printf("Power sequence control service running...\n");
-
+	
+	int PowerOKStatus;
+	exportGPIO(PWRGD_SYS_PWROK_BMC);
+	
+	PowerOKStatus = getGPIOValue(PWRGD_SYS_PWROK_BMC);
+	
+	exportGPIO(PDB_RESTART_N);
+	setGPIODirection(PDB_RESTART_N, "high");
+	
+	if(PowerOKStatus == 0x31)
+	{
+		printf("do nothing when host is on\n");
+		return 0;
+	}
     // Export necessary GPIOs
     exportGPIO(BMC_FPGA_FLASH_MUX_SEL1);
     exportGPIO(CP_SPI_FLASH_NCONFIG);
@@ -188,7 +209,7 @@ int main(int argc, char *argv[]) {
 	
 	verifyFPGA();
 
-    printf("Start monitoring...\n");
+  //  printf("Start monitoring...\n");
 
     return 0;
 }
