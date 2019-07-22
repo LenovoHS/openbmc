@@ -59,11 +59,18 @@
         PartNumber:
           IPMIFruProperty: Part Number
           IPMIFruSection: Product
+        Model:
+          IPMIFruProperty: Model Number
+          IPMIFruSection: Product
         Manufacturer:
           IPMIFruProperty: Manufacturer
           IPMIFruSection: Product
         SerialNumber:
           IPMIFruProperty: Serial Number
+          IPMIFruSection: Product
+      xyz.openbmc_project.Inventory.Decorator.Revision:
+        Version:
+          IPMIFruProperty: Version
           IPMIFruSection: Product
       xyz.openbmc_project.Inventory.Item:
         PrettyName:
@@ -82,11 +89,18 @@
         PartNumber:
           IPMIFruProperty: Part Number
           IPMIFruSection: Product
+        Model:
+          IPMIFruProperty: Model Number
+          IPMIFruSection: Product
         Manufacturer:
           IPMIFruProperty: Manufacturer
           IPMIFruSection: Product
         SerialNumber:
           IPMIFruProperty: Serial Number
+          IPMIFruSection: Product
+      xyz.openbmc_project.Inventory.Decorator.Revision:
+        Version:
+          IPMIFruProperty: Version
           IPMIFruSection: Product
       xyz.openbmc_project.Inventory.Item:
         PrettyName:
@@ -105,11 +119,18 @@
         PartNumber:
           IPMIFruProperty: Part Number
           IPMIFruSection: Product
+        Model:
+          IPMIFruProperty: Model Number
+          IPMIFruSection: Product
         Manufacturer:
           IPMIFruProperty: Manufacturer
           IPMIFruSection: Product
         SerialNumber:
           IPMIFruProperty: Serial Number
+          IPMIFruSection: Product
+      xyz.openbmc_project.Inventory.Decorator.Revision:
+        Version:
+          IPMIFruProperty: Version
           IPMIFruSection: Product
       xyz.openbmc_project.Inventory.Item:
         PrettyName:
@@ -128,11 +149,18 @@
         PartNumber:
           IPMIFruProperty: Part Number
           IPMIFruSection: Product
+        Model:
+          IPMIFruProperty: Model Number
+          IPMIFruSection: Product
         Manufacturer:
           IPMIFruProperty: Manufacturer
           IPMIFruSection: Product
         SerialNumber:
           IPMIFruProperty: Serial Number
+          IPMIFruSection: Product
+      xyz.openbmc_project.Inventory.Decorator.Revision:
+        Version:
+          IPMIFruProperty: Version
           IPMIFruSection: Product
       xyz.openbmc_project.Inventory.Item:
         PrettyName:
