@@ -1519,7 +1519,7 @@
   sensorType: 0x03
   path: /xyz/openbmc_project/sensors/current/PDB_IIN
   sensorReadingType: 0x01
-  multiplierM: 5
+  multiplierM: 40
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Amperes
@@ -1540,7 +1540,7 @@
   sensorType: 0x0B
   path: /xyz/openbmc_project/sensors/power/PDB_PIN
   sensorReadingType: 0x01
-  multiplierM: 5
+  multiplierM: 14
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Watts
@@ -1582,7 +1582,7 @@
   sensorType: 0x03
   path: /xyz/openbmc_project/sensors/current/PDB_IOUT
   sensorReadingType: 0x01
-  multiplierM: 5
+  multiplierM: 118
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Amperes
@@ -1603,7 +1603,7 @@
   sensorType: 0x0B
   path: /xyz/openbmc_project/sensors/power/PDB_POUT
   sensorReadingType: 0x01
-  multiplierM: 5
+  multiplierM: 14
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Watts

@@ -11,14 +11,14 @@
                     "Label": "DIMM",
                     "Name": "upper critical",
                     "Severity": 1,
-                    "Value": 99
+                    "Value": 83
                 },
                 {
                     "Direction": "greater than",
                     "Label": "DIMM",
                     "Name": "upper non critical",
                     "Severity": 0,
-                    "Value": 89
+                    "Value": 81
                 }
             ],
             "Type": "XeonCPU"
@@ -34,14 +34,14 @@
                     "Label": "DIMM",
                     "Name": "upper critical",
                     "Severity": 1,
-                    "Value": 99
+                    "Value": 83
                 },
                 {
                     "Direction": "greater than",
                     "Label": "DIMM",
                     "Name": "upper non critical",
                     "Severity": 0,
-                    "Value": 89
+                    "Value": 81
                 }
             ],
             "Type": "XeonCPU"
@@ -57,14 +57,14 @@
                     "Label": "DIMM",
                     "Name": "upper critical",
                     "Severity": 1,
-                    "Value": 99
+                    "Value": 83
                 },
                 {
                     "Direction": "greater than",
                     "Label": "DIMM",
                     "Name": "upper non critical",
                     "Severity": 0,
-                    "Value": 89
+                    "Value": 81
                 }
             ],
             "Type": "XeonCPU"
