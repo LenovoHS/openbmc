@@ -2360,12 +2360,12 @@
             deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/cpu0
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
   sensorType: 7
-  serviceInterface: xyz.openbmc_project.Inventory.Manager
+  serviceInterface: org.freedesktop.DBus.Properties
 
 0x92:
   entityID: 3
@@ -2379,12 +2379,12 @@
             deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/cpu1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
   sensorType: 7
-  serviceInterface: xyz.openbmc_project.Inventory.Manager
+  serviceInterface: org.freedesktop.DBus.Properties
 
 0x93:
   entityID: 3
@@ -2398,12 +2398,12 @@
             deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/cpu2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
   sensorType: 7
-  serviceInterface: xyz.openbmc_project.Inventory.Manager
+  serviceInterface: org.freedesktop.DBus.Properties
 
 0x94:
   entityID: 3
@@ -2417,10 +2417,9 @@
             deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/cpu3
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
   sensorType: 7
-  serviceInterface: xyz.openbmc_project.Inventory.Manager
-
+  serviceInterface: org.freedesktop.DBus.Properties

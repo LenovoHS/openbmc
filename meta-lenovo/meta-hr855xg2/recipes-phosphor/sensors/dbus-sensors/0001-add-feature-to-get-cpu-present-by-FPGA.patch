@@ -1,0 +1,86 @@
+diff -Naur a/src/CPUSensorMain.cpp b/src/CPUSensorMain.cpp
+--- a/src/CPUSensorMain.cpp	2019-07-23 15:24:47.044283594 +0800
++++ b/src/CPUSensorMain.cpp	2019-07-23 16:35:16.010429819 +0800
+@@ -79,6 +79,10 @@
+ static constexpr std::array<const char*, 3> hiddenProps = {
+     CPUSensor::labelTcontrol, "Tthrottle", "Tjmax"};
+ 
++static constexpr auto fpgaService = "org.openbmc.control.fpga";
++static constexpr auto fpgaRoot = "/org/openbmc/control/fpga";
++static constexpr auto fpgaInterface = "org.openbmc.control.fpga";
++
+ void detectCpuAsync(
+     boost::asio::deadline_timer& pingTimer,
+     boost::asio::deadline_timer& creationTimer, boost::asio::io_service& io,
+@@ -584,23 +588,57 @@
+                 auto findCpuGpio = config.second.find("PresenceGpio");
+                 if (findCpuGpio != config.second.end())
+                 {
+-                    size_t gpio = std::visit(VariantToUnsignedIntVisitor(),
+-                                             findCpuGpio->second);
+-                    bool present = hostIsPresent(gpio);
+-                    if (inventoryIfaces.find(name) == inventoryIfaces.end())
++                    bool present = false;
++                    auto findFpagBlock = config.second.find("FpgaBlock");
++                    if (findFpagBlock == config.second.end())
+                     {
+-                        auto iface = objectServer.add_interface(
++                        std::cerr << "Can't find 'FpgaBlock' setting in " << name << "\n";
++                        size_t gpio = std::visit(VariantToUnsignedIntVisitor(),
++                                                 findCpuGpio->second);
++                        present = hostIsPresent(gpio);
++                    } else {
++                       // CPU Present Detection by FPGA
++                       uint64_t FpgaBlock =
++                           std::visit(VariantToUnsignedIntVisitor(), findFpagBlock->second);
++                       uint64_t FpgaOffset =
++                           std::visit(VariantToUnsignedIntVisitor(), findCpuGpio->second);
++
++                       uint8_t res_data = 0xFF;
++                       auto method = systemBus->new_method_call(fpgaService, fpgaRoot,
++                                                                fpgaInterface, "read_fpga");
++
++                       method.append((uint8_t) FpgaBlock, (uint8_t) FpgaOffset);
++                       try
++                       {
++                           auto pid = systemBus->call(method);
++                           if (pid.is_method_error())
++                           {
++                                std::cerr << "Error in method call\n";
++                           }
++                        
++                           pid.read(res_data);
++                       }
++                       catch (const sdbusplus::exception::SdBusError& e)
++                       {
++                           std::cerr << "fpga dbus error\n";
++                       }
++                       present = (~res_data & 0x08) >> 3;
++                   }
++
++                   if (inventoryIfaces.find(name) == inventoryIfaces.end())
++                   {
++                       auto iface = objectServer.add_interface(
+                             cpuInventoryPath + std::string("/") + name,
+                             "xyz.openbmc_project.Inventory.Item");
+-                        iface->register_property("PrettyName", name);
+-                        iface->register_property("Present", present);
+-                        iface->initialize();
+-                        inventoryIfaces[name] = std::move(iface);
+-                    }
+-                    if (!present)
+-                    {
+-                        continue; // no reason to look for non present cpu
+-                    }
++                       iface->register_property("PrettyName", name);
++                       iface->register_property("Present", present);
++                       iface->initialize();
++                       inventoryIfaces[name] = std::move(iface);
++                   }
++                   if (!present)
++                   {
++                       continue; // no reason to look for non present cpu
++                   }
+                 }
+ 
+                 auto findBus = config.second.find("Bus");
