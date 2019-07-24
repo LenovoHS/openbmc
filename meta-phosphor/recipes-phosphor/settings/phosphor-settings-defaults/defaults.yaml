@@ -133,3 +133,20 @@
       Properties:
           RequestedApplyTime:
              Default: ApplyTime::RequestedApplyTimes::OnReset
+
+/xyz/openbmc_project/control/chassis_capabilities_config:
+    - Interface: xyz.openbmc_project.Control.ChassisCapabilities
+      Properties:
+          CapabilitiesFlags:
+             Default: 0
+          FRUDeviceAddress:
+             Default: 0x20
+          SDRDeviceAddress:
+             Default: 0x20
+          SELDeviceAddress:
+             Default: 0x20
+          SMDeviceAddress:
+             Default: 0x20
+          BridgeDeviceAddress:
+             Default: 0x20
+
