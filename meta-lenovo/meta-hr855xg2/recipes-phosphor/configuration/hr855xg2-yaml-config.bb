@@ -11,6 +11,7 @@ SRC_URI_append_hr855xg2 = "file://hr855xg2-ipmi-fru.yaml \
                            file://hr855xg2-ipmi-fru-properties.yaml \
                            file://hr855xg2-ipmi-sensors.yaml \
                            file://hr855xg2-leds.yaml \
+                           file://hr855xg2-defaults.yaml \
                           "
 
 S = "${WORKDIR}"
@@ -24,6 +25,8 @@ do_install() {
         ${D}${datadir}/${BPN}/ipmi-sensors.yaml
     install -m 0644 -D hr855xg2-leds.yaml \
         ${D}${datadir}/${BPN}/led.yaml
+    install -m 0644 -D hr855xg2-defaults.yaml \
+	${D}${datadir}/${BPN}/defaults.yaml
 }
 
 FILES_${PN}-dev = " \
@@ -31,6 +34,7 @@ FILES_${PN}-dev = " \
     ${datadir}/${BPN}/ipmi-fru-read.yaml \
     ${datadir}/${BPN}/ipmi-sensors.yaml \
     ${datadir}/${BPN}/led.yaml \
+    ${datadir}/${BPN}/defaults.yaml \
     "
 
 ALLOW_EMPTY_${PN} = "1"
