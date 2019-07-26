@@ -9,6 +9,7 @@ SRC_URI += "file://aspeed-bmc-lenovo-hr855xg2.dts \
             file://0002-DO-NOT-MODIFY-ADDR-REG-FOR-2M-ROM.patch \
             file://0003-MODIFY-READ-LEN-AST-SPI.patch \
             file://0004-ENABLE-RAA228006.patch \
+			file://0005-ENABLE-SB1701022.patch  \
             "
 
 do_configure_append() {

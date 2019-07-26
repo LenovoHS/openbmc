@@ -10,7 +10,24 @@ FILESEXTRAPATHS_prepend_hr855xg2 := "${THISDIR}/${PN}:"
 # Once ipmi-host is fixed, the below configure can be removed. 
 EXTRA_OECONF_append_hr855xg2 = " --enable-negative-errno-on-fail"
 
-CHIPS = " bus@1e78a000/i2c-bus@1c0/tmp75@49 bus@1e78a000/i2c-bus@1c0/tmp75@4d bus@1e78a000/i2c-bus@80/HotSwap@10 bus@1e78a000/i2c-bus@80/VR@45 pwm-tacho-controller@1e786000 "
+CHIPS = " bus@1e78a000/i2c-bus@1c0/tmp75@49  \
+          bus@1e78a000/i2c-bus@1c0/tmp75@4d  \
+          bus@1e78a000/i2c-bus@80/HotSwap@10 \
+          bus@1e78a000/i2c-bus@80/VR@45      \
+          pwm-tacho-controller@1e786000      \
+          bus@1e78a000/i2c-bus@180/CPU0_VCCIN@60   \
+          bus@1e78a000/i2c-bus@180/CPU1_VCCIN@62   \
+          bus@1e78a000/i2c-bus@180/CPU2_VCCIN@64   \
+          bus@1e78a000/i2c-bus@180/CPU3_VCCIN@66   \
+          bus@1e78a000/i2c-bus@480/CPU0_VDDQ_ABC@58  \
+          bus@1e78a000/i2c-bus@480/CPU0_VDDQ_DEF@5a   \
+          bus@1e78a000/i2c-bus@480/CPU1_VDDQ_ABC@5c   \
+          bus@1e78a000/i2c-bus@480/CPU1_VDDQ_DEF@5e   \
+          bus@1e78a000/i2c-bus@480/CPU2_VDDQ_ABC@68   \
+          bus@1e78a000/i2c-bus@480/CPU2_VDDQ_DEF@6a   \
+          bus@1e78a000/i2c-bus@480/CPU3_VDDQ_ABC@6c   \
+          bus@1e78a000/i2c-bus@480/CPU3_VDDQ_DEF@6e   \
+        "
 ITEMSFMT = "ahb/apb/{0}.conf"
 
 HR855XG2_ITEMS = "${@compose_list(d, 'ITEMSFMT', 'CHIPS')}"

@@ -294,6 +294,26 @@
 
 &i2c5 {
 	status = "okay";
+	
+	CPU0_VCCIN@60 {
+		compatible = "infineon,ir38064";
+		reg = <0x60>;
+	};
+	
+	CPU1_VCCIN@62 {
+		compatible = "infineon,ir38064";
+		reg = <0x62>;
+	};
+	
+	CPU2_VCCIN@64 {
+		compatible = "infineon,ir38064";
+		reg = <0x64>;
+	};
+	
+	CPU3_VCCIN@66 {
+		compatible = "infineon,ir38064";
+		reg = <0x66>;
+	};
 
 };
 
@@ -344,6 +364,47 @@
 
 &i2c13 {
 	status = "okay";
+	
+	CPU0_VDDQ_ABC@58 {
+		compatible = "sn1701022";
+		reg = <0x58>;
+	};
+	
+	CPU0_VDDQ_DEF@5a {
+		compatible = "sn1701022";
+		reg = <0x5a>;
+	};
+	
+	CPU1_VDDQ_ABC@5c {
+		compatible = "sn1701022";
+		reg = <0x5c>;
+	};
+	
+	CPU1_VDDQ_DEF@5e {
+		compatible = "sn1701022";
+		reg = <0x5e>;
+	};
+	
+	CPU2_VDDQ_ABC@68 {
+		compatible = "sn1701022";
+		reg = <0x68>;
+	};
+	
+	CPU2_VDDQ_DEF@6a {
+		compatible = "sn1701022";
+		reg = <0x6a>;
+	};
+	
+	CPU3_VDDQ_ABC@6c {
+		compatible = "sn1701022";
+		reg = <0x6c>;
+	};
+	
+	CPU3_VDDQ_DEF@6e {
+		compatible = "sn1701022";
+		reg = <0x6e>;
+	};
+	
 };
 
 &ehci1 {
