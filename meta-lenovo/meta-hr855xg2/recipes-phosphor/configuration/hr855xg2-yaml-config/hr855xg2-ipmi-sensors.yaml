@@ -2612,6 +2612,25 @@
             assert: true
             deassert: false
             type: bool
+    xyz.openbmc_project.Inventory.Item.Cpu:
+      Thermal_Trip:
+        Offsets:
+          1:
+            assert: true
+            deassert: false
+            type: bool
+      BIST_failure:
+        Offsets:
+          2:
+            assert: true
+            deassert: false
+            type: bool
+      Configuration_Error:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_Status
   readingType: assertion
@@ -2628,6 +2647,25 @@
       Present:
         Offsets:
           7:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Inventory.Item.Cpu:
+      Thermal_Trip:
+        Offsets:
+          1:
+            assert: true
+            deassert: false
+            type: bool
+      BIST_failure:
+        Offsets:
+          2:
+            assert: true
+            deassert: false
+            type: bool
+      Configuration_Error:
+        Offsets:
+          5:
             assert: true
             deassert: false
             type: bool
@@ -2650,6 +2688,25 @@
             assert: true
             deassert: false
             type: bool
+    xyz.openbmc_project.Inventory.Item.Cpu:
+      Thermal_Trip:
+        Offsets:
+          1:
+            assert: true
+            deassert: false
+            type: bool
+      BIST_failure:
+        Offsets:
+          2:
+            assert: true
+            deassert: false
+            type: bool
+      Configuration_Error:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_Status
   readingType: assertion
@@ -2669,10 +2726,1661 @@
             assert: true
             deassert: false
             type: bool
+    xyz.openbmc_project.Inventory.Item.Cpu:
+      Thermal_Trip:
+        Offsets:
+          1:
+            assert: true
+            deassert: false
+            type: bool
+      BIST_failure:
+        Offsets:
+          2:
+            assert: true
+            deassert: false
+            type: bool
+      Configuration_Error:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
   mutability: Mutability::Write|Mutability::Read
   path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
   sensorType: 7
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xA0:
+  entityID: 32
+  entityInstance: 1
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMMA1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xA1:
+  entityID: 32
+  entityInstance: 2
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMMA2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xA2:
+  entityID: 32
+  entityInstance: 3
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMMB1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+  
+0xA3:
+  entityID: 32
+  entityInstance: 4
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMMB2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+  
+0xA4:
+  entityID: 32
+  entityInstance: 5
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMMC1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+  
+0xA5:
+  entityID: 32
+  entityInstance: 6
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMMC2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+  
+0xA6:
+  entityID: 32
+  entityInstance: 7
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMMD1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+  
+0xA7:
+  entityID: 32
+  entityInstance: 8
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMMD2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+  
+0xA8:
+  entityID: 32
+  entityInstance: 9
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMME1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+  
+0xA9:
+  entityID: 32
+  entityInstance: 10
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMME2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+  
+0xAA:
+  entityID: 32
+  entityInstance: 11
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMMF1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+  
+0xAB:
+  entityID: 32
+  entityInstance: 12
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMMF2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+  
+0xAC:
+  entityID: 32
+  entityInstance: 13
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMMA1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+  
+0xAD:
+  entityID: 32
+  entityInstance: 14
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMMA2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+  
+0xAE:
+  entityID: 32
+  entityInstance: 15
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMMB1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+  
+0xAF:
+  entityID: 32
+  entityInstance: 16
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMMB2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+  
+0xB0:
+  entityID: 32
+  entityInstance: 17
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMMC1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xB1:
+  entityID: 32
+  entityInstance: 18
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMMC2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xB2:
+  entityID: 32
+  entityInstance: 19
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMMD1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xB3:
+  entityID: 32
+  entityInstance: 20
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMMD2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xB4:
+  entityID: 32
+  entityInstance: 21
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMME1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xB5:
+  entityID: 32
+  entityInstance: 22
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMME2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xB6:
+  entityID: 32
+  entityInstance: 23
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMMF1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xB7:
+  entityID: 32
+  entityInstance: 24
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMMF2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xB8:
+  entityID: 32
+  entityInstance: 25
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMMA1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xB9:
+  entityID: 32
+  entityInstance: 26
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMMA2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xBA:
+  entityID: 32
+  entityInstance: 27
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMMB1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xBB:
+  entityID: 32
+  entityInstance: 28
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMMB2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xBC:
+  entityID: 32
+  entityInstance: 29
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMMC1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xBD:
+  entityID: 32
+  entityInstance: 30
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMMC2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xBE:
+  entityID: 32
+  entityInstance: 31
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMMD1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xBF:
+  entityID: 32
+  entityInstance: 32
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMMD2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xC0:
+  entityID: 32
+  entityInstance: 33
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMME1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xC1:
+  entityID: 32
+  entityInstance: 34
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMME2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xC2:
+  entityID: 32
+  entityInstance: 35
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMMF1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xC3:
+  entityID: 32
+  entityInstance: 36
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMMF2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xC4:
+  entityID: 32
+  entityInstance: 37
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMMA1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xC5:
+  entityID: 32
+  entityInstance: 38
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMMA2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xC6:
+  entityID: 32
+  entityInstance: 39
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMMB1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xC7:
+  entityID: 32
+  entityInstance: 40
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMMB2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xC8:
+  entityID: 32
+  entityInstance: 41
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMMC1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xC9:
+  entityID: 32
+  entityInstance: 42
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMMC2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xCA:
+  entityID: 32
+  entityInstance: 43
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMMD1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xCB:
+  entityID: 32
+  entityInstance: 44
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMMD2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xCC:
+  entityID: 32
+  entityInstance: 45
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMME1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xCD:
+  entityID: 32
+  entityInstance: 46
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMME2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xCE:
+  entityID: 32
+  entityInstance: 47
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMMF1
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xCF:
+  entityID: 32
+  entityInstance: 48
+  interfaces:
+    xyz.openbmc_project.Inventory.Item:
+      Present:
+        Offsets:
+          6:
+            assert: true
+            deassert: false
+            type: bool
+    xyz.openbmc_project.Memory.MemoryECC:
+      isLoggingLimitReached:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      state:
+        Offsets:
+          0:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE
+            type: string
+          1:
+            assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
+            type: string
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMMF2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 12
   serviceInterface: org.freedesktop.DBus.Properties

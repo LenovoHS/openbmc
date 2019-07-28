@@ -1,0 +1,97 @@
+--- a/storagehandler.cpp	2019-07-26 11:28:14.903345888 +0800
++++ b/storagehandler.cpp	2019-07-28 20:52:40.541618351 +0800
+@@ -60,6 +60,13 @@
+ using namespace phosphor::logging;
+ using namespace ipmi::fru;
+ 
++static constexpr auto InventoryService = "xyz.openbmc_project.Inventory.Manager";
++static constexpr auto InventoryPath = "/xyz/openbmc_project/inventory/system/chassis/motherboard/";
++static constexpr auto InventoryECCIntf = "xyz.openbmc_project.Memory.MemoryECC";
++static constexpr auto CPUSensorService = "xyz.openbmc_project.CPUSensor";
++static constexpr auto CPUSensorPath = "/xyz/openbmc_project/inventory/system/chassis/motherboard/";
++static constexpr auto CPUSensorIntf ="xyz.openbmc_project.Inventory.Item.Cpu";
++
+ /**
+  * @enum Device access mode
+  */
+@@ -607,6 +614,7 @@
+                       uint8_t sensorNumber, uint8_t eventDir,
+                       std::array<uint8_t, eventDataSize> eventData)
+ {
++    char index[] = { 'A', 'B', 'C', 'D', 'E', 'F' };
+     // Per the IPMI spec, need to cancel the reservation when a SEL entry is
+     // added
+     cancelSELReservation();
+@@ -620,6 +628,72 @@
+         createProcedureLogEntry(sensorType);
+     }
+ 
++    // It is for Discrete Sensor Event from BIOS
++    sdbusplus::bus::bus bus(ipmid_get_sd_bus_connection());
++    std::string event_state;
++    std::string PropertyPath;
++    if (sensorNumber >= 0xA0 && sensorNumber <= 0xCF) {
++        const auto name = "CPU" + std::to_string((sensorNumber - 0xA0)/12) +
++               "_DIMM" + index[((sensorNumber - 0xA0)%12)/2] +
++               std::to_string((sensorNumber - 0xA0)%2 + 1);
++        try
++        {
++            switch (eventData[0]) 
++            {
++                case 0x00:
++                    event_state = "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE";
++                    PropertyPath = "state";
++                    ipmi::setDbusProperty(bus, InventoryService,
++                                          InventoryPath + name, InventoryECCIntf,
++                                          PropertyPath, event_state);
++                    break;
++                case 0x01:
++                    event_state = "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE";
++                    PropertyPath = "state";
++                    ipmi::setDbusProperty(bus, InventoryService,
++                                          InventoryPath + name, InventoryECCIntf,
++                                          PropertyPath, event_state);
++                    break;
++                case 0x05:
++                    PropertyPath = "isLoggingLimitReached";
++                    ipmi::setDbusProperty(bus, InventoryService,
++                                          InventoryPath + name, InventoryECCIntf,
++                                          PropertyPath, true);
++                    break;
++                default:
++                    return ipmi::responseSuccess(recordID);
++                    break;
++            }
++        }
++        catch (std::exception& e)
++        {
++            log<level::ERR>(e.what());
++            return ipmi::responseUnspecifiedError();
++        }
++    } else if (sensorNumber >= 0x91 && sensorNumber <= 0x94) {
++        const auto name = "CPU" + std::to_string(sensorNumber - 0x91) + "_Status";
++        try
++        {
++            switch (eventData[0])
++            {
++                case 0x05:
++                    PropertyPath = "Configuration_Error";
++                    ipmi::setDbusProperty(bus, CPUSensorService,
++                                          CPUSensorPath + name, CPUSensorIntf,
++                                          PropertyPath, true);
++                    break;
++                default:
++                    return ipmi::responseSuccess(recordID);
++                    break;
++            }
++        }
++        catch (std::exception& e)
++        {
++            log<level::ERR>(e.what());
++            return ipmi::responseUnspecifiedError();
++        }
++    }
++
+     return ipmi::responseSuccess(recordID);
+ }
+ 

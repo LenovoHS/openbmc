@@ -1,0 +1,19 @@
+--- a/src/CPUSensorMain.cpp	2019-07-28 22:39:57.271034703 +0800
++++ b/src/CPUSensorMain.cpp	2019-07-28 23:18:00.159474644 +0800
+@@ -633,6 +633,16 @@
+                        iface->register_property("PrettyName", name);
+                        iface->register_property("Present", present);
+                        iface->initialize();
++                       iface = objectServer.add_interface(
++                               cpuInventoryPath + std::string("/") + name,
++                               "xyz.openbmc_project.Inventory.Item.Cpu");
++                       iface->register_property("Thermal_Trip", false,
++                                                sdbusplus::asio::PropertyPermission::readWrite);
++                       iface->register_property("BIST_failure", false,
++                                                sdbusplus::asio::PropertyPermission::readWrite);
++                       iface->register_property("Configuration_Error", false,
++                                                sdbusplus::asio::PropertyPermission::readWrite);
++                       iface->initialize();
+                        inventoryIfaces[name] = std::move(iface);
+                    }
+                    if (!present)

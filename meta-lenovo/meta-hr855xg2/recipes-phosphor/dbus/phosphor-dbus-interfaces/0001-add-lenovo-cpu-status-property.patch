@@ -1,0 +1,23 @@
+diff -Naur a/xyz/openbmc_project/Inventory/Item/Cpu.interface.yaml b/xyz/openbmc_project/Inventory/Item/Cpu.interface.yaml
+--- a/xyz/openbmc_project/Inventory/Item/Cpu.interface.yaml	2019-07-28 18:54:29.799459188 +0800
++++ b/xyz/openbmc_project/Inventory/Item/Cpu.interface.yaml	2019-07-28 18:52:25.816443882 +0800
+@@ -1,4 +1,19 @@
+ description: >
+     Implement to provide CPU attributes.
+ 
++properties:
++    - name: Thermal_Trip
++      type: boolean
++      description: >
++          Whether or not the CPU Thermal Trip is triggered.
++    - name: BIST_failure
++      type: boolean
++      description: >
++          Whether or not the BIST failure is triggered.
++
++    - name: Configuration_Error
++      type: boolean
++      description: >
++          Whether or not the Configuration Error is triggered.
++
+ # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
