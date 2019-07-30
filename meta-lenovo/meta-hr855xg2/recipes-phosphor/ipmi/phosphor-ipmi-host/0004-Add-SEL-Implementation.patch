@@ -1,0 +1,219 @@
+diff -Naur a/selutility.cpp b/selutility.cpp
+--- a/selutility.cpp	2019-07-29 14:07:51.742751966 +0800
++++ b/selutility.cpp	2019-07-30 15:21:01.559962335 +0800
+@@ -10,6 +10,8 @@
+ #include <phosphor-logging/elog-errors.hpp>
+ #include <vector>
+ #include <xyz/openbmc_project/Common/error.hpp>
++#include <fstream>
++#include <iostream>
+ 
+ extern const ipmi::sensor::InvObjectIDMap invSensors;
+ using namespace phosphor::logging;
+@@ -75,7 +77,20 @@
+         std::chrono::duration_cast<std::chrono::seconds>(chronoTimeStamp)
+             .count());
+ 
+-    static constexpr auto systemEventRecord = 0x02;
++    std::string path = std::string(ipmi::sel::selPath) + "/" + "sel.bin";  
++    std::fstream handle(path, std::ios::in | std::ios::binary);
++    std::string content;
++    if (handle.fail())
++    {
++        log<level::ERR>("Failed to open SEL file", entry("FILENAME=%s", path.c_str()));
++        elog<InternalFailure>();
++    }
++    handle.seekg(16 * (record.recordID - 1), std::ios::beg);
++    content.resize(16);
++    handle.read(&content[0], content.size());
++    handle.close();
++
++  /*static constexpr auto systemEventRecord = 0x02;
+     static constexpr auto generatorID = 0x2000;
+     static constexpr auto eventMsgRevision = 0x04;
+ 
+@@ -85,7 +100,16 @@
+ 
+     record.sensorType = iter->second.sensorType;
+     record.sensorNum = iter->second.sensorID;
+-    record.eventData1 = iter->second.eventOffset;
++    record.eventData1 = iter->second.eventOffset;*/
++
++    record.recordType = content[2];
++    record.generatorID = content[8] << 8 | content[7];
++    record.eventMsgRevision = content[9];
++    record.sensorType = content[10];
++    record.sensorNum = content[11];
++    record.eventData1 = content[13];
++    record.eventData2 = content[14];
++    record.eventData3 = content[15];
+ 
+     // Read Resolved from the log entry.
+     static constexpr auto propResolved = "Resolved";
+@@ -107,6 +131,7 @@
+     {
+         record.eventType = iter->second.eventReadingType;
+     }
++    record.eventType = content[12];
+ 
+     return record;
+ }
+diff -Naur a/selutility.hpp b/selutility.hpp
+--- a/selutility.hpp	2019-07-29 14:07:51.742751966 +0800
++++ b/selutility.hpp	2019-07-30 15:17:11.677680798 +0800
+@@ -21,6 +21,8 @@
+ 
+ static constexpr auto propIntf = "org.freedesktop.DBus.Properties";
+ 
++static constexpr auto selPath = "/var/lib/phosphor-logging";
++
+ using ObjectPaths = std::vector<std::string>;
+ using PropertyName = std::string;
+ using Resolved = bool;
+diff -Naur a/storageaddsel.cpp b/storageaddsel.cpp
+--- a/storageaddsel.cpp	2019-07-29 14:07:51.742751966 +0800
++++ b/storageaddsel.cpp	2019-07-30 15:21:35.239707506 +0800
+@@ -2,6 +2,8 @@
+ #include "error-HostEvent.hpp"
+ #include "sensorhandler.hpp"
+ #include "storagehandler.hpp"
++#include "storageaddsel.hpp"
++#include "selutility.hpp"
+ 
+ #include <mapper.h>
+ #include <systemd/sd-bus.h>
+@@ -42,11 +44,55 @@
+     return content;
+ }
+ 
+-void createProcedureLogEntry(uint8_t procedureNum)
++int fillSELData(uint16_t recordID, uint8_t recordType, uint32_t timeStamp,
++                        uint16_t generatorID, uint8_t evmRev, uint8_t sensorType,
++                        uint8_t sensorNumber, uint8_t eventDir,
++                        std::array<uint8_t, eventDataSize> eventData)
+ {
+-    // Read the eSEL data from the file.
++    std::string path = std::string(ipmi::sel::selPath) + "/" + "sel.bin"; 
++    std::fstream handle(path, std::ios::out | std::ios::app | std::ios::binary);
++
++    if (handle.fail())
++    {
++      log<level::ERR>("Failed to open SEL file", entry("FILENAME=%s", path.c_str()));
++      return -1;
++    }
++
++    std::string content;
++    content.resize(16);
++    content[0] = recordID & 0xff;
++    content[1] = (recordID >> 8) & 0xff;
++    content[2] = recordType;
++    content[3] = timeStamp & 0xff;
++    content[4] = (timeStamp >> 8) & 0xff;
++    content[5] = (timeStamp >> 16) & 0xff;
++    content[6] = (timeStamp >> 24) & 0xff;
++    content[7] = generatorID & 0xff;
++    content[8] = (generatorID >> 8) & 0xff;
++    content[9] = evmRev;
++    content[10] = sensorType;
++    content[11] = sensorNumber;
++    content[12] = eventDir;
++    content[13] = eventData[0];
++    content[14] = eventData[1];
++    content[15] = eventData[2];
++
++    handle.write(&content[0], content.size());
++    handle.close();
++
++    return 0;
++}
++
++int createProcedureLogEntry(uint16_t recordID, uint8_t recordType, uint32_t timeStamp,
++                                uint16_t generatorID, uint8_t evmRev, uint8_t sensorType,
++                                uint8_t sensorNumber, uint8_t eventDir,
++                                std::array<uint8_t, eventDataSize> eventData)
++{
++    //Read the eSEL data from the file.
+     static constexpr auto eSELFile = "/tmp/esel";
+     auto eSELData = readESEL(eSELFile);
++    uint8_t ret = fillSELData(recordID, recordType, timeStamp, generatorID, evmRev, sensorType,
++                              sensorNumber, eventDir, eventData);
+ 
+     // Each byte in eSEL is formatted as %02x with a space between bytes and
+     // insert '/0' at the end of the character array.
+@@ -64,5 +110,7 @@
+     using metadata = org::open_power::Host::MaintenanceProcedure;
+ 
+     report<error>(metadata::ESEL(data.get()),
+-                  metadata::PROCEDURE(static_cast<uint32_t>(procedureNum)));
++                  metadata::PROCEDURE(static_cast<uint32_t>(recordType)));
++
++    return ret;
+ }
+diff -Naur a/storageaddsel.hpp b/storageaddsel.hpp
+--- a/storageaddsel.hpp	2019-07-29 14:07:51.742751966 +0800
++++ b/storageaddsel.hpp	2019-07-29 18:32:07.901742689 +0800
+@@ -2,6 +2,8 @@
+ 
+ #include <stdint.h>
+ 
++constexpr uint8_t eventDataSize = 3;
++
+ /** @brief Read eSEL data into a string
+  *
+  *  @param[in] filename - filename of file containing eSEL
+@@ -12,6 +14,23 @@
+ 
+ /** @brief Create a log entry with maintenance procedure
+  *
+- *  @param[in] procedureNum - procedure number associated with the log entry
++ *  @param
++ *
++ *   - recordID      ID used for SEL Record access
++ *   - recordType    Record Type
++ *   - timeStamp     Time when event was logged. LS byte first
++ *   - generatorID   software ID if event was generated from
++ *                   system software
++ *   - evmRev        event message format version
++ *   - sensorType    sensor type code for service that generated
++ *                   the event
++ *   - sensorNumber  number of sensors that generated the event
++ *   - eventDir      event dir
++ *   - eventData     event data field contents
++ *
+  */
+-void createProcedureLogEntry(uint8_t procedureNum);
++int createProcedureLogEntry(uint16_t recordID, uint8_t recordType, uint32_t timeStamp,
++                                uint16_t generatorID, uint8_t evmRev, uint8_t sensorType,
++                                uint8_t sensorNumber, uint8_t eventDir,
++                                std::array<uint8_t, eventDataSize> eventData);
++
+diff -Naur a/storagehandler.cpp b/storagehandler.cpp
+--- a/storagehandler.cpp	2019-07-29 14:07:51.742751966 +0800
++++ b/storagehandler.cpp	2019-07-29 17:41:38.854770873 +0800
+@@ -29,7 +29,6 @@
+ unsigned int g_sel_time = 0xFFFFFFFF;
+ extern const ipmi::sensor::IdInfoMap sensors;
+ extern const FruMap frus;
+-constexpr uint8_t eventDataSize = 3;
+ namespace
+ {
+ constexpr auto TIME_INTERFACE = "xyz.openbmc_project.Time.EpochTime";
+@@ -618,14 +617,10 @@
+     // Per the IPMI spec, need to cancel the reservation when a SEL entry is
+     // added
+     cancelSELReservation();
+-    // Hostboot sends SEL with OEM record type 0xDE to indicate that there is
+-    // a maintenance procedure associated with eSEL record.
+-    static constexpr auto procedureType = 0xDE;
+-    if (recordType == procedureType)
+-    {
+-        // In the OEM record type 0xDE, byte 11 in the SEL record indicate the
+-        // procedure number.
+-        createProcedureLogEntry(sensorType);
++
++    if (createProcedureLogEntry(recordID, recordType, timeStamp, generatorID, evmRev, sensorType, sensorNumber, eventDir, eventData))
++    {
++        return ipmi::responseUnspecifiedError();
+     }
+ 
+     // It is for Discrete Sensor Event from BIOS
