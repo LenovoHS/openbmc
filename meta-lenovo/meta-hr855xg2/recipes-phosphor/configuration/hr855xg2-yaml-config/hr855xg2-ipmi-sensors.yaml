@@ -4384,3 +4384,23 @@
   sensorReadingType: 111
   sensorType: 12
   serviceInterface: org.freedesktop.DBus.Properties
+
+0x6D:
+  sensorType: 0x01
+  path: /xyz/openbmc_project/extsensors/temp/peci_group_temp
+  sensorReadingType: 0x01
+  multiplierM: 1
+  offsetB: 0
+  bExp: 0
+  unit: xyz.openbmc_project.Sensor.Value.Unit.DegreesC
+  scale: -3
+  rExp: 0
+  mutability: Mutability::Write|Mutability::Read
+  serviceInterface: org.freedesktop.DBus.Properties
+  readingType: readingData
+  interfaces:
+    xyz.openbmc_project.Sensor.Value:
+      Value:
+        Offsets:
+          0xFF:
+            type: int64_t
