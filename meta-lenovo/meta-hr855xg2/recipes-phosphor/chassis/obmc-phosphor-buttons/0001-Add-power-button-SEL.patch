@@ -1,0 +1,58 @@
+From 62ab3e3a0fc9fece323a7cfac8e715c12d667fcf Mon Sep 17 00:00:00 2001
+From: Harry Sung <hsung1@lenovo.com>
+Date: Wed, 31 Jul 2019 13:36:04 +0800
+Subject: [PATCH] hr855xg2: Add power button SEL
+
+Signed-off-by: Harry Sung <hsung1@lenovo.com>
+---
+ src/button_handler.cpp | 27 +++++++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
+
+diff --git a/src/button_handler.cpp b/src/button_handler.cpp
+index 675f1ea..ad52da2 100644
+--- a/src/button_handler.cpp
++++ b/src/button_handler.cpp
+@@ -29,6 +29,10 @@ constexpr auto mapperObjPath = "/xyz/openbmc_project/object_mapper";
+ constexpr auto mapperService = "xyz.openbmc_project.ObjectMapper";
+ constexpr auto ledGroupBasePath = "/xyz/openbmc_project/led/groups/";
+ 
++constexpr auto ipmiService = "xyz.openbmc_project.Ipmi.Host";
++constexpr auto ipmiObjPath = "/xyz/openbmc_project/Ipmi";
++constexpr auto ipmiIface = "xyz.openbmc_project.Ipmi.Server";
++
+ Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
+ {
+     try
+@@ -151,6 +155,29 @@ void Handler::powerPressed(sdbusplus::message::message& msg)
+         method.append(hostIface, "RequestedHostTransition", state);
+ 
+         bus.call(method);
++
++        // Add SEL
++        uint8_t netFn = 0x0A; // Storage
++        uint8_t lun = 0x00;
++        uint8_t cmd = 0x44; // Add SEL Entry command
++        std::vector<uint8_t> data = { 0x00, 0x00,             // Record ID
++                                      0x03,                   // Record Type
++                                      0x00, 0x00, 0x00, 0x00, // Time Stamp
++                                      0x00, 0x01,             // Generator ID
++                                      0x04,                   // EvM Rev
++                                      0x14,                   // Sensor Type (Button)
++                                      0xe2,                   // Sensor #
++                                      0x6F,                   // Event Dir | Event Type
++                                      0x00,                   // Event Data 1
++                                      0x00,                   // Event Data 2
++                                      0x00};                  // Event Data 3
++        std::map<std::string, sdbusplus::message::variant<int>> options;
++
++        auto add_sel =  bus.new_method_call(
++            ipmiService, ipmiObjPath, ipmiIface, "execute");
++
++        add_sel.append(netFn, lun, cmd, data, options);
++        bus.call(add_sel);
+     }
+     catch (SdBusError& e)
+     {
+-- 
+2.7.4
+
