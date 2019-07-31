@@ -1,0 +1,103 @@
+--- a/drivers/spi/ast-spi.c	2019-07-25 18:14:38.675965100 +0800
++++ b/drivers/spi/ast-spi.c	2019-07-26 13:43:32.473978499 +0800
+@@ -345,7 +345,7 @@
+ 		err = -ENXIO;
+ 		goto err_no_io_res;
+ 	}
+-
++#if 0
+ 	if (!request_mem_region(res0->start, resource_size(res0), res0->name)) {
+ 		dev_err(&pdev->dev, "cannot reserved region\n");
+ 		err = -ENXIO;
+@@ -357,15 +357,26 @@
+ 		err = -EIO;
+ 		goto release_mem0;
+ 	}
+-
+-	dev_dbg(&pdev->dev, "remap phy %x, virt %x \n",(u32)res0->start, (u32)host->reg);
+-#if 1
++#endif
++	host->reg = devm_ioremap_resource(&pdev->dev, res0);
++	//dev_dbg(&pdev->dev, "remap phy %x, virt %x \n",(u32)res0->start, (u32)host->reg);
++	if(!host->reg){
++		dev_err(&pdev->dev, "cannot reserved reg region\n");
++		err = -ENXIO;
++		goto err_register;	
++	}
+ 	res1 = platform_get_resource(pdev, IORESOURCE_MEM, 1);
+ 	if (!res1) {
+ 		dev_err(&pdev->dev, "cannot get IORESOURCE_MEM 1\n");		
+ 		return -ENXIO;	
+ 	}
+-
++	host->buff = devm_ioremap_resource(&pdev->dev, res1);
++	if(!host->buff){
++		dev_err(&pdev->dev, "cannot reserved buff region\n");
++		err = -ENXIO;
++		goto err_register;	
++	}
++#if 0
+ 	if (!request_mem_region(res1->start, resource_size(res1), res1->name)) {
+ 		dev_err(&pdev->dev, "cannot reserved region\n");
+ 		err = -ENXIO;
+@@ -379,7 +390,7 @@
+ 		dev_err(&pdev->dev, "cannot map buff\n");		
+ 		goto release_mem1;
+ 	}
+-    
++#endif	    
+ 	clk = devm_clk_get(&pdev->dev, NULL);
+ 	if (IS_ERR(clk)) {
+ 		dev_err(&pdev->dev, "no clock defined\n");
+@@ -387,8 +398,8 @@
+ 	}
+ 	host->ahb_clk = clk_get_rate(clk);
+ 	
+-	dev_dbg(&pdev->dev, "remap io phy %x, virt %x \n",(u32)res1->start, (u32)host->buff);	
+-#endif	
++	//dev_dbg(&pdev->dev, "remap io phy %x, virt %x \n",(u32)res1->start, (u32)host->buff);	
++
+ 	host->master = spi_master_get(master);
+ 	host->master->bus_num = pdev->id;
+     host->master->bus_num = 1;
+@@ -449,24 +460,27 @@
+ static int 
+ ast_spi_remove(struct platform_device *pdev)
+ {
+-	struct resource 	*res0, *res1;
+-	struct ast_spi_host *host = platform_get_drvdata(pdev);
+-
+-	dev_dbg(host->dev, "ast_spi_remove()\n");
+ 
+-	if (!host)
++	struct resource 	*res0;
++	struct ast_spi_host *host;
++	struct spi_master *master;
++	master = spi_alloc_master(&pdev->dev, sizeof(struct ast_spi_host));
++	if(!master){
++		printk("master is null\n");
+ 		return -1;
+-
+-	res0 = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+-	res1 = platform_get_resource(pdev, IORESOURCE_BUS, 0);	
+-	release_mem_region(res0->start, res0->end - res0->start + 1);
+-	release_mem_region(res1->start, res1->end - res1->start + 1);	
+-	iounmap(host->reg);
+-	iounmap(host->buff);		
++	}
++	host = spi_master_get_devdata(master);
++	if (!host){
++		printk("host is null\n");
++		return -1;
++	}
++	host->master = spi_master_get(master);
++	
+ 
+ 	platform_set_drvdata(pdev, NULL);
+-	spi_unregister_master(host->master);
++	//spi_unregister_master(host->master);
+ 	spi_master_put(host->master);
++
+ 	return 0;
+ }
+ 
