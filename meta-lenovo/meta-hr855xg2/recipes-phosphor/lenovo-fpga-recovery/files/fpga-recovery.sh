@@ -62,13 +62,6 @@ cd /sys/bus/platform/drivers/aspeed-smc
 #remove mtd driver
 echo "1e631000.spi" >bind
 #end
-if [ ! -d /sys/class/gpio/gpio480 ]; then
-	cd /sys/class/gpio
-	echo 480 >export
-	cd gpio480
-else
-	cd /sys/class/gpio/gpio480
-fi
 
 if [ -e "/dev/mtd6" ]; then
 	mtd6=`cat /sys/class/mtd/mtd6/name`
