@@ -3,6 +3,8 @@
 
 [Unit]
 Description=Lenovo Power Sequence Control
+Requires=fpga-recovery.service
+After=fpga-recovery.service
 
 [Service]
 ExecStart=/usr/sbin/pwr-seq
