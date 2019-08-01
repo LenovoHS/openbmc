@@ -4387,7 +4387,7 @@
 
 0x6D:
   sensorType: 0x01
-  path: /xyz/openbmc_project/extsensors/temp/peci_group_temp
+  path: /xyz/openbmc_project/extsensors/temp/pcie_group_temp
   sensorReadingType: 0x01
   multiplierM: 1
   offsetB: 0

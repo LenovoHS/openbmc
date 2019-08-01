@@ -106,13 +106,6 @@
             "max": 255
         },
         {
-            "name": "PDB_FAN1_Speed",
-            "type": "fan",
-            "readPath": "/xyz/openbmc_project/sensors/fan_tach/PDB_FAN1_Speed",
-            "min": 0,
-            "max": 255
-        },
-        {
             "name": "PDB_FAN2_Speed",
             "type": "fan",
             "readPath": "/xyz/openbmc_project/sensors/fan_tach/PDB_FAN2_Speed",
@@ -122,14 +115,14 @@
     ],
     "zones" : [
         {
-            "id": 1,
+            "id": 0,
             "minThermalOutput": 3000.0,
-            "failsafePercent": 75.0,
+            "failsafePercent": 100.0,
             "pids": [
                 {
-                    "name": "FAN0_Speed0-Speed4",
+                    "name": "FAN0-FAN1_Speed",
                     "type": "fan",
-                    "inputs": ["FAN0_Speed0", "FAN0_Speed4"],
+                    "inputs": ["FAN0_Speed", "FAN1_Speed"],
                     "setpoint": 90.0,
                     "pid": {
                         "samplePeriod": 0.1,

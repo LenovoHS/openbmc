@@ -21,15 +21,3 @@ path="${path//:/--}"
 path="${path//-/\\x2d}"
 
 systemctl $action 'xyz.openbmc_project.Hwmon@'$path'.service'
-
-# Temporary solution for tuning default PWM values. Start
-# Remove the solution after fan control is done. 
-if [[ $path == *"pwm"* ]] ; then
-    for pwm_loop in {1..7}
-    do
-        echo "153" > /sys/class/hwmon/hwmon0/pwm$pwm_loop
-    done
-    echo  "127" > /sys/class/hwmon/hwmon0/pwm8
-fi
-
-# Temporary solution for tuning default PWM values. End

@@ -4,17 +4,26 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 inherit obmc-phosphor-systemd
-SYSTEMD_SERVICE_${PN} = "phosphor-pid-control.service"
+SYSTEMD_SERVICE_${PN} = "phosphor-pid-control.service \
+                         initial_fanspeed.service \
+                        "
+ 
 #EXTRA_OECONF = "--enable-configure-dbus=yes"
 
 SRC_URI += "file://fan-info.json \
-            file://fan-info.json_mod \
+            file://fan-info.json_full \
             file://0001_AddSetPWMOEM.patch \
+            file://initial_fanspeed.sh \
+            file://start_phosphor-pid-control.sh \
            "
-FILES_${PN} += "${datadir}/swampd/"
+FILES_${PN} += "${datadir}/swampd/ \
+                ${sbindir} \
+               "
 
 do_install_append() {
    install -d ${D}${datadir}/swampd
    install -m 0644 ${WORKDIR}/fan-info.json ${D}${datadir}/swampd/config.json
-   install -m 0644 ${WORKDIR}/fan-info.json_mod ${D}${datadir}/swampd/config.json_mod
+   install -m 0644 ${WORKDIR}/fan-info.json_full ${D}${datadir}/swampd/config.json_full
+   install -d ${D}/${sbindir}
+   install -m 0755 ${WORKDIR}/*.sh ${D}/${sbindir}/
 }

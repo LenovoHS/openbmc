@@ -6,10 +6,11 @@ Description=Phosphor-Pid-Control Margin-based Fan Control Daemon
 
 [Service]
 Restart=always
-ExecStart={bindir}/swampd
+ExecStart=/bin/bash /usr/sbin/start_phosphor-pid-control.sh
 RestartSec=5
 StartLimitInterval=0
 Type=simple
+ExecStopPost=/bin/bash /usr/sbin/initial_fanspeed.sh
 
 [Install]
 WantedBy=basic.target
