@@ -3,6 +3,9 @@
 
 [Unit]
 Description=lenovo fpga control service
+Requires=fpga-recovery.service
+After=fpga-recovery.service
+
 
 [Service]
 Restart=always

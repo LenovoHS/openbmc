@@ -1,0 +1,16 @@
+#"Copyright (c) 2019-present Lenovo
+#Licensed under BSD-3, see COPYING.BSD file for details."
+
+[Unit]
+Description=lenovo fpga recovery
+Before=fpga.service
+ConditionPathExists=/var/fpga_recovery
+
+[Service]
+Type=oneshot
+Restart=no
+RemainAfterExit=true
+ExecStart=/usr/bin/env fpga-recovery.sh
+
+[Install]
+WantedBy={SYSTEMD_DEFAULT_TARGET}
