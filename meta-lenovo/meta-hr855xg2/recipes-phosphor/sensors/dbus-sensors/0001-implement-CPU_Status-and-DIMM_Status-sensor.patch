@@ -1,0 +1,211 @@
+--- a/src/CPUSensorMain.cpp	2019-08-01 17:39:19.262023171 +0800
++++ b/src/CPUSensorMain.cpp	2019-08-02 16:07:32.554731020 +0800
+@@ -79,6 +79,57 @@
+ static constexpr std::array<const char*, 3> hiddenProps = {
+     CPUSensor::labelTcontrol, "Tthrottle", "Tjmax"};
+ 
++constexpr auto fpgaService = "org.openbmc.control.fpga";
++constexpr auto fpgaRoot = "/org/openbmc/control/fpga";
++constexpr auto fpgaInterface = "org.openbmc.control.fpga";
++constexpr auto InventoryService = "xyz.openbmc_project.Inventory.Manager";
++constexpr auto InventoryPath = "/xyz/openbmc_project/inventory/system/chassis/motherboard/";
++constexpr auto InventoryItemIntf = "xyz.openbmc_project.Inventory.Item";
++constexpr auto PROP_INTF = "org.freedesktop.DBus.Properties";
++constexpr auto IPMIService = "xyz.openbmc_project.Ipmi.Host";
++constexpr auto IPMIPath = "/xyz/openbmc_project/Ipmi";
++constexpr auto IPMIIntf = "xyz.openbmc_project.Ipmi.Server";
++
++uint8_t add_sel_event(const std::shared_ptr<sdbusplus::asio::connection>& bus, uint8_t snr_num, uint8_t snr_type,
++                      uint8_t ed1, uint8_t ed2, uint8_t ed3) 
++{
++    uint8_t netFn = 0x0A; // Storage
++    uint8_t lun = 0x00;
++    uint8_t cmd = 0x44; // Add SEL Entry command
++    std::vector<uint8_t> data = { 0x00, 0x00,             // Record ID
++                                  0x03,                   // Record Type
++                                  0x00, 0x00, 0x00, 0x00, // Time Stamp
++                                  0x20, 0x00,             // Generator ID
++                                  0x04,                   // EvM Rev
++                                  snr_type,               // Sensor Type
++                                  snr_num,                // Sensor #
++                                  0x6F,                   // Event Dir | Event Type
++                                  ed1,                    // Event Data 1
++                                  ed2,                    // Event Data 2
++                                  ed3};                   // Event Data 3
++    std::map<std::string, sdbusplus::message::variant<int>> options;
++    try
++    {
++        auto add_sel = bus->new_method_call(IPMIService, IPMIPath, IPMIIntf, "execute");
++        add_sel.append(netFn, lun, cmd, data, options);
++        auto reply = bus->call(add_sel);
++
++        if (reply.is_method_error())
++        {
++            fprintf(stderr, "Failed to add sel by method error\n");
++            //log<level::ERR>("Failed to add sel by method error");
++            return 1;
++        }
++    }
++    catch (const sdbusplus::exception::SdBusError& e)
++    {
++        std::cerr << "Failed to add sel %s\n" << e.what();
++        return 1;
++    }
++
++    return 0;
++}
++
+ void detectCpuAsync(
+     boost::asio::deadline_timer& pingTimer,
+     boost::asio::deadline_timer& creationTimer, boost::asio::io_service& io,
+@@ -584,22 +635,139 @@
+                 auto findCpuGpio = config.second.find("PresenceGpio");
+                 if (findCpuGpio != config.second.end())
+                 {
+-                    size_t gpio = std::visit(VariantToUnsignedIntVisitor(),
+-                                             findCpuGpio->second);
+-                    bool present = hostIsPresent(gpio);
+-                    if (inventoryIfaces.find(name) == inventoryIfaces.end())
++                    uint8_t res_data = 0xFF;
++                    uint8_t cpu_num = std::stoi(name.substr(3,1));
++                    bool present = false;
++                    auto findFpagBlock = config.second.find("FpgaBlock");
++                    if (findFpagBlock == config.second.end())
+                     {
+-                        auto iface = objectServer.add_interface(
++                        std::cerr << "Can't find 'FpgaBlock' setting in " << name << "\n";
++                        size_t gpio = std::visit(VariantToUnsignedIntVisitor(),
++                                                 findCpuGpio->second);
++                        present = hostIsPresent(gpio);
++                    } else {
++                       // CPU Present Detection by FPGA
++                       uint64_t FpgaBlock =
++                           std::visit(VariantToUnsignedIntVisitor(), findFpagBlock->second);
++                       uint64_t FpgaOffset =
++                           std::visit(VariantToUnsignedIntVisitor(), findCpuGpio->second);
++
++                       auto method = systemBus->new_method_call(fpgaService, fpgaRoot,
++                                                                fpgaInterface, "read_fpga");
++
++                       method.append((uint8_t) FpgaBlock, (uint8_t) FpgaOffset);
++                       try
++                       {
++                           auto pid = systemBus->call(method);
++                           if (pid.is_method_error())
++                           {
++                                std::cerr << "Error in method call\n";
++                           }
++                        
++                           pid.read(res_data);
++                       }
++                       catch (const sdbusplus::exception::SdBusError& e)
++                       {
++                           std::cerr << "fpga dbus error\n";
++                       }
++                       present = (~res_data & 0x08) >> 3;
++                       if (present) {
++                           uint8_t ret = add_sel_event(systemBus, (0x91 + cpu_num), 0x07, 0x07, 0xFF, 0xFF);
++                           if (0 != ret) 
++                           {
++                               fprintf(stderr, "Failed to add sel event\n");
++                               //log<level::ERR>("Failed to add sel event");
++                           }
++                       }
++                   }
++
++                   if (inventoryIfaces.find(name) == inventoryIfaces.end())
++                   {
++                       auto iface = objectServer.add_interface(
+                             cpuInventoryPath + std::string("/") + name,
+                             "xyz.openbmc_project.Inventory.Item");
+-                        iface->register_property("PrettyName", name);
+-                        iface->register_property("Present", present);
+-                        iface->initialize();
+-                        inventoryIfaces[name] = std::move(iface);
++                       iface->register_property("PrettyName", name);
++                       iface->register_property("Present", present);
++                       iface->initialize();
++                       iface = objectServer.add_interface(
++                               cpuInventoryPath + std::string("/") + name,
++                               "xyz.openbmc_project.Inventory.Item.Cpu");
++                       iface->register_property("Thermal_Trip", false,
++                                                sdbusplus::asio::PropertyPermission::readWrite);
++                       iface->register_property("BIST_failure", false,
++                                                sdbusplus::asio::PropertyPermission::readWrite);
++                       iface->register_property("Configuration_Error", false,
++                                                sdbusplus::asio::PropertyPermission::readWrite);
++                       iface->initialize();
++                       inventoryIfaces[name] = std::move(iface);
++                   }
++
++                   if (!present)
++                   {
++                       continue; // no reason to look for non present cpu
++                   }
++                }
++
++                // DIMM Present by CPLD
++                // No reason to look for DIMM present for non present cpu
++                uint64_t dimm_present = 0;
++                for (uint8_t dimm_offset=6; dimm_offset<12; dimm_offset++)
++                {
++                    uint8_t DIMM_FpgaBlock = 10;
++                    uint8_t res_data = 0x00;
++                    auto method = systemBus->new_method_call(fpgaService, fpgaRoot,
++                                                             fpgaInterface, "read_fpga");
++                    method.append(DIMM_FpgaBlock, dimm_offset);
++                    try
++                    {
++                        auto pid = systemBus->call(method);
++                        if (pid.is_method_error())
++                        {
++                            std::cerr << "Error in method call\n";
++                        }
++
++                        pid.read(res_data);
++                     }
++                     catch (const sdbusplus::exception::SdBusError& e)
++                     {
++                        std::cerr << "fpga dbus error\n";
++                     }
++
++                     dimm_present |= ((uint64_t) res_data) << ((dimm_offset-6)*8);
++                }
++
++                for (uint64_t dimm_num=0; dimm_num<48; dimm_num++)
++                {
++                    sdbusplus::message::variant<bool> dpresent = false;
++                    if (0 != ((dimm_present & (1 << dimm_num))))
++                    {
++                        // Add SEL
++                        uint8_t ret = add_sel_event(systemBus, (0xA0 + dimm_num), 0x0C, 0x06, 0xFF, 0xFF);
++                        if (0 != ret)
++                        {
++                            std::cerr << "Failed to add sel event\n";
++                        }
++                        dpresent = true;
++                    }
++
++                    // Set Discrete sesnsor
++                    char index[] = { 'A', 'B', 'C', 'D', 'E', 'F' };
++                    const auto dimm_name = "CPU" + std::to_string(dimm_num/12) +
++                                           "_DIMM" + index[((dimm_num)%12)/2] +
++                                           std::to_string((dimm_num)%2 + 1);
++                    try
++                    {
++                        auto method = systemBus->new_method_call(InventoryService, (InventoryPath + dimm_name).c_str(),
++                                                                 PROP_INTF, "Set");
++                        method.append(InventoryItemIntf, "Present", dpresent);
++                        if (!systemBus->call(method))
++                        {
++                            std::cerr << "Failed to set property DIMM presence" << "\n";
++                        }
+                     }
+-                    if (!present)
++                    catch (const sdbusplus::exception::SdBusError& e)
+                     {
+-                        continue; // no reason to look for non present cpu
++                        std::cerr << e.what() << "\n";
+                     }
+                 }
+ 
