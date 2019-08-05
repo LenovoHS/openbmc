@@ -1,0 +1,17 @@
+#"Copyright (c) 2019-present Lenovo
+#Licensed under BSD-3, see COPYING.BSD file for details."
+
+[Unit]
+Description=fpga version service
+Requires=fpga.service
+After=fpga.service
+
+
+[Service]
+ExecStart=/usr/bin/env version.sh
+SyslogIdentifier=version.sh
+Type=oneshot
+RemainAfterExit=no
+
+[Install]
+WantedBy=multi-user.target

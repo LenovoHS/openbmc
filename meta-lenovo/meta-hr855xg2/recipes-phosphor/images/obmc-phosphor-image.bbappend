@@ -11,7 +11,8 @@ OBMC_IMAGE_EXTRA_INSTALL_append_hr855xg2 = " phosphor-ipmi-blobs \
                                              obmc-phosphor-buttons-signals \
                                              obmc-phosphor-buttons-handler \
                                              obmc-phosphor-buttons \
-                                             lenovo-fpga-recovery \											 
+                                             lenovo-fpga-recovery \
+                                             fpga-version \											 
                                            "
 
 
