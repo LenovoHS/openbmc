@@ -1,5 +1,5 @@
 --- a/src/CPUSensorMain.cpp	2019-08-01 17:39:19.262023171 +0800
-+++ b/src/CPUSensorMain.cpp	2019-08-02 16:07:32.554731020 +0800
++++ b/src/CPUSensorMain.cpp	2019-08-05 14:48:44.537585818 +0800
 @@ -79,6 +79,57 @@
  static constexpr std::array<const char*, 3> hiddenProps = {
      CPUSensor::labelTcontrol, "Tthrottle", "Tjmax"};
@@ -172,13 +172,15 @@
 +                     dimm_present |= ((uint64_t) res_data) << ((dimm_offset-6)*8);
 +                }
 +
++                std::string index[] = { "C1", "C2", "B1", "B2", "A1", "A2", "D2", "D1", "E2", "E1", "F2", "F1" };
++                uint8_t dimm_loc[] = { 4, 5, 2, 3, 0, 1, 7, 6, 9, 8, 11, 10 };
 +                for (uint64_t dimm_num=0; dimm_num<48; dimm_num++)
 +                {
 +                    sdbusplus::message::variant<bool> dpresent = false;
 +                    if (0 != ((dimm_present & (1 << dimm_num))))
 +                    {
 +                        // Add SEL
-+                        uint8_t ret = add_sel_event(systemBus, (0xA0 + dimm_num), 0x0C, 0x06, 0xFF, 0xFF);
++                        uint8_t ret = add_sel_event(systemBus, (0xA0 + 12*(dimm_num/12) + dimm_loc[dimm_num%12]), 0x0C, 0x06, 0xFF, 0xFF);
 +                        if (0 != ret)
 +                        {
 +                            std::cerr << "Failed to add sel event\n";
@@ -187,10 +189,8 @@
 +                    }
 +
 +                    // Set Discrete sesnsor
-+                    char index[] = { 'A', 'B', 'C', 'D', 'E', 'F' };
 +                    const auto dimm_name = "CPU" + std::to_string(dimm_num/12) +
-+                                           "_DIMM" + index[((dimm_num)%12)/2] +
-+                                           std::to_string((dimm_num)%2 + 1);
++                                           "_DIMM_" + index[((dimm_num)%12)];
 +                    try
 +                    {
 +                        auto method = systemBus->new_method_call(InventoryService, (InventoryPath + dimm_name).c_str(),

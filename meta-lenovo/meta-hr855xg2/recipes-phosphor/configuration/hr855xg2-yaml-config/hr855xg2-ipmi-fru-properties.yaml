@@ -49,7 +49,7 @@
     xyz.openbmc_project.Inventory.Item:
         Present: 'true'
 
-/system/chassis/motherboard/CPU0_DIMMA1:
+/system/chassis/motherboard/CPU0_DIMM_A1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -59,7 +59,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU0_DIMMA2:
+/system/chassis/motherboard/CPU0_DIMM_A2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -69,7 +69,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU0_DIMMB1:
+/system/chassis/motherboard/CPU0_DIMM_B1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -79,7 +79,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU0_DIMMB2:
+/system/chassis/motherboard/CPU0_DIMM_B2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -89,7 +89,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU0_DIMMC1:
+/system/chassis/motherboard/CPU0_DIMM_C1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -99,7 +99,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU0_DIMMC2:
+/system/chassis/motherboard/CPU0_DIMM_C2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -109,7 +109,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU0_DIMMD1:
+/system/chassis/motherboard/CPU0_DIMM_D1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -119,7 +119,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU0_DIMMD2:
+/system/chassis/motherboard/CPU0_DIMM_D2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -129,7 +129,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU0_DIMME1:
+/system/chassis/motherboard/CPU0_DIMM_E1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -139,7 +139,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU0_DIMME2:
+/system/chassis/motherboard/CPU0_DIMM_E2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -149,7 +149,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU0_DIMMF1:
+/system/chassis/motherboard/CPU0_DIMM_F1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -159,7 +159,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU0_DIMMF2:
+/system/chassis/motherboard/CPU0_DIMM_F2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -169,7 +169,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU1_DIMMA1:
+/system/chassis/motherboard/CPU1_DIMM_A1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -179,7 +179,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU1_DIMMA2:
+/system/chassis/motherboard/CPU1_DIMM_A2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -189,7 +189,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU1_DIMMB1:
+/system/chassis/motherboard/CPU1_DIMM_B1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -199,7 +199,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU1_DIMMB2:
+/system/chassis/motherboard/CPU1_DIMM_B2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -209,7 +209,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU1_DIMMC1:
+/system/chassis/motherboard/CPU1_DIMM_C1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -219,7 +219,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU1_DIMMC2:
+/system/chassis/motherboard/CPU1_DIMM_C2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -229,7 +229,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU1_DIMMD1:
+/system/chassis/motherboard/CPU1_DIMM_D1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -239,7 +239,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU1_DIMMD2:
+/system/chassis/motherboard/CPU1_DIMM_D2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -249,7 +249,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU1_DIMME1:
+/system/chassis/motherboard/CPU1_DIMM_E1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -259,7 +259,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU1_DIMME2:
+/system/chassis/motherboard/CPU1_DIMM_E2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -269,7 +269,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU1_DIMMF1:
+/system/chassis/motherboard/CPU1_DIMM_F1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -279,7 +279,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU1_DIMMF2:
+/system/chassis/motherboard/CPU1_DIMM_F2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -289,7 +289,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU2_DIMMA1:
+/system/chassis/motherboard/CPU2_DIMM_A1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -299,7 +299,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU2_DIMMA2:
+/system/chassis/motherboard/CPU2_DIMM_A2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -309,7 +309,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU2_DIMMB1:
+/system/chassis/motherboard/CPU2_DIMM_B1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -319,7 +319,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU2_DIMMB2:
+/system/chassis/motherboard/CPU2_DIMM_B2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -329,7 +329,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU2_DIMMC1:
+/system/chassis/motherboard/CPU2_DIMM_C1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -339,7 +339,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU2_DIMMC2:
+/system/chassis/motherboard/CPU2_DIMM_C2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -349,7 +349,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU2_DIMMD1:
+/system/chassis/motherboard/CPU2_DIMM_D1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -359,7 +359,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU2_DIMMD2:
+/system/chassis/motherboard/CPU2_DIMM_D2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -369,7 +369,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU2_DIMME1:
+/system/chassis/motherboard/CPU2_DIMM_E1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -379,7 +379,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU2_DIMME2:
+/system/chassis/motherboard/CPU2_DIMM_E2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -389,7 +389,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU2_DIMMF1:
+/system/chassis/motherboard/CPU2_DIMM_F1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -399,7 +399,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU2_DIMMF2:
+/system/chassis/motherboard/CPU2_DIMM_F2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -409,7 +409,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU3_DIMMA1:
+/system/chassis/motherboard/CPU3_DIMM_A1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -419,7 +419,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU3_DIMMA2:
+/system/chassis/motherboard/CPU3_DIMM_A2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -429,7 +429,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU3_DIMMB1:
+/system/chassis/motherboard/CPU3_DIMM_B1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -439,7 +439,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU3_DIMMB2:
+/system/chassis/motherboard/CPU3_DIMM_B2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -449,7 +449,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU3_DIMMC1:
+/system/chassis/motherboard/CPU3_DIMM_C1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -459,7 +459,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU3_DIMMC2:
+/system/chassis/motherboard/CPU3_DIMM_C2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -469,7 +469,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU3_DIMMD1:
+/system/chassis/motherboard/CPU3_DIMM_D1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -479,7 +479,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU3_DIMMD2:
+/system/chassis/motherboard/CPU3_DIMM_D2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -489,7 +489,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU3_DIMME1:
+/system/chassis/motherboard/CPU3_DIMM_E1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -499,7 +499,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU3_DIMME2:
+/system/chassis/motherboard/CPU3_DIMM_E2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -509,7 +509,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU3_DIMMF1:
+/system/chassis/motherboard/CPU3_DIMM_F1:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:
@@ -519,7 +519,7 @@
     xyz.openbmc_project.Memory.MemoryECC:
         isLoggingLimitReached: 'false'
 
-/system/chassis/motherboard/CPU3_DIMMF2:
+/system/chassis/motherboard/CPU3_DIMM_F2:
     xyz.openbmc_project.Inventory.Decorator.Replaceable:
         FieldReplaceable: 'true'
     xyz.openbmc_project.Inventory.Decorator.Cacheable:

@@ -2780,7 +2780,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMMA1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_A1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2814,7 +2814,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMMA2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_A2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2848,7 +2848,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMMB1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_B1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2882,7 +2882,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMMB2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_B2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2916,7 +2916,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMMC1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_C1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2950,7 +2950,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMMC2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_C2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2984,7 +2984,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMMD1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_D1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3018,7 +3018,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMMD2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_D2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3052,7 +3052,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMME1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_E1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3086,7 +3086,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMME2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_E2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3120,7 +3120,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMMF1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_F1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3154,7 +3154,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMMF2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_F2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3188,7 +3188,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMMA1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_A1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3222,7 +3222,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMMA2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_A2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3256,7 +3256,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMMB1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_B1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3290,7 +3290,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMMB2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_B2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3324,7 +3324,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMMC1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_C1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3358,7 +3358,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMMC2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_C2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3392,7 +3392,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMMD1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_D1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3426,7 +3426,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMMD2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_D2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3460,7 +3460,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMME1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_E1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3494,7 +3494,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMME2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_E2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3528,7 +3528,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMMF1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_F1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3562,7 +3562,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMMF2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_F2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3596,7 +3596,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMMA1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_A1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3630,7 +3630,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMMA2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_A2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3664,7 +3664,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMMB1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_B1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3698,7 +3698,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMMB2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_B2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3732,7 +3732,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMMC1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_C1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3766,7 +3766,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMMC2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_C2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3800,7 +3800,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMMD1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_D1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3834,7 +3834,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMMD2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_D2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3868,7 +3868,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMME1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_E1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3902,7 +3902,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMME2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_E2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3936,7 +3936,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMMF1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_F1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3970,7 +3970,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMMF2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_F2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4004,7 +4004,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMMA1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_A1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4038,7 +4038,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMMA2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_A2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4072,7 +4072,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMMB1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_B1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4106,7 +4106,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMMB2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_B2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4140,7 +4140,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMMC1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_C1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4174,7 +4174,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMMC2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_C2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4208,7 +4208,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMMD1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_D1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4242,7 +4242,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMMD2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_D2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4276,7 +4276,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMME1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_E1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4310,7 +4310,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMME2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_E2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4344,7 +4344,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMMF1
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_F1
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4378,7 +4378,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMMF2
+  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_F2
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
