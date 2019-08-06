@@ -111,7 +111,13 @@
             "readPath": "/xyz/openbmc_project/sensors/fan_tach/PDB_FAN2_Speed",
             "min": 0,
             "max": 255
-        }    
+        },
+        {
+            "name": "pcie_group_temp",
+            "type": "temp",
+            "readPath": "/xyz/openbmc_project/extsensors/temp/pcie_group_temp",
+            "timeout": 4
+        }
     ],
     "zones" : [
         {

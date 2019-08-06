@@ -3,6 +3,6 @@
 
 FILESEXTRAPATHS_prepend_hr855xg2 := "${THISDIR}/${PN}:"
 
-SRC_URI += "file://0001-implement-CPU_Status-and-DIMM_Status-sensor.patch \
-           "
+#SRC_URI += "file://0001-implement-CPU_Status-and-DIMM_Status-sensor.patch \
+#           "
 
