@@ -766,7 +766,7 @@
 	pin_gpio_y0 {
 		gpio-hog;
 		gpios = <ASPEED_GPIO(Y, 0) GPIO_ACTIVE_HIGH>;
-		output-low;
+		output-high;
 		line-name = "BMC_NCSI_MUX_CTL_S0";
 	};
 
