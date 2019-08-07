@@ -1220,7 +1220,7 @@
             type: double
 
 0x3B:
-  entityID: 0x0A
+  entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/VDDQ_ABC_CPU0
   sensorReadingType: 0x01
@@ -1241,7 +1241,7 @@
             type: int64_t
             
 0x3C:
-  entityID: 0x0A
+  entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/VDDQ_DEF_CPU0
   sensorReadingType: 0x01
@@ -1262,7 +1262,7 @@
             type: int64_t  
             
 0x3D:
-  entityID: 0x0A
+  entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/VDDQ_ABC_CPU1
   sensorReadingType: 0x01
@@ -1283,7 +1283,7 @@
             type: int64_t
             
 0x3E:
-  entityID: 0x0A
+  entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/VDDQ_DEF_CPU1
   sensorReadingType: 0x01
@@ -1304,7 +1304,7 @@
             type: int64_t 
 
 0x3F:
-  entityID: 0x0A
+  entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/VDDQ_ABC_CPU2
   sensorReadingType: 0x01
@@ -1325,7 +1325,7 @@
             type: int64_t
             
 0x40:
-  entityID: 0x0A
+  entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/VDDQ_DEF_CPU2
   sensorReadingType: 0x01
@@ -1346,7 +1346,7 @@
             type: int64_t  
 
 0x41:
-  entityID: 0x0A
+  entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/VDDQ_ABC_CPU3
   sensorReadingType: 0x01
@@ -1367,7 +1367,7 @@
             type: int64_t
             
 0x42:
-  entityID: 0x0A
+  entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/VDDQ_DEF_CPU3
   sensorReadingType: 0x01
