@@ -3,10 +3,15 @@
         {
             "Address": "0x30",
             "Bus": 0,
-            "FpgaBlock": 28,
-            "PresenceGpio": 7,
             "CpuID": 1,
             "Name": "CPU0 Status",
+            "PresenceByFPGA": [
+                {
+                    "FpgaBlock": 28,
+                    "FpgaAddr": 7,
+                    "FpgaBit": 3
+                }
+            ],
             "Thresholds": [
                 {
                     "Direction": "greater than",
@@ -28,10 +33,15 @@
         {
             "Address": "0x31",
             "Bus": 0,
-            "FpgaBlock": 28,
-            "PresenceGpio": 8,
             "CpuID": 2,
             "Name": "CPU1 Status",
+            "PresenceByFPGA": [
+                {
+                    "FpgaBlock": 28,
+                    "FpgaAddr": 8,
+                    "FpgaBit": 3
+                }
+            ],
             "Thresholds": [
                 {
                     "Direction": "greater than",
@@ -53,10 +63,15 @@
         {
             "Address": "0x32",
             "Bus": 0,
-            "FpgaBlock": 28,
-            "PresenceGpio": 9,
             "CpuID": 3,
             "Name": "CPU2 Status",
+            "PresenceByFPGA": [
+                {
+                    "FpgaBlock": 28,
+                    "FpgaAddr": 9,
+                    "FpgaBit": 3
+                }
+            ],
             "Thresholds": [
                 {
                     "Direction": "greater than",
@@ -78,10 +93,15 @@
         {
             "Address": "0x33",
             "Bus": 0,
-            "FpgaBlock": 28,
-            "PresenceGpio": 10,
             "CpuID": 4,
             "Name": "CPU3 Status",
+            "PresenceByFPGA": [
+                {
+                    "FpgaBlock": 28,
+                    "FpgaAddr": 10,
+                    "FpgaBit": 3
+                }
+            ],
             "Thresholds": [
                 {
                     "Direction": "greater than",

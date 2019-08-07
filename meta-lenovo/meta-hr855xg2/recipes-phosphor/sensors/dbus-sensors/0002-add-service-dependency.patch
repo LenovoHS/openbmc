@@ -1,0 +1,10 @@
+--- a/service_files/xyz.openbmc_project.cpusensor.service	2019-08-07 12:49:27.458617470 +0800
++++ b/service_files/xyz.openbmc_project.cpusensor.service	2019-08-08 00:54:17.287149804 +0800
+@@ -1,6 +1,7 @@
+ [Unit]
+ Description=CPU Sensor
+ StopWhenUnneeded=false
++After=logrotate.service
+ 
+ [Service]
+ Restart=always
