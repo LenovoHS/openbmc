@@ -1,30 +1,26 @@
-#"Copyright (c) 2019-present Lenovo
-#Licensed under BSD-3, see COPYING.BSD file for details."
-
-diff -Naur a/src/FruDevice.cpp b/src/FruDevice.cpp
---- a/src/FruDevice.cpp	2019-07-17 17:44:28.389892508 +0800
-+++ b/src/FruDevice.cpp	2019-07-17 17:47:50.163188403 +0800
-@@ -215,6 +215,7 @@
-                 for (size_t jj = 1; jj <= FRU_AREAS.size(); jj++)
+diff -Nurd git_ori/src/FruDevice.cpp git/src/FruDevice.cpp
+--- git_ori/src/FruDevice.cpp	2019-08-07 13:28:07.743283925 +0800
++++ git/src/FruDevice.cpp	2019-08-07 13:52:19.375999288 +0800
+@@ -238,6 +238,7 @@
+             for (size_t jj = 1; jj <= FRU_AREAS.size(); jj++)
+             {
+                 auto area_offset = device[jj];
++                auto tmp_area_offset = area_offset;
+                 if (area_offset == 0)
                  {
-                     auto area_offset = device[jj];
-+                    auto tmp_area_offset = area_offset;
-                     if (area_offset != 0)
-                     {
-                         area_offset = static_cast<char>(area_offset * 8);
-@@ -225,7 +226,14 @@
-                                       << " address " << ii << "\n";
-                             return -1;
-                         }
--                        int length = block_data[1] * 8;
-+                        int length;
+                     continue;
+@@ -251,7 +252,13 @@
+                               << ii << "\n";
+                     return -1;
+                 }
+-                int length = block_data[1] * 8;
++                int length;
 +
-+                        /* The data length of internal area is byte 2, others byte 1*/
-+                        if (tmp_area_offset != 0 && jj == 1)
-+                            length = block_data[2] * 8;
-+                        else
-+                            length = block_data[1] * 8;
-+
-                         device.insert(device.end(), block_data.begin(),
-                                       block_data.begin() + 8);
-                         length -= 8;
++                /* The data length of internal area is byte 2, others byte 1*/
++                if (tmp_area_offset != 0 && jj == 1)
++                    length = block_data[2] * 8;
++                else
++                    length = block_data[1] * 8;
+                 device.insert(device.end(), block_data.begin(),
+                               block_data.begin() + 8);
+                 length -= 8;
