@@ -9,6 +9,7 @@ NAMES = " bus@1e78a000/i2c-bus@40/tmp75@4e   \
           bus@1e78a000/i2c-bus@c0/pxe1610@76 \
           bus@1e78a000/i2c-bus@140/pmbus@68  \
           bus@1e78a000/i2c-bus@140/pmbus@69  \
+          bus@1e78a000/i2c-bus@300/i2c-switch@76/i2c@3/tmp421@1f \
           pwm-tacho-controller@1e786000      \
         "
 ITEMSFMT = "ahb/apb/{0}.conf"

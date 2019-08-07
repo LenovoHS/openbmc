@@ -324,6 +324,12 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 			reg = <3>;
+
+			/* OCP Temp */
+			tmp421@1f {
+				compatible = "ti,tmp421";
+				reg = <0x1f>;
+			};
 		};
 	};
 };
