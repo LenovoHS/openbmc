@@ -1,0 +1,14 @@
+#"Copyright (c) 2019-present Lenovo
+#Licensed under BSD-3, see COPYING.BSD file for details."
+
+[Unit]
+Description=Lenovo BIOS Verify
+
+[Service]
+RemainAfterExit=no
+Type=oneshot
+ExecStart=/usr/bin/env bios-verify.sh 
+SyslogIdentifier=bios-verify.sh 
+
+[Install]
+WantedBy=phosphor-ipmi-flash-bios-verify.target
