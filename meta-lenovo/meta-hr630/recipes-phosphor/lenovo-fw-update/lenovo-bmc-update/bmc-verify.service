@@ -1,0 +1,14 @@
+#"Copyright (c) 2019-present Lenovo
+#Licensed under BSD-3, see COPYING.BSD file for details."
+
+[Unit]
+Description=Lenovo BMC Verify
+
+[Service]
+RemainAfterExit=no
+Type=oneshot
+ExecStart=/usr/bin/env bmc-verify.sh 
+SyslogIdentifier=bmc-verify.sh 
+
+[Install]
+WantedBy=phosphor-ipmi-flash-bmc-verify.target

@@ -1,0 +1,14 @@
+#"Copyright (c) 2019-present Lenovo
+#Licensed under BSD-3, see COPYING.BSD file for details."
+
+[Unit]
+Description=Lenovo BIOS Update
+
+[Service]
+RemainAfterExit=no
+Type=oneshot
+ExecStart=/usr/bin/env bios-update.sh
+SyslogIdentifier=bios-update.sh
+
+[Install]
+WantedBy=phosphor-ipmi-flash-bios-update.target
