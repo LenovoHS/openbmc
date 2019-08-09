@@ -162,6 +162,49 @@ ipmi_ret_t ipmioemWriteFPGA(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
     return rc;
 }
 
+ipmi_ret_t ipmioemReadBP(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
+                                   ipmi_request_t request,
+                                   ipmi_response_t response,
+                                   ipmi_data_len_t data_len,
+                                   ipmi_context_t context)
+{
+    ipmi_ret_t rc = IPMI_CC_OK;
+    uint8_t rsp;
+    auto *req = reinterpret_cast<uint8_t *>(request);
+    if (*data_len != REQ_LEN_READ_BP)
+    {
+        *data_len = 0;
+        return IPMI_CC_REQ_DATA_LEN_INVALID;
+    }
+
+    try
+    {
+        int fd = open(I2C_BUS_BP, O_RDWR | O_CLOEXEC);
+        if (fd < 0)
+        {
+            phosphor::logging::log<level::INFO>("Open BP i2c bus failed");
+            return IPMI_CC_UNSPECIFIED_ERROR;
+        }
+
+        int ret = i2cMasterWriteRead(fd, I2C_ADDR_BP, req, 1, &rsp, 1);
+        if (ret != 0) {
+            phosphor::logging::log<level::INFO>("Failed to communicate with BP");
+            close(fd);
+            return IPMI_CC_UNSPECIFIED_ERROR;
+        }
+        *data_len = 1;
+        std::memcpy(response, &rsp, *data_len);
+
+        close(fd);
+    }
+    catch (const sdbusplus::exception::SdBusError& e)
+    {
+        phosphor::logging::log<level::ERR>("Failed to get data from FPGA");
+        return IPMI_CC_INVALID_FIELD_REQUEST;
+    }
+    return rc;
+}
+
 static void registerOEMFunctions(void)
 {
     phosphor::logging::log<phosphor::logging::level::INFO>(
@@ -177,6 +220,10 @@ static void registerOEMFunctions(void)
 
     ipmiPrintAndRegister(NETFUN_OEM, CMD_OEM_WRITE_FPGA, NULL,
                          ipmioemWriteFPGA,
+                         PRIVILEGE_ADMIN);
+
+    ipmiPrintAndRegister(NETFUN_OEM, CMD_OEM_READ_BP, NULL,
+                         ipmioemReadBP,
                          PRIVILEGE_ADMIN);
 }
 
