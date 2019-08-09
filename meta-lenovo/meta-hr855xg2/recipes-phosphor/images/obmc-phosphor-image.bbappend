@@ -11,12 +11,12 @@ OBMC_IMAGE_EXTRA_INSTALL_append_hr855xg2 = " phosphor-ipmi-blobs \
                                              obmc-phosphor-buttons-signals \
                                              obmc-phosphor-buttons-handler \
                                              obmc-phosphor-buttons \
-                                             lenovo-fpga-update \
                                              fpga-version \
+                                             lenovo-fpga-update \
                                              lenovo-bmc-update \                                             
                                            "
                                            
-IMAGE_FEATURES_remove_hr855xg2 = " ssh-server-dropbear"                                        
+#IMAGE_FEATURES_remove_hr855xg2 = " ssh-server-dropbear"
 
 
 

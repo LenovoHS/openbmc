@@ -8,5 +8,5 @@ SRC_URI += " file://0001-Disable-SPI-clock-max-speed-detection-and-limit-SPI-.pa
              file://0002-ENABLE-DEDOCE.patch \
            "
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+
 
