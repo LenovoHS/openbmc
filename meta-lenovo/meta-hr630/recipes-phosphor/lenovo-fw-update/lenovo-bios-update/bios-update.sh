@@ -3,4 +3,9 @@
 
 #!/bin/sh
 
+OUT=/tmp/bios.update
+
 echo "Test Bios update ........"
+echo "running" > $OUT
+sleep 5
+echo "success" > $OUT
