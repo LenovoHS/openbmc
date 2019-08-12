@@ -4,8 +4,6 @@
 
 FILESEXTRAPATHS_prepend_hr855xg2 := "${THISDIR}/${PN}:"
 SRC_URI += " file://0001-Disable-SPI-clock-max-speed-detection-and-limit-SPI-.patch \
-             file://0001-aspeed-Disable-unnecessary-features.patch \
-             file://0002-ENABLE-DEDOCE.patch \
            "
 
 

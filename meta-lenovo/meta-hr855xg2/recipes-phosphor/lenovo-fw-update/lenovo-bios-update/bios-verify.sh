@@ -21,7 +21,7 @@ if [ $sha256_image != $sha256_file ];
 then
     echo "BIOS image verify fail."
     echo "failed" > $OUT
-    sleep 2
+    sleep 5
     rm -f $OUT
     rm -f $IMAGE_FILE 
     echo "Remove Bios image"
@@ -29,6 +29,6 @@ else
     echo "BIOS image verify ok."
     mv $IMAGE_FILE $BURN_IMAGE
     echo "success" > $OUT   
-    sleep 2
+    sleep 5
     rm -f $OUT    
 fi

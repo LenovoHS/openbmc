@@ -16,7 +16,7 @@
 		},
 		"update": {
 			"type": "fileSystemdUpdate",
-			"unit": "phosphor-ipmi-flash-bios-update.target"
+			"unit": "phosphor-ipmi-flash-bios-update.target",
 			"path": "/tmp/bios.update"
 		}
 	}

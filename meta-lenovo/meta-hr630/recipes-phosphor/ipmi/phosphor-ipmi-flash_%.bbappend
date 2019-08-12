@@ -10,6 +10,6 @@ IPMI_FLASH_BMC_ADDRESS_hr630 = "0xFE0B0000"
  
 do_install_append_hr630() {
     rm -f ${D}/usr/share/phosphor-ipmi-flash/config-bios.json
-} 
+}
  
 
