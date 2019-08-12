@@ -1,45 +1,45 @@
-#"Copyright (c) 2019-present Lenovo
-#Licensed under BSD-3, see COPYING.BSD file for details."
+# Copyright (c) 2019-present Lenovo
+# Licensed under BSD-3, see COPYING.BSD file for details.
 
 
 - name: fan1_status
-  path: /system/chassis/motherboard/FAN0_Status
-  methods:
-    - type: tach
-      sensors:
-        - fan1
-
-- name: fan2_status
   path: /system/chassis/motherboard/FAN1_Status
   methods:
     - type: tach
       sensors:
-        - fan2
+        - Fan1_Speed
 
-- name: fan3_status
+- name: fan2_status
   path: /system/chassis/motherboard/FAN2_Status
   methods:
     - type: tach
       sensors:
-        - fan3
+        - Fan2_Speed
 
-- name: fan4_status
+- name: fan3_status
   path: /system/chassis/motherboard/FAN3_Status
   methods:
     - type: tach
       sensors:
-        - fan4
+        - Fan3_Speed
 
-- name: fan5_status
+- name: fan4_status
   path: /system/chassis/motherboard/FAN4_Status
   methods:
     - type: tach
       sensors:
-        - fan5
+        - Fan4_Speed
 
-- name: fan6_status
+- name: fan5_status
   path: /system/chassis/motherboard/FAN5_Status
   methods:
     - type: tach
       sensors:
-        - fan6
+        - Fan5_Speed
+
+- name: fan6_status
+  path: /system/chassis/motherboard/FAN6_Status
+  methods:
+    - type: tach
+      sensors:
+        - Fan6_Speed
