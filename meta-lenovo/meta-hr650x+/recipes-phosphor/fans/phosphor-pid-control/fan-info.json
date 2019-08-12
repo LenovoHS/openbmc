@@ -1,44 +1,44 @@
 {
     "sensors" : [
         {
-            "name": "fan1",
+            "name": "Fan1_Speed",
             "type": "fan",
-            "readPath": "/xyz/openbmc_project/sensors/fan_tach/fan1",
+            "readPath": "/xyz/openbmc_project/sensors/fan_tach/Fan1_Speed",
             "min": 0,
             "max": 255
         },
         {
-            "name": "fan2",
+            "name": "Fan2_Speed",
             "type": "fan",
-            "readPath": "/xyz/openbmc_project/sensors/fan_tach/fan2",
+            "readPath": "/xyz/openbmc_project/sensors/fan_tach/Fan2_Speed",
             "min": 0,
             "max": 255
         },
         {
-            "name": "fan3",
+            "name": "Fan3_Speed",
             "type": "fan",
-            "readPath": "/xyz/openbmc_project/sensors/fan_tach/fan3",
+            "readPath": "/xyz/openbmc_project/sensors/fan_tach/Fan3_Speed",
             "min": 0,
             "max": 255
         },
         {
-            "name": "fan4",
+            "name": "Fan4_Speed",
             "type": "fan",
-            "readPath": "/xyz/openbmc_project/sensors/fan_tach/fan4",
+            "readPath": "/xyz/openbmc_project/sensors/fan_tach/Fan4_Speed",
             "min": 0,
             "max": 255
         },
         {
-            "name": "fan5",
+            "name": "Fan5_Speed",
             "type": "fan",
-            "readPath": "/xyz/openbmc_project/sensors/fan_tach/fan5",
+            "readPath": "/xyz/openbmc_project/sensors/fan_tach/Fan5_Speed",
             "min": 0,
             "max": 255
         },
         {
-            "name": "fan6",
+            "name": "Fan6_Speed",
             "type": "fan",
-            "readPath": "/xyz/openbmc_project/sensors/fan_tach/fan6",
+            "readPath": "/xyz/openbmc_project/sensors/fan_tach/Fan6_Speed",
             "min": 0,
             "max": 255
         }
@@ -50,9 +50,9 @@
             "failsafePercent": 100.0,
             "pids": [
                 {
-                    "name": "fan1-fan2_Speed",
+                    "name": "Fan1-Fan2_Speed",
                     "type": "fan",
-                    "inputs": ["fan1", "fan2"],
+                    "inputs": ["Fan1_Speed", "Fan2_Speed"],
                     "setpoint": 90.0,
                     "pid": {
                         "samplePeriod": 0.1,
