@@ -37,6 +37,17 @@ void flushOemData()
     return;
 }
 
+int retrieveOemData ()
+{
+    std::ifstream file(JSON_OEM_DATA_FILE);
+    if (file) {
+        file >> oemData;
+    } else {
+        return -1;
+    }
+	return 0;
+}
+
 std::string bytesToStr(uint8_t *byte, int len)
 {
     std::stringstream ss;
@@ -366,7 +377,7 @@ ipmi_ret_t ipmiOemGetBIOSLoadDefaultStatus(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
 	{
 		return IPMI_CC_REQ_DATA_LEN_INVALID;
 	}
-	
+
 	BIOSLoadDefaultStr = oemData[BIOS_LOAD_Default_Flag];	
     *data_len = strToBytes(BIOSLoadDefaultStr, res);
 	*data_len = 1;
@@ -404,20 +415,23 @@ ipmi_ret_t ipmiOemGetBIOSCurrentPID(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
                                    ipmi_data_len_t data_len,
                                    ipmi_context_t context)
 {
-	uint8_t *res = reinterpret_cast<uint8_t *>(response);
-	std::string BIOSCurrentPIDStr;
-	int len = *data_len;
+    uint8_t *res = reinterpret_cast<uint8_t *>(response);
+    std::string BIOSCurrentPIDStr;
+    int len = *data_len;
 	
-	if(len != 0)
-	{
-		return IPMI_CC_REQ_DATA_LEN_INVALID;
-	}
+    if(len != 0) {
+        return IPMI_CC_REQ_DATA_LEN_INVALID;
+    }
 	
-	BIOSCurrentPIDStr = oemData[BIOS_Profile_Current_Configuration];	
+    if (retrieveOemData() != 0) {
+        return IPMI_CC_INVALID_FIELD_REQUEST;
+    }
+
+    BIOSCurrentPIDStr = oemData[BIOS_Profile_Current_Configuration];	
     *data_len = strToBytes(BIOSCurrentPIDStr, res);
-	*data_len = 1;
+    *data_len = 1;
 	
-	return IPMI_CC_OK;      
+    return IPMI_CC_OK;      
 }
 
 ipmi_ret_t ipmiOemSetBIOSWantedPID(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
