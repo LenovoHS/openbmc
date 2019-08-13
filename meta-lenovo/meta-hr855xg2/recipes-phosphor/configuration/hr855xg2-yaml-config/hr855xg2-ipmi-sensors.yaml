@@ -2188,7 +2188,7 @@
 0x6B:
   entityID: 0x1D
   sensorType: 0x04
-  path: /xyz/openbmc_project/sensors/fan_tach/PDB_FAN1_Speed
+  path: /xyz/openbmc_project/sensors/fan_tach/PDB_FAN1_2_Speed
   sensorReadingType: 0x01
   multiplierM: 115
   offsetB: 0
@@ -2205,27 +2205,6 @@
         Offsets:
           0x0:
             type: int64_t
-
-0x6C:
-  entityID: 0x1D
-  sensorType: 0x04
-  path: /xyz/openbmc_project/sensors/fan_tach/PDB_FAN2_Speed
-  sensorReadingType: 0x01
-  multiplierM: 115
-  offsetB: 0
-  bExp: 0
-  unit: xyz.openbmc_project.Sensor.Value.Unit.RPMS
-  scale: 0
-  rExp: 0
-  mutability: Mutability::Read
-  serviceInterface: org.freedesktop.DBus.Properties
-  readingType: readingData
-  interfaces:
-    xyz.openbmc_project.Sensor.Value:
-      Value:
-        Offsets:
-          0x0:
-            type: int64_t            
 
 0x80:
   sensorType: 0x04

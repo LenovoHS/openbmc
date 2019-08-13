@@ -1,0 +1,14 @@
+# Copyright (c) 2019-present Lenovo
+# Licensed under BSD-3, see COPYING.BSD file for details.
+
+[Unit]
+Description=Lenovo Fan Service for specific platform
+
+[Service]
+ExecStart=/usr/bin/fan_switch
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+

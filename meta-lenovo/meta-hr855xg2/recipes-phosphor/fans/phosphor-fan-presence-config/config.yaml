@@ -111,11 +111,11 @@
   methods:
     - type: tach
       sensors:
-        - PDB_FAN1_Speed
+        - PDB_FAN1_2_Speed
 
 - name: PDB_FAN2_Status
   path: /system/chassis/motherboard/PDB_FAN2_Status
   methods:
     - type: tach
       sensors:
-        - PDB_FAN2_Speed
+        - PDB_FAN1_2_Speed
