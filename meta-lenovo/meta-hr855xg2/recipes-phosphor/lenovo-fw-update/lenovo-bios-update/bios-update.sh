@@ -62,8 +62,13 @@ then
         if [ $mtd6 == "pnor" ]; then
             echo "starting bios update..."
             flashcp -v $IMAGE_FILE /dev/mtd6 
-            echo "success" > $OUT
-            echo "starting bios update completely..."  
+            if [ $? -eq 0 ]; then
+                echo "success" > $OUT
+                echo "bios update successfully..."
+            else
+                echo "failed" > $OUT
+                echo "bios update failed..."
+            fi
         fi
     fi
     
@@ -72,8 +77,13 @@ then
         if [ $mtd7 == "pnor" ]; then
             echo "starting bios update..."
             flashcp -v $IMAGE_FILE /dev/mtd7
-            echo "success" > $OUT
-            echo "starting bios update completely..."            
+            if [ $? -eq 0 ]; then
+                echo "success" > $OUT
+                echo "bios update successfully..."
+            else
+                echo "failed" > $OUT
+                echo "bios update failed..."
+            fi
         fi
     fi
 fi
