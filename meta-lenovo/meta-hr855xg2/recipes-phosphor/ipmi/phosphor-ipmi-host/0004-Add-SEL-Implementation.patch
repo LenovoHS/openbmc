@@ -1,6 +1,6 @@
 diff -Naur a/selutility.cpp b/selutility.cpp
---- a/selutility.cpp	2019-07-29 14:07:51.742751966 +0800
-+++ b/selutility.cpp	2019-07-30 15:21:01.559962335 +0800
+--- a/selutility.cpp	2019-08-13 13:31:29.976260757 +0800
++++ b/selutility.cpp	2019-08-13 15:10:04.140299407 +0800
 @@ -10,6 +10,8 @@
  #include <phosphor-logging/elog-errors.hpp>
  #include <vector>
@@ -10,57 +10,133 @@ diff -Naur a/selutility.cpp b/selutility.cpp
  
  extern const ipmi::sensor::InvObjectIDMap invSensors;
  using namespace phosphor::logging;
-@@ -75,7 +77,20 @@
-         std::chrono::duration_cast<std::chrono::seconds>(chronoTimeStamp)
-             .count());
+@@ -60,22 +62,81 @@
  
--    static constexpr auto systemEventRecord = 0x02;
-+    std::string path = std::string(ipmi::sel::selPath) + "/" + "sel.bin";  
+     record.recordID = static_cast<uint16_t>(std::get<uint32_t>(iterId->second));
+ 
+-    // Read Timestamp from the log entry.
+-    static constexpr auto propTimeStamp = "Timestamp";
+-    auto iterTimeStamp = entryData.find(propTimeStamp);
+-    if (iterTimeStamp == entryData.end())
++    std::string path = std::string(ipmi::sel::selPath) + "/" + "sel.bin";
 +    std::fstream handle(path, std::ios::in | std::ios::binary);
 +    std::string content;
 +    if (handle.fail())
-+    {
+     {
+-        log<level::ERR>("Error in reading Timestamp of logging entry");
 +        log<level::ERR>("Failed to open SEL file", entry("FILENAME=%s", path.c_str()));
-+        elog<InternalFailure>();
-+    }
+         elog<InternalFailure>();
+     }
 +    handle.seekg(16 * (record.recordID - 1), std::ios::beg);
 +    content.resize(16);
 +    handle.read(&content[0], content.size());
 +    handle.close();
 +
++    record.recordType = content[2];
++
++    if (record.recordType < 0xE0)  //Timestamped SEL. Including both Standard and OEM.
++    {
++        // Read Timestamp from the log entry.
++        static constexpr auto propTimeStamp = "Timestamp";
++        auto iterTimeStamp = entryData.find(propTimeStamp);
++        if (iterTimeStamp == entryData.end())
++        {
++            log<level::ERR>("Error in reading Timestamp of logging entry");
++            elog<InternalFailure>();
++        }
++
++        std::chrono::milliseconds chronoTimeStamp(
++            std::get<uint64_t>(iterTimeStamp->second));
++        record.timeStamp = static_cast<uint32_t>(
++            std::chrono::duration_cast<std::chrono::seconds>(chronoTimeStamp)
++                .count());
++
++    	record.generatorID = content[8] << 8 | content[7];
++    	record.eventMsgRevision = content[9];
++    	record.sensorType = content[10];
++    	record.sensorNum = content[11];
++    	record.eventData1 = content[13];
++    	record.eventData2 = content[14];
++    	record.eventData3 = content[15];
++
++    	// Read Resolved from the log entry.
++    	static constexpr auto propResolved = "Resolved";
++    	auto iterResolved = entryData.find(propResolved);
++    	if (iterResolved == entryData.end())
++    	{
++        	log<level::ERR>("Error in reading Resolved field of logging entry");
++        	elog<InternalFailure>();
++    	}
++
++    	static constexpr auto deassertEvent = 0x80;
++
++    	// Evaluate if the event is assertion or deassertion event
++    	if (std::get<bool>(iterResolved->second))
++    	{
++        	record.eventType = deassertEvent | iter->second.eventReadingType;
++    	}
++    	else
++    	{
++        	record.eventType = iter->second.eventReadingType;
++    	}
++    	record.eventType = content[12];
++    }
++    else {  // Non-timestamped OEM SEL
++        record.timeStamp = content[6] << 24 | content[5] << 16 | content[4] << 8 | content[3];
++        record.generatorID = content[8] << 8 | content[7];
++        record.eventMsgRevision = content[9];
++        record.sensorType = content[10];
++        record.sensorNum = content[11];
++        record.eventType = content[12];
++        record.eventData1 = content[13];
++        record.eventData2 = content[14];
++        record.eventData3 = content[15];
++    }
+ 
+-    std::chrono::milliseconds chronoTimeStamp(
+-        std::get<uint64_t>(iterTimeStamp->second));
+-    record.timeStamp = static_cast<uint32_t>(
+-        std::chrono::duration_cast<std::chrono::seconds>(chronoTimeStamp)
+-            .count());
+-
+-    static constexpr auto systemEventRecord = 0x02;
 +  /*static constexpr auto systemEventRecord = 0x02;
      static constexpr auto generatorID = 0x2000;
      static constexpr auto eventMsgRevision = 0x04;
  
-@@ -85,7 +100,16 @@
+@@ -85,28 +146,7 @@
  
      record.sensorType = iter->second.sensorType;
      record.sensorNum = iter->second.sensorID;
 -    record.eventData1 = iter->second.eventOffset;
+-
+-    // Read Resolved from the log entry.
+-    static constexpr auto propResolved = "Resolved";
+-    auto iterResolved = entryData.find(propResolved);
+-    if (iterResolved == entryData.end())
+-    {
+-        log<level::ERR>("Error in reading Resolved field of logging entry");
+-        elog<InternalFailure>();
+-    }
+-
+-    static constexpr auto deassertEvent = 0x80;
+-
+-    // Evaluate if the event is assertion or deassertion event
+-    if (std::get<bool>(iterResolved->second))
+-    {
+-        record.eventType = deassertEvent | iter->second.eventReadingType;
+-    }
+-    else
+-    {
+-        record.eventType = iter->second.eventReadingType;
+-    }
 +    record.eventData1 = iter->second.eventOffset;*/
-+
-+    record.recordType = content[2];
-+    record.generatorID = content[8] << 8 | content[7];
-+    record.eventMsgRevision = content[9];
-+    record.sensorType = content[10];
-+    record.sensorNum = content[11];
-+    record.eventData1 = content[13];
-+    record.eventData2 = content[14];
-+    record.eventData3 = content[15];
- 
-     // Read Resolved from the log entry.
-     static constexpr auto propResolved = "Resolved";
-@@ -107,6 +131,7 @@
-     {
-         record.eventType = iter->second.eventReadingType;
-     }
-+    record.eventType = content[12];
  
      return record;
  }
 diff -Naur a/selutility.hpp b/selutility.hpp
---- a/selutility.hpp	2019-07-29 14:07:51.742751966 +0800
-+++ b/selutility.hpp	2019-07-30 15:17:11.677680798 +0800
+--- a/selutility.hpp	2019-08-13 13:31:29.976260757 +0800
++++ b/selutility.hpp	2019-08-13 13:33:02.171183711 +0800
 @@ -21,6 +21,8 @@
  
  static constexpr auto propIntf = "org.freedesktop.DBus.Properties";
@@ -71,8 +147,8 @@ diff -Naur a/selutility.hpp b/selutility.hpp
  using PropertyName = std::string;
  using Resolved = bool;
 diff -Naur a/storageaddsel.cpp b/storageaddsel.cpp
---- a/storageaddsel.cpp	2019-07-29 14:07:51.742751966 +0800
-+++ b/storageaddsel.cpp	2019-07-30 15:21:35.239707506 +0800
+--- a/storageaddsel.cpp	2019-08-13 13:31:29.976260757 +0800
++++ b/storageaddsel.cpp	2019-08-13 13:36:51.888412275 +0800
 @@ -2,6 +2,8 @@
  #include "error-HostEvent.hpp"
  #include "sensorhandler.hpp"
@@ -93,7 +169,7 @@ diff -Naur a/storageaddsel.cpp b/storageaddsel.cpp
 +                        std::array<uint8_t, eventDataSize> eventData)
  {
 -    // Read the eSEL data from the file.
-+    std::string path = std::string(ipmi::sel::selPath) + "/" + "sel.bin"; 
++    std::string path = std::string(ipmi::sel::selPath) + "/" + "sel.bin";
 +    std::fstream handle(path, std::ios::out | std::ios::app | std::ios::binary);
 +
 +    if (handle.fail())
@@ -150,8 +226,8 @@ diff -Naur a/storageaddsel.cpp b/storageaddsel.cpp
 +    return ret;
  }
 diff -Naur a/storageaddsel.hpp b/storageaddsel.hpp
---- a/storageaddsel.hpp	2019-07-29 14:07:51.742751966 +0800
-+++ b/storageaddsel.hpp	2019-07-29 18:32:07.901742689 +0800
+--- a/storageaddsel.hpp	2019-08-13 13:31:29.976260757 +0800
++++ b/storageaddsel.hpp	2019-08-13 13:38:41.771080454 +0800
 @@ -2,6 +2,8 @@
  
  #include <stdint.h>
@@ -188,8 +264,8 @@ diff -Naur a/storageaddsel.hpp b/storageaddsel.hpp
 +                                std::array<uint8_t, eventDataSize> eventData);
 +
 diff -Naur a/storagehandler.cpp b/storagehandler.cpp
---- a/storagehandler.cpp	2019-07-29 14:07:51.742751966 +0800
-+++ b/storagehandler.cpp	2019-07-29 17:41:38.854770873 +0800
+--- a/storagehandler.cpp	2019-08-13 13:31:29.976260757 +0800
++++ b/storagehandler.cpp	2019-08-13 13:41:40.836966037 +0800
 @@ -29,7 +29,6 @@
  unsigned int g_sel_time = 0xFFFFFFFF;
  extern const ipmi::sensor::IdInfoMap sensors;
@@ -198,7 +274,7 @@ diff -Naur a/storagehandler.cpp b/storagehandler.cpp
  namespace
  {
  constexpr auto TIME_INTERFACE = "xyz.openbmc_project.Time.EpochTime";
-@@ -618,14 +617,10 @@
+@@ -619,14 +618,10 @@
      // Per the IPMI spec, need to cancel the reservation when a SEL entry is
      // added
      cancelSELReservation();
