@@ -118,7 +118,7 @@ int fpga_transfer(spiInfo *info)
 	int rc = 0;
 	uint8_t rx_len = 0,rw_flag = 0;
 	
-	printf("before transfer %u\n",info->tx_len);
+	//printf("before transfer %u\n",info->tx_len);
 	/*******************************************
 	* bit7 bit6 bit5 bit4 bit3 bit2 bit1 bit0
 	* RW   ADI  |  00    |  RMT   |    00   |
@@ -148,7 +148,7 @@ int fpga_transfer(spiInfo *info)
 			perror("SPI_IOC_MESSAGE");
 			
 	}
-	printf("rx_len:%u\n",rx_len);
+	//printf("rx_len:%u\n",rx_len);
 	if(!rw_flag){
 		
 		for (i = 0; i< rx_len; i++)
@@ -391,7 +391,7 @@ int fpga_read(fpga_cmd_t *cmd)
         if ( (cmd->length > 4096) || (cmd->length & 0x000F) )
         {
 
-            printf( "%s: requested page size incorrect: 0x%04X\n", __FUNCTION__, cmd->length );
+            //printf( "%s: requested page size incorrect: 0x%04X\n", __FUNCTION__, cmd->length );
             return -1;
         }
 
@@ -402,7 +402,7 @@ int fpga_read(fpga_cmd_t *cmd)
     rc = fpga_message_read( msg );
     if ( rc == 0 )
         memcpy( (void *)cmd->data, (void *)msg->data, cmd->length );
-	printf("fpga read data:%0x,%x\n",cmd->data[0],msg->data[0]);
+	//printf("fpga read data:%0x,%x\n",cmd->data[0],msg->data[0]);
 	//free(tmp);
     return rc;
 }
@@ -427,7 +427,7 @@ int fpga_write(fpga_cmd_t *cmd)
         if ( (cmd->length > 4096) || (cmd->length & 0x000F) )
         {
 
-            printf( "%s: requested page size incorrect: 0x%04X\n", __FUNCTION__, cmd->length );
+            //printf( "%s: requested page size incorrect: 0x%04X\n", __FUNCTION__, cmd->length );
             return -1;
         }
 

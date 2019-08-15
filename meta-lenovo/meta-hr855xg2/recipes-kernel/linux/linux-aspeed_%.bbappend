@@ -11,6 +11,7 @@ SRC_URI += "file://aspeed-bmc-lenovo-hr855xg2.dts \
             file://0004-ENABLE-RAA228006.patch \
 			file://0005-ENABLE-SB1701022.patch  \
             file://0005-FIX-REMOVE-DRIVER-KERNEL-PANIC.patch \
+            file://0006-REMOVE-SPI-DEBUG-MESSAGE.patch \
             "
 
 do_configure_append() {

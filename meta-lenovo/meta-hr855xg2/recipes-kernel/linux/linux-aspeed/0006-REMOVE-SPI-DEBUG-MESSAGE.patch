@@ -1,0 +1,51 @@
+--- a/drivers/spi/ast-spi.c	2019-08-09 16:34:46.318012200 +0800
++++ b/drivers/spi/ast-spi.c	2019-08-15 14:58:28.642796283 +0800
+@@ -64,7 +64,7 @@
+ static inline void
+ ast_spi_write(struct ast_spi_host *spi, u32 val, u32 reg)
+ {
+-	printk("ast_spi_write : val: %x , reg : %x \n",val,reg);	
++	//printk("ast_spi_write : val: %x , reg : %x \n",val,reg);	
+ 	writel(val, spi->reg+ reg);
+ }
+ 
+@@ -245,8 +245,8 @@
+ 		if(xfer->tx_buf != 0) {
+ 			rw_flag = tx_buf[0];
+ 			
+-			printk("tx : %x,%x",tx_buf[0],rw_flag);
+-#if 1
++			//printk("tx : %x,%x",tx_buf[0],rw_flag);
++#if 0
+ 			
+ 			if(xfer->len > 10) {
+ 				for(i=0;i<10;i++) 
+@@ -257,7 +257,7 @@
+ 			}
+ 			
+ #endif
+-            printk("\n");
++            //printk("\n");
+ 			for(i=0;i<xfer->len;i++) {
+ 				writeb(tx_buf[i], host->buff);
+ 			}
+@@ -274,8 +274,8 @@
+ 			for(i=0;i<rx_len;i++){
+ 				rx_buf[i] = readb(host->buff);
+ 			    }
+-			printk("rx : %u",rx_len);
+-#if 1
++			//printk("rx : %u",rx_len);
++#if 0
+ 			if(rx_len > 10) {
+ 				for(i=0;i<10;i++) 
+ 					printk(" %x",rx_buf[i]);
+@@ -285,7 +285,7 @@
+ 			}
+ 			
+ #endif		
+-           printk("\n"); 	
++           //printk("\n"); 	
+ 		}
+ //		dev_dbg(host->dev,"old msg->actual_length %d , +len %d \n",msg->actual_length, xfer->len);
+ 		msg->actual_length += xfer->len;
