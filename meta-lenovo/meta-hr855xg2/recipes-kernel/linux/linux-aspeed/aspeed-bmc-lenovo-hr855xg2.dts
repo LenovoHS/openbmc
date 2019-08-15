@@ -210,18 +210,125 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 			reg = <0>;	
+			i2c-switch@71 {
+                                compatible = "nxp,pca9548";
+                                #address-cells = <1>;
+                                #size-cells = <0>;
+                                reg = <0x71>;
+                                pcie_slot1: pcie-slot@0{
+                                        #address-cells = <1>;
+                                        #size-cells = <0>;
+                                        reg = <0>;
+                                        pcie-slot = "/ahb/apb/bus@1e78a000/i2c-bus@40/i2c-switch@70/i2c@0/i2c-switch@71/pcie-slot@0";
+                                        label = "pcie-slot-1";
+                                };
+                                pcie_slot2: pcie-slot@1{
+                                        #address-cells = <1>;
+                                        #size-cells = <0>;
+                                        reg = <1>;
+                                        pcie-slot = "/ahb/apb/bus@1e78a000/i2c-bus@40/i2c-switch@70/i2c@0/i2c-switch@71/pcie-slot@1";
+                                        label = "pcie-slot-2";
+                                };
+                                pcie_slot3: pcie-slot@2{
+                                        #address-cells = <1>;
+                                        #size-cells = <0>;
+                                        reg = <2>;
+                                        pcie-slot = "/ahb/apb/bus@1e78a000/i2c-bus@40/i2c-switch@70/i2c@0/i2c-switch@71/pcie-slot@2";
+                                        label = "pcie-slot-3";
+                                };
+                                pcie_slot4: pcie-slot@3{
+                                        #address-cells = <1>;
+                                        #size-cells = <0>;
+                                        reg = <3>;
+                                        pcie-slot = "/ahb/apb/bus@1e78a000/i2c-bus@40/i2c-switch@70/i2c@0/i2c-switch@71/pcie-slot@3";
+                                        label = "pcie-slot-4";
+                                };
+                                pcie_slot5: pcie-slot@4{
+                                        #address-cells = <1>;
+                                        #size-cells = <0>;
+                                        reg = <4>;
+                                        pcie-slot = "/ahb/apb/bus@1e78a000/i2c-bus@40/i2c-switch@70/i2c@0/i2c-switch@71/pcie-slot@4";
+                                        label = "pcie-slot-5";
+                                };
+                        };
+
 		};
 
 		i2c_riser2: i2c@1 {
 			#address-cells = <1>;
 			#size-cells = <0>;
 			reg = <1>;
+			i2c-switch@71 {
+                                compatible = "nxp,pca9548";
+                                #address-cells = <1>;
+                                #size-cells = <0>;
+                                reg = <0x71>;
+
+                                pcie_slot8: pcie-slot@0{
+                                        #address-cells = <1>;
+                                        #size-cells = <0>;
+                                        reg = <0>;
+                                        pcie-slot = "/ahb/apb/bus@1e78a000/i2c-bus@40/i2c-switch@70/i2c@1/i2c-switch@71/pcie-slot@0";
+                                        label = "pcie-slot-8";
+                                };
+                                pcie_slot9: pcie-slot@1{
+                                        #address-cells = <1>;
+                                        #size-cells = <0>;
+                                        reg = <1>;
+                                        pcie-slot = "/ahb/apb/bus@1e78a000/i2c-bus@40/i2c-switch@70/i2c@1/i2c-switch@71/pcie-slot@1";
+                                        label = "pcie-slot-9";
+                                };
+                                pcie_slot10: pcie-slot@2{
+                                        #address-cells = <1>;
+                                        #size-cells = <0>;
+                                        reg = <2>;
+                                        pcie-slot = "/ahb/apb/bus@1e78a000/i2c-bus@40/i2c-switch@70/i2c@1/i2c-switch@71/pcie-slot@2";
+                                        label = "pcie-slot-10";
+                                };
+                                pcie_slot11: pcie-slot@3{
+                                        #address-cells = <1>;
+                                        #size-cells = <0>;
+                                        reg = <3>;
+                                        pcie-slot = "/ahb/apb/bus@1e78a000/i2c-bus@40/i2c-switch@70/i2c@1/i2c-switch@71/pcie-slot@3";
+                                        label = "pcie-slot-11";
+                                };
+                                pcie_slot12: pcie-slot@4{
+                                        #address-cells = <1>;
+                                        #size-cells = <0>;
+                                        reg = <4>;
+                                        pcie-slot = "/ahb/apb/bus@1e78a000/i2c-bus@40/i2c-switch@70/i2c@1/i2c-switch@71/pcie-slot@4";
+                                        label = "pcie-slot-12";
+                                };
+                        };
+
 		};
 
 		i2c_riser3: i2c@2 {
 			#address-cells = <1>;
 			#size-cells = <0>;
 			reg = <2>;
+			 i2c-switch@71 {
+                                compatible = "nxp,pca9545";
+                                #address-cells = <1>;
+                                #size-cells = <0>;
+                                reg = <0x71>;
+
+                                pcie_slot6: pcie-slot@1{
+                                        #address-cells = <1>;
+                                        #size-cells = <0>;
+                                        reg = <1>;
+                                        pcie-slot = "/ahb/apb/bus@1e78a000/i2c-bus@40/i2c-switch@70/i2c@2/i2c-switch@71/pcie-slot@1";
+                                        label = "pcie-slot-6";
+                                };
+                                pcie_slot7: pcie-slot@2{
+                                        #address-cells = <1>;
+                                        #size-cells = <0>;
+                                        reg = <2>;
+                                        pcie-slot = "/ahb/apb/bus@1e78a000/i2c-bus@40/i2c-switch@70/i2c@2/i2c-switch@71/pcie-slot@2";
+                                        label = "pcie-slot-7";
+                                };
+                        };
+
 		};
 
 		i2c_M2: i2c@3 {
