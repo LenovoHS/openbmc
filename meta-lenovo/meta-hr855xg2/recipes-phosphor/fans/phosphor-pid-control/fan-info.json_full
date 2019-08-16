@@ -121,9 +121,9 @@
             "max": 255
         },
         {
-            "name": "PDB_FAN2_Speed",
+            "name": "PDB_FAN1_2_Speed",
             "type": "fan",
-            "readPath": "/xyz/openbmc_project/sensors/fan_tach/PDB_FAN2_Speed",
+            "readPath": "/xyz/openbmc_project/sensors/fan_tach/PDB_FAN1_2_Speed",
             "writePath": "/sys/devices/platform/ahb/ahb:apb/1e786000.pwm-tacho-controller/hwmon/**/pwm8",
             "min": 0,
             "max": 255

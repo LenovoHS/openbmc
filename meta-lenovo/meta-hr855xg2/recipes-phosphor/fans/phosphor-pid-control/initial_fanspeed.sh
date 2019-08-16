@@ -7,9 +7,9 @@
 
 # For system fan PWM.
 for pwm_val in {1..7} ; do 
-    echo 153 > /sys/class/hwmon/*/pwm${pwm_val} 
+    echo 128 > /sys/class/hwmon/*/pwm${pwm_val} 
 done
 
 # For PDB fan PWM.
-echo 127 > /sys/class/hwmon/*/pwm8
+echo 77 > /sys/class/hwmon/*/pwm8
 
