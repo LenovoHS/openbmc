@@ -1,11 +1,9 @@
 #"Copyright (c) 2019-present Lenovo
 #Licensed under BSD-3, see COPYING.BSD file for details."
 
-#!/bin/sh
-stty -F /dev/ttyS0 115200
+#!/bin/bash
 
-#Enable UART IO2 pin
 mknod -m 660 /dev/mem c 1 1
-devmem 0x1e6e2084 32 0xff00f000
-unlink /dev/mem
+devmem 0x1E78909C 32 0x216d0018
 
+unlink /dev/mem

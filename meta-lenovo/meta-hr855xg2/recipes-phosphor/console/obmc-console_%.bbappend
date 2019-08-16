@@ -3,4 +3,3 @@
 
 
 FILESEXTRAPATHS_prepend_hr855xg2 := "${THISDIR}/${PN}:"
-OBMC_CONSOLE_HOST_TTY = "ttyS2"
