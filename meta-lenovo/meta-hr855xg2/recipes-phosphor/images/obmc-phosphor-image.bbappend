@@ -16,6 +16,7 @@ OBMC_IMAGE_EXTRA_INSTALL_append_hr855xg2 = " phosphor-ipmi-blobs \
                                              lenovo-bmc-update \
                                              lenovo-bios-update \
                                              lenovo-fan-service \
+                                             lenovo-pwr-monitor \
                                            "
                                            
 #IMAGE_FEATURES_remove_hr855xg2 = " ssh-server-dropbear"
