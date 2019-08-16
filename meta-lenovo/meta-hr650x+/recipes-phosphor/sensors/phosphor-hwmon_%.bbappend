@@ -5,6 +5,10 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 EXTRA_OECONF_append_hr650x+ = " --enable-negative-errno-on-fail"
 NAMES = " bus@1e78a000/i2c-bus@40/tmp75@4e   \
           bus@1e78a000/i2c-bus@80/tmp75@4d   \
+          bus@1e78a000/i2c-bus@c0/pxm1310@60 \
+          bus@1e78a000/i2c-bus@c0/pxm1310@62 \
+          bus@1e78a000/i2c-bus@c0/pxm1310@70 \
+          bus@1e78a000/i2c-bus@c0/pxm1310@72 \ 
           bus@1e78a000/i2c-bus@c0/pxe1610@74 \
           bus@1e78a000/i2c-bus@c0/pxe1610@76 \
           bus@1e78a000/i2c-bus@140/pmbus@68  \

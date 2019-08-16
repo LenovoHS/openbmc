@@ -207,14 +207,40 @@
 &i2c2 {
 	status = "okay";
 
+	/* VCORE CPU0*/
 	pxe1610@74 {
 		compatible = "pxe1610";
                 reg = <0x74>;
 	};
 
+	/* VCORE CPU1 */
 	pxe1610@76 {
                 compatible = "pxe1610";
                 reg = <0x76>;
+        };
+
+	/* CPU0 VDDQ ABC */
+	pxm1310@60 {
+		compatible = "pxm1310";
+		reg = <0x60>;
+	};
+
+	/* CPU0 VDDQ DEF */
+        pxm1310@62 {
+                compatible = "pxm1310";
+                reg = <0x62>;
+        };
+
+	/* CPU1 VDDQ ABC */
+        pxm1310@70 {
+                compatible = "pxm1310";
+                reg = <0x70>;
+        };
+
+        /* CPU1 VDDQ DEF */
+        pxm1310@72 {
+                compatible = "pxm1310";
+                reg = <0x72>;
         };
 };
 

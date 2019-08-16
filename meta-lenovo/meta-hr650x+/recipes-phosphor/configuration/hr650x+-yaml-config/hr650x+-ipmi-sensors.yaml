@@ -130,7 +130,91 @@
           0x0:
             type: int64_t
 
+0x07:
+  entityID: 0x03
+  sensorType: 0x01
+  path: /xyz/openbmc_project/sensors/temperature/VDDQ_ABC_CPU1
+  sensorReadingType: 0x01
+  multiplierM: 1
+  offsetB: 0
+  bExp: 0
+  unit: xyz.openbmc_project.Sensor.Value.Unit.DegreesC
+  scale: -3
+  rExp: 0
+  mutability: Mutability::Read
+  serviceInterface: org.freedesktop.DBus.Properties
+  readingType: readingData
+  interfaces:
+    xyz.openbmc_project.Sensor.Value:
+      Value:
+        Offsets:
+          0x0:
+            type: int64_t
+
+0x08:
+  entityID: 0x03
+  sensorType: 0x01
+  path: /xyz/openbmc_project/sensors/temperature/VDDQ_DEF_CPU1
+  sensorReadingType: 0x01
+  multiplierM: 1
+  offsetB: 0
+  bExp: 0
+  unit: xyz.openbmc_project.Sensor.Value.Unit.DegreesC
+  scale: -3
+  rExp: 0
+  mutability: Mutability::Read
+  serviceInterface: org.freedesktop.DBus.Properties
+  readingType: readingData
+  interfaces:
+    xyz.openbmc_project.Sensor.Value:
+      Value:
+        Offsets:
+          0x0:
+            type: int64_t
+
+0x09:
+  entityID: 0x03
+  sensorType: 0x01
+  path: /xyz/openbmc_project/sensors/temperature/VDDQ_ABC_CPU2
+  sensorReadingType: 0x01
+  multiplierM: 1
+  offsetB: 0
+  bExp: 0
+  unit: xyz.openbmc_project.Sensor.Value.Unit.DegreesC
+  scale: -3
+  rExp: 0
+  mutability: Mutability::Read
+  serviceInterface: org.freedesktop.DBus.Properties
+  readingType: readingData
+  interfaces:
+    xyz.openbmc_project.Sensor.Value:
+      Value:
+        Offsets:
+          0x0:
+            type: int64_t
+
 0x0A:
+  entityID: 0x03
+  sensorType: 0x01
+  path: /xyz/openbmc_project/sensors/temperature/VDDQ_DEF_CPU2
+  sensorReadingType: 0x01
+  multiplierM: 1
+  offsetB: 0
+  bExp: 0
+  unit: xyz.openbmc_project.Sensor.Value.Unit.DegreesC
+  scale: -3
+  rExp: 0
+  mutability: Mutability::Read
+  serviceInterface: org.freedesktop.DBus.Properties
+  readingType: readingData
+  interfaces:
+    xyz.openbmc_project.Sensor.Value:
+      Value:
+        Offsets:
+          0x0:
+            type: int64_t
+
+0x0B:
   entityID: 0x0B
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/NIC_Temp
@@ -151,7 +235,7 @@
           0x0:
             type: int64_t
 
-0x0B:
+0x0C:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_A1_CPU1
@@ -172,7 +256,7 @@
           0x0:
             type: double
 
-0x0C:
+0x0D:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_A2_CPU1
@@ -193,7 +277,7 @@
           0x0:
             type: double
 
-0x0D:
+0x0E:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_B1_CPU1
@@ -214,7 +298,7 @@
           0x0:
             type: double
 
-0x0E:
+0x0F:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_B2_CPU1
@@ -235,7 +319,7 @@
           0x0:
             type: double
 
-0x0F:
+0x10:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_C1_CPU1
@@ -256,7 +340,7 @@
           0x0:
             type: double
 
-0x10:
+0x11:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_C2_CPU1
@@ -277,7 +361,7 @@
           0x0:
             type: double
 
-0x11:
+0x12:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_D1_CPU1
@@ -298,7 +382,7 @@
           0x0:
             type: double
 
-0x12:
+0x13:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_D2_CPU1
@@ -319,7 +403,7 @@
           0x0:
             type: double
 
-0x13:
+0x14:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_E1_CPU1
@@ -340,7 +424,7 @@
           0x0:
             type: double
 
-0x14:
+0x15:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_E2_CPU1
@@ -361,7 +445,7 @@
           0x0:
             type: double
 
-0x15:
+0x16:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_F1_CPU1
@@ -382,7 +466,7 @@
           0x0:
             type: double
 
-0x16:
+0x17:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_F2_CPU1
@@ -403,7 +487,7 @@
           0x0:
             type: double
 
-0x17:
+0x18:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_A1_CPU2
@@ -424,7 +508,7 @@
           0x0:
             type: double
 
-0x18:
+0x19:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_A2_CPU2
@@ -445,7 +529,7 @@
           0x0:
             type: double
 
-0x19:
+0x1A:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_B1_CPU2
@@ -466,7 +550,7 @@
           0x0:
             type: double
 
-0x1A:
+0x1B:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_B2_CPU2
@@ -487,7 +571,7 @@
           0x0:
             type: double
 
-0x1B:
+0x1C:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_C1_CPU2
@@ -508,7 +592,7 @@
           0x0:
             type: double
 
-0x1C:
+0x1D:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_C2_CPU2
@@ -529,7 +613,7 @@
           0x0:
             type: double
 
-0x1D:
+0x1E:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_D1_CPU2
@@ -550,7 +634,7 @@
           0x0:
             type: double
 
-0x1E:
+0x1F:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_D2_CPU2
@@ -571,7 +655,7 @@
           0x0:
             type: double
 
-0x1F:
+0x20:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_E1_CPU2
@@ -592,7 +676,7 @@
           0x0:
             type: double
 
-0x20:
+0x21:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_E2_CPU2
@@ -613,7 +697,7 @@
           0x0:
             type: double
 
-0x21:
+0x22:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_F1_CPU2
@@ -634,7 +718,7 @@
           0x0:
             type: double
 
-0x22:
+0x23:
   entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/DIMM_F2_CPU2
@@ -655,7 +739,7 @@
           0x0:
             type: double
 
-0x23:
+0x24:
   entityID: 0x03
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/PCH_Temp
@@ -676,7 +760,7 @@
           0x0:
             type: double
 
-0x24:
+0x25:
   entityID: 0x0A
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/PSU0_Temp
@@ -697,7 +781,7 @@
           0x0:
             type: int64_t
 
-0x25:
+0x26:
   entityID: 0x0A
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/PSU1_Temp
