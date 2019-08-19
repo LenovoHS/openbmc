@@ -886,13 +886,6 @@
 		line-name = "IRQ_SMI_ACTIVE_N";
 	};
 
-	pin_gpio_aa7 {
-		gpio-hog;
-		gpios = <ASPEED_GPIO(AA, 7) GPIO_ACTIVE_HIGH>;
-		input;
-		line-name = "FM_BIOS_POST_CMPLT_N";
-	};
-
 	pin_gpio_ab0 {
 		gpio-hog;
 		gpios = <ASPEED_GPIO(AB, 0) GPIO_ACTIVE_HIGH>;
