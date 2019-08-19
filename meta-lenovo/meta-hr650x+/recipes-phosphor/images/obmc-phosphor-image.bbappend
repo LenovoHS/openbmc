@@ -9,6 +9,7 @@ OBMC_IMAGE_EXTRA_INSTALL_append_hr650x+ = " phosphor-ipmi-blobs \
                                             obmc-phosphor-buttons-handler \
                                             obmc-phosphor-buttons \
                                             lenovo-ipmi-oem \
+                                            phosphor-ipmi-ipmb \
                                           "
 
 
