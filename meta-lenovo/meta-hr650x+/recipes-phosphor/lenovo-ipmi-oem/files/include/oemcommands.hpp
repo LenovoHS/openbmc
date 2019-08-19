@@ -23,8 +23,16 @@ enum lenovo_oem_cmds
     CMD_OEM_ADD_UEFI_SEL = 0x00,
     CMD_OEM_READ_FPGA = 0x01,
     CMD_OEM_WRITE_FPGA = 0x02,
+    CMD_OEM_SET_BIOS_LOAD_DEFAULT_STATUS = 0x03,
+    CMD_OEM_GET_BIOS_LOAD_DEFAULT_STATUS = 0x04,
     CMD_OEM_READ_BP = 0x0B
 };
+
+#define JSON_OEM_DATA_FILE "/etc/oemData.json"
+#define BIOS_LOAD_Default_Flag "BIOS_Load_Default_Flag"
+
+#define BIOS_POST_END   0x01
+#define BIOS_POST_NOT_FINISH 0x00
 
 inline static void printRegistration(unsigned int netfn, unsigned int cmd)
 {
