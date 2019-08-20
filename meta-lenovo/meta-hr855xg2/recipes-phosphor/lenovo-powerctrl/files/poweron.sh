@@ -2,21 +2,18 @@
 #Licensed under BSD-3, see COPYING.BSD file for details."
 
 #!/bin/bash
-GPIO_BASE=$(cat /sys/class/gpio/gpio*/base)
-GPIO_NUM=$(($GPIO_BASE + 64))
-PWR_GOOD=$(($GPIO_BASE + 63))
 
-st=$(cat /sys/class/gpio/gpio${PWR_GOOD}/value)
+# power on
 
-if [ "$st" == "0" ]; then
-echo 1 > /sys/class/gpio/gpio${GPIO_NUM}/value
-sleep 1
-echo 0 > /sys/class/gpio/gpio${GPIO_NUM}/value
+status=`busctl get-property org.openbmc.control.Power /org/openbmc/control/power0 org.openbmc.control.Power pgood | awk '{print $2}'`
+
+
+if [ $status == "0" ]; then
+   phosphor-gpio-util --gpio=64 --path=/dev/gpiochip0 --delay=1000 --action=low_high
 fi
 
-# It is a workaround for power on fail.
-# The root cause is that op-wait-power-on could not detect correct PWR state.
-# We should remove this workaround after we fix the incorrect PWR state issue.
-systemctl stop op-wait-power-on@0.service
+sleep 4
 
-exit 0;
+# ipmitool mc watchdog set action=none
+
+exit 0

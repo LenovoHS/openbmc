@@ -10,6 +10,7 @@ S = "${WORKDIR}/"
 SRC_URI = "file://pwr-seq.c \
            file://Makefile \
            file://lenovo-pwr-sequence.service \
+           file://pwr-seq_t.sh \
           " 
 
 DEPENDS = "systemd \
@@ -22,4 +23,5 @@ SYSTEMD_SERVICE_${PN} = "lenovo-pwr-sequence.service"
 do_install() {
     install -d ${D}/usr/sbin
     install -m 0755 pwr-seq ${D}/${sbindir}/
+    install -m 0755 pwr-seq_t.sh ${D}/${sbindir}/
 }

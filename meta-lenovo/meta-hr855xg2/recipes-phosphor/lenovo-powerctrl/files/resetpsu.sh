@@ -17,9 +17,12 @@ source /run/psu_timedelay
                                                                                                                                         
 sleep $PSU_HARDRESET_DELAY                                                                                                                       
                                                                                                                                         
-VALUE=$(cat /sys/class/gpio/gpio${PWRGD_SYS_PWROK_BMC}/value)                                                                           
-                                                                                                                                        
-if [ $VALUE -eq 49 ];then                                                                                                             
+#VALUE=$(cat /sys/class/gpio/gpio${PWRGD_SYS_PWROK_BMC}/value)  
+
+status=`busctl get-property org.openbmc.control.Power /org/openbmc/control/power0 org.openbmc.control.Power pgood | awk '{print $2}'`
+                                                                         
+# power get
+if [ $status == "1"  ];then                                                                                                             
   echo "low" > /sys/class/gpio/gpio${FM_PCH_PWRBTN_N}/direction                                                                     
   sleep 6                                                                                                                               
   echo 1 > /sys/class/gpio/gpio${FM_PCH_PWRBTN_N}/value 
@@ -28,4 +31,4 @@ fi
 
 echo "low" > /sys/class/gpio/gpio${PDB_RESTART_N}/direction
 
-exit 0;
+exit 0

@@ -184,19 +184,19 @@ int verifyFPGA() {
 int main(int argc, char *argv[]) {
     printf("Power sequence control service running...\n");
 	
-	int PowerOKStatus;
-	exportGPIO(PWRGD_SYS_PWROK_BMC);
+//	int PowerOKStatus;
+//	exportGPIO(PWRGD_SYS_PWROK_BMC);
 	
-	PowerOKStatus = getGPIOValue(PWRGD_SYS_PWROK_BMC);
+//	PowerOKStatus = getGPIOValue(PWRGD_SYS_PWROK_BMC);
 	
 	exportGPIO(PDB_RESTART_N);
 	setGPIODirection(PDB_RESTART_N, "high");
 	
-	if(PowerOKStatus == 0x31)
-	{
-		printf("do nothing when host is on\n");
-		return 0;
-	}
+//	if(PowerOKStatus == 0x31)
+//	{
+//		printf("do nothing when host is on\n");
+//		return 0;
+//	}
     // Export necessary GPIOs
     exportGPIO(BMC_FPGA_FLASH_MUX_SEL1);
     exportGPIO(CP_SPI_FLASH_NCONFIG);

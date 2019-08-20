@@ -7,7 +7,7 @@ Requires=fpga-recovery.service
 After=fpga-recovery.service
 
 [Service]
-ExecStart=/usr/sbin/pwr-seq
+ExecStart=/bin/bash pwr-seq_t.sh
 Type=oneshot
 
 [Install]
