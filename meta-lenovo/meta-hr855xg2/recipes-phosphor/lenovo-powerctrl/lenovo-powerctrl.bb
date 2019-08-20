@@ -28,5 +28,4 @@ do_install() {
     install -m 0755 ${S}init_once.sh ${D}/${sbindir}/
     install -m 0755 ${S}poweroff.sh ${D}/${sbindir}/
     install -m 0755 ${S}poweron.sh ${D}/${sbindir}/
-    install -m 0755 power ${D}/${sbindir}/
 }
