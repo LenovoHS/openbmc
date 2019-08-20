@@ -9,9 +9,7 @@ inherit obmc-phosphor-systemd
 
 S = "${WORKDIR}/"
 
-SRC_URI = "file://power.c \
-           file://Makefile \
-           file://init_once.sh \
+SRC_URI = "file://init_once.sh \
            file://poweroff.sh \
            file://poweron.sh \
            file://host-gpio.service \
