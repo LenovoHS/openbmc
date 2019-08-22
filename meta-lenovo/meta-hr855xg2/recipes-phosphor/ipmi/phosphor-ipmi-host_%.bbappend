@@ -5,7 +5,9 @@ DEPENDS_append_hr855xg2 = " hr855xg2-yaml-config"
 
 FILESEXTRAPATHS_append := "${THISDIR}/${PN}:"
 
-SRC_URI += "file://0003-DIMM-Status-Implementation-By-Add-SEL.patch"
+SRC_URI += "file://0003-DIMM-Status-Implementation-By-Add-SEL.patch \
+            file://0004-Add-SEL-Implementation.patch \
+           "
 #SRC_URI += "file://0002-DBUS-Delay.patch \
 #            file://0003-DIMM-Status-Implementation-By-Add-SEL.patch \
 #            file://0004-Add-SEL-Implementation.patch \
