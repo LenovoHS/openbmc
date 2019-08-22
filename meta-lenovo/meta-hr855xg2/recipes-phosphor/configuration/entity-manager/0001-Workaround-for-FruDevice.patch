@@ -1,0 +1,27 @@
+diff -Naur a/src/FruDevice.cpp b/src/FruDevice.cpp
+--- a/src/FruDevice.cpp	2019-08-22 15:00:30.547017688 +0800
++++ b/src/FruDevice.cpp	2019-08-22 15:11:53.298103335 +0800
+@@ -446,6 +446,7 @@
+                 // TODO: offset can be 255, device is holding "chars" that's not
+                 // good.
+                 int areaOffset = device[jj];
++                int tmpAreaOffest = areaOffset;
+                 if (areaOffset == 0)
+                 {
+                     continue;
+@@ -462,7 +463,14 @@
+                 }
+ 
+                 // Ignore data type.
+-                int length = blockData[1] * 8;
++                int length;
++
++                /* The data length of internal area is byte 2, others byte 1*/
++                if (tmpAreaOffest != 0 && jj == 1)
++                    length = blockData[2] * 8;
++                else
++                    length = blockData[1] * 8;
++
+                 areaOffset += length;
+                 fruLength = (areaOffset > fruLength) ? areaOffset : fruLength;
+             }
