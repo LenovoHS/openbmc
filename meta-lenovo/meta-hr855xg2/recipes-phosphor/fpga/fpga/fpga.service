@@ -4,7 +4,7 @@
 [Unit]
 Description=lenovo fpga control service
 Requires=fpga-recovery.service
-Before=xyz.openbmc_project.cpusensor.service
+Before=xyz.openbmc_project.cpusensor.service xyz.openbmc_project.fpgasensor.service
 After=fpga-recovery.service
 
 

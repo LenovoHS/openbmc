@@ -119,6 +119,90 @@
                 }
             ],
             "Type": "XeonCPU"
+        },
+        {
+            "SnrNum": 149,
+            "SnrType": 7,
+            "Name": "CPU0 Prochot",
+            "Offset": [
+                {
+                    "Block": 14,
+                    "Addr": 3,
+                    "Bit": 0,
+                    "EvtBit": 1
+                }
+            ],
+            "Type": "Fpga"
+        },
+        {
+            "SnrNum": 150,
+            "SnrType": 7,
+            "Name": "CPU1 Prochot",
+            "Offset": [
+                {
+                    "Block": 14,
+                    "Addr": 3,
+                    "Bit": 1,
+                    "EvtBit": 1
+                }
+            ],
+            "Type": "Fpga"
+        },
+        {
+            "SnrNum": 151,
+            "SnrType": 7,
+            "Name": "CPU2 Prochot",
+            "Offset": [
+                {
+                    "Block": 14,
+                    "Addr": 3,
+                    "Bit": 2,
+                    "EvtBit": 1
+                }
+            ],
+            "Type": "Fpga"
+        },
+        {
+            "SnrNum": 152,
+            "SnrType": 7,
+            "Name": "CPU3 Prochot",
+            "Offset": [
+                {
+                    "Block": 14,
+                    "Addr": 3,
+                    "Bit": 3,
+                    "EvtBit": 1
+                }
+            ],
+            "Type": "Fpga"
+        },
+        {
+            "SnrNum": 153,
+            "SnrType": 7,
+            "Name": "CPU IERR",
+            "Offset": [
+                {
+                    "Block": 14,
+                    "Addr": 7,
+                    "Bit": 0,
+                    "EvtBit": 1
+                }
+            ],
+            "Type": "Fpga"
+        },
+        {
+            "SnrNum": 154,
+            "SnrType": 7,
+            "Name": "CPU MCERR",
+            "Offset": [
+                {
+                    "Block": 14,
+                    "Addr": 7,
+                    "Bit": 4,
+                    "EvtBit": 1
+                }
+            ],
+            "Type": "Fpga"
         }
     ],
     "Name": "HR855XG2 Baseboard",
