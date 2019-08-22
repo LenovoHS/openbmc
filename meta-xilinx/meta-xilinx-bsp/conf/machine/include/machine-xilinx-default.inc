@@ -23,6 +23,7 @@ UBOOT_SUFFIX_microblaze ?= "bin"
 
 UBOOT_BINARY ?= "u-boot.${UBOOT_SUFFIX}"
 UBOOT_ELF ?= "u-boot"
+UBOOT_ELF_zynq ?= "u-boot.elf"
 UBOOT_ELF_aarch64 ?= "u-boot.elf"
 
 #Hardware accelaration
@@ -32,6 +33,11 @@ PREFERRED_PROVIDER_virtual/egl_mali400 = "libmali-xlnx"
 PREFERRED_PROVIDER_virtual/libgl_mali400 = "mesa-gl"
 PREFERRED_PROVIDER_virtual/mesa_mali400 = "mesa-gl"
 
+# microblaze does not get on with pie for reasons not looked into as yet
+GCCPIE_microblaze = ""
+GLIBCPIE_microblaze = ""
+SECURITY_CFLAGS_microblaze = ""
+SECURITY_LDFLAGS_microblaze = ""
 
 XSERVER ?= " \
 	xserver-xorg \
@@ -77,3 +83,4 @@ XSERVER_EXT_zynqmp ?= "xf86-video-armsoc"
 # For MicroBlaze default all microblaze machines to use GDB 7.7.1 (for gdbserver/gdb)
 PREFERRED_VERSION_gdb_microblaze = "7.7.1"
 
+FPGA_MNGR_RECONFIG_ENABLE ?= "${@bb.utils.contains('IMAGE_FEATURES', 'fpga-manager', '1', '0', d)}"

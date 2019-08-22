@@ -70,6 +70,18 @@ do_install() {
 
 RPROVIDES_${PN}-dbg += "${PN}-libsensors-dbg ${PN}-sensors-dbg ${PN}-sensord-dbg ${PN}-isatools-dbg"
 
+ALLOW_EMPTY_${PN} = "1"
+RDEPENDS_${PN} += " \
+    ${PN}-libsensors \
+    ${PN}-sensors \
+    ${PN}-sensord \
+    ${PN}-fancontrol \
+    ${PN}-sensorsdetect \
+    ${PN}-sensorsconfconvert \
+    ${PN}-pwmconfig \
+    ${PN}-isatools \
+"
+
 # libsensors packages
 PACKAGES =+ "${PN}-libsensors ${PN}-libsensors-dev ${PN}-libsensors-staticdev ${PN}-libsensors-doc"
 
@@ -132,7 +144,7 @@ RDEPENDS_${PN}-sensorsconfconvert = "${PN}-sensors perl perl-modules"
 # pwmconfig script files
 FILES_${PN}-pwmconfig = "${sbindir}/pwmconfig"
 FILES_${PN}-pwmconfig-doc = "${mandir}/man8/pwmconfig.8"
-RDEPENDS_${PN}-pwmconfig = "${PN}-fancontrol"
+RDEPENDS_${PN}-pwmconfig = "${PN}-fancontrol bash"
 
 # isadump and isaset helper program files
 FILES_${PN}-isatools = "${sbindir}/isa*"

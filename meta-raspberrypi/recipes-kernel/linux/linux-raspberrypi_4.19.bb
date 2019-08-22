@@ -1,12 +1,6 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/linux-raspberrypi:"
-
-LINUX_VERSION ?= "4.19.44"
+LINUX_VERSION ?= "4.19.66"
 LINUX_RPI_BRANCH ?= "rpi-4.19.y"
 
-SRCREV = "b45a32b47b76cb64225d19841c20ee85ea97874d"
-SRC_URI = " \
-    git://github.com/raspberrypi/linux.git;protocol=git;branch=${LINUX_RPI_BRANCH} \
-    "
-require linux-raspberrypi.inc
+SRCREV = "fc5826fb999e0b32900d1f487e90c27a92010214"
 
-LIC_FILES_CHKSUM = "file://COPYING;md5=bbea815ee2795b2f4230826c0c6b8814"
+require linux-raspberrypi_4.19.inc

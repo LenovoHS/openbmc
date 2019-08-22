@@ -4,9 +4,9 @@
 require musl.inc
 inherit linuxloader
 
-SRCREV = "ac304227bb3ea1787d581f17d76a5f5f3abff51f"
+SRCREV = "d0b547dfb5f7678cab6bc39dd736ed6454357ca4"
 
-BASEVER = "1.1.22"
+BASEVER = "1.1.23"
 
 PV = "${BASEVER}+git${SRCPV}"
 
@@ -63,7 +63,7 @@ do_install() {
 	oe_runmake install DESTDIR='${D}'
 
 	install -d ${D}${bindir}
-	rm -f ${D}${bindir}/ldd
+	rm -f ${D}${bindir}/ldd ${D}${GLIBC_LDSO}
 	lnr ${D}${libdir}/libc.so ${D}${bindir}/ldd
 	lnr ${D}${libdir}/libc.so ${D}${GLIBC_LDSO}
 	for l in crypt dl m pthread resolv rt util xnet
