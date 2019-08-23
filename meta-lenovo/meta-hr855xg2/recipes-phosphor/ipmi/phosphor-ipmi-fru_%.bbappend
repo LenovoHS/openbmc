@@ -23,8 +23,8 @@ EEPROM_NAMES = "motherboard cpu0 cpu1 cpu2 cpu3 \
                 CPU3_DIMM_D1 CPU3_DIMM_D2 CPU3_DIMM_E1 CPU3_DIMM_E2 CPU3_DIMM_F1 CPU3_DIMM_F2 \
                "
 
-EEPROMFMT = "system/chassis/{0}"
-EEPROM_ESCAPEDFMT = "system-chassis-{0}"
+EEPROMFMT = "system/chassis/motherboard/{0}"
+EEPROM_ESCAPEDFMT = "system-chassis-motherboard-{0}"
 EEPROMS = "${@compose_list(d, 'EEPROMFMT', 'EEPROM_NAMES')}"
 EEPROMS_ESCAPED = "${@compose_list(d, 'EEPROM_ESCAPEDFMT', 'EEPROM_NAMES')}"
 

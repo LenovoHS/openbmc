@@ -3,6 +3,7 @@ Description=Read %I EEPROM
 Wants=mapper-wait@-xyz-openbmc_project-inventory.service
 Before=xyz.openbmc_project.cpusensor.service
 After=mapper-wait@-xyz-openbmc_project-inventory.service
+ConditionPathIsDirectory=!/var/lib/phosphor-inventory-manager/xyz/openbmc_project/inventory/%I
 
 [Service]
 Restart=no
