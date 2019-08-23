@@ -1,11 +1,12 @@
 diff -Naur a/read_fru_data.cpp b/read_fru_data.cpp
---- a/read_fru_data.cpp	2019-07-08 18:05:28.656736960 +0800
-+++ b/read_fru_data.cpp	2019-07-10 10:23:59.335070197 +0800
-@@ -50,6 +50,7 @@
-     ipmi::PropertyMap properties;
-     sdbusplus::bus::bus bus{ipmid_get_sd_bus_connection()};
-     auto service = ipmi::getService(bus, INV_INTF, OBJ_PATH);
-+    service = "xyz.openbmc_project.Inventory.Manager"; 
-     std::string objPath = OBJ_PATH + path;
+--- a/read_fru_data.cpp	2019-08-22 21:43:53.209487310 +0800
++++ b/read_fru_data.cpp	2019-08-23 11:17:49.276773157 +0800
+@@ -65,6 +65,8 @@
+         objPath = OBJ_PATH + path;
+     }
+ 
++    /* Workaround for getting wrong service */
++    service = "xyz.openbmc_project.Inventory.Manager";
      auto method = bus.new_method_call(service.c_str(), objPath.c_str(),
                                        PROP_INTF, "GetAll");
+     method.append(intf);
