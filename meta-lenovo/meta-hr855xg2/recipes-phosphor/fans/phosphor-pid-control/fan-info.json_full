@@ -607,9 +607,9 @@
         },
         {
             "name": "pcie_group_temp",
-            "type": "temp",
-            "readPath": "/xyz/openbmc_project/extsensors/temp/pcie_group_temp",
-            "timeout": 4
+            "type": "margin",
+            "readPath": "/xyz/openbmc_project/extsensors/margin/pcie_group_temp",
+            "timeout": 0
         },
         {
             "name": "CPU0_VR_Temp",
@@ -1165,7 +1165,7 @@
                 },
                 {
                     "name": "pcie_group_temp_pid",
-                    "type": "temp",
+                    "type": "margin",
                     "inputs": ["pcie_group_temp"],
                     "setpoint": 65.0,
                     "pid": {

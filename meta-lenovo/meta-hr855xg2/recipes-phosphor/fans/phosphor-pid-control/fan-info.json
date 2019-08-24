@@ -114,9 +114,9 @@
         },
         {
             "name": "pcie_group_temp",
-            "type": "temp",
-            "readPath": "/xyz/openbmc_project/extsensors/temp/pcie_group_temp",
-            "timeout": 4
+            "type": "margin",
+            "readPath": "/xyz/openbmc_project/extsensors/margin/pcie_group_temp",
+            "timeout": 0
         }
     ],
     "zones" : [
