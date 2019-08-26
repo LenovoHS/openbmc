@@ -13,8 +13,3 @@ enclosure_fault:
         DutyOn: 50
         Period: 0
 
-enclosure_identify:
-    identify:
-        Action: 'Blink'
-        DutyOn: 50
-        Period: 1000
