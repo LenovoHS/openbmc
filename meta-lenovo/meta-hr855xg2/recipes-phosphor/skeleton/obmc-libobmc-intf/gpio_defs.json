@@ -19,7 +19,7 @@
         {
              "name": "POWER_BUTTON",
              "pin": "I1",
-             "direction": "both"
+             "direction": "in"
         }
     ]
 }
