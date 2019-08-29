@@ -662,13 +662,6 @@
 		line-name = "BIOS_RCVR_N";
 	};
 
-	pin_gpio_i3 {
-		gpio-hog;
-		gpios = <ASPEED_GPIO(I, 3) GPIO_ACTIVE_HIGH>;
-		input;
-		line-name = "BMC_INTRUDED_COVER";
-	};
-
 	pin_gpio_j2 {
 		gpio-hog;
 		gpios = <ASPEED_GPIO(J, 2) GPIO_ACTIVE_HIGH>;
