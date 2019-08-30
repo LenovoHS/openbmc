@@ -13,6 +13,12 @@
 #include <sys/ioctl.h>
 #include <linux/i2c.h>
 #include <linux/i2c-dev.h>
+#include <sys/mman.h>
+#include <syslog.h>
+#include <linux/gpio.h>
+#include <stddef.h>
+#include <assert.h>
+#include <errno.h>
 
 #define MAX_STR_LEN 256
 
@@ -35,6 +41,97 @@
 #define SYSFS_GPIO_PATH "/sys/class/gpio"
 
 #define NO_TIMEOUT -1
+
+#define GPIO_OK           0x00
+#define GPIO_ERROR        0x01
+#define GPIO_OPEN_ERROR   0x02
+#define GPIO_INIT_ERROR   0x04
+#define GPIO_READ_ERROR   0x08
+#define GPIO_WRITE_ERROR  0x10
+#define GPIO_LOOKUP_ERROR 0x20
+
+typedef struct {
+  char* name;
+  char* dev;
+  uint16_t num;
+  uint16_t chip_id;
+  char* direction;
+  int fd;
+  bool irq_inited;
+} GPIO;
+
+void gpio_close(GPIO* gpio)
+{
+        if(gpio->fd < 0)
+                return;
+
+        close(gpio->fd);
+        gpio->fd = -1;
+}
+
+int gpio_read(GPIO* gpio, uint8_t *value)
+{
+        assert (gpio != NULL);
+        struct gpiohandle_data data;
+        memset(&data, 0, sizeof(data));
+
+        if (gpio->fd <= 0)
+        {
+                return GPIO_ERROR;
+        }
+
+        if (ioctl(gpio->fd, GPIOHANDLE_GET_LINE_VALUES_IOCTL, &data) < 0)
+        {
+                return GPIO_READ_ERROR;
+        }
+
+        *value = data.values[0];
+
+        return GPIO_OK;
+}
+
+int gpio_open(GPIO* gpio, uint8_t default_value)
+{
+        assert (gpio != NULL);
+
+        char buf[255];
+        sprintf(buf, "/dev/gpiochip%d", gpio->chip_id);
+        gpio->fd = open(buf, 0);
+        if (gpio->fd == -1)
+        {
+                return GPIO_OPEN_ERROR;
+        }
+
+        struct gpiohandle_request req;
+        memset(&req, 0, sizeof(req));
+        strncpy(req.consumer_label, "skeleton-gpio",  sizeof(req.consumer_label));
+
+        if (gpio->direction == NULL)
+        {
+                gpio_close(gpio);
+                return GPIO_OPEN_ERROR;
+        }
+        req.flags = (strcmp(gpio->direction,"in") == 0) ? GPIOHANDLE_REQUEST_INPUT
+                                                                : GPIOHANDLE_REQUEST_OUTPUT;
+        req.lineoffsets[0] = gpio->num;
+        req.lines = 1;
+
+        if (strcmp(gpio->direction,"out") == 0)
+        {
+                req.default_values[0] = default_value;
+        }
+
+        int rc = ioctl(gpio->fd, GPIO_GET_LINEHANDLE_IOCTL, &req);
+        if (rc < 0)
+        {
+                gpio_close(gpio);
+                return GPIO_OPEN_ERROR;
+        }
+        gpio_close(gpio);
+        gpio->fd = req.fd;
+
+        return GPIO_OK;
+}
 
 int exportGPIO (int num) {
     int fd, len;
@@ -155,7 +252,7 @@ int verifyBIOS() {
 
 int verifyFPGA() {
 
-    printf("Prepare to verify FPGA...\n");
+    fprintf(stderr, "Prepare to verify FPGA...\n");
     
     //TODO: verify FPGA SPI ROM 
     sleep(10);
@@ -180,11 +277,32 @@ int verifyFPGA() {
     return 0;
 }
 
+int get_power_status(void)
+{
+        uint8_t pgood_state;
+        GPIO power_gpio;
+        power_gpio.name = "PGOOD";
+        power_gpio.dev  = "/sys/class/gpio";
+        power_gpio.num  = 63;
+        power_gpio.chip_id = 0;
+        power_gpio.direction = "in";
+        int rc = gpio_open(&power_gpio, 0);
+        if(rc != GPIO_OK)
+        {
+                gpio_close(&power_gpio);
+                return 2;
+        }
+        rc = gpio_read(&power_gpio, &pgood_state);
+        gpio_close(&power_gpio);
+        if (rc != GPIO_OK) return 2;
+
+        return pgood_state;
+}
 
 int main(int argc, char *argv[]) {
-    printf("Power sequence control service running...\n");
+    fprintf(stderr, "Power sequence control service running...\n");
 	
-//	int PowerOKStatus;
+	int PowerOKStatus = get_power_status();
 //	exportGPIO(PWRGD_SYS_PWROK_BMC);
 	
 //	PowerOKStatus = getGPIOValue(PWRGD_SYS_PWROK_BMC);
@@ -192,11 +310,11 @@ int main(int argc, char *argv[]) {
 	exportGPIO(PDB_RESTART_N);
 	setGPIODirection(PDB_RESTART_N, "high");
 	
-//	if(PowerOKStatus == 0x31)
-//	{
-//		printf("do nothing when host is on\n");
-//		return 0;
-//	}
+	if(1 == PowerOKStatus)
+	{
+		fprintf(stderr, "do nothing when host is on\n");
+		return 0;
+	}
     // Export necessary GPIOs
     exportGPIO(BMC_FPGA_FLASH_MUX_SEL1);
     exportGPIO(CP_SPI_FLASH_NCONFIG);
