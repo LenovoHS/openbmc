@@ -9,18 +9,17 @@ inherit obmc-phosphor-systemd
 
 S = "${WORKDIR}/"
 
-SRC_URI = "file://uart-bios.sh \
-           file://uart-bmc.sh \
-           file://uart-switch.service"
+SRC_URI = "file://resetpsu.sh \
+           file://resetpsu.service \
+           "
 
 DEPENDS = "systemd"
 RDEPENDS_${PN} = "bash"
 
 SYSTEMD_PACKAGES = "${PN}"
-SYSTEMD_SERVICE_${PN} = "uart-switch.service"
+SYSTEMD_SERVICE_${PN} = "resetpsu.service"
 
 do_install() {
     install -d ${D}/usr/sbin
-    install -m 0755 ${S}uart-bios.sh ${D}/${sbindir}/
-    install -m 0755 ${S}uart-bmc.sh ${D}/${sbindir}/
+    install -m 0755 ${S}resetpsu.sh ${D}/${sbindir}/
 }

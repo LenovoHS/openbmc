@@ -6,6 +6,7 @@ OBMC_IMAGE_EXTRA_INSTALL_append_hr855xg2 = " phosphor-ipmi-blobs \
                                              lenovo-pwr-sequence \
                                              fpga \
                                              id-button \
+                                             pwr-button \
                                              lenovo-ipmi-oem \
                                              frus \
                                              obmc-phosphor-buttons-signals \

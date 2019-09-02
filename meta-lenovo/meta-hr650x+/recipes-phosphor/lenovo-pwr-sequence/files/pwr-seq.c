@@ -15,22 +15,10 @@
 
 #define GPIOBASE 280
 
-
-// For v1.0 rework MB
-#if 0
-#define GPIO_RST_PLTRST_N 150         // GPIOS6
-#define GPIO_BMC_RSMRST_N 204         // GPIOZ4
-#define GPIO_BMC_PCH_SYSPWROK 206     // GPIOZ6
-#define GPIO_BMC_POST_CMPLT_N 207     // GPIOZ7
-#endif
-
-#if 1
-// For v1.2 MB
-#define GPIO_RST_PLTRST_N 37          // GPIOE5
-#define GPIO_BMC_RSMRST_N 204         // GPIOZ4
 #define GPIO_BMC_PCH_SYSPWROK 36      // GPIOE4
+#define GPIO_CPLD_CONF_DONE 67        // GPIOI3
+#define GPIO_BMC_RSMRST_N 204         // GPIOZ4
 #define GPIO_BMC_POST_CMPLT_N 207     // GPIOZ7
-#endif
 
 #define GPIO_VALUE_H 1
 #define GPIO_VALUE_L 0
@@ -88,6 +76,29 @@ int setGPIOValue (int num, int value) {
     close(fd);
 
     return 0;
+}
+
+int getGPIOValue (int num) {
+    int fd;
+    char file_name[MAX_STR_LEN];
+    char rbuf;
+
+    memset(file_name, 0, sizeof(file_name));
+    snprintf(file_name, sizeof(file_name), SYSFS_GPIO_PATH "/gpio%d/value", (GPIOBASE + num));
+
+    fd = open(file_name, O_RDONLY);
+    if (fd < 0) {
+        printf("Open %s/gpio%d/value failed\n", SYSFS_GPIO_PATH, (GPIOBASE + num));
+        return fd;
+    }
+
+    if(read(fd, &rbuf, 1) < 0) {
+        printf("Failed to read value");
+        return -1;
+    }
+    close(fd);
+
+    return atoi(&rbuf);
 }
 
 int setGPIODirection (int num, char *dir) {
@@ -180,7 +191,7 @@ int i2cMasterWrite(int fd, uint16_t addr, uint8_t *wbuf, uint16_t len) {
 int verifyBIOS() {
     // TODO: Varify BIOS
     printf("Prepare to varify BIOS...\n");
-	//sleep(1);  // Simulate process of verifying BIOS
+    //sleep(1);  // Simulate process of verifying BIOS
 
     return 0;
 }
@@ -245,12 +256,20 @@ int clearSLPS3Event() {
 int main(int argc, char *argv[]) {
     int ret = 0;
     bool is_slps3_triggered = false;
+    int is_cpld_config;
 
     printf("Power sequence control service running...\n");
 
+    exportGPIO(GPIO_CPLD_CONF_DONE);
+
+    is_cpld_config = getGPIOValue(GPIO_CPLD_CONF_DONE);
+    if (is_cpld_config == 1) {
+        printf("system initialized already, skip to monitoring !\n");
+        goto skip;
+    }
+
     // Export necessary GPIOs
     exportGPIO(GPIO_BMC_PCH_SYSPWROK);
-    exportGPIO(GPIO_RST_PLTRST_N);
     exportGPIO(GPIO_BMC_RSMRST_N);
     exportGPIO(GPIO_BMC_POST_CMPLT_N);
 
@@ -278,11 +297,7 @@ int main(int argc, char *argv[]) {
     setGPIODirection(GPIO_BMC_POST_CMPLT_N, "out");
     setGPIOValue(GPIO_BMC_POST_CMPLT_N, GPIO_VALUE_L);
 
-    // Set RST_PLTRST_N(S6) as interrupt/falling-trigger
-    setGPIODirection(GPIO_RST_PLTRST_N, "in");
-    setGPIOEdge(GPIO_RST_PLTRST_N, "falling");
-
-    printf("Start monitoring...\n");
+skip:
     while (1) {
         is_slps3_triggered = getSLPS3Sts();
 
