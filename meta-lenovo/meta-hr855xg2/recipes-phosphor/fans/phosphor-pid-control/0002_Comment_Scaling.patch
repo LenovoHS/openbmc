@@ -1,0 +1,12 @@
+diff -Nurd git_orig/dbus/dbuspassive.cpp git/dbus/dbuspassive.cpp
+--- git_orig/dbus/dbuspassive.cpp	2019-08-30 10:11:33.616950753 +0800
++++ git/dbus/dbuspassive.cpp	2019-08-30 10:13:44.815804538 +0800
+@@ -155,7 +155,7 @@
+ 
+             value *= std::pow(10, owner->getScale());
+ 
+-            scaleSensorReading(owner->getMin(), owner->getMax(), value);
++            //scaleSensorReading(owner->getMin(), owner->getMax(), value);
+ 
+             owner->setValue(value);
+         }

@@ -13,6 +13,7 @@ SYSTEMD_SERVICE_${PN} = "phosphor-pid-control.service \
 SRC_URI += "file://fan-info.json \
             file://fan-info.json_full \
             file://0001_AddSetPWMOEM.patch \
+            file://0002_Comment_Scaling.patch \
             file://initial_fanspeed.sh \
             file://start_phosphor-pid-control.sh \
            "
