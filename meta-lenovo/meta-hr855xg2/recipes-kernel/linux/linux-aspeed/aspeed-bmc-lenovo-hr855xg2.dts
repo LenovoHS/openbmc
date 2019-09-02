@@ -111,7 +111,7 @@
 		status = "okay";
 		m25p,fast-read;
 		label = "pnor";
-		spi-max-frequency = <100000000>;
+		spi-max-frequency = <40000000>;
 	};
 };
 
