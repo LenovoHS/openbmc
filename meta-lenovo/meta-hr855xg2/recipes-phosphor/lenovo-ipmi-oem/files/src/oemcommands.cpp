@@ -24,6 +24,7 @@ namespace ipmi
     static constexpr auto fpgaRoot = "/org/openbmc/control/fpga";
     static constexpr auto fpgaInterface = "org.openbmc.control.fpga";
 	//auto bus = sdbusplus::bus::new_default();
+	static constexpr auto pwmHwmonPath = "/sys/class/hwmon/hwmon0/pwm";
 	
 	static void registerOEMFunctions() __attribute__((constructor));
     sdbusplus::bus::bus bus(ipmid_get_sd_bus_connection()); // from ipmid/api.h
@@ -537,6 +538,75 @@ ipmi_ret_t ipmiOemControlLEDStatus(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
 	return IPMI_CC_OK;      
 }
 
+uint8_t count_pwm(void)
+{
+    FILE *f = NULL; // for use with popen
+    std::string command;
+    std::string pwm_path("/sys/class/hwmon/**/pwm*");
+    uint8_t num = 0;
+
+    command = "ls " + pwm_path + " | wc -l ";
+    f = popen(command.c_str(), "r");
+    fscanf(f, "%hhx", &num);
+    pclose(f);
+
+    return num;
+}
+
+ipmi_ret_t ipmiOemSetManualPWMVal(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
+                                   ipmi_request_t request,
+                                   ipmi_response_t response,
+                                   ipmi_data_len_t data_len,
+                                   ipmi_context_t context)
+{
+    ipmi_ret_t rc = IPMI_CC_OK;
+    uint8_t reqPWMName, reqPWMVal, total_pwm = 0;
+
+    /* Check if data_len is valid or not,
+     * if not, return INVALID_FIELD_REQUEST.
+     */
+    if (*data_len < sizeof(struct FanCtrlSetPWM))
+    {
+        return IPMI_CC_INVALID_FIELD_REQUEST;
+    }
+
+    const auto req =
+        reinterpret_cast<const struct FanCtrlSetPWM*>(request);
+
+    /* Check if any inputs are valid,
+     * if not, return IPMI_CC_INVALID
+     */
+    reqPWMName = req->pwm_name;
+    reqPWMVal = req->val;
+
+    /* Fetch current PWM numbers on the system
+     * and save it to total_pwm.
+     */
+
+    total_pwm = count_pwm();
+
+    if ( reqPWMVal > 0xFF || reqPWMName > total_pwm )
+        return IPMI_CC_INVALID;
+
+    /* Write PWM value to the designated PWM path.
+     * Output any errors.
+     */
+    std::string pwmdev = pwmHwmonPath + std::to_string(reqPWMName);
+    std::ofstream ofile;
+    ofile.open(pwmdev);
+    if (ofile)
+    {
+        ofile << static_cast<int64_t>(reqPWMVal);
+        ofile.close();
+        return rc;
+    }
+    else
+    {
+        std::cerr <<" Fail to write to PWM, path: "<< pwmdev.c_str() << std::endl;
+        return IPMI_CC_INVALID;
+    }
+}
+
 static void registerOEMFunctions(void)
 {
     phosphor::logging::log<phosphor::logging::level::INFO>(
@@ -584,7 +654,12 @@ static void registerOEMFunctions(void)
 						 
 	ipmiPrintAndRegister(NETFUN_OEM, CMD_OEM_Control_LED_Status, NULL,
                          ipmiOemControlLEDStatus,
-                         PRIVILEGE_USER); 
+                         PRIVILEGE_USER);
+
+	ipmiPrintAndRegister(NETFUN_OEM, CMD_OEM_SET_FAN_PWM, NULL,
+                         ipmiOemSetManualPWMVal,
+                         PRIVILEGE_USER);
+
 #endif
 }
 
