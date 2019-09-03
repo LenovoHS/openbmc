@@ -1,4 +1,4 @@
-#"Copyright (c) 2019-present Lenovo"
+# "Copyright (c) 2019-present Lenovo"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 SUMMARY = "hr855xg2 default FRU for CPU and DIMM"

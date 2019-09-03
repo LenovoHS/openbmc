@@ -1,4 +1,4 @@
-#"Copyright (c) 2019-present Lenovo"
+# "Copyright (c) 2019-present Lenovo"
 
 FILESEXTRAPATHS_append_hr855xg2 := "${THISDIR}/files:"
 LICENSE = "BSD-3-Clause"

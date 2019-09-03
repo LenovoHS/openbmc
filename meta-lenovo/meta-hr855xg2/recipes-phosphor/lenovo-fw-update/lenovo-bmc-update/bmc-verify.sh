@@ -1,5 +1,5 @@
-#"Copyright (c) 2019-present Lenovo
-#Licensed under BSD-3, see COPYING.BSD file for details."
+# "Copyright (c) 2019-present Lenovo
+# Licensed under BSD-3, see COPYING.BSD file for details."
 
 #!/bin/sh
 IMAGE_FILE=/run/initramfs/bmc-image

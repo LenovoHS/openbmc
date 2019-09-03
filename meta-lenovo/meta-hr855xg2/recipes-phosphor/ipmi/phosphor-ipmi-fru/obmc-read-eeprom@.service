@@ -1,3 +1,6 @@
+# "Copyright (c) 2019-present Lenovo
+# Licensed under BSD-3, see COPYING.BSD file for details."
+
 [Unit]
 Description=Read %I EEPROM
 Wants=mapper-wait@-xyz-openbmc_project-inventory.service
