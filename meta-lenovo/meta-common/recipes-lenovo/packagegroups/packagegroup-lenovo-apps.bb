@@ -38,8 +38,8 @@ RDEPENDS_${PN}-fans = " \
 
 SUMMARY_${PN}-flash = "Lenovo Flash"
 RDEPENDS_${PN}-flash = " \
-        obmc-flash-bmc \
-        obmc-mgr-download \
+        phosphor-ipmi-blobs \
+        phosphor-ipmi-flash \
         obmc-control-bmc \
         "
 
@@ -51,7 +51,6 @@ RDEPENDS_${PN}-system = " \
         strace \
         entity-manager \
         phosphor-ipmi-ethstats \
-        uart-routing \
         phosphor-sel-logger \
         dbus-sensors \
         phosphor-host-postd \
