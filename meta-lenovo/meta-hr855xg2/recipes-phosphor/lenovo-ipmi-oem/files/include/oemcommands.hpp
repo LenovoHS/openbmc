@@ -26,6 +26,7 @@ enum lenovo_oem_cmds
 	CMD_OEM_GET_BIOS_CURRENT_PID = 0x08,
 	CMD_OEM_SET_BIOS_WANTED_PID = 0x09,
 	CMD_OEM_GET_BIOS_WANTED_PID = 0x0A,
+	CMD_OEM_SET_FAN_PWM = 0x0B,
 };
 #define JSON_OEM_DATA_FILE "/etc/oemData.json"
 #define BIOS_LOAD_Default_Flag "BIOS_Load_Default_Flag"
@@ -65,6 +66,13 @@ struct writeFPGA
 	uint8_t block;
 	uint8_t offset;
 	uint8_t data;
+} __attribute__((packed));
+
+
+struct FanCtrlSetPWM
+{
+    uint8_t pwm_name;
+    uint8_t val;
 } __attribute__((packed));
 
 inline static void printRegistration(unsigned int netfn, unsigned int cmd)
