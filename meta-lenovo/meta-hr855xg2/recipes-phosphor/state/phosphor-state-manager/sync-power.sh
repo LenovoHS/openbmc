@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# "Copyright (c) 2019-present Lenovo
+# Licensed under BSD-3, see COPYING.BSD file for details."
+
 echo "phosphor-discover-system-state post exec"
 
 # Get Power Policy Setting

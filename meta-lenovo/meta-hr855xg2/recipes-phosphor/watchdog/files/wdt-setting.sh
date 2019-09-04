@@ -1,7 +1,7 @@
+#!/bin/sh
+
 # Copyright (c) 2019-present Lenovo
 # Licensed under BSD-3, see COPYING.BSD file for details.
-
-#!/bin/sh
 
 # Make sure watchdog service is ready to avoid script setting be written
 while [ ! -f /var/run/watchdog.pid ]

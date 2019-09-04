@@ -1,10 +1,9 @@
+#!bin/sh
+
 #"Copyright (c) 2019-present Lenovo
 #Licensed under BSD-3, see COPYING.BSD file for details."
 
-#!bin/bash
-
 # phosphor-pid-control flow
-
 PID_CONTROL="/usr/bin/swampd -l /tmp/"
 
 

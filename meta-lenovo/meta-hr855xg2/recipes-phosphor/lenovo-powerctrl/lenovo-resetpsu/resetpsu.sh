@@ -1,8 +1,8 @@
-# "Copyright (c) 2019-present Lenovo
-# Licensed under BSD-3, see COPYING.BSD file for details."
+#!/bin/sh  
 
-#!/bin/bash                                                                                                                             
-                                                                                                                                        
+# "Copyright (c) 2019-present Lenovo
+# Licensed under BSD-3, see COPYING.BSD file for details."               
+  
 GPIO_BASE=$(cat /sys/devices/platform/ahb/ahb:apb/1e780000.gpio/gpio/*/base)                                                            
 PWRGD_SYS_PWROK_BMC=$(($GPIO_BASE + 63))                                                                                                
 FM_PCH_PWRBTN_N=$(($GPIO_BASE + 65))                                                                                                    
@@ -17,9 +17,9 @@ if [ ! -L "/sys/class/gpio/gpio482" ];then
 fi
 
 source /run/psu_timedelay
-                                                                                                                                        
+
 sleep $PSU_HARDRESET_DELAY                                                                                                                       
-                                                                                                                                        
+
 #VALUE=$(cat /sys/class/gpio/gpio${PWRGD_SYS_PWROK_BMC}/value)  
 
 status=`busctl get-property org.openbmc.control.Power /org/openbmc/control/power0 org.openbmc.control.Power pgood | awk '{print $2}'`
