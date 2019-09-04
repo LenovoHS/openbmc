@@ -3,12 +3,12 @@ HOMEPAGE = "https://developers.google.com/protocol-buffers/"
 SECTION = "devel/python"
 
 LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/BSD-3-Clause;md5=550794465ba0ec5312d6919e203a55f9"
+LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=8;endline=8;md5=19e8f490f9526b1de84f8d949cfcfd4e"
 
 inherit pypi
 
-SRC_URI[md5sum] = "4ec7b2d49a5d1460591e520b54153c87"
-SRC_URI[sha256sum] = "b3452bbda12b1cbe2187d416779de07b2ab4c497d83a050e43c344778763721d"
+SRC_URI[md5sum] = "ca881f18795e024a2b935d5bae9b1ebe"
+SRC_URI[sha256sum] = "d831b047bd69becaf64019a47179eb22118a50dd008340655266a906c69c6417"
 
 # http://errors.yoctoproject.org/Errors/Details/184715/
 # Can't find required file: ../src/google/protobuf/descriptor.proto
