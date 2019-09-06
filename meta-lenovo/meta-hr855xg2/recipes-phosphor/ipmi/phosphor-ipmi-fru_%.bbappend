@@ -3,7 +3,7 @@
 
 DEPENDS_append_hr855xg2 = " hr855xg2-yaml-config"
 
-FILESEXTRAPATHS_append := "${THISDIR}/${PN}:"
+FILESEXTRAPATHS_append_hr855xg2 := "${THISDIR}/${PN}:"
 SRC_URI += "file://0001-Add-workaround-patch-to-fix-get-wrong-service-issue.patch \
            "
 

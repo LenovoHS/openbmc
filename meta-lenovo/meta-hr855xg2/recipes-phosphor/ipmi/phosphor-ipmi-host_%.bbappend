@@ -3,7 +3,7 @@
 
 DEPENDS_append_hr855xg2 = " hr855xg2-yaml-config"
 
-FILESEXTRAPATHS_append := "${THISDIR}/${PN}:"
+DEPENDS_append_hr855xg2 = " hr855xg2-yaml-config"
 
 SRC_URI += "file://0001-fru-workaround.patch \
             file://0003-DIMM-Status-Implementation-By-Add-SEL.patch \

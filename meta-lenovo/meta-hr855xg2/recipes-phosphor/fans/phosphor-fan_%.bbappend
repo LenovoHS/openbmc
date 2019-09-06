@@ -1,7 +1,7 @@
 #"Copyright (c) 2019-present Lenovo
 #Licensed under BSD-3, see COPYING.BSD file for details."
 
-FILESEXTRAPATHS_append := "${THISDIR}/${PN}:"
+FILESEXTRAPATHS_append_hr855xg2 := "${THISDIR}/${PN}:"
 SRC_URI += "file://0001_InvenManager.patch \
             file://0002_FanDetect.patch \
            "
