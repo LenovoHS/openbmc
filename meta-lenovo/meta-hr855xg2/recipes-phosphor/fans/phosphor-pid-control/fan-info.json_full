@@ -606,9 +606,9 @@
             "timeout": 1
         },
         {
-            "name": "pcie_group_temp",
+            "name": "PCIE_Group_Temp",
             "type": "margin",
-            "readPath": "/xyz/openbmc_project/extsensors/margin/pcie_group_temp",
+            "readPath": "/xyz/openbmc_project/extsensors/margin/PCIE_Group_Temp",
             "timeout": 0
         },
         {
@@ -1166,7 +1166,7 @@
                 {
                     "name": "pcie_group_temp_pid",
                     "type": "margin",
-                    "inputs": ["pcie_group_temp"],
+                    "inputs": ["PCIE_Group_Temp"],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,

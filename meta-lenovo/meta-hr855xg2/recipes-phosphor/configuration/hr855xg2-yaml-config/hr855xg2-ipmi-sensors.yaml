@@ -1222,7 +1222,7 @@
 0x3B:
   entityID: 0x20
   sensorType: 0x01
-  path: /xyz/openbmc_project/sensors/temperature/VDDQ_ABC_CPU0
+  path: /xyz/openbmc_project/sensors/temperature/CPU0_DIMM_VR1_T
   sensorReadingType: 0x01
   multiplierM: 1
   offsetB: 0
@@ -1243,7 +1243,7 @@
 0x3C:
   entityID: 0x20
   sensorType: 0x01
-  path: /xyz/openbmc_project/sensors/temperature/VDDQ_DEF_CPU0
+  path: /xyz/openbmc_project/sensors/temperature/CPU0_DIMM_VR2_T
   sensorReadingType: 0x01
   multiplierM: 1
   offsetB: 0
@@ -1264,7 +1264,7 @@
 0x3D:
   entityID: 0x20
   sensorType: 0x01
-  path: /xyz/openbmc_project/sensors/temperature/VDDQ_ABC_CPU1
+  path: /xyz/openbmc_project/sensors/temperature/CPU1_DIMM_VR1_T
   sensorReadingType: 0x01
   multiplierM: 1
   offsetB: 0
@@ -1285,7 +1285,7 @@
 0x3E:
   entityID: 0x20
   sensorType: 0x01
-  path: /xyz/openbmc_project/sensors/temperature/VDDQ_DEF_CPU1
+  path: /xyz/openbmc_project/sensors/temperature/CPU1_DIMM_VR2_T
   sensorReadingType: 0x01
   multiplierM: 1
   offsetB: 0
@@ -1306,7 +1306,7 @@
 0x3F:
   entityID: 0x20
   sensorType: 0x01
-  path: /xyz/openbmc_project/sensors/temperature/VDDQ_ABC_CPU2
+  path: /xyz/openbmc_project/sensors/temperature/CPU2_DIMM_VR1_T
   sensorReadingType: 0x01
   multiplierM: 1
   offsetB: 0
@@ -1327,7 +1327,7 @@
 0x40:
   entityID: 0x20
   sensorType: 0x01
-  path: /xyz/openbmc_project/sensors/temperature/VDDQ_DEF_CPU2
+  path: /xyz/openbmc_project/sensors/temperature/CPU2_DIMM_VR2_T
   sensorReadingType: 0x01
   multiplierM: 1
   offsetB: 0
@@ -1348,7 +1348,7 @@
 0x41:
   entityID: 0x20
   sensorType: 0x01
-  path: /xyz/openbmc_project/sensors/temperature/VDDQ_ABC_CPU3
+  path: /xyz/openbmc_project/sensors/temperature/CPU3_DIMM_VR1_T
   sensorReadingType: 0x01
   multiplierM: 1
   offsetB: 0
@@ -1369,7 +1369,7 @@
 0x42:
   entityID: 0x20
   sensorType: 0x01
-  path: /xyz/openbmc_project/sensors/temperature/VDDQ_DEF_CPU3
+  path: /xyz/openbmc_project/sensors/temperature/CPU3_DIMM_VR1_T
   sensorReadingType: 0x01
   multiplierM: 1
   offsetB: 0
@@ -1600,7 +1600,7 @@
 0x4F:
   entityID: 0x07
   sensorType: 0x02
-  path: /xyz/openbmc_project/sensors/voltage/PVCCIO_CPU1
+  path: /xyz/openbmc_project/sensors/voltage/CPU0_VCCIO
   sensorReadingType: 0x01
   multiplierM: 1
   offsetB: 0
@@ -1642,7 +1642,7 @@
 0x51:
   entityID: 0x07
   sensorType: 0x02
-  path: /xyz/openbmc_project/sensors/voltage/PVDDQ_CPU1
+  path: /xyz/openbmc_project/sensors/voltage/CPU0_DIMM_VR1_V
   sensorReadingType: 0x01
   multiplierM: 1
   offsetB: 0
@@ -2169,7 +2169,7 @@
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/PDB_FAN0_Speed
   sensorReadingType: 0x01
-  multiplierM: 115
+  multiplierM: 140
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.RPMS
@@ -2190,7 +2190,7 @@
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/PDB_FAN1_2_Speed
   sensorReadingType: 0x01
-  multiplierM: 115
+  multiplierM: 140
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.RPMS
@@ -4480,7 +4480,7 @@
 
 0x6D:
   sensorType: 0x01
-  path: /xyz/openbmc_project/extsensors/margin/pcie_group_temp
+  path: /xyz/openbmc_project/extsensors/margin/PCIE_Group_Temp
   sensorReadingType: 0x01
   multiplierM: 1
   offsetB: 0
