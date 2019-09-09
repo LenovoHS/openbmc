@@ -1,0 +1,393 @@
+diff -Naur a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt	2019-09-06 18:02:38.082976217 +0800
++++ b/CMakeLists.txt	2019-09-06 23:41:14.223352003 +0800
+@@ -39,6 +39,7 @@
+ option (DISABLE_ADC "Disable installing ADC sensor" OFF)
+ option (DISABLE_CPU "Disable installing CPU sensor" OFF)
+ option (DISABLE_FPGA "Disable installing FPGA sensor" OFF)
++option (DISABLE_OEM "Disable installing OEM sensor" OFF)
+ option (DISABLE_EXIT_AIR "Disable installing Exit Air Temp sensor" OFF)
+ option (DISABLE_FAN "Disable installing fan sensor" OFF)
+ option (DISABLE_HWMON_TEMP "Disable installing hwmon temp sensor" OFF)
+@@ -60,6 +61,8 @@
+ 
+ set (FPGA_SRC_FILES src/Utils.cpp src/FPGASensor.cpp)
+ 
++set (OEM_SRC_FILES src/Utils.cpp)
++
+ set (EXIT_AIR_SRC_FILES src/Utils.cpp src/Thresholds.cpp)
+ 
+ set (FAN_SRC_FILES src/TachSensor.cpp src/PwmSensor.cpp src/Utils.cpp
+@@ -166,6 +169,11 @@
+ target_link_libraries (fpgasensor ${SENSOR_LINK_LIBS})
+ target_link_libraries (fpgasensor i2c)
+ 
++add_executable (oemsensor src/OEMSensorMain.cpp ${OEM_SRC_FILES})
++add_dependencies (oemsensor sdbusplus-project)
++target_link_libraries (oemsensor ${SENSOR_LINK_LIBS})
++target_link_libraries (oemsensor i2c)
++
+ add_executable (exitairtempsensor src/ExitAirTempSensor.cpp
+                 ${EXIT_AIR_SRC_FILES})
+ add_dependencies (exitairtempsensor sdbusplus-project)
+@@ -202,6 +210,7 @@
+     add_dependencies (adcsensor ${EXTERNAL_PACKAGES})
+     add_dependencies (cpusensor ${EXTERNAL_PACKAGES})
+     add_dependencies (fpgasensor ${EXTERNAL_PACKAGES})
++    add_dependencies (oemsensor ${EXTERNAL_PACKAGES})
+     add_dependencies (exitairtempsensor ${EXTERNAL_PACKAGES})
+     add_dependencies (fansensor ${EXTERNAL_PACKAGES})
+     add_dependencies (hwmontempsensor ${EXTERNAL_PACKAGES})
+@@ -235,6 +244,13 @@
+                  DESTINATION ${SERVICE_FILE_INSTALL_DIR})
+ endif ()
+ 
++if (NOT DISABLE_OEM)
++    install (TARGETS oemsensor DESTINATION bin)
++    install (FILES
++                 ${SERVICE_FILE_SRC_DIR}/xyz.openbmc_project.oemsensor.service
++                 DESTINATION ${SERVICE_FILE_INSTALL_DIR})
++endif ()
++
+ if (NOT DISABLE_EXIT_AIR)
+     install (TARGETS exitairtempsensor DESTINATION bin)
+     install (
+diff -Naur a/include/OEMSensor.hpp b/include/OEMSensor.hpp
+--- a/include/OEMSensor.hpp	1970-01-01 08:00:00.000000000 +0800
++++ b/include/OEMSensor.hpp	2019-09-07 10:54:22.428299862 +0800
+@@ -0,0 +1,57 @@
++#pragma once
++
++#include "Utils.hpp"
++
++#include <boost/container/flat_map.hpp>
++#include <filesystem>
++#include <fstream>
++#include <gpiod.hpp>
++#include <sdbusplus/asio/object_server.hpp>
++#include <sensor.hpp>
++
++struct OEMInfo
++{
++    OEMInfo(const std::string& iface, const std::string& property,
++            const std::string& ptype, const std::string& dfvalue) :
++        iface(iface), property(property), ptype(ptype), dfvalue(dfvalue)
++    {
++    }
++    std::string iface;
++    std::string property;
++    std::string ptype;
++    std::string dfvalue;
++
++    bool operator<(const OEMInfo& rhs) const
++    {
++        return (iface < rhs.iface);
++    }
++};
++
++struct OEMConfig
++{
++    OEMConfig(const uint8_t& snrnum, const uint8_t& snrtype,
++              const std::string& name, const std::vector<OEMInfo>& oeminfo) :
++        snrnum(snrnum), snrtype(snrtype), name(name), oeminfo(std::move(oeminfo))
++    {
++    }
++    uint8_t snrnum;
++    uint8_t snrtype;
++    std::string name;
++    std::vector<OEMInfo> oeminfo;
++
++    bool operator<(const OEMConfig& rhs) const
++    {
++        return (name < rhs.name);
++    }
++};
++
++constexpr auto oemService = "org.openbmc.control.oem";
++constexpr auto oemRoot = "/org/openbmc/control/oem";
++constexpr auto oemInterface = "org.openbmc.control.oem";
++constexpr auto InventoryService = "xyz.openbmc_project.Inventory.Manager";
++constexpr auto InventoryPath = "/xyz/openbmc_project/inventory/system/chassis/motherboard/";
++constexpr auto InventoryItemIntf = "xyz.openbmc_project.Inventory.Item";
++constexpr auto PROP_INTF = "org.freedesktop.DBus.Properties";
++constexpr auto IPMIService = "xyz.openbmc_project.Ipmi.Host";
++constexpr auto IPMIPath = "/xyz/openbmc_project/Ipmi";
++constexpr auto IPMIIntf = "xyz.openbmc_project.Ipmi.Server";
+diff -Naur a/service_files/xyz.openbmc_project.oemsensor.service b/service_files/xyz.openbmc_project.oemsensor.service
+--- a/service_files/xyz.openbmc_project.oemsensor.service	1970-01-01 08:00:00.000000000 +0800
++++ b/service_files/xyz.openbmc_project.oemsensor.service	2019-09-07 02:02:22.650646822 +0800
+@@ -0,0 +1,13 @@
++[Unit]
++Description=OEM Sensor
++StopWhenUnneeded=false
++After=logrotate.service xyz.openbmc_project.fpgasensor.service
++
++[Service]
++Restart=always
++RestartSec=5
++StartLimitBurst=10
++ExecStart=/usr/bin/oemsensor
++
++[Install]
++WantedBy=multi-user.target
+diff -Naur a/src/OEMSensorMain.cpp b/src/OEMSensorMain.cpp
+--- a/src/OEMSensorMain.cpp	1970-01-01 08:00:00.000000000 +0800
++++ b/src/OEMSensorMain.cpp	2019-09-09 11:10:55.553176348 +0800
+@@ -0,0 +1,257 @@
++/*
++// Copyright (c) 2018 Intel Corporation
++//
++// Licensed under the Apache License, Version 2.0 (the "License");
++// you may not use this file except in compliance with the License.
++// You may obtain a copy of the License at
++//
++/      http://www.apache.org/licenses/LICENSE-2.0
++//
++// Unless required by applicable law or agreed to in writing, software
++// distributed under the License is distributed on an "AS IS" BASIS,
++// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++// See the License for the specific language governing permissions and
++// limitations under the License.
++*/
++
++#include <fcntl.h>
++
++#include <OEMSensor.hpp>
++#include <Utils.hpp>
++#include <VariantVisitors.hpp>
++#include <boost/algorithm/string/predicate.hpp>
++#include <boost/algorithm/string/replace.hpp>
++#include <boost/container/flat_set.hpp>
++#include <boost/date_time/posix_time/posix_time.hpp>
++#include <boost/process/child.hpp>
++#include <filesystem>
++#include <fstream>
++#include <regex>
++#include <boost/asio.hpp>
++#include <chrono>
++#include <ctime>
++#include <iostream>
++#include <sdbusplus/asio/connection.hpp>
++#include <sdbusplus/asio/object_server.hpp>
++#include <sdbusplus/asio/sd_event.hpp>
++#include <sdbusplus/bus.hpp>
++#include <sdbusplus/exception.hpp>
++#include <sdbusplus/server.hpp>
++#include <sdbusplus/timer.hpp>
++
++static constexpr bool DEBUG = false;
++
++namespace fs = std::filesystem;
++
++static constexpr const char* configPrefix =
++    "xyz.openbmc_project.Configuration.";
++static constexpr std::array<const char*, 1> sensorTypes = {"Oem"};
++static constexpr const char* sensorType =
++    "xyz.openbmc_project.Configuration.OEMSensor";
++
++bool getOemConfig(
++    const std::shared_ptr<sdbusplus::asio::connection>& systemBus,
++    boost::container::flat_set<OEMConfig>& oemConfigs,
++    ManagedObjectType& sensorConfigs,
++    sdbusplus::asio::object_server& objectServer,
++    boost::container::flat_map<
++        std::string, std::shared_ptr<sdbusplus::asio::dbus_interface>>&
++        sensorIfaces)
++{
++    bool useCache = false;
++    sensorConfigs.clear();
++
++    // use new data the first time, then refresh
++    for (const char* type : sensorTypes)
++    {
++        if (!getSensorConfiguration(configPrefix + std::string(type), systemBus,
++                                    sensorConfigs, useCache))
++        {
++            return false;
++        }
++
++        useCache = true;
++    }
++
++    for (const char* type : sensorTypes)
++    {
++        for (const std::pair<sdbusplus::message::object_path, SensorData>&
++                 sensor : sensorConfigs)
++        {
++            for (const SensorBaseConfiguration& config : sensor.second)
++            {
++                if ((configPrefix + std::string(type)) != config.first)
++                {
++                    continue;
++                }
++
++                auto findName = config.second.find("Name");
++                if (findName == config.second.end())
++                {
++                    continue;
++                }
++                std::string nameRaw =
++                    std::visit(VariantToStringVisitor(), findName->second);
++                std::string name =
++                    std::regex_replace(nameRaw, illegalDbusRegex, "_");
++
++                auto findSnrNum = config.second.find("SnrNum");
++                if (findSnrNum == config.second.end())
++                {
++                    std::cerr << "Can't find 'SnrNum' setting in " << name << "\n";
++                    continue;
++                }
++                uint64_t snrnum = std::visit(VariantToUnsignedIntVisitor(), 
++				                             findSnrNum->second);
++
++                auto findSnrType = config.second.find("SnrType");
++                if (findSnrType == config.second.end())
++                {
++                    std::cerr << "Can't find 'SnrType' setting in " << name << "\n";
++                    continue;
++                }
++                uint64_t snrtype = std::visit(VariantToUnsignedIntVisitor(),
++                                              findSnrType->second);
++
++                std::vector<OEMInfo> oeminfoVector;
++                boost::container::flat_map<std::string, std::vector<OEMInfo>> ifaceList;
++                std::string OemIface = "";
++                std::string OemProperty = "";
++                std::string OemPtype = "";
++                std::string OemDfvalue = "";
++                for (const SensorBaseConfiguration& suppConfig : sensor.second)
++                {
++                    if (suppConfig.first.find("Offset") !=
++                        std::string::npos)
++                    {
++                        auto oemSetting = suppConfig.second;
++
++                        auto findOemIface = oemSetting.find("Iface");
++                        auto findOemProperty = oemSetting.find("Property");
++                        auto findOemPtype = oemSetting.find("Ptype");
++                        auto findOemDfvalue = oemSetting.find("Dfvalue");
++
++                        if (findOemIface == oemSetting.end() ||
++                            findOemProperty == oemSetting.end() ||
++                            findOemPtype == oemSetting.end() ||
++                            findOemDfvalue == oemSetting.end())
++                        {
++                            std::cerr << "Incorrect OEM configuration setting\n";
++                            break;
++                        }
++
++                        OemIface = std::visit(VariantToStringVisitor(), findOemIface->second);
++                        OemPtype = std::visit(VariantToStringVisitor(), findOemPtype->second);
++                        OemProperty = std::visit(VariantToStringVisitor(), findOemProperty->second);
++                        OemDfvalue = std::visit(VariantToStringVisitor(), findOemDfvalue->second);
++
++                        if (DEBUG)
++                        {
++                            std::cerr << "snrnum: " << snrnum << "\n";
++                            std::cerr << "snrtype: " << snrtype << "\n";
++                            std::cerr << "name: " << name << "\n";
++                            std::cerr << "iface: " << OemIface << "\n";
++                            std::cerr << "property: " << OemProperty << "\n";
++                            std::cerr << "ptype: " << OemPtype << "\n";
++                            std::cerr << "dfvalue: " << OemDfvalue << "\n";
++                            std::cerr << "type: " << type << "\n";
++                        }
++
++                        oeminfoVector.emplace_back(OemIface, OemProperty, OemPtype, OemDfvalue);
++                        ifaceList[OemIface].emplace_back(OemIface, OemProperty, OemPtype, OemDfvalue);
++                    }
++                }
++
++                if (sensorIfaces.find(name) == sensorIfaces.end())
++                {
++                    auto iface = objectServer.add_interface(
++                                 "/xyz/openbmc_project/OEMSensor" + std::string("/") + name,
++                                 "xyz.openbmc_project.Sensor.Discrete.SensorInfo");
++                    iface->register_property("SensorNum", snrnum);
++                    iface->register_property("SensorType", snrtype);
++                    iface->initialize();
++
++                    for (auto& oemEvt : ifaceList)
++                    {
++                        iface = objectServer.add_interface(
++                                "/xyz/openbmc_project/OEMSensor" + std::string("/") + name,
++                                oemEvt.first);
++                        for (auto& oemsetting : oemEvt.second)
++                        {
++                            const auto property = oemsetting.property;
++                            if (oemsetting.ptype == "bool")
++                            {
++                                bool value = false;
++                                auto dfvalue = oemsetting.dfvalue; 
++                            
++                                if (dfvalue == "1")							
++                                {
++                                    value = true;
++                                }
++                                iface->register_property(property, value,
++                                                         sdbusplus::asio::PropertyPermission::readWrite);
++                            }
++                        }
++                    }
++                    iface->initialize();
++                    sensorIfaces[name] = std::move(iface);
++                }
++
++                oemConfigs.emplace(snrnum, snrtype, name, oeminfoVector);
++            }
++        }
++    }
++
++    if (oemConfigs.size())
++    {
++        std::cerr << "OEM config" << (oemConfigs.size() == 1 ? " is" : "s are")
++                  << " parsed\n";
++        std::cerr << "OEM config size is " << oemConfigs.size() << "\n";
++
++        return true;
++    }
++
++    std::cerr << "oemConfigs is NULL\n";
++    return false;
++}
++
++int main()
++{
++    boost::asio::io_service io;
++    auto systemBus = std::make_shared<sdbusplus::asio::connection>(io);
++    boost::container::flat_set<OEMConfig> oemConfigs;
++    systemBus->request_name("xyz.openbmc_project.OEMSensor");
++    sdbusplus::asio::object_server objectServer(systemBus);
++    std::vector<std::unique_ptr<sdbusplus::bus::match::match>> matches;
++    boost::asio::deadline_timer pingTimer(io);
++    boost::asio::deadline_timer creationTimer(io);
++    boost::asio::deadline_timer filterTimer(io);
++    ManagedObjectType sensorConfigs;
++    boost::container::flat_map<std::string,
++                               std::shared_ptr<sdbusplus::asio::dbus_interface>>
++        sensorIfaces;
++
++    getOemConfig(systemBus, oemConfigs, sensorConfigs, objectServer, sensorIfaces);
++
++    // callback to handle configuration change
++    std::function<void(sdbusplus::message::message&)> eventHandler =
++        [&](sdbusplus::message::message& message) {
++            if (message.is_method_error())
++            {
++                std::cerr << "callback method error\n";
++                return;
++            }
++
++            std::cout << "rescan due to configuration change \n";
++            getOemConfig(systemBus, oemConfigs, sensorConfigs, objectServer, sensorIfaces);
++        };
++
++    auto match = std::make_unique<sdbusplus::bus::match::match>(
++        static_cast<sdbusplus::bus::bus&>(*systemBus),
++        "type='signal',member='PropertiesChanged',path_namespace='" +
++            std::string(inventoryPath) + "',arg0namespace='" + sensorType + "'",
++          eventHandler);
++    io.run();
++    return 0;
++}
++
