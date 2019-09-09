@@ -124,6 +124,7 @@
             "SnrNum": 149,
             "SnrType": 7,
             "Name": "CPU0 Prochot",
+            "FpgaGpio": 45,
             "Offset": [
                 {
                     "Block": 14,
@@ -138,6 +139,7 @@
             "SnrNum": 150,
             "SnrType": 7,
             "Name": "CPU1 Prochot",
+            "FpgaGpio": 45,
             "Offset": [
                 {
                     "Block": 14,
@@ -152,6 +154,7 @@
             "SnrNum": 151,
             "SnrType": 7,
             "Name": "CPU2 Prochot",
+            "FpgaGpio": 45,
             "Offset": [
                 {
                     "Block": 14,
@@ -166,6 +169,7 @@
             "SnrNum": 152,
             "SnrType": 7,
             "Name": "CPU3 Prochot",
+            "FpgaGpio": 45,
             "Offset": [
                 {
                     "Block": 14,
@@ -180,6 +184,7 @@
             "SnrNum": 153,
             "SnrType": 7,
             "Name": "CPU IERR",
+            "FpgaGpio": 49,
             "Offset": [
                 {
                     "Block": 14,
@@ -194,6 +199,7 @@
             "SnrNum": 154,
             "SnrType": 7,
             "Name": "CPU MCERR",
+            "FpgaGpio": 49,
             "Offset": [
                 {
                     "Block": 14,
@@ -203,6 +209,678 @@
                 }
             ],
             "Type": "Fpga"
+        },
+        {
+            "SnrNum": 208,
+            "SnrType": 19,
+            "Name": "PE1S1 Bus Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_4",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_5",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_7",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_8",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_10",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_11",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_15",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 209,
+            "SnrType": 19,
+            "Name": "PE1S2 Bus Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_4",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_5",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_7",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_8",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_10",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_11",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_15",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 210,
+            "SnrType": 19,
+            "Name": "PE1S3 Bus Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_4",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_5",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_7",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_8",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_10",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_11",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_15",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 211,
+            "SnrType": 19,
+            "Name": "PE1S4 Bus Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_4",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_5",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_7",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_8",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_10",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_11",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_15",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 212,
+            "SnrType": 19,
+            "Name": "PE1S5 Bus Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_4",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_5",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_7",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_8",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_10",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_11",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_15",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 213,
+            "SnrType": 19,
+            "Name": "PE2S1 Bus Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_4",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_5",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_7",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_8",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_10",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_11",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_15",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 214,
+            "SnrType": 19,
+            "Name": "PE2S2 Bus Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_4",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_5",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_7",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_8",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_10",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_11",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_15",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 215,
+            "SnrType": 19,
+            "Name": "PE2S3 Bus Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_4",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_5",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_7",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_8",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_10",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_11",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_15",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 216,
+            "SnrType": 19,
+            "Name": "PE2S4 Bus Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_4",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_5",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_7",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_8",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_10",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_11",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_15",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 217,
+            "SnrType": 19,
+            "Name": "PE2S5 Bus Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_4",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_5",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_7",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_8",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_10",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_11",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_15",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 218,
+            "SnrType": 19,
+            "Name": "PE3S1 Bus Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_4",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_5",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_7",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_8",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_10",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_11",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_15",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 219,
+            "SnrType": 19,
+            "Name": "PE3S2 Bus Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_4",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_5",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_7",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_8",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_10",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_11",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_15",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 240,
+            "SnrType": 34,
+            "Name": "ACPI State",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_0",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_5",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 241,
+            "SnrType": 35,
+            "Name": "Watchdog2",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_0",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_1",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_2",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_3",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_8",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 242,
+            "SnrType": 20,
+            "Name": "Power Button",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_0",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
         }
     ],
     "Name": "HR855XG2 Baseboard",

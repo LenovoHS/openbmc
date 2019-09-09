@@ -4497,3 +4497,731 @@
         Offsets:
           0xFF:
             type: int64_t
+
+0xD0:
+  entityID: 49
+  entityInstance: 1
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_4:
+        Offsets:
+          4:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_5:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_7:
+        Offsets:
+          7:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_8:
+        Offsets:
+          8:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_10:
+        Offsets:
+          10:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_11:
+        Offsets:
+          11:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_15:
+        Offsets:
+          15:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/OEMSensor/PE1S1_Bus_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 13
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xD1:
+  entityID: 49
+  entityInstance: 2
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_4:
+        Offsets:
+          4:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_5:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_7:
+        Offsets:
+          7:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_8:
+        Offsets:
+          8:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_10:
+        Offsets:
+          10:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_11:
+        Offsets:
+          11:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_15:
+        Offsets:
+          15:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/OEMSensor/PE1S2_Bus_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 13
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xD2:
+  entityID: 49
+  entityInstance: 3
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_4:
+        Offsets:
+          4:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_5:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_7:
+        Offsets:
+          7:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_8:
+        Offsets:
+          8:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_10:
+        Offsets:
+          10:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_11:
+        Offsets:
+          11:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_15:
+        Offsets:
+          15:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/OEMSensor/PE1S3_Bus_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 13
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xD3:
+  entityID: 49
+  entityInstance: 4
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_4:
+        Offsets:
+          4:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_5:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_7:
+        Offsets:
+          7:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_8:
+        Offsets:
+          8:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_10:
+        Offsets:
+          10:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_11:
+        Offsets:
+          11:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_15:
+        Offsets:
+          15:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/OEMSensor/PE1S4_Bus_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 13
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xD4:
+  entityID: 49
+  entityInstance: 5
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_4:
+        Offsets:
+          4:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_5:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_7:
+        Offsets:
+          7:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_8:
+        Offsets:
+          8:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_10:
+        Offsets:
+          10:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_11:
+        Offsets:
+          11:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_15:
+        Offsets:
+          15:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/OEMSensor/PE1S5_Bus_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 13
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xD5:
+  entityID: 49
+  entityInstance: 6
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_4:
+        Offsets:
+          4:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_5:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_7:
+        Offsets:
+          7:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_8:
+        Offsets:
+          8:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_10:
+        Offsets:
+          10:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_11:
+        Offsets:
+          11:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_15:
+        Offsets:
+          15:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/OEMSensor/PE2S1_Bus_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 13
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xD6:
+  entityID: 49
+  entityInstance: 7
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_4:
+        Offsets:
+          4:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_5:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_7:
+        Offsets:
+          7:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_8:
+        Offsets:
+          8:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_10:
+        Offsets:
+          10:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_11:
+        Offsets:
+          11:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_15:
+        Offsets:
+          15:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/OEMSensor/PE2S2_Bus_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 13
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xD7:
+  entityID: 49
+  entityInstance: 8
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_4:
+        Offsets:
+          4:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_5:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_7:
+        Offsets:
+          7:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_8:
+        Offsets:
+          8:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_10:
+        Offsets:
+          10:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_11:
+        Offsets:
+          11:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_15:
+        Offsets:
+          15:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/OEMSensor/PE2S3_Bus_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 13
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xD8:
+  entityID: 49
+  entityInstance: 9
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_4:
+        Offsets:
+          4:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_5:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_7:
+        Offsets:
+          7:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_8:
+        Offsets:
+          8:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_10:
+        Offsets:
+          10:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_11:
+        Offsets:
+          11:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_15:
+        Offsets:
+          15:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/OEMSensor/PE2S4_Bus_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 13
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xD9:
+  entityID: 49
+  entityInstance: 10
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_4:
+        Offsets:
+          4:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_5:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_7:
+        Offsets:
+          7:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_8:
+        Offsets:
+          8:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_10:
+        Offsets:
+          10:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_11:
+        Offsets:
+          11:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_15:
+        Offsets:
+          15:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/OEMSensor/PE2S5_Bus_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 13
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xDA:
+  entityID: 49
+  entityInstance: 11
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_4:
+        Offsets:
+          4:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_5:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_7:
+        Offsets:
+          7:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_8:
+        Offsets:
+          8:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_10:
+        Offsets:
+          10:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_11:
+        Offsets:
+          11:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_15:
+        Offsets:
+          15:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/OEMSensor/PE3S1_Bus_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 13
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xDB:
+  entityID: 49
+  entityInstance: 12
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_4:
+        Offsets:
+          4:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_5:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_7:
+        Offsets:
+          7:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_8:
+        Offsets:
+          8:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_10:
+        Offsets:
+          10:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_11:
+        Offsets:
+          11:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_15:
+        Offsets:
+          15:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/OEMSensor/PE3S2_Bus_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 13
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xF0:
+  entityID: 0
+  entityInstance: 1
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_0:
+        Offsets:
+          0:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_5:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/OEMSensor/ACPI_State
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 34
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xF1:
+  entityID: 46
+  entityInstance: 1
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_0:
+        Offsets:
+          0:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_1:
+        Offsets:
+          1:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_2:
+        Offsets:
+          2:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_3:
+        Offsets:
+          3:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_8:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/OEMSensor/Watchdog2
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 35
+  serviceInterface: org.freedesktop.DBus.Properties
