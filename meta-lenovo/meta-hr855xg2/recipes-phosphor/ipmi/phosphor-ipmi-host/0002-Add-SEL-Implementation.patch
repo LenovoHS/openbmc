@@ -264,8 +264,8 @@ diff -Naur a/storageaddsel.hpp b/storageaddsel.hpp
 +                                std::array<uint8_t, eventDataSize> eventData);
 +
 diff -Naur a/storagehandler.cpp b/storagehandler.cpp
---- a/storagehandler.cpp	2019-08-13 13:31:29.976260757 +0800
-+++ b/storagehandler.cpp	2019-08-13 13:41:40.836966037 +0800
+--- a/storagehandler.cpp        2019-07-26 11:28:14.903345888 +0800
++++ b/storagehandler.cpp        2019-09-09 14:06:51.958386374 +0800
 @@ -29,7 +29,6 @@
  unsigned int g_sel_time = 0xFFFFFFFF;
  extern const ipmi::sensor::IdInfoMap sensors;
@@ -274,7 +274,7 @@ diff -Naur a/storagehandler.cpp b/storagehandler.cpp
  namespace
  {
  constexpr auto TIME_INTERFACE = "xyz.openbmc_project.Time.EpochTime";
-@@ -619,14 +618,10 @@
+@@ -610,14 +609,9 @@
      // Per the IPMI spec, need to cancel the reservation when a SEL entry is
      // added
      cancelSELReservation();
@@ -286,10 +286,9 @@ diff -Naur a/storagehandler.cpp b/storagehandler.cpp
 -        // In the OEM record type 0xDE, byte 11 in the SEL record indicate the
 -        // procedure number.
 -        createProcedureLogEntry(sensorType);
-+
 +    if (createProcedureLogEntry(recordID, recordType, timeStamp, generatorID, evmRev, sensorType, sensorNumber, eventDir, eventData))
 +    {
 +        return ipmi::responseUnspecifiedError();
      }
- 
-     // It is for Discrete Sensor Event from BIOS
+
+     return ipmi::responseSuccess(recordID);
