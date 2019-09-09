@@ -15,6 +15,7 @@ OBMC_IMAGE_EXTRA_INSTALL_append_hr855xg2 = " lenovo-pwr-sequence \
                                              lenovo-uart-switch \
                                              uart-routing \
                                              lenovo-resetpsu \
+                                             lenovo-led-manager \
                                            "
                                            
 #IMAGE_FEATURES_remove_hr855xg2 = " ssh-server-dropbear"
