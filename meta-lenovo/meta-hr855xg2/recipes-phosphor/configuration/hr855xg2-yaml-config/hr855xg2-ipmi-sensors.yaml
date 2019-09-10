@@ -5225,3 +5225,22 @@
   sensorReadingType: 111
   sensorType: 35
   serviceInterface: org.freedesktop.DBus.Properties
+
+0xF2:
+  entityID: 12
+  entityInstance: 1
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_0:
+        Offsets:
+          0:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/OEMSensor/Power_Button
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 20
+  serviceInterface: org.freedesktop.DBus.Properties
