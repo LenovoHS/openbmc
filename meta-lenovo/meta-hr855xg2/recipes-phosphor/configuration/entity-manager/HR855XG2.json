@@ -881,6 +881,48 @@
                 }
             ],
             "Type": "Oem"
+        },
+        {
+            "SnrNum": 249,
+            "SnrType": 7,
+            "Name": "UPI Error",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_5",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 252,
+            "SnrType": 15,
+            "Name": "NVRAM Corrupt",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_0",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 253,
+            "SnrType": 15,
+            "Name": "CPU Exception",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_1",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
         }
     ],
     "Name": "HR855XG2 Baseboard",

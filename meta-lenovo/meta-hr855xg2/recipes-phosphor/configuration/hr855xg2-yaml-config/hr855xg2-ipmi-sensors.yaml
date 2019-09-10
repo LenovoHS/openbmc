@@ -5244,3 +5244,60 @@
   sensorReadingType: 111
   sensorType: 20
   serviceInterface: org.freedesktop.DBus.Properties
+
+0xF9:
+  entityID: 3
+  entityInstance: 1
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_5:
+        Offsets:
+          5:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/OEMSensor/UPI_Error
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 7
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xFC:
+  entityID: 34
+  entityInstance: 1
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_0:
+        Offsets:
+          0:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/OEMSensor/NVRAM_Corrupt
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 15
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xFD:
+  entityID: 34
+  entityInstance: 1
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_1:
+        Offsets:
+          1:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/OEMSensor/CPU_Exception
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 15
+  serviceInterface: org.freedesktop.DBus.Properties
