@@ -12,11 +12,10 @@ OBMC_IMAGE_EXTRA_INSTALL_append_hr855xg2 = " phosphor-ipmi-blobs \
                                              obmc-phosphor-buttons-handler \
                                              obmc-phosphor-buttons \
                                              fpga-version \
-                                             lenovo-fpga-update \
                                              lenovo-bmc-update \
                                              lenovo-bios-update \
                                              lenovo-fan-service \
-					     lenovo-uart-switch \
+                                             lenovo-uart-switch \
                                              phosphor-gpio-monitor \
                                            "
                                            

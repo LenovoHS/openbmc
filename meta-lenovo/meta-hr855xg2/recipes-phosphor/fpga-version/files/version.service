@@ -5,6 +5,7 @@
 Description=fpga version service
 Requires=fpga.service
 After=fpga.service
+After=lenovo-pwr-sequence.service
 
 
 [Service]
