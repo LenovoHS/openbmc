@@ -144,7 +144,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "PDB_Temp",
@@ -153,7 +153,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "Die_CPU1",
@@ -162,7 +162,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "Die_CPU2",
@@ -171,7 +171,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "Die_CPU3",
@@ -180,7 +180,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "Die_CPU4",
@@ -189,421 +189,439 @@
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_A1_CPU1",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_A1_CPU1",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_A2_CPU1",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_A2_CPU1",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_B1_CPU1",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_B1_CPU1",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_B2_CPU1",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_B2_CPU1",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_C1_CPU1",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_C1_CPU1",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_C2_CPU1",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_C2_CPU1",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_D1_CPU1",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_D1_CPU1",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_D2_CPU1",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_D2_CPU1",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_E1_CPU1",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_E1_CPU1",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
+        },
+        {
+            "name": "DIMM_E2_CPU1",
+            "type": "temp",
+            "readPath":"",
+            "writePath": "",
+            "min": 0,
+            "max": 0,
+            "timeout": 0
         },
         {
             "name": "DIMM_F1_CPU1",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_F1_CPU1",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_F2_CPU1",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_F2_CPU1",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_A1_CPU2",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_A1_CPU2",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_A2_CPU2",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_A2_CPU2",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_B1_CPU2",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_B1_CPU2",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_B2_CPU2",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_B2_CPU2",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_C1_CPU2",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_C1_CPU2",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_C2_CPU2",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_C2_CPU2",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_D1_CPU2",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_D1_CPU2",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_D2_CPU2",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_D2_CPU2",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_E1_CPU2",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_E1_CPU2",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
+        },
+        {
+            "name": "DIMM_E2_CPU2",
+            "type": "temp",
+            "readPath":"",
+            "writePath": "",
+            "min": 0,
+            "max": 0,
+            "timeout": 0
         },
         {
             "name": "DIMM_F1_CPU2",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_F1_CPU2",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_F2_CPU2",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_F2_CPU2",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_A1_CPU3",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_A1_CPU3",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_A2_CPU3",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_A2_CPU3",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_B1_CPU3",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_B1_CPU3",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_B2_CPU3",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_B2_CPU3",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_C1_CPU3",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_C1_CPU3",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_C2_CPU3",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_C2_CPU3",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_D1_CPU3",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_D1_CPU3",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_D2_CPU3",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_D2_CPU3",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_E1_CPU3",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_E1_CPU3",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_E2_CPU3",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_E2_CPU3",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_F1_CPU3",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_F1_CPU3",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_F2_CPU3",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_F2_CPU3",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_A1_CPU4",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_A1_CPU4",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_A2_CPU4",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_A2_CPU4",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_B1_CPU4",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_B1_CPU4",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_B2_CPU4",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_B2_CPU4",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_C1_CPU4",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_C1_CPU4",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_C2_CPU4",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_C2_CPU4",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_D1_CPU4",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_D1_CPU4",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_D2_CPU4",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_D2_CPU4",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_E1_CPU4",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_E1_CPU4",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_E2_CPU4",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_E2_CPU4",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_F1_CPU4",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_F1_CPU4",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "DIMM_F2_CPU4",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/DIMM_F2_CPU4",
+            "readPath":"",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "PCIE_Group_Temp",
@@ -618,7 +636,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "CPU1_VR_Temp",
@@ -627,7 +645,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "CPU2_VR_Temp",
@@ -636,7 +654,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "CPU3_VR_Temp",
@@ -645,79 +663,79 @@
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
-            "name": "VDDQ_ABC_CPU0",
+            "name": "CPU0_DIMM_VR1_T",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/VDDQ_ABC_CPU0",
+            "readPath":"/xyz/openbmc_project/sensors/temperature/CPU0_DIMM_VR1_T",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
-            "name": "VDDQ_DEF_CPU0",
+            "name": "CPU0_DIMM_VR2_T",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/VDDQ_DEF_CPU0",
+            "readPath":"/xyz/openbmc_project/sensors/temperature/CPU0_DIMM_VR2_T",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
-            "name": "VDDQ_ABC_CPU1",
+            "name": "CPU1_DIMM_VR1_T",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/VDDQ_ABC_CPU1",
+            "readPath":"/xyz/openbmc_project/sensors/temperature/CPU1_DIMM_VR1_T",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
-            "name": "VDDQ_DEF_CPU1",
+            "name": "CPU1_DIMM_VR2_T",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/VDDQ_DEF_CPU1",
+            "readPath":"/xyz/openbmc_project/sensors/temperature/CPU1_DIMM_VR2_T",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
-            "name": "VDDQ_ABC_CPU2",
+            "name": "CPU2_DIMM_VR1_T",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/VDDQ_ABC_CPU2",
+            "readPath":"/xyz/openbmc_project/sensors/temperature/CPU2_DIMM_VR1_T",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
-            "name": "VDDQ_DEF_CPU2",
+            "name": "CPU2_DIMM_VR2_T",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/VDDQ_DEF_CPU2",
+            "readPath":"/xyz/openbmc_project/sensors/temperature/CPU2_DIMM_VR2_T",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
-            "name": "VDDQ_ABC_CPU3",
+            "name": "CPU3_DIMM_VR1_T",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/VDDQ_ABC_CPU3",
+            "readPath":"/xyz/openbmc_project/sensors/temperature/CPU3_DIMM_VR1_T",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
-            "name": "VDDQ_DEF_CPU3",
+            "name": "CPU3_DIMM_VR1_T",
             "type": "temp",
-            "readPath":"/xyz/openbmc_project/sensors/temperature/VDDQ_DEF_CPU3",
+            "readPath":"/xyz/openbmc_project/sensors/temperature/CPU3_DIMM_VR1_T",
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         },
         {
             "name": "PCH_Temp",
@@ -726,7 +744,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "timeout": 0
         }
     ],
     "zones" : [
@@ -998,7 +1016,7 @@
                 {
                     "name": "DIMM_1_ZONE",
                     "type": "temp",
-                    "inputs": ["DIMM_D1_CPU1", "DIMM_D2_CPU1", "DIMM_E1_CPU1", "DIMM_E2_CPU1", "DIMM_F1_CPU1", "DIMM_F2_CPU1"],
+                    "inputs": ["","","","","",""],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,
@@ -1019,7 +1037,7 @@
                 {
                     "name": "DIMM_2_ZONE",
                     "type": "temp",
-                    "inputs": ["DIMM_A1_CPU1", "DIMM_A2_CPU1", "DIMM_B1_CPU1", "DIMM_B2_CPU1", "DIMM_C1_CPU1", "DIMM_C2_CPU1"],
+                    "inputs": ["","","","","",""],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,
@@ -1040,7 +1058,7 @@
                 {
                     "name": "DIMM_3_ZONE",
                     "type": "temp",
-                    "inputs": ["DIMM_A1_CPU2", "DIMM_A2_CPU2", "DIMM_B1_CPU2", "DIMM_B2_CPU2", "DIMM_C1_CPU2", "DIMM_C2_CPU2"],
+                    "inputs": ["","","","","",""],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,
@@ -1061,7 +1079,7 @@
                 {
                     "name": "DIMM_4_ZONE",
                     "type": "temp",
-                    "inputs": ["DIMM_D1_CPU2", "DIMM_D2_CPU2", "DIMM_E1_CPU2", "DIMM_E2_CPU2", "DIMM_F1_CPU2", "DIMM_F2_CPU2"],
+                    "inputs": ["","","","","",""],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,
@@ -1082,7 +1100,7 @@
                 {
                     "name": "DIMM_5_ZONE",
                     "type": "temp",
-                    "inputs": ["DIMM_D1_CPU3", "DIMM_D2_CPU3", "DIMM_E1_CPU3", "DIMM_E2_CPU3", "DIMM_F1_CPU3", "DIMM_F2_CPU3"],
+                    "inputs": ["","","","","",""],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,
@@ -1103,7 +1121,7 @@
                 {
                     "name": "DIMM_6_ZONE",
                     "type": "temp",
-                    "inputs": ["DIMM_A1_CPU3", "DIMM_A2_CPU3", "DIMM_B1_CPU3", "DIMM_B2_CPU3", "DIMM_C1_CPU3", "DIMM_C2_CPU3"],
+                    "inputs": ["","","","","",""],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,
@@ -1124,7 +1142,7 @@
                 {
                     "name": "DIMM_7_ZONE",
                     "type": "temp",
-                    "inputs": ["DIMM_A1_CPU4", "DIMM_A2_CPU4", "DIMM_B1_CPU4", "DIMM_B2_CPU4", "DIMM_C1_CPU4", "DIMM_C2_CPU4"],
+                    "inputs": ["","","","","",""],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,
@@ -1145,7 +1163,7 @@
                 {
                     "name": "DIMM_8_ZONE",
                     "type": "temp",
-                    "inputs": ["DIMM_D1_CPU4", "DIMM_D2_CPU4", "DIMM_E1_CPU4", "DIMM_E2_CPU4", "DIMM_F1_CPU4", "DIMM_F2_CPU4"],
+                    "inputs": ["","","","","",""],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,
@@ -1269,9 +1287,9 @@
                     }
                 },
                 {
-                    "name": "VDDQ_ABC_CPU0",
+                    "name": "CPU0_DIMM_VR1_T",
                     "type": "temp",
-                    "inputs": ["VDDQ_ABC_CPU0"],
+                    "inputs": ["CPU0_DIMM_VR1_T"],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,
@@ -1290,9 +1308,9 @@
                     }
                 },
                 {
-                    "name": "VDDQ_DEF_CPU0",
+                    "name": "CPU0_DIMM_VR2_T",
                     "type": "temp",
-                    "inputs": ["VDDQ_DEF_CPU0"],
+                    "inputs": ["CPU0_DIMM_VR2_T"],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,
@@ -1311,9 +1329,9 @@
                     }
                 },
                 {
-                    "name": "VDDQ_ABC_CPU1",
+                    "name": "CPU1_DIMM_VR1_T",
                     "type": "temp",
-                    "inputs": ["VDDQ_ABC_CPU1"],
+                    "inputs": ["CPU1_DIMM_VR1_T"],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,
@@ -1332,9 +1350,9 @@
                     }
                 },
                 {
-                    "name": "VDDQ_DEF_CPU1",
+                    "name": "CPU1_DIMM_VR2_T",
                     "type": "temp",
-                    "inputs": ["VDDQ_DEF_CPU1"],
+                    "inputs": ["CPU1_DIMM_VR2_T"],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,
@@ -1353,9 +1371,9 @@
                     }
                 },
                 {
-                    "name": "VDDQ_ABC_CPU2",
+                    "name": "CPU2_DIMM_VR1_T",
                     "type": "temp",
-                    "inputs": ["VDDQ_ABC_CPU2"],
+                    "inputs": ["CPU2_DIMM_VR1_T"],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,
@@ -1374,9 +1392,9 @@
                     }
                 },
                 {
-                    "name": "VDDQ_DEF_CPU2",
+                    "name": "CPU2_DIMM_VR2_T",
                     "type": "temp",
-                    "inputs": ["VDDQ_DEF_CPU2"],
+                    "inputs": ["CPU2_DIMM_VR2_T"],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,
@@ -1395,9 +1413,9 @@
                     }
                 },
                 {
-                    "name": "VDDQ_ABC_CPU3",
+                    "name": "CPU3_DIMM_VR1_T",
                     "type": "temp",
-                    "inputs": ["VDDQ_ABC_CPU3"],
+                    "inputs": ["CPU3_DIMM_VR1_T"],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,
@@ -1416,9 +1434,9 @@
                     }
                 },
                 {
-                    "name": "VDDQ_DEF_CPU3",
+                    "name": "CPU3_DIMM_VR1_T",
                     "type": "temp",
-                    "inputs": ["VDDQ_DEF_CPU3"],
+                    "inputs": ["CPU3_DIMM_VR1_T"],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,

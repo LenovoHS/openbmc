@@ -15,6 +15,7 @@ SRC_URI += "file://fan-info.json \
             file://0002_Comment_Scaling.patch \
             file://initial_fanspeed.sh \
             file://start_phosphor-pid-control.sh \
+            file://hw_config.sh \
            "
 FILES_${PN} += "${datadir}/swampd/ \
                 ${sbindir} \
