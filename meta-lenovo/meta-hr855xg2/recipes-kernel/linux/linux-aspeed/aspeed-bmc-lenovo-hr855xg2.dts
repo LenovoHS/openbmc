@@ -645,21 +645,21 @@
 
 	pin_gpio_b5 {
 		gpio-hog;
-		gpios = <ASPEED_GPIO(B, 5) GPIO_ACTIVE_LOW>;
+		gpios = <ASPEED_GPIO(B, 5) GPIO_ACTIVE_HIGH>;
 		output-high;
 		line-name = "IRQ_BMC_PCH_SMI_LPC_N";
 	};
 	
 	pin_gpio_b7 {
 		gpio-hog;
-		gpios = <ASPEED_GPIO(B, 7) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(B, 7) GPIO_ACTIVE_LOW>;
 		output-low;
 		line-name = "CPU_SM_WP";
 	};
 	
 	pin_gpio_e6 {
 		gpio-hog;
-		gpios = <ASPEED_GPIO(E, 6) GPIO_ACTIVE_LOW>;
+		gpios = <ASPEED_GPIO(E, 6) GPIO_ACTIVE_HIGH>;
 		output-high;
 		line-name = "BMC_ME_SECURITY_OVERRIDE_N";
 	};
@@ -702,14 +702,14 @@
 	
 	pin_gpio_j2 {
 		gpio-hog;
-		gpios = <ASPEED_GPIO(J, 2) GPIO_ACTIVE_LOW>;
+		gpios = <ASPEED_GPIO(J, 2) GPIO_ACTIVE_HIGH>;
 		output-high;
 		line-name = "PDB_SMB_RST_N";
 	};
 	
 	pin_gpio_j3 {
 		gpio-hog;
-		gpios = <ASPEED_GPIO(J, 3) GPIO_ACTIVE_LOW>;
+		gpios = <ASPEED_GPIO(J, 3) GPIO_ACTIVE_HIGH>;
 		output-high;
 		line-name = "SPI_BMC_BIOS_HOLD_N";
 	};
@@ -730,28 +730,28 @@
 	
 	pin_gpio_s2 {
 		gpio-hog;
-		gpios = <ASPEED_GPIO(S, 2) GPIO_ACTIVE_LOW>;
+		gpios = <ASPEED_GPIO(S, 2) GPIO_ACTIVE_HIGH>;
 		output-high;
 		line-name = "PCH_RST_RSMRST_N";
 	};
 	
 	pin_gpio_z3 {
 		gpio-hog;
-		gpios = <ASPEED_GPIO(Z, 3) GPIO_ACTIVE_LOW>;
+		gpios = <ASPEED_GPIO(Z, 3) GPIO_ACTIVE_HIGH>;
 		output-high;
 		line-name = "FM_BMC_PCH_SCI_LPC_N";
 	};
 	
 	pin_gpio_aa0 {
 		gpio-hog;
-		gpios = <ASPEED_GPIO(AA, 0) GPIO_ACTIVE_LOW>;
+		gpios = <ASPEED_GPIO(AA, 0) GPIO_ACTIVE_HIGH>;
 		output-high;
 		line-name = "FW_PSU_ALERT_EN_N";
 	};
 	
 	pin_gpio_ac6 {
 		gpio-hog;
-		gpios = <ASPEED_GPIO(AC, 6) GPIO_ACTIVE_LOW>;
+		gpios = <ASPEED_GPIO(AC, 6) GPIO_ACTIVE_HIGH>;
 		output-high;
 		line-name = "ESPI_BMC_ALERT_N";
 	};
