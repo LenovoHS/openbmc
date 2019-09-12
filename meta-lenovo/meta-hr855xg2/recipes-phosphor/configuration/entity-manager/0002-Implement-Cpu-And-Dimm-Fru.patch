@@ -1,0 +1,126 @@
+diff -Naur a/src/FruDevice.cpp b/src/FruDevice.cpp
+--- a/src/FruDevice.cpp	2019-09-12 19:18:31.138859408 +0800
++++ b/src/FruDevice.cpp	2019-09-12 19:18:52.978688569 +0800
+@@ -50,6 +50,11 @@
+ constexpr size_t MAX_FRU_SIZE = 512;
+ constexpr size_t MAX_EEPROM_PAGE_INDEX = 255;
+ constexpr size_t busTimeoutSeconds = 5;
++constexpr size_t maxFruNum = 56;
++constexpr size_t cpuFruStart = 5;
++constexpr size_t cpuFruStartAddr = 0x0136;
++constexpr size_t maxCpuFruSize = 128;
++constexpr size_t defaultId = 255;
+ 
+ constexpr const char* blacklistPath = PACKAGE_DIR "blacklist.json";
+ 
+@@ -69,6 +74,8 @@
+ 
+ static BusMap busMap;
+ 
++static std::vector<uint8_t> cpuFruData;
++
+ // Given a bus/address, produce the path in sysfs for an eeprom.
+ static std::string getEepromPath(size_t bus, size_t address)
+ {
+@@ -815,8 +822,41 @@
+     return true;
+ }
+ 
+-std::vector<uint8_t>& getFruInfo(const uint8_t& bus, const uint8_t& address)
++std::vector<uint8_t>& getFruInfo(const uint8_t& bus, const uint8_t& address, const uint8_t& id)
+ {
++    if ((id >= cpuFruStart) && (id <= maxFruNum))
++    {
++        if (hasEepromFile(bus, address))
++        {
++            auto path = getEepromPath(bus, address);
++            int reVal = 0;
++            int eeprom = open(path.c_str(), O_RDWR | O_CLOEXEC);
++            if (eeprom < 0)
++            {
++                throw std::invalid_argument("unable to open i2c device.");
++            }
++            reVal = lseek(eeprom, cpuFruStartAddr + ((id - cpuFruStart) * maxCpuFruSize), SEEK_SET);
++            if (reVal == -1)
++            {
++                close(eeprom);
++                throw std::invalid_argument("unable to move offset for i2c device.");
++            }
++            cpuFruData.clear();
++            cpuFruData.resize(maxCpuFruSize);
++            ssize_t readBytes = read(eeprom, cpuFruData.data(), maxCpuFruSize);
++            if (readBytes < 0)
++            {
++                close(eeprom);
++                throw std::invalid_argument("unable to write to i2c device.");
++            }
++            close(eeprom);
++            return cpuFruData;
++        }
++        else
++        {
++            throw std::invalid_argument("Invalid Bus and Address.");
++        }
++    }
+     auto deviceMap = busMap.find(bus);
+     if (deviceMap == busMap.end())
+     {
+@@ -884,9 +924,9 @@
+             {
+                 if (isMuxBus(bus) && address == busIface.first.second &&
+                     (getFruInfo(static_cast<uint8_t>(busIface.first.first),
+-                                static_cast<uint8_t>(busIface.first.second)) ==
++                                static_cast<uint8_t>(busIface.first.second), defaultId) ==
+                      getFruInfo(static_cast<uint8_t>(bus),
+-                                static_cast<uint8_t>(address))))
++                                static_cast<uint8_t>(address), defaultId)))
+                 {
+                     // This device is already added to the lower numbered bus,
+                     // do not replicate it.
+@@ -973,7 +1013,7 @@
+     return true;
+ }
+ 
+-bool writeFru(uint8_t bus, uint8_t address, const std::vector<uint8_t>& fru)
++bool writeFru(uint8_t bus, uint8_t address, uint8_t fruId, const std::vector<uint8_t>& fru)
+ {
+     boost::container::flat_map<std::string, std::string> tmp;
+     if (fru.size() > MAX_FRU_SIZE)
+@@ -1006,6 +1046,7 @@
+         if (hasEepromFile(bus, address))
+         {
+             auto path = getEepromPath(bus, address);
++            int ret = 0;
+             int eeprom = open(path.c_str(), O_RDWR | O_CLOEXEC);
+             if (eeprom < 0)
+             {
+@@ -1013,7 +1054,17 @@
+                 throw DBusInternalError();
+                 return false;
+             }
+-
++            if ((fruId >= cpuFruStart) && (fruId <= maxFruNum))
++            {
++                ret = lseek(eeprom, cpuFruStartAddr + ((fruId - cpuFruStart) * maxCpuFruSize), SEEK_SET);
++                if (ret == -1) 
++                {
++                    std::cerr << "unable to move offset for i2c device " << path << "\n";
++                    close(eeprom);
++                    throw DBusInternalError();
++                    return false;
++                }
++            }
+             ssize_t writtenBytes = write(eeprom, fru.data(), fru.size());
+             if (writtenBytes < 0)
+             {
+@@ -1187,8 +1238,9 @@
+ 
+     iface->register_method("WriteFru", [&](const uint8_t bus,
+                                            const uint8_t address,
++                                           const uint8_t fruId,
+                                            const std::vector<uint8_t>& data) {
+-        if (!writeFru(bus, address, data))
++        if (!writeFru(bus, address, fruId, data))
+         {
+             throw std::invalid_argument("Invalid Arguments.");
+             return;

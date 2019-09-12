@@ -1,0 +1,12 @@
+diff -Naur a/strgfnhandler.cpp b/strgfnhandler.cpp
+--- a/strgfnhandler.cpp	2019-09-12 19:32:39.059183667 +0800
++++ b/strgfnhandler.cpp	2019-09-12 19:32:00.807656872 +0800
+@@ -116,6 +116,6 @@
+     std::printf("Registering NetFn:[0x%X], Cmd:[0x%X]\n", NETFUN_STORAGE,
+                 IPMI_CMD_WRITE_FRU_DATA);
+ 
+-    ipmi_register_callback(NETFUN_STORAGE, IPMI_CMD_WRITE_FRU_DATA, NULL,
+-                           ipmiStorageWriteFruData, SYSTEM_INTERFACE);
++//    ipmi_register_callback(NETFUN_STORAGE, IPMI_CMD_WRITE_FRU_DATA, NULL,
++//                           ipmiStorageWriteFruData, SYSTEM_INTERFACE);
+ }

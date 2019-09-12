@@ -11,6 +11,7 @@ inherit obmc-phosphor-ipmiprovider-symlink
 DEPENDS += "autoconf-archive-native"
 DEPENDS += "phosphor-ipmi-host"
 
+CXXFLAGS = "-DBOOST_COROUTINES_NO_DEPRECATION_WARNING"
 
 S = "${WORKDIR}"
 
@@ -22,6 +23,9 @@ SRC_URI = "file://Makefile.am \
            file://include/oemcommands.hpp \
            file://src/chassiscommands.cpp \
            file://include/chassiscommands.hpp \
+           file://include/storagecommands.hpp \
+           file://src/storagecommands.cpp \
+           file://include/commandutils.hpp \
           "
 
 
