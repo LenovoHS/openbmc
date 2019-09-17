@@ -150,6 +150,11 @@ ipmi_ret_t replaceCacheFru(uint8_t devId)
         return IPMI_CC_SENSOR_INVALID;
     }
 
+    if ((devId >= cpuFruStart) && (devId <= maxFruNum))
+    {
+        return IPMI_CC_SENSOR_INVALID;
+    }
+
     bool timerRunning = (cacheTimer != nullptr) && !cacheTimer->isExpired();
     if (lastDevId == devId && timerRunning)
     {
