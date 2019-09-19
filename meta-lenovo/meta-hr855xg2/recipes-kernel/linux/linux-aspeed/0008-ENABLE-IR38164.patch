@@ -1,6 +1,6 @@
 diff -Naur a/drivers/hwmon/pmbus/ir38164.c b/drivers/hwmon/pmbus/ir38164.c
 --- a/drivers/hwmon/pmbus/ir38164.c	1970-01-01 08:00:00.000000000 +0800
-+++ b/drivers/hwmon/pmbus/ir38164.c	2019-09-04 16:52:36.261227604 +0800
++++ b/drivers/hwmon/pmbus/ir38164.c	2019-09-19 09:24:39.012474440 +0800
 @@ -0,0 +1,63 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
@@ -67,32 +67,33 @@ diff -Naur a/drivers/hwmon/pmbus/ir38164.c b/drivers/hwmon/pmbus/ir38164.c
 +MODULE_LICENSE("GPL");
 \ No newline at end of file
 diff -Naur a/drivers/hwmon/pmbus/Kconfig b/drivers/hwmon/pmbus/Kconfig
---- a/drivers/hwmon/pmbus/Kconfig	2019-09-04 16:14:26.102345094 +0800
-+++ b/drivers/hwmon/pmbus/Kconfig	2019-09-04 16:53:16.584250698 +0800
-@@ -64,6 +64,15 @@
+--- a/drivers/hwmon/pmbus/Kconfig	2019-09-18 16:14:47.958331300 +0800
++++ b/drivers/hwmon/pmbus/Kconfig	2019-09-19 09:30:05.938834549 +0800
+@@ -63,7 +63,16 @@
+ 
  	  This driver can also be built as a module. If so, the module will
  	  be called ir38064.
- 
++	  
 +config SENSORS_IR38164
 +	tristate "Infineon IR38164"
 +	help
 +	  If you say yes here you get hardware monitoring support for Infineon
 +	  IR38164.
-+
+ 
 +	  This driver can also be built as a module. If so, the module will
-+	  be called ir38164.
++	  be called ir38164.	  
 +	  
- config SENSORS_ISL68137
- 	tristate "Intersil ISL68137"
+ config SENSORS_IRPS5401
+ 	tristate "Infineon IRPS5401"
  	help
 diff -Naur a/drivers/hwmon/pmbus/Makefile b/drivers/hwmon/pmbus/Makefile
---- a/drivers/hwmon/pmbus/Makefile	2019-09-04 16:14:26.102345094 +0800
-+++ b/drivers/hwmon/pmbus/Makefile	2019-09-04 16:55:30.710193082 +0800
+--- a/drivers/hwmon/pmbus/Makefile	2019-09-18 16:14:47.958331300 +0800
++++ b/drivers/hwmon/pmbus/Makefile	2019-09-19 09:35:51.771003258 +0800
 @@ -9,6 +9,7 @@
  obj-$(CONFIG_SENSORS_IBM_CFFPS)	+= ibm-cffps.o
  obj-$(CONFIG_SENSORS_IR35221)	+= ir35221.o
  obj-$(CONFIG_SENSORS_IR38064)	+= ir38064.o
-+obj-$(CONFIG_SENSORS_IR38064)	+= ir38164.o
++obj-$(CONFIG_SENSORS_IR38164)	+= ir38164.o
+ obj-$(CONFIG_SENSORS_IRPS5401)	+= irps5401.o
  obj-$(CONFIG_SENSORS_ISL68137)	+= isl68137.o
  obj-$(CONFIG_SENSORS_LM25066)	+= lm25066.o
- obj-$(CONFIG_SENSORS_LTC2978)	+= ltc2978.o
