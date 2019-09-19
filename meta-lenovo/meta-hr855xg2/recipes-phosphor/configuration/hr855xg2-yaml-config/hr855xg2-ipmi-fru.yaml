@@ -47,6 +47,75 @@
           IPMIFruProperty: Name
           IPMIFruSection: Board
 
+1:
+  /system/chassis/motherboard/Riser1:
+    entityID: 7
+    entityInstance: 2
+    interfaces:
+      xyz.openbmc_project.Inventory.Decorator.Asset:
+        BuildDate:
+          IPMIFruProperty: Mfg Date
+          IPMIFruSection: Board
+        PartNumber:
+          IPMIFruProperty: Part Number
+          IPMIFruSection: Board
+        Manufacturer:
+          IPMIFruProperty: Manufacturer
+          IPMIFruSection: Board
+        SerialNumber:
+          IPMIFruProperty: Serial Number
+          IPMIFruSection: Board
+      xyz.openbmc_project.Inventory.Item:
+        PrettyName:
+          IPMIFruProperty: Name
+          IPMIFruSection: Board
+
+2:
+  /system/chassis/motherboard/Riser2:
+    entityID: 7
+    entityInstance: 3
+    interfaces:
+      xyz.openbmc_project.Inventory.Decorator.Asset:
+        BuildDate:
+          IPMIFruProperty: Mfg Date
+          IPMIFruSection: Board
+        PartNumber:
+          IPMIFruProperty: Part Number
+          IPMIFruSection: Board
+        Manufacturer:
+          IPMIFruProperty: Manufacturer
+          IPMIFruSection: Board
+        SerialNumber:
+          IPMIFruProperty: Serial Number
+          IPMIFruSection: Board
+      xyz.openbmc_project.Inventory.Item:
+        PrettyName:
+          IPMIFruProperty: Name
+          IPMIFruSection: Board
+
+3:
+  /system/chassis/motherboard/Riser3:
+    entityID: 7
+    entityInstance: 4
+    interfaces:
+      xyz.openbmc_project.Inventory.Decorator.Asset:
+        BuildDate:
+          IPMIFruProperty: Mfg Date
+          IPMIFruSection: Board
+        PartNumber:
+          IPMIFruProperty: Part Number
+          IPMIFruSection: Board
+        Manufacturer:
+          IPMIFruProperty: Manufacturer
+          IPMIFruSection: Board
+        SerialNumber:
+          IPMIFruProperty: Serial Number
+          IPMIFruSection: Board
+      xyz.openbmc_project.Inventory.Item:
+        PrettyName:
+          IPMIFruProperty: Name
+          IPMIFruSection: Board
+         
 5:
   /system/chassis/motherboard/cpu0:
     entityID: 3
