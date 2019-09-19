@@ -133,7 +133,7 @@
   path: /xyz/openbmc_project/sensors/temperature/CPU0_VR_Temp
   sensorReadingType: 0x01
   unit: xyz.openbmc_project.Sensor.Value.Unit.DegreesC
-  scale: 0
+  scale: -3
   multiplierM: 1
   offsetB: 0
   bExp: 0
@@ -154,7 +154,7 @@
   path: /xyz/openbmc_project/sensors/temperature/CPU1_VR_Temp
   sensorReadingType: 0x01
   unit: xyz.openbmc_project.Sensor.Value.Unit.DegreesC
-  scale: 0
+  scale: -3
   multiplierM: 1
   offsetB: 0
   bExp: 0
@@ -175,7 +175,7 @@
   path: /xyz/openbmc_project/sensors/temperature/CPU2_VR_Temp
   sensorReadingType: 0x01
   unit: xyz.openbmc_project.Sensor.Value.Unit.DegreesC
-  scale: 0
+  scale: -3
   multiplierM: 1
   offsetB: 0
   bExp: 0
@@ -196,7 +196,7 @@
   path: /xyz/openbmc_project/sensors/temperature/CPU3_VR_Temp
   sensorReadingType: 0x01
   unit: xyz.openbmc_project.Sensor.Value.Unit.DegreesC
-  scale: 0
+  scale: -3
   multiplierM: 1
   offsetB: 0
   bExp: 0
@@ -1239,7 +1239,7 @@
         Offsets:
           0x0:
             type: int64_t
-            
+
 0x3C:
   entityID: 0x20
   sensorType: 0x01
@@ -1259,8 +1259,8 @@
       Value:
         Offsets:
           0x0:
-            type: int64_t  
-            
+            type: int64_t
+
 0x3D:
   entityID: 0x20
   sensorType: 0x01
@@ -1281,7 +1281,7 @@
         Offsets:
           0x0:
             type: int64_t
-            
+
 0x3E:
   entityID: 0x20
   sensorType: 0x01
@@ -1301,7 +1301,7 @@
       Value:
         Offsets:
           0x0:
-            type: int64_t 
+            type: int64_t
 
 0x3F:
   entityID: 0x20
@@ -1323,7 +1323,7 @@
         Offsets:
           0x0:
             type: int64_t
-            
+
 0x40:
   entityID: 0x20
   sensorType: 0x01
@@ -1343,7 +1343,7 @@
       Value:
         Offsets:
           0x0:
-            type: int64_t  
+            type: int64_t
 
 0x41:
   entityID: 0x20
@@ -1365,7 +1365,7 @@
         Offsets:
           0x0:
             type: int64_t
-            
+
 0x42:
   entityID: 0x20
   sensorType: 0x01
@@ -1385,8 +1385,8 @@
       Value:
         Offsets:
           0x0:
-            type: int64_t              
- 
+            type: int64_t
+
 0x45:
   entityID: 0x0A
   sensorType: 0x01
@@ -1396,7 +1396,7 @@
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.DegreesC
-  scale: 0
+  scale: -3
   rExp: 0
   mutability: Mutability::Read
   serviceInterface: org.freedesktop.DBus.Properties
@@ -5678,4 +5678,4 @@
       Value:
         Offsets:
           0x0:
-            type: int64_t              
+            type: int64_t

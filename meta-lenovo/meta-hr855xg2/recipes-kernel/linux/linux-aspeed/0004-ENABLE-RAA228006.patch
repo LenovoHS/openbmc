@@ -103,7 +103,7 @@ diff -Naur a/drivers/hwmon/pmbus/raa228006.c b/drivers/hwmon/pmbus/raa228006.c
 +
 +	info->m[PSC_TEMPERATURE] = 1,
 +	info->b[PSC_TEMPERATURE] = 0,
-+	info->R[PSC_TEMPERATURE] = 3,
++	info->R[PSC_TEMPERATURE] = 0,
 +	
 +	info->func[0] = PMBUS_HAVE_VIN
 +		| PMBUS_HAVE_VOUT | PMBUS_HAVE_IIN
