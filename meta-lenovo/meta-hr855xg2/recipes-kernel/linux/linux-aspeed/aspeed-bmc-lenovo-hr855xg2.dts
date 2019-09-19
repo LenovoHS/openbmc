@@ -710,26 +710,26 @@
 		line-name = "BMC_PCIE_I2C_MUX_RST_N";
 	};
 	
-//	pin_gpio_f2 {
-//		gpio-hog;
-//		gpios = <ASPEED_GPIO(F, 2) GPIO_ACTIVE_HIGH>;
-//		output-high;
-//		line-name = "RM_THROTTLE_EN_N";
-//	};
+	pin_gpio_f2 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(F, 2) GPIO_ACTIVE_HIGH>;
+		output-high;
+		line-name = "RM_THROTTLE_EN_N";
+	};
 
-//	pin_gpio_f3 {
-//		gpio-hog;
-//		gpios = <ASPEED_GPIO(F, 3) GPIO_ACTIVE_HIGH>;
-//		output-low;
-//		line-name = "FM_PMBUS_ALERT_B_EN";
-//	};
+	pin_gpio_f3 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(F, 3) GPIO_ACTIVE_HIGH>;
+		output-low;
+		line-name = "FM_PMBUS_ALERT_B_EN";
+	};
 	
-//	pin_gpio_f4 {
-//		gpio-hog;
-//		gpios = <ASPEED_GPIO(F, 4) GPIO_ACTIVE_HIGH>;
-//		output-high;
-//		line-name = "BMC_FORCE_NM_THROTTLE_N";
-//	};
+	pin_gpio_f4 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(F, 4) GPIO_ACTIVE_HIGH>;
+		output-high;
+		line-name = "BMC_FORCE_NM_THROTTLE_N";
+	};
 	
 	
 	pin_gpio_j1 {
@@ -794,12 +794,4 @@
 		output-high;
 		line-name = "ESPI_BMC_ALERT_N";
 	};
-	
-//      pin_gpio_f1 {
-//        	gpio-hog;
-//        	gpios = <ASPEED_GPIO(F, 1) GPIO_ACTIVE_HIGH>;
-//        	input;
-//        	line-name = "CPU2_PROCDIS_BMC_N";
-//    	};
-
 };
