@@ -1,12 +1,11 @@
 diff -Naur a/drivers/hwmon/pmbus/ibm-cffps.c b/drivers/hwmon/pmbus/ibm-cffps.c
---- a/drivers/hwmon/pmbus/ibm-cffps.c	2019-06-12 00:20:49.550844000 +0800
-+++ b/drivers/hwmon/pmbus/ibm-cffps.c	2019-07-02 11:17:26.315637425 +0800
-@@ -334,7 +334,7 @@
- 
- static struct pmbus_driver_info ibm_cffps_info = {
- 	.pages = 1,
--	.func[0] = PMBUS_HAVE_VIN | PMBUS_HAVE_VOUT | PMBUS_HAVE_IOUT |
-+	.func[0] = PMBUS_HAVE_VIN | PMBUS_HAVE_VOUT | PMBUS_HAVE_IOUT | PMBUS_HAVE_IIN | PMBUS_HAVE_POUT |
- 		PMBUS_HAVE_PIN | PMBUS_HAVE_FAN12 | PMBUS_HAVE_TEMP |
- 		PMBUS_HAVE_TEMP2 | PMBUS_HAVE_TEMP3 | PMBUS_HAVE_STATUS_VOUT |
- 		PMBUS_HAVE_STATUS_IOUT | PMBUS_HAVE_STATUS_INPUT |
+--- a/drivers/hwmon/pmbus/ibm-cffps.c	2019-09-24 11:38:05.151822715 +0800
++++ b/drivers/hwmon/pmbus/ibm-cffps.c	2019-09-24 11:42:46.897872429 +0800
+@@ -363,6 +363,7 @@
+ 	[cffps1] = {
+ 		.pages = 1,
+ 		.func[0] = PMBUS_HAVE_VIN | PMBUS_HAVE_VOUT | PMBUS_HAVE_IOUT |
++			PMBUS_HAVE_IIN | PMBUS_HAVE_POUT |
+ 			PMBUS_HAVE_PIN | PMBUS_HAVE_FAN12 | PMBUS_HAVE_TEMP |
+ 			PMBUS_HAVE_TEMP2 | PMBUS_HAVE_TEMP3 |
+ 			PMBUS_HAVE_STATUS_VOUT | PMBUS_HAVE_STATUS_IOUT |

@@ -1,5 +1,5 @@
-#"Copyright ? 2019-present Lenovo
-#Licensed under BSD-3, see COPYING.BSD file for details."
+# Copyright (c) 2019-present Lenovo
+# Licensed under BSD-3, see COPYING.BSD file for details.
 
 
 FILESEXTRAPATHS_prepend_hr650x+ := "${THISDIR}/${PN}:"
@@ -7,11 +7,8 @@ SRC_URI += "file://aspeed-bmc-lenovo-hr650x+.dts \
             file://hr650x+.cfg \
             file://0001-support-ASIC.patch \
             file://0002-support-more-psu-propeties.patch \
-            file://0003-Add-Infineon-PXE1610-VR-driver.patch \
             file://0004-I2C-SLAVE-MQUEUE.patch \
             "
-     
-			
 
 do_configure_append() {
 
@@ -23,7 +20,6 @@ do_configure_append() {
 		cp ../aspeed-bmc-lenovo-hr650x+.dts  ./source/arch/arm/boot/dts/
 	fi	
 }
-
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
