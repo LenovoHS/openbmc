@@ -113,9 +113,9 @@
             "max": 255
         },
         {
-            "name": "PCIE_Group_Temp",
+            "name": "PCIE_Group_min_thermal_margin",
             "type": "margin",
-            "readPath": "/xyz/openbmc_project/extsensors/margin/PCIE_Group_Temp",
+            "readPath": "/xyz/openbmc_project/extsensors/margin/PCIE_Group_min_thermal_margin",
             "timeout": 0
         }
     ],

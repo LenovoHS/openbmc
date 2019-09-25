@@ -29,7 +29,9 @@ then
 else
     echo "BMC image verify ok."
     mv $IMAGE_FILE $BURN_IMAGE
-    echo "success" > $OUT   
+    echo "success" > $OUT
+    # Stop PID fan service and run initial fan speed.
+    systemctl stop phosphor-pid-control.service
     sleep 5
     rm -f $OUT    
 fi
