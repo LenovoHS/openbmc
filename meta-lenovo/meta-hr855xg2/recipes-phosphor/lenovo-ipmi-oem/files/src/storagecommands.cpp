@@ -39,6 +39,7 @@ constexpr static const size_t maxMessageSize = 64;
 constexpr static const size_t maxFruSdrNameSize = 16;
 constexpr static const size_t maxFruNum = 56;
 constexpr static const size_t cpuFruStart = 5;
+constexpr static const size_t dimmFruStart = 9;
 using ManagedObjectType = boost::container::flat_map<
     sdbusplus::message::object_path,
     boost::container::flat_map<
@@ -55,7 +56,6 @@ constexpr static const size_t cacheTimeoutSeconds = 10;
 static std::vector<uint8_t> fruCache;
 static uint8_t cacheBus = 0xFF;
 static uint8_t cacheAddr = 0XFF;
-static uint8_t cacheId = 0XFF;
 
 std::unique_ptr<phosphor::Timer> cacheTimer = nullptr;
 
@@ -71,7 +71,7 @@ bool writeFru()
     sdbusplus::message::message writeFru = dbus->new_method_call(
         fruDeviceServiceName, "/xyz/openbmc_project/FruDevice",
         "xyz.openbmc_project.FruDeviceManager", "WriteFru");
-    writeFru.append(cacheBus, cacheAddr, cacheId, fruCache);
+    writeFru.append(cacheBus, cacheAddr, fruCache);
     try
     {
         sdbusplus::message::message writeFruResp = dbus->call(writeFru);
@@ -99,19 +99,8 @@ bool searchFruId(uint8_t& fruHash, uint8_t& devId, const std::string& path)
     std::size_t found = path.find("HR855XG2");
     if (found != std::string::npos) 
     {
-        if ((devId >= cpuFruStart) && (devId <= maxFruNum))
-        {
-            fruHash = devId;
-        }
-        else
-        {
-            fruHash = 0;
-        }
+        fruHash = 0;
         return true;
-    }
-    if ((devId >= cpuFruStart) && (devId <= maxFruNum))
-    {
-        return false;
     }
     found = path.find("Riser1");
     if (found != std::string::npos)
@@ -141,6 +130,144 @@ bool searchFruId(uint8_t& fruHash, uint8_t& devId, const std::string& path)
     return false;
 }
 
+bool writeCpuDimmFru(uint8_t devId) 
+{
+    char fruFilename[32] = {0};
+    const char* mode = NULL;
+    FILE* fp = NULL;
+
+    if ((devId >= cpuFruStart) && (devId < dimmFruStart))
+    {
+        std::sprintf(fruFilename, CpuFruPath, (devId - cpuFruStart));
+    }
+    else
+    {
+        std::sprintf(fruFilename, DimmFruPath, (devId - dimmFruStart));
+    }
+
+    if (access(fruFilename, F_OK) == -1)
+    {
+        mode = "wb+";
+    }
+    else
+    {
+        mode = "rb+";
+    }
+
+    if ((fp = std::fopen(fruFilename, mode)) != NULL)
+    {
+        if (std::fwrite(fruCache.data(), fruCache.size(), 1, fp) != 1)
+        {
+            phosphor::logging::log<phosphor::logging::level::ERR>(
+                "Write into fru file failed",
+                phosphor::logging::entry("FILE=%s", fruFilename),
+                phosphor::logging::entry("ERRNO=%s", std::strerror(errno)));
+
+            std::fclose(fp);
+            return false;
+        }
+        std::fclose(fp);
+    }
+    else
+    {
+        phosphor::logging::log<phosphor::logging::level::ERR>(
+            "Error trying to open fru file for write action",
+            phosphor::logging::entry("FILE=%s", fruFilename));
+        return false;
+    }
+
+    return true;
+}
+
+ipmi_ret_t replaceCpuDimmCacheFru(uint8_t devId)
+{
+    char fruFilename[32] = {0};
+    const char* mode = NULL;
+    FILE* fp = NULL;
+    int fileLen = 0;
+    ipmi_ret_t rc = IPMI_CC_INVALID;
+
+    if ((devId >= cpuFruStart) && (devId < dimmFruStart))
+    {
+        std::sprintf(fruFilename, CpuFruPath, (devId - cpuFruStart));
+    }
+    else
+    {
+        std::sprintf(fruFilename, DimmFruPath, (devId - dimmFruStart));
+    }
+
+    if (access(fruFilename, F_OK) == -1)
+    {
+        mode = "wb+";
+    }
+    else
+    {
+        mode = "rb+";
+    }
+
+    if ((fp = std::fopen(fruFilename, mode)) != NULL)
+    {
+        if (std::fseek(fp, 0, SEEK_END))
+        {
+            phosphor::logging::log<phosphor::logging::level::ERR>(
+                "Seek(End) into fru file failed",
+                phosphor::logging::entry("FILE=%s", fruFilename),
+                phosphor::logging::entry("ERRNO=%s", std::strerror(errno)));
+
+            std::fclose(fp);
+            return rc;
+        }
+
+        fileLen = ftell(fp);
+        if (fileLen < 0) 
+        {
+           phosphor::logging::log<phosphor::logging::level::ERR>(
+                "Check fru file size failed",
+                phosphor::logging::entry("FILE=%s", fruFilename),
+                phosphor::logging::entry("ERRNO=%s", std::strerror(errno)));
+
+            std::fclose(fp);
+            return rc;
+        }
+
+        if (std::fseek(fp, 0, SEEK_SET))
+        {
+            phosphor::logging::log<phosphor::logging::level::ERR>(
+                "Seek(Begin) into fru file failed",
+                phosphor::logging::entry("FILE=%s", fruFilename),
+                phosphor::logging::entry("ERRNO=%s", std::strerror(errno)));
+
+            std::fclose(fp);
+            return rc;
+        }
+
+        fruCache.clear();
+        fruCache.resize(fileLen);
+
+        if (std::fread(fruCache.data(), fileLen, 1, fp) != 1)
+        {
+            phosphor::logging::log<phosphor::logging::level::ERR>(
+                "Read fru file failed",
+                phosphor::logging::entry("FILE=%s", fruFilename),
+                phosphor::logging::entry("ERRNO=%s", std::strerror(errno)));
+
+            std::fclose(fp);
+            return rc;
+        }
+        std::fclose(fp);
+    }
+    else
+    {
+        phosphor::logging::log<phosphor::logging::level::ERR>(
+            "Error trying to open fru file for read action",
+            phosphor::logging::entry("FILE=%s", fruFilename));
+        return rc;
+    }
+
+    rc = IPMI_CC_OK;
+    return rc;
+}
+
 ipmi_ret_t replaceCacheFru(uint8_t devId)
 {
     static uint8_t lastDevId = 0xFF;
@@ -152,7 +279,8 @@ ipmi_ret_t replaceCacheFru(uint8_t devId)
 
     if ((devId >= cpuFruStart) && (devId <= maxFruNum))
     {
-        return IPMI_CC_SENSOR_INVALID;
+        ipmi_ret_t status = replaceCpuDimmCacheFru(devId);
+        return status;
     }
 
     bool timerRunning = (cacheTimer != nullptr) && !cacheTimer->isExpired();
@@ -262,10 +390,9 @@ ipmi_ret_t replaceCacheFru(uint8_t devId)
     sdbusplus::message::message getRawFru = dbus->new_method_call(
         fruDeviceServiceName, "/xyz/openbmc_project/FruDevice",
         "xyz.openbmc_project.FruDeviceManager", "GetRawFru");
-    cacheId = devId;
     cacheBus = deviceFind->second.first;
     cacheAddr = deviceFind->second.second;
-    getRawFru.append(cacheBus, cacheAddr, cacheId);
+    getRawFru.append(cacheBus, cacheAddr);
     try
     {
         sdbusplus::message::message getRawResp = dbus->call(getRawFru);
@@ -276,7 +403,6 @@ ipmi_ret_t replaceCacheFru(uint8_t devId)
         lastDevId = 0xFF;
         cacheBus = 0xFF;
         cacheAddr = 0xFF;
-        cacheId = 0xFF;
         return IPMI_CC_RESPONSE_ERROR;
     }
 
@@ -398,6 +524,19 @@ ipmi_ret_t ipmiStorageWriteFRUData(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
         }
     }
     uint8_t* respPtr = static_cast<uint8_t*>(response);
+
+    if ((req->fruDeviceID >= cpuFruStart) && (req->fruDeviceID <= maxFruNum))
+    {
+        if (!writeCpuDimmFru(req->fruDeviceID))
+        {
+            return IPMI_CC_INVALID_FIELD_REQUEST;
+        }
+        *respPtr = writeLen;
+        *dataLen = 1;
+
+        return IPMI_CC_OK;
+    }
+
     if (atEnd)
     {
         // cancel timer, we're at the end so might as well send it
@@ -451,147 +590,6 @@ ipmi::RspType<uint16_t, // inventorySize
 
     return ipmi::responseSuccess(fruCache.size(), accessType);
 }
-
-#if 0
-ipmi_ret_t getFruSdrCount(size_t& count)
-{
-    ipmi_ret_t ret = replaceCacheFru(0);
-    if (ret != IPMI_CC_OK)
-    {
-        return ret;
-    }
-    count = deviceHashes.size();
-    return IPMI_CC_OK;
-}
-
-ipmi_ret_t getFruSdrs(size_t index, get_sdr::SensorDataFruRecord& resp)
-{
-    ipmi_ret_t ret = replaceCacheFru(0); // this will update the hash list
-    if (ret != IPMI_CC_OK)
-    {
-        return ret;
-    }
-    if (deviceHashes.size() < index)
-    {
-        return IPMI_CC_INVALID_FIELD_REQUEST;
-    }
-    auto device = deviceHashes.begin() + index;
-    uint8_t& bus = device->second.first;
-    uint8_t& address = device->second.second;
-
-    ManagedObjectType frus;
-
-    std::shared_ptr<sdbusplus::asio::connection> dbus = getSdBus();
-    sdbusplus::message::message getObjects = dbus->new_method_call(
-        fruDeviceServiceName, "/", "org.freedesktop.DBus.ObjectManager",
-        "GetManagedObjects");
-    try
-    {
-        sdbusplus::message::message resp = dbus->call(getObjects);
-        resp.read(frus);
-    }
-    catch (sdbusplus::exception_t&)
-    {
-        return IPMI_CC_RESPONSE_ERROR;
-    }
-    boost::container::flat_map<std::string, DbusVariant>* fruData = nullptr;
-    auto fru =
-        std::find_if(frus.begin(), frus.end(),
-                     [bus, address, &fruData](ManagedEntry& entry) {
-                         auto findFruDevice =
-                             entry.second.find("xyz.openbmc_project.FruDevice");
-                         if (findFruDevice == entry.second.end())
-                         {
-                             return false;
-                         }
-                         fruData = &(findFruDevice->second);
-                         auto findBus = findFruDevice->second.find("BUS");
-                         auto findAddress =
-                             findFruDevice->second.find("ADDRESS");
-                         if (findBus == findFruDevice->second.end() ||
-                             findAddress == findFruDevice->second.end())
-                         {
-                             return false;
-                         }
-                         if (std::get<uint32_t>(findBus->second) != bus)
-                         {
-                             return false;
-                         }
-                         if (std::get<uint32_t>(findAddress->second) != address)
-                         {
-                             return false;
-                         }
-                         return true;
-                     });
-    if (fru == frus.end())
-    {
-        return IPMI_CC_RESPONSE_ERROR;
-    }
-    std::string name;
-    auto findProductName = fruData->find("BOARD_PRODUCT_NAME");
-    auto findBoardName = fruData->find("PRODUCT_PRODUCT_NAME");
-    if (findProductName != fruData->end())
-    {
-        name = std::get<std::string>(findProductName->second);
-    }
-    else if (findBoardName != fruData->end())
-    {
-        name = std::get<std::string>(findBoardName->second);
-    }
-    else
-    {
-        name = "UNKNOWN";
-    }
-    if (name.size() > maxFruSdrNameSize)
-    {
-        name = name.substr(0, maxFruSdrNameSize);
-    }
-    size_t sizeDiff = maxFruSdrNameSize - name.size();
-
-    resp.header.record_id_lsb = 0x0; // calling code is to implement these
-    resp.header.record_id_msb = 0x0;
-    resp.header.sdr_version = ipmiSdrVersion;
-    resp.header.record_type = 0x11; // FRU Device Locator
-    resp.header.record_length = sizeof(resp.body) + sizeof(resp.key) - sizeDiff;
-    resp.key.deviceAddress = 0x20;
-    resp.key.fruID = device->first;
-    resp.key.accessLun = 0x80; // logical / physical fru device
-    resp.key.channelNumber = 0x0;
-    resp.body.reserved = 0x0;
-    resp.body.deviceType = 0x10;
-    resp.body.deviceTypeModifier = 0x0;
-    resp.body.entityID = 0x0;
-    resp.body.entityInstance = 0x1;
-    resp.body.oem = 0x0;
-    resp.body.deviceIDLen = name.size();
-    name.copy(resp.body.deviceID, name.size());
-
-    return IPMI_CC_OK;
-}
-
-static int fromHexStr(const std::string hexStr, std::vector<uint8_t>& data)
-{
-    for (unsigned int i = 0; i < hexStr.size(); i += 2)
-    {
-        try
-        {
-            data.push_back(static_cast<uint8_t>(
-                std::stoul(hexStr.substr(i, 2), nullptr, 16)));
-        }
-        catch (std::invalid_argument& e)
-        {
-            phosphor::logging::log<phosphor::logging::level::ERR>(e.what());
-            return -1;
-        }
-        catch (std::out_of_range& e)
-        {
-            phosphor::logging::log<phosphor::logging::level::ERR>(e.what());
-            return -1;
-        }
-    }
-    return 0;
-}
-#endif
 
 void registerStorageFunctions()
 {
