@@ -2,14 +2,14 @@
 # Licensed under BSD-3, see COPYING.BSD file for details."
 
 [Unit]
-Description=Phosphor-Pid-Control Margin-based Fan Control Daemon
+Description=FPGA fan control event to driven pwm to full speed
 After=fpga.service
 
 [Service]
 Restart=always
-ExecStart=/bin/bash /usr/sbin/start_phosphor-pid-control.sh
 RestartSec=5
 StartLimitInterval=0
+ExecStart=/bin/bash /usr/sbin/fpga_event.sh
 Type=simple
 ExecStopPost=/bin/bash /usr/sbin/initial_fanspeed.sh
 

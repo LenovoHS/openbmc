@@ -135,7 +135,8 @@
             "writePath": "",
             "min": 0,
             "max": 0,
-            "timeout": 1
+            "ignoreDbusMinMax": true,
+            "timeout": 0
         },
         {
             "name": "Outlet_Temp",
@@ -144,6 +145,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -153,6 +155,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -162,6 +165,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -171,6 +175,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -180,6 +185,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -189,6 +195,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -198,6 +205,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -207,6 +215,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -216,6 +225,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -225,6 +235,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -234,6 +245,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -243,6 +255,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -252,6 +265,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -261,6 +275,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -270,6 +285,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -279,6 +295,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -288,6 +305,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -297,6 +315,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -306,6 +325,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -315,6 +335,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -324,6 +345,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -333,6 +355,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -342,6 +365,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -351,6 +375,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -360,6 +385,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -369,6 +395,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -378,6 +405,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -387,6 +415,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -396,6 +425,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -405,6 +435,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -414,6 +445,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -423,6 +455,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -432,6 +465,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -441,6 +475,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -450,6 +485,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -459,6 +495,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -468,6 +505,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -477,6 +515,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -486,6 +525,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -495,6 +535,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -504,6 +545,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -513,6 +555,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -522,6 +565,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -531,6 +575,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -540,6 +585,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -549,6 +595,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -558,6 +605,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -567,6 +615,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -576,6 +625,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -585,6 +635,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -594,6 +645,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -603,6 +655,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -612,6 +665,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -621,12 +675,13 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
-            "name": "PCIE_Group_Temp",
+            "name": "PCIE_Group_min_thermal_margin",
             "type": "margin",
-            "readPath": "/xyz/openbmc_project/extsensors/margin/PCIE_Group_Temp",
+            "readPath": "/xyz/openbmc_project/extsensors/margin/PCIE_Group_min_thermal_margin",
             "timeout": 0
         },
         {
@@ -636,6 +691,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -645,6 +701,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -654,6 +711,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -663,6 +721,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -672,6 +731,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -681,6 +741,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -690,6 +751,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -699,6 +761,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -708,6 +771,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -717,6 +781,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -726,6 +791,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -735,6 +801,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         },
         {
@@ -744,6 +811,7 @@
             "writePath": "",
             "min": 0,
             "max": 0,
+            "ignoreDbusMinMax": true,
             "timeout": 0
         }
     ],
@@ -1182,9 +1250,9 @@
                     }
                 },
                 {
-                    "name": "pcie_group_temp_pid",
+                    "name": "PCIE_Group_min_thermal_margin",
                     "type": "margin",
-                    "inputs": ["PCIE_Group_Temp"],
+                    "inputs": ["PCIE_Group_min_thermal_margin"],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,
@@ -1485,7 +1553,7 @@
                 {
                     "name": "PDB_FAN0-PDB_FAN2_Speed",
                     "type": "fan",
-                    "inputs": ["PDB_FAN0_Speed", "PDB_FAN2_Speed"],
+                    "inputs": ["PDB_FAN0_Speed", "PDB_FAN1_2_Speed"],
                     "setpoint": 90.0,
                     "pid": {
                         "samplePeriod": 0.1,

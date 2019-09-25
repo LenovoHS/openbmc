@@ -4480,7 +4480,7 @@
 
 0x6D:
   sensorType: 0x01
-  path: /xyz/openbmc_project/extsensors/margin/PCIE_Group_Temp
+  path: /xyz/openbmc_project/extsensors/margin/PCIE_Group_min_thermal_margin
   sensorReadingType: 0x01
   multiplierM: 1
   offsetB: 0
