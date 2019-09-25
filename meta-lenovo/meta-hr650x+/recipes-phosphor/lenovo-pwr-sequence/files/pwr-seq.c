@@ -190,7 +190,7 @@ int i2cMasterWrite(int fd, uint16_t addr, uint8_t *wbuf, uint16_t len) {
 
 int verifyBIOS() {
     // TODO: Varify BIOS
-    printf("Prepare to varify BIOS...\n");
+    //printf("Prepare to varify BIOS...\n");
     //sleep(1);  // Simulate process of verifying BIOS
 
     return 0;
@@ -202,7 +202,7 @@ int getSLPS3Sts() {
 
     fd = open(I2C_BUS_CPLD, O_RDWR);
     if (fd < 0){
-        printf("Open %s failed\n", I2C_BUS_CPLD);
+        //printf("Open %s failed\n", I2C_BUS_CPLD);
         return -1;
     }
 
@@ -223,7 +223,7 @@ int releaseSYSPWROK() {
 
     fd = open(I2C_BUS_CPLD, O_RDWR);
     if (fd < 0){
-        printf("Open %s failed\n", I2C_BUS_CPLD);
+        //printf("Open %s failed\n", I2C_BUS_CPLD);
         return -1;
     }
 
@@ -241,7 +241,7 @@ int clearSLPS3Event() {
 
     fd = open(I2C_BUS_CPLD, O_RDWR);
     if (fd < 0){
-        printf("Open %s failed\n", I2C_BUS_CPLD);
+        //printf("Open %s failed\n", I2C_BUS_CPLD);
         return -1;
     }
 
@@ -304,12 +304,12 @@ skip:
         if (is_slps3_triggered) {
             ret = verifyBIOS();
             if (ret == 0) {
-                printf("BIOS Varification PASS.\n");
+                //printf("BIOS Varification PASS.\n");
                 releaseSYSPWROK();
                 usleep(100000);   // 100 ms
                 clearSLPS3Event();
             } else {
-                printf("BIOS Varification FAILED.\n");
+                //printf("BIOS Varification FAILED.\n");
                 return -1;
             }
         }
