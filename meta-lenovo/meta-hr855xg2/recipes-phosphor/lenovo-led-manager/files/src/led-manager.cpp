@@ -64,7 +64,7 @@ inline static sdbusplus::bus::match::match startThresholdEventMonitor(
 			
 		if(std::string(sensorType) == "temperature")
 		{	
-		  if((event == "CriticalHigh") || (event == "WarningHigh") || (event == "CriticalAlarmHigh"))
+		  if((event == "WarningAlarmHigh") || (event == "CriticalHigh") || (event == "WarningHigh") || (event == "CriticalAlarmHigh"))
 		  {
 				
 			try
