@@ -4,6 +4,7 @@
 FILESEXTRAPATHS_append := "${THISDIR}/${PN}:"
 
 SRC_URI += "file://0001-add-BIST-event-for-CPU_Status-sensor.patch \
+            file://0002-add-watchdog2-sensor-event.patch \
             file://wdt_en.sh \
            "
 
