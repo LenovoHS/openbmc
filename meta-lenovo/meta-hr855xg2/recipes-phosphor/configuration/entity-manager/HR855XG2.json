@@ -121,61 +121,89 @@
             "Type": "XeonCPU"
         },
         {
-            "SnrNum": 149,
+            "SnrNum": 145,
             "SnrType": 7,
-            "Name": "CPU0 Prochot",
-            "FpgaGpio": 45,
+            "Name": "CPU0 Status",
+            "FpgaGpio": "INT_SPI_FPGA_BMC_N",
             "Offset": [
                 {
                     "Block": 14,
-                    "Addr": 3,
+                    "Addr": 1,
                     "Bit": 0,
-                    "EvtBit": 1
+                    "EvtBit": 1,
+                    "TrigState": 1,
+                    "Service": "xyz.openbmc_project.CPUSensor",
+                    "Path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_Status",
+                    "Iface": "xyz.openbmc_project.Inventory.Item.Cpu",
+                    "Property": "Thermal_Trip",
+                    "Ptype": "bool",
+                    "Setvalue": "1"
                 }
             ],
             "Type": "Fpga"
         },
         {
-            "SnrNum": 150,
+            "SnrNum": 146,
             "SnrType": 7,
-            "Name": "CPU1 Prochot",
-            "FpgaGpio": 45,
+            "Name": "CPU1 Status",
+            "FpgaGpio": "INT_SPI_FPGA_BMC_N",
             "Offset": [
                 {
                     "Block": 14,
-                    "Addr": 3,
+                    "Addr": 1,
                     "Bit": 1,
-                    "EvtBit": 1
+                    "EvtBit": 1,
+                    "TrigState": 1,
+                    "Service": "xyz.openbmc_project.CPUSensor",
+                    "Path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_Status",
+                    "Iface": "xyz.openbmc_project.Inventory.Item.Cpu",
+                    "Property": "Thermal_Trip",
+                    "Ptype": "bool",
+                    "Setvalue": "1"
                 }
             ],
             "Type": "Fpga"
         },
         {
-            "SnrNum": 151,
+            "SnrNum": 147,
             "SnrType": 7,
-            "Name": "CPU2 Prochot",
-            "FpgaGpio": 45,
+            "Name": "CPU2 Status",
+            "FpgaGpio": "INT_SPI_FPGA_BMC_N",
             "Offset": [
                 {
                     "Block": 14,
-                    "Addr": 3,
+                    "Addr": 1,
                     "Bit": 2,
-                    "EvtBit": 1
+                    "EvtBit": 1,
+                    "TrigState": 1,
+                    "Service": "xyz.openbmc_project.CPUSensor",
+                    "Path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_Status",
+                    "Iface": "xyz.openbmc_project.Inventory.Item.Cpu",
+                    "Property": "Thermal_Trip",
+                    "Ptype": "bool",
+                    "Setvalue": "1"
                 }
             ],
             "Type": "Fpga"
         },
         {
-            "SnrNum": 152,
+            "SnrNum": 148,
             "SnrType": 7,
-            "Name": "CPU3 Prochot",
-            "FpgaGpio": 45,
+            "Name": "CPU3 Status",
+            "FpgaGpio": "INT_SPI_FPGA_BMC_N",
             "Offset": [
                 {
                     "Block": 14,
-                    "Addr": 3,
+                    "Addr": 1,
                     "Bit": 3,
-                    "EvtBit": 1
+                    "EvtBit": 1,
+                    "TrigState": 1,
+                    "Service": "xyz.openbmc_project.CPUSensor",
+                    "Path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_Status",
+                    "Iface": "xyz.openbmc_project.Inventory.Item.Cpu",
+                    "Property": "Thermal_Trip",
+                    "Ptype": "bool",
+                    "Setvalue": "1"
                 }
             ],
             "Type": "Fpga"
@@ -184,13 +212,14 @@
             "SnrNum": 153,
             "SnrType": 7,
             "Name": "CPU IERR",
-            "FpgaGpio": 49,
+            "FpgaGpio": "FM_CPU_CATERR_DELAY_N",
             "Offset": [
                 {
                     "Block": 14,
                     "Addr": 7,
                     "Bit": 0,
-                    "EvtBit": 1
+                    "EvtBit": 1,
+                    "TrigState": 1
                 }
             ],
             "Type": "Fpga"
@@ -199,13 +228,14 @@
             "SnrNum": 154,
             "SnrType": 7,
             "Name": "CPU MCERR",
-            "FpgaGpio": 49,
+            "FpgaGpio": "FM_CPU_CATERR_DELAY_N",
             "Offset": [
                 {
                     "Block": 14,
                     "Addr": 7,
                     "Bit": 4,
-                    "EvtBit": 1
+                    "EvtBit": 1,
+                    "TrigState": 1
                 }
             ],
             "Type": "Fpga"
@@ -811,6 +841,198 @@
             "Type": "Oem"
         },
         {
+            "SnrNum": 224,
+            "SnrType": 33,
+            "Name": "PE1S1 Presence",
+            "FpgaGpio": "NA",
+            "Offset": [
+                {
+                    "Block": 12,
+                    "Addr": 4,
+                    "Bit": 0,
+                    "EvtBit": 2,
+                    "TrigState": 0
+                }
+            ],
+            "Type": "Fpga"
+        },
+        {
+            "SnrNum": 225,
+            "SnrType": 33,
+            "Name": "PE1S2 Presence",
+            "FpgaGpio": "NA",
+            "Offset": [
+                {
+                    "Block": 12,
+                    "Addr": 4,
+                    "Bit": 1,
+                    "EvtBit": 2,
+                    "TrigState": 0
+                }
+            ],
+            "Type": "Fpga"
+        },
+        {
+            "SnrNum": 226,
+            "SnrType": 33,
+            "Name": "PE1S3 Presence",
+            "FpgaGpio": "NA",
+            "Offset": [
+                {
+                    "Block": 12,
+                    "Addr": 4,
+                    "Bit": 2,
+                    "EvtBit": 2,
+                    "TrigState": 0
+                }
+            ],
+            "Type": "Fpga"
+        },
+        {
+            "SnrNum": 227,
+            "SnrType": 33,
+            "Name": "PE1S4 Presence",
+            "FpgaGpio": "NA",
+            "Offset": [
+                {
+                    "Block": 12,
+                    "Addr": 4,
+                    "Bit": 3,
+                    "EvtBit": 2,
+                    "TrigState": 0
+                }
+            ],
+            "Type": "Fpga"
+        },
+        {
+            "SnrNum": 228,
+            "SnrType": 33,
+            "Name": "PE1S5 Presence",
+            "FpgaGpio": "NA",
+            "Offset": [
+                {
+                    "Block": 12,
+                    "Addr": 4,
+                    "Bit": 4,
+                    "EvtBit": 2,
+                    "TrigState": 0
+                }
+            ],
+            "Type": "Fpga"
+        },
+        {
+            "SnrNum": 229,
+            "SnrType": 33,
+            "Name": "PE2S1 Presence",
+            "FpgaGpio": "NA",
+            "Offset": [
+                {
+                    "Block": 12,
+                    "Addr": 4,
+                    "Bit": 5,
+                    "EvtBit": 2,
+                    "TrigState": 0
+                }
+            ],
+            "Type": "Fpga"
+        },
+        {
+            "SnrNum": 230,
+            "SnrType": 33,
+            "Name": "PE2S2 Presence",
+            "FpgaGpio": "NA",
+            "Offset": [
+                {
+                    "Block": 12,
+                    "Addr": 4,
+                    "Bit": 6,
+                    "EvtBit": 2,
+                    "TrigState": 0
+                }
+            ],
+            "Type": "Fpga"
+        },
+        {
+            "SnrNum": 231,
+            "SnrType": 33,
+            "Name": "PE2S3 Presence",
+            "FpgaGpio": "NA",
+            "Offset": [
+                {
+                    "Block": 12,
+                    "Addr": 4,
+                    "Bit": 7,
+                    "EvtBit": 2,
+                    "TrigState": 0
+                }
+            ],
+            "Type": "Fpga"
+        },
+        {
+            "SnrNum": 232,
+            "SnrType": 33,
+            "Name": "PE2S4 Presence",
+            "FpgaGpio": "NA",
+            "Offset": [
+                {
+                    "Block": 12,
+                    "Addr": 5,
+                    "Bit": 0,
+                    "EvtBit": 2,
+                    "TrigState": 0
+                }
+            ],
+            "Type": "Fpga"
+        },
+        {
+            "SnrNum": 233,
+            "SnrType": 33,
+            "Name": "PE2S5 Presence",
+            "FpgaGpio": "NA",
+            "Offset": [
+                {
+                    "Block": 12,
+                    "Addr": 5,
+                    "Bit": 1,
+                    "EvtBit": 2,
+                    "TrigState": 0
+                }
+            ],
+            "Type": "Fpga"
+        },
+        {
+            "SnrNum": 234,
+            "SnrType": 33,
+            "Name": "PE3S1 Presence",
+            "FpgaGpio": "NA",
+            "Offset": [
+                {
+                    "Block": 12,
+                    "Addr": 5,
+                    "Bit": 2,
+                    "EvtBit": 2,
+                    "TrigState": 0
+                }
+            ],
+            "Type": "Fpga"
+        },
+        {
+            "SnrNum": 235,
+            "SnrType": 33,
+            "Name": "PE3S2 Presence",
+            "FpgaGpio": "NA",
+            "Offset": [
+                {
+                    "Block": 12,
+                    "Addr": 5,
+                    "Bit": 3,
+                    "EvtBit": 2,
+                    "TrigState": 0
+                }
+            ],
+            "Type": "Fpga"
+        },
+        {
             "SnrNum": 240,
             "SnrType": 34,
             "Name": "ACPI State",
@@ -883,7 +1105,101 @@
             "Type": "Oem"
         },
         {
-            "SnrNum": 249,
+            "SnrNum": 243,
+            "SnrType": 23,
+            "Name": "M2 Status",
+            "FpgaGpio": "NA",
+            "Offset": [
+                {
+                    "Block": 12,
+                    "Addr": 10,
+                    "Bit": 3,
+                    "EvtBit": 0,
+                    "TrigState": 0
+                },
+                {
+                    "Block": 12,
+                    "Addr": 10,
+                    "Bit": 3,
+                    "EvtBit": 1,
+                    "TrigState": 1
+                }
+            ],
+            "Type": "Fpga"
+        },
+        {
+            "SnrNum": 244,
+            "SnrType": 33,
+            "Name": "Riser 1 Status",
+            "FpgaGpio": "NA",
+            "Offset": [
+                {
+                    "Block": 12,
+                    "Addr": 10,
+                    "Bit": 0,
+                    "EvtBit": 2,
+                    "TrigState": 0
+                }
+            ],
+            "Type": "Fpga"
+        },
+        {
+            "SnrNum": 245,
+            "SnrType": 33,
+            "Name": "Riser 2 Status",
+            "FpgaGpio": "NA",
+            "Offset": [
+                {
+                    "Block": 12,
+                    "Addr": 10,
+                    "Bit": 1,
+                    "EvtBit": 2,
+                    "TrigState": 0
+                }
+            ],
+            "Type": "Fpga"
+        },
+        {
+            "SnrNum": 246,
+            "SnrType": 33,
+            "Name": "Riser 3 Status",
+            "FpgaGpio": "NA",
+            "Offset": [
+                {
+                    "Block": 12,
+                    "Addr": 10,
+                    "Bit": 2,
+                    "EvtBit": 2,
+                    "TrigState": 0
+                }
+            ],
+            "Type": "Fpga"
+        },
+        {
+            "SnrNum": 247,
+            "SnrType": 27,
+            "Name": "NCSI Cable",
+            "FpgaGpio": "NA",
+            "Offset": [
+                {
+                    "Block": 12,
+                    "Addr": 10,
+                    "Bit": 6,
+                    "EvtBit": 0,
+                    "TrigState": 0
+                },
+                {
+                    "Block": 12,
+                    "Addr": 10,
+                    "Bit": 6,
+                    "EvtBit": 1,
+                    "TrigState": 1
+                }
+            ],
+            "Type": "Fpga"
+        },
+        {
+            "SnrNum": 248,
             "SnrType": 7,
             "Name": "UPI Error",
             "Offset": [
@@ -897,7 +1213,35 @@
             "Type": "Oem"
         },
         {
-            "SnrNum": 252,
+            "SnrNum": 249,
+            "SnrType": 15,
+            "Name": "FPGA Corrupt",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_0",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 250,
+            "SnrType": 7,
+            "Name": "UEFI Corrupt",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_0",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 251,
             "SnrType": 15,
             "Name": "NVRAM Corrupt",
             "Offset": [
@@ -911,7 +1255,7 @@
             "Type": "Oem"
         },
         {
-            "SnrNum": 253,
+            "SnrNum": 252,
             "SnrType": 15,
             "Name": "CPU Exception",
             "Offset": [

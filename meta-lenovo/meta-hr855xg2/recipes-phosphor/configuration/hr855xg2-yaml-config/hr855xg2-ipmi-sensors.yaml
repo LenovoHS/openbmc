@@ -2732,82 +2732,6 @@
   sensorType: 7
   serviceInterface: org.freedesktop.DBus.Properties
 
-0x95:
-  entityID: 3
-  entityInstance: 1
-  interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_1:
-        Offsets:
-          1:
-            assert: true
-            deassert: false
-            type: bool
-  mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/CPU0_Prochot
-  readingType: assertion
-  sensorNamePattern: nameLeaf
-  sensorReadingType: 111
-  sensorType: 7
-  serviceInterface: org.freedesktop.DBus.Properties
-
-0x96:
-  entityID: 3
-  entityInstance: 2
-  interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_1:
-        Offsets:
-          1:
-            assert: true
-            deassert: false
-            type: bool
-  mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/CPU1_Prochot
-  readingType: assertion
-  sensorNamePattern: nameLeaf
-  sensorReadingType: 111
-  sensorType: 7
-  serviceInterface: org.freedesktop.DBus.Properties
-
-0x97:
-  entityID: 3
-  entityInstance: 3
-  interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_1:
-        Offsets:
-          1:
-            assert: true
-            deassert: false
-            type: bool
-  mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/CPU2_Prochot
-  readingType: assertion
-  sensorNamePattern: nameLeaf
-  sensorReadingType: 111
-  sensorType: 7
-  serviceInterface: org.freedesktop.DBus.Properties
-
-0x98:
-  entityID: 3
-  entityInstance: 4
-  interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_1:
-        Offsets:
-          1:
-            assert: true
-            deassert: false
-            type: bool
-  mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/CPU3_Prochot
-  readingType: assertion
-  sensorNamePattern: nameLeaf
-  sensorReadingType: 111
-  sensorType: 7
-  serviceInterface: org.freedesktop.DBus.Properties
-
 0x99:
   entityID: 3
   entityInstance: 1
@@ -5158,6 +5082,234 @@
   sensorType: 13
   serviceInterface: org.freedesktop.DBus.Properties
 
+0xE0:
+  entityID: 49
+  entityInstance: 1
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_2:
+        Offsets:
+          2:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/FPGASensor/PE1S1_Presence
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 33
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xE1:
+  entityID: 49
+  entityInstance: 2
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_2:
+        Offsets:
+          2:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/FPGASensor/PE1S2_Presence
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 33
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xE2:
+  entityID: 49
+  entityInstance: 3
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_2:
+        Offsets:
+          2:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/FPGASensor/PE1S3_Presence
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 33
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xE3:
+  entityID: 49
+  entityInstance: 4
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_2:
+        Offsets:
+          2:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/FPGASensor/PE1S4_Presence
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 33
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xE4:
+  entityID: 49
+  entityInstance: 5
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_2:
+        Offsets:
+          2:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/FPGASensor/PE1S5_Presence
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 33
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xE5:
+  entityID: 49
+  entityInstance: 6
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_2:
+        Offsets:
+          2:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/FPGASensor/PE2S1_Presence
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 33
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xE6:
+  entityID: 49
+  entityInstance: 7
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_2:
+        Offsets:
+          2:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/FPGASensor/PE2S2_Presence
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 33
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xE7:
+  entityID: 49
+  entityInstance: 8
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_2:
+        Offsets:
+          2:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/FPGASensor/PE2S3_Presence
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 33
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xE8:
+  entityID: 49
+  entityInstance: 9
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_2:
+        Offsets:
+          2:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/FPGASensor/PE2S4_Presence
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 33
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xE9:
+  entityID: 49
+  entityInstance: 10
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_2:
+        Offsets:
+          2:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/FPGASensor/PE2S5_Presence
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 33
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xEA:
+  entityID: 49
+  entityInstance: 11
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_2:
+        Offsets:
+          2:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/FPGASensor/PE3S1_Presence
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 33
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xEB:
+  entityID: 49
+  entityInstance: 12
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_2:
+        Offsets:
+          2:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/FPGASensor/PE3S2_Presence
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 33
+  serviceInterface: org.freedesktop.DBus.Properties
+
 0xF0:
   entityID: 0
   entityInstance: 1
@@ -5245,7 +5397,115 @@
   sensorType: 20
   serviceInterface: org.freedesktop.DBus.Properties
 
-0xF9:
+0xF3:
+  entityID: 11
+  entityInstance: 1
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_0:
+        Offsets:
+          0:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_1:
+        Offsets:
+          1:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/FPGASensor/M2_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 23
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xF4:
+  entityID: 31
+  entityInstance: 1
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_2:
+        Offsets:
+          2:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/FPGASensor/Riser_1_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 33
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xF5:
+  entityID: 31
+  entityInstance: 2
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_2:
+        Offsets:
+          2:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/FPGASensor/Riser_2_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 33
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xF6:
+  entityID: 31
+  entityInstance: 3
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_2:
+        Offsets:
+          2:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/FPGASensor/Riser_3_Status
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 33
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xF7:
+  entityID: 31
+  entityInstance: 1
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_0:
+        Offsets:
+          0:
+            assert: true
+            deassert: false
+            type: bool
+      Offset_1:
+        Offsets:
+          1:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/FPGASensor/NCSI_Cable
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 27
+  serviceInterface: org.freedesktop.DBus.Properties
+
+
+0xF8:
   entityID: 3
   entityInstance: 1
   interfaces:
@@ -5264,7 +5524,45 @@
   sensorType: 7
   serviceInterface: org.freedesktop.DBus.Properties
 
-0xFC:
+0xF9:
+  entityID: 34
+  entityInstance: 1
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_0:
+        Offsets:
+          0:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/OEMSensor/FPGA_Corrupt
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 15
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xFA:
+  entityID: 34
+  entityInstance: 1
+  interfaces:
+    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
+      Offset_0:
+        Offsets:
+          0:
+            assert: true
+            deassert: false
+            type: bool
+  mutability: Mutability::Write|Mutability::Read
+  path: /xyz/openbmc_project/OEMSensor/UEFI_Corrupt
+  readingType: assertion
+  sensorNamePattern: nameLeaf
+  sensorReadingType: 111
+  sensorType: 15
+  serviceInterface: org.freedesktop.DBus.Properties
+
+0xFB:
   entityID: 34
   entityInstance: 1
   interfaces:
@@ -5283,7 +5581,7 @@
   sensorType: 15
   serviceInterface: org.freedesktop.DBus.Properties
 
-0xFD:
+0xFC:
   entityID: 34
   entityInstance: 1
   interfaces:
