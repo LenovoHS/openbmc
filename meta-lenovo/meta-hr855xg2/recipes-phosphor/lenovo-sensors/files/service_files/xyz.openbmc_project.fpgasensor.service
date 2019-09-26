@@ -1,0 +1,14 @@
+[Unit]
+Description=FPGA Sensor
+StopWhenUnneeded=false
+Requires=logrotate.service xyz.openbmc_project.Logging.IPMI.service fpga.service version.service xyz.openbmc_project.cpusensor.service
+After=logrotate.service xyz.openbmc_project.Logging.IPMI.service fpga.service version.service xyz.openbmc_project.cpusensor.service
+
+[Service]
+Restart=always
+RestartSec=5
+StartLimitBurst=10
+ExecStart=/usr/bin/fpgasensor
+
+[Install]
+WantedBy=multi-user.target

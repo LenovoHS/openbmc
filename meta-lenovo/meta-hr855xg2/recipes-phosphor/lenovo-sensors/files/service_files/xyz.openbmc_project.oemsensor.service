@@ -1,0 +1,13 @@
+[Unit]
+Description=OEM Sensor
+StopWhenUnneeded=false
+After=logrotate.service xyz.openbmc_project.fpgasensor.service
+
+[Service]
+Restart=always
+RestartSec=5
+StartLimitBurst=10
+ExecStart=/usr/bin/oemsensor
+
+[Install]
+WantedBy=multi-user.target
