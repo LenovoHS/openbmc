@@ -16,11 +16,11 @@ Licensed under BSD-3, see COPYING.BSD file for details."
 #include <sys/ioctl.h>
 #include <limits.h>
 #include <systemd/sd-bus.h>
-#include "fpga.h"
+#include "../include/fpga.h"
 
 
 int fd;
-local_fpga_t lfpga;
+static local_fpga_t lfpga;
 
 int open_dev(void)
 {
@@ -149,6 +149,7 @@ int fpga_transfer(spiInfo *info)
 			
 	}
 	//printf("rx_len:%u\n",rx_len);
+#if 0
 	if(!rw_flag){
 		
 		for (i = 0; i< rx_len; i++)
@@ -156,6 +157,7 @@ int fpga_transfer(spiInfo *info)
 			fprintf(stdout, "receive:%0x\n",info->rx_buff[i]);
 		}
 	}
+#endif
 	return 0;
 }
 
@@ -371,7 +373,7 @@ int fpga_message_write(fpga_msg_t *msg)
 int fpga_read(fpga_cmd_t *cmd)
 {
     fpga_msg_t *msg = NULL;
-    int rc;
+    int rc = -1;
 	//uint8_t *tmp = NULL;
     msg = &(lfpga.msg);
 	//tmp = malloc(1024);
@@ -391,7 +393,7 @@ int fpga_read(fpga_cmd_t *cmd)
         if ( (cmd->length > 4096) || (cmd->length & 0x000F) )
         {
 
-            //printf( "%s: requested page size incorrect: 0x%04X\n", __FUNCTION__, cmd->length );
+            printf( "%s: requested page size incorrect: 0x%04X\n", __FUNCTION__, cmd->length );
             return -1;
         }
 
@@ -402,7 +404,6 @@ int fpga_read(fpga_cmd_t *cmd)
     rc = fpga_message_read( msg );
     if ( rc == 0 )
         memcpy( (void *)cmd->data, (void *)msg->data, cmd->length );
-	//printf("fpga read data:%0x,%x\n",cmd->data[0],msg->data[0]);
 	//free(tmp);
     return rc;
 }
@@ -522,7 +523,7 @@ int fpga_function_router(sd_bus_message *msg, void *user_data,
 {
 	/* Generic error reporter. */
 	int rc = -1;
-	int i = 0;
+	//int i = 0;
 	fpga_cmd_t t;
 	/* Get the Operation. */
 	const char *fpga_function = sd_bus_message_get_member(msg);
@@ -626,7 +627,7 @@ int start_fpga_services()
 int main(int argc, char *argv[])
 {
 	int rc = 0;
-	int c;
+	//int c;
 	altera_fpga_init();
 
 	#if 1

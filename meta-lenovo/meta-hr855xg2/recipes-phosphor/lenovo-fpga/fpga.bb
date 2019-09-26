@@ -5,32 +5,31 @@ FILESEXTRAPATHS_append := "${THISDIR}/files:"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://${LENOVOBASE}/COPYING.BSD;md5=efc72ac5d37ea632ccf0001f56126210"
 
-inherit systemd
+inherit autotools systemd
 inherit obmc-phosphor-systemd
-inherit pkgconfig
-#inherit obmc-phosphor-sdbus-service
-inherit obmc-phosphor-c-daemon
+inherit pkgconfig obmc-phosphor-ipmiprovider-symlink
 
 S = "${WORKDIR}/"
 
-SRC_URI = "file://fpga.c \
-           file://fpga.h \
-           file://Makefile \
-           file://fpga_control.c \
-           file://fpga.service \
+SRC_URI = "file://include/fpga.h \
+           file://include/Makefile.am \
+           file://Makefile.am \
+		   file://configure.ac \
+		   file://bootstrap.sh \
+		   file://fpga/Makefile.am \
+		   file://fpga/fpga_control.c \
+           file://fpga/fpga.pc.in \
           " 
 
 DEPENDS = "systemd \
-          "
+          autoconf-archive-native \
+		  "
+
 RDEPENDS_${PN} += "libsystemd"
 
+
 SYSTEMD_PACKAGES = "${PN}"
-SYSTEMD_SERVICE_${PN} = "fpga.service"
+#SYSTEMD_SERVICE_${PN} = "fpga.service"
 
 
-
-do_install() {
-    install -d ${D}/usr/sbin
-    install -m 0755 fpga ${D}/${sbindir}/
-	install -m 0755 fpga_control ${D}/${sbindir}/
-}
+IPMI_PROVIDER_LIBRARY += "libfpga.so"

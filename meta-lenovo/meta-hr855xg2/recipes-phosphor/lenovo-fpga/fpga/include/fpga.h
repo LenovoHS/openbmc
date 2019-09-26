@@ -9,6 +9,7 @@ Licensed under BSD-3, see COPYING.BSD file for details."
 #include <stdint.h>
 #include <stddef.h>
 
+
 #define FPGA_MAX_DATA_XFER_SIZE       1024
 #define FPGA_ACCESS_LOCAL                     0x00
 #define FPGA_BLOCK_MAIN 0x00
@@ -459,14 +460,24 @@ struct fpga_global_data {
     cmd_args_t      args;
     fpga_trans_t    trans;
 };
+//#ifdef __cplusplus
+//extern "C" {
+//#endif
+	int open_dev(void);
+	int fpga_read(fpga_cmd_t *cmd);
 
+	int altera_fpga_init(void);
 
-
-
-
-
-
-
-
+	uint16_t fpga_block_to_addr( common_fpga_t *info, uint8_t block_id );
+	int fpga_transfer(spiInfo *info);
+	uint8_t fpga_calc_integrity_value( uint8_t *buf, uint16_t len, uint8_t type );
+	int fpga_message_read(fpga_msg_t *msg);
+	int fpga_message_write(fpga_msg_t *msg);
+	int fpga_write(fpga_cmd_t *cmd);
+	int fpga_read_block(fpga_cmd_t *cmd );
+	
+//#ifdef __cplusplus
+//}
+//#endif
 
 #endif // _FPGA_H
