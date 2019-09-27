@@ -5094,7 +5094,7 @@
             deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE1S1_Presence
+  path: /xyz/openbmc_project/FPGASensor/PE1S1_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -5113,7 +5113,7 @@
             deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE1S2_Presence
+  path: /xyz/openbmc_project/FPGASensor/PE1S2_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -5132,7 +5132,7 @@
             deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE1S3_Presence
+  path: /xyz/openbmc_project/FPGASensor/PE1S3_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -5151,7 +5151,7 @@
             deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE1S4_Presence
+  path: /xyz/openbmc_project/FPGASensor/PE1S4_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -5170,7 +5170,7 @@
             deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE1S5_Presence
+  path: /xyz/openbmc_project/FPGASensor/PE1S5_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -5189,7 +5189,7 @@
             deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE2S1_Presence
+  path: /xyz/openbmc_project/FPGASensor/PE2S1_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -5208,7 +5208,7 @@
             deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE2S2_Presence
+  path: /xyz/openbmc_project/FPGASensor/PE2S2_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -5227,7 +5227,7 @@
             deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE2S3_Presence
+  path: /xyz/openbmc_project/FPGASensor/PE2S3_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -5246,7 +5246,7 @@
             deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE2S4_Presence
+  path: /xyz/openbmc_project/FPGASensor/PE2S4_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -5265,7 +5265,7 @@
             deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE2S5_Presence
+  path: /xyz/openbmc_project/FPGASensor/PE2S5_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -5284,7 +5284,7 @@
             deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE3S1_Presence
+  path: /xyz/openbmc_project/FPGASensor/PE3S1_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -5303,7 +5303,7 @@
             deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE3S2_Presence
+  path: /xyz/openbmc_project/FPGASensor/PE3S2_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
