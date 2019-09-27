@@ -679,9 +679,9 @@
             "timeout": 0
         },
         {
-            "name": "PCIE_Group_min_thermal_margin",
+            "name": "PCIE_Group_Temp",
             "type": "margin",
-            "readPath": "/xyz/openbmc_project/extsensors/margin/PCIE_Group_min_thermal_margin",
+            "readPath": "/xyz/openbmc_project/extsensors/margin/PCIE_Group_Temp",
             "timeout": 0
         },
         {
@@ -1250,9 +1250,9 @@
                     }
                 },
                 {
-                    "name": "PCIE_Group_min_thermal_margin",
+                    "name": "PCIE_Group_Temp_PID",
                     "type": "margin",
-                    "inputs": ["PCIE_Group_min_thermal_margin"],
+                    "inputs": ["PCIE_Group_Temp"],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,
