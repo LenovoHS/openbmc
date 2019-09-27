@@ -17,6 +17,7 @@ OBMC_IMAGE_EXTRA_INSTALL_append_hr855xg2 = " lenovo-pwr-sequence \
                                              lenovo-resetpsu \
                                              lenovo-led-manager \
                                              lenovo-sensors \
+                                             lenovo-acpi-state \
                                            "
                                            
 #IMAGE_FEATURES_remove_hr855xg2 = " ssh-server-dropbear"
