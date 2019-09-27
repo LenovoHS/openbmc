@@ -629,26 +629,6 @@
     "sensorReadingType": 111,
     "sensorType": 7
   },
-  "149": {
-    "path": "/xyz/openbmc_project/FPGASensor/CPU0_Prochot",
-    "sensorReadingType": 111,
-    "sensorType": 7
-  },
-  "150": {
-    "path": "/xyz/openbmc_project/FPGASensor/CPU1_Prochot",
-    "sensorReadingType": 111,
-    "sensorType": 7
-  },
-  "151": {
-    "path": "/xyz/openbmc_project/FPGASensor/CPU2_Prochot",
-    "sensorReadingType": 111,
-    "sensorType": 7
-  },
-  "152": {
-    "path": "/xyz/openbmc_project/FPGASensor/CPU3_Prochot",
-    "sensorReadingType": 111,
-    "sensorType": 7
-  },
   "153": {
     "path": "/xyz/openbmc_project/FPGASensor/CPU_IERR",
     "sensorReadingType": 111,
@@ -901,7 +881,7 @@
   },
   "109": {
     "sensorType": 1,
-    "path": "/xyz/openbmc_project/extsensors/margin/PCIE_Group_min_thermal_margin",
+    "path": "/xyz/openbmc_project/extsensors/margin/PCIE_Group_Temp",
     "sensorReadingType": 1
   },
   "208": {
@@ -964,6 +944,66 @@
     "sensorReadingType": 111,
     "sensorType": 13
   },
+  "224": {
+    "path": "/xyz/openbmc_project/FPGASensor/PE1S1_Status",
+    "sensorReadingType": 111,
+    "sensorType": 33
+  },
+  "225": {
+    "path": "/xyz/openbmc_project/FPGASensor/PE1S2_Status",
+    "sensorReadingType": 111,
+    "sensorType": 33
+  },
+  "226": {
+    "path": "/xyz/openbmc_project/FPGASensor/PE1S3_Status",
+    "sensorReadingType": 111,
+    "sensorType": 33
+  },
+  "227": {
+    "path": "/xyz/openbmc_project/FPGASensor/PE1S4_Status",
+    "sensorReadingType": 111,
+    "sensorType": 33
+  },
+  "228": {
+    "path": "/xyz/openbmc_project/FPGASensor/PE1S5_Status",
+    "sensorReadingType": 111,
+    "sensorType": 33
+  },
+  "229": {
+    "path": "/xyz/openbmc_project/FPGASensor/PE2S1_Status",
+    "sensorReadingType": 111,
+    "sensorType": 33
+  },
+  "230": {
+    "path": "/xyz/openbmc_project/FPGASensor/PE2S2_Status",
+    "sensorReadingType": 111,
+    "sensorType": 33
+  },
+  "231": {
+    "path": "/xyz/openbmc_project/FPGASensor/PE2S3_Status",
+    "sensorReadingType": 111,
+    "sensorType": 33
+  },
+  "232": {
+    "path": "/xyz/openbmc_project/FPGASensor/PE2S4_Status",
+    "sensorReadingType": 111,
+    "sensorType": 33
+  },
+  "233": {
+    "path": "/xyz/openbmc_project/FPGASensor/PE2S5_Status",
+    "sensorReadingType": 111,
+    "sensorType": 33
+  },
+  "234": {
+    "path": "/xyz/openbmc_project/FPGASensor/PE3S1_Status",
+    "sensorReadingType": 111,
+    "sensorType": 33
+  },
+  "235": {
+    "path": "/xyz/openbmc_project/FPGASensor/PE3S2_Status",
+    "sensorReadingType": 111,
+    "sensorType": 33
+  },
   "240": {
     "path": "/xyz/openbmc_project/OEMSensor/ACPI_State",
     "sensorReadingType": 111,
@@ -979,17 +1019,52 @@
     "sensorReadingType": 111,
     "sensorType": 20
   },
-  "249": {
+  "243": {
+    "path": "/xyz/openbmc_project/FPGASensor/M2_Status",
+    "sensorReadingType": 111,
+    "sensorType": 23
+  },
+  "244": {
+    "path": "/xyz/openbmc_project/FPGASensor/Riser_1_Status",
+    "sensorReadingType": 111,
+    "sensorType": 33
+  },
+  "245": {
+    "path": "/xyz/openbmc_project/FPGASensor/Riser_2_Status",
+    "sensorReadingType": 111,
+    "sensorType": 33
+  },
+  "246": {
+    "path": "/xyz/openbmc_project/FPGASensor/Riser_3_Status",
+    "sensorReadingType": 111,
+    "sensorType": 33
+  },
+  "247": {
+    "path": "/xyz/openbmc_project/FPGASensor/NCSI_Cable",
+    "sensorReadingType": 111,
+    "sensorType": 27
+  },
+  "248": {
     "path": "/xyz/openbmc_project/OEMSensor/UPI_Error",
     "sensorReadingType": 111,
     "sensorType": 7
   },
-  "252": {
+  "249": {
+    "path": "/xyz/openbmc_project/OEMSensor/FPGA_Corrupt",
+    "sensorReadingType": 111,
+    "sensorType": 15
+  },
+  "250": {
+    "path": "/xyz/openbmc_project/OEMSensor/UEFI_Corrupt",
+    "sensorReadingType": 111,
+    "sensorType": 15
+  },
+  "251": {
     "path": "/xyz/openbmc_project/OEMSensor/NVRAM_Corrupt",
     "sensorReadingType": 111,
     "sensorType": 15
   },
-  "253": {
+  "252": {
     "path": "/xyz/openbmc_project/OEMSensor/CPU_Exception",
     "sensorReadingType": 111,
     "sensorType": 15
