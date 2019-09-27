@@ -1,0 +1,16 @@
+# Copyright (c) 2019-present Lenovo
+# Licensed under BSD-3, see COPYING.BSD file for details.
+
+[Unit]
+Description=Lenovo ACPI State
+Requires=fpga-recovery.service org.openbmc.control.Power@0.service
+After=fpga-recovery.service org.openbmc.control.Power@0.service
+
+[Service]
+Restart=always
+RestartSec=5
+ExecStart=/usr/sbin/acpi-state.sh
+SyslogIdentifier=lenovo-acpi-state
+
+[Install]
+WantedBy={SYSTEMD_DEFAULT_TARGET}
