@@ -3,42 +3,42 @@
 
 
 - name: fan1_status
-  path: /system/chassis/motherboard/FAN1_Status
+  path: /system/chassis/motherboard/Fan1_Status
   methods:
     - type: tach
       sensors:
         - Fan1_Speed
 
 - name: fan2_status
-  path: /system/chassis/motherboard/FAN2_Status
+  path: /system/chassis/motherboard/Fan2_Status
   methods:
     - type: tach
       sensors:
         - Fan2_Speed
 
 - name: fan3_status
-  path: /system/chassis/motherboard/FAN3_Status
+  path: /system/chassis/motherboard/Fan3_Status
   methods:
     - type: tach
       sensors:
         - Fan3_Speed
 
 - name: fan4_status
-  path: /system/chassis/motherboard/FAN4_Status
+  path: /system/chassis/motherboard/Fan4_Status
   methods:
     - type: tach
       sensors:
         - Fan4_Speed
 
 - name: fan5_status
-  path: /system/chassis/motherboard/FAN5_Status
+  path: /system/chassis/motherboard/Fan5_Status
   methods:
     - type: tach
       sensors:
         - Fan5_Speed
 
 - name: fan6_status
-  path: /system/chassis/motherboard/FAN6_Status
+  path: /system/chassis/motherboard/Fan6_Status
   methods:
     - type: tach
       sensors:

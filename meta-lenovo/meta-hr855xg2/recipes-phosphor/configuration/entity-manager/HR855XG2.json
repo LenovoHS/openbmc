@@ -843,7 +843,7 @@
         {
             "SnrNum": 224,
             "SnrType": 33,
-            "Name": "PE1S1 Presence",
+            "Name": "PE1S1 Status",
             "FpgaGpio": "NA",
             "Offset": [
                 {
@@ -859,7 +859,7 @@
         {
             "SnrNum": 225,
             "SnrType": 33,
-            "Name": "PE1S2 Presence",
+            "Name": "PE1S2 Status",
             "FpgaGpio": "NA",
             "Offset": [
                 {
@@ -875,7 +875,7 @@
         {
             "SnrNum": 226,
             "SnrType": 33,
-            "Name": "PE1S3 Presence",
+            "Name": "PE1S3 Status",
             "FpgaGpio": "NA",
             "Offset": [
                 {
@@ -891,7 +891,7 @@
         {
             "SnrNum": 227,
             "SnrType": 33,
-            "Name": "PE1S4 Presence",
+            "Name": "PE1S4 Status",
             "FpgaGpio": "NA",
             "Offset": [
                 {
@@ -907,7 +907,7 @@
         {
             "SnrNum": 228,
             "SnrType": 33,
-            "Name": "PE1S5 Presence",
+            "Name": "PE1S5 Status",
             "FpgaGpio": "NA",
             "Offset": [
                 {
@@ -923,7 +923,7 @@
         {
             "SnrNum": 229,
             "SnrType": 33,
-            "Name": "PE2S1 Presence",
+            "Name": "PE2S1 Status",
             "FpgaGpio": "NA",
             "Offset": [
                 {
@@ -939,7 +939,7 @@
         {
             "SnrNum": 230,
             "SnrType": 33,
-            "Name": "PE2S2 Presence",
+            "Name": "PE2S2 Status",
             "FpgaGpio": "NA",
             "Offset": [
                 {
@@ -955,7 +955,7 @@
         {
             "SnrNum": 231,
             "SnrType": 33,
-            "Name": "PE2S3 Presence",
+            "Name": "PE2S3 Status",
             "FpgaGpio": "NA",
             "Offset": [
                 {
@@ -971,7 +971,7 @@
         {
             "SnrNum": 232,
             "SnrType": 33,
-            "Name": "PE2S4 Presence",
+            "Name": "PE2S4 Status",
             "FpgaGpio": "NA",
             "Offset": [
                 {
@@ -987,7 +987,7 @@
         {
             "SnrNum": 233,
             "SnrType": 33,
-            "Name": "PE2S5 Presence",
+            "Name": "PE2S5 Status",
             "FpgaGpio": "NA",
             "Offset": [
                 {
@@ -1003,7 +1003,7 @@
         {
             "SnrNum": 234,
             "SnrType": 33,
-            "Name": "PE3S1 Presence",
+            "Name": "PE3S1 Status",
             "FpgaGpio": "NA",
             "Offset": [
                 {
@@ -1019,7 +1019,7 @@
         {
             "SnrNum": 235,
             "SnrType": 33,
-            "Name": "PE3S2 Presence",
+            "Name": "PE3S2 Status",
             "FpgaGpio": "NA",
             "Offset": [
                 {
