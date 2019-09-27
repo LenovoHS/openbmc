@@ -131,7 +131,7 @@
             type: int64_t
 
 0x07:
-  entityID: 0x03
+  entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/VDDQ_ABC_CPU1
   sensorReadingType: 0x01
@@ -152,7 +152,7 @@
             type: int64_t
 
 0x08:
-  entityID: 0x03
+  entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/VDDQ_DEF_CPU1
   sensorReadingType: 0x01
@@ -173,7 +173,7 @@
             type: int64_t
 
 0x09:
-  entityID: 0x03
+  entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/VDDQ_ABC_CPU2
   sensorReadingType: 0x01
@@ -194,7 +194,7 @@
             type: int64_t
 
 0x0A:
-  entityID: 0x03
+  entityID: 0x20
   sensorType: 0x01
   path: /xyz/openbmc_project/sensors/temperature/VDDQ_DEF_CPU2
   sensorReadingType: 0x01
@@ -1015,7 +1015,7 @@
 0x3B:
   entityID: 0x07
   sensorType: 0x02
-  path: /xyz/openbmc_project/sensors/voltage/P12V
+  path: /xyz/openbmc_project/sensors/voltage/P12V_PSU
   sensorReadingType: 0x01
   multiplierM: 63
   offsetB: 0
@@ -1469,7 +1469,7 @@
             deassert: true
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/FAN1_Status
+  path: /system/chassis/motherboard/Fan1_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   serviceInterface: xyz.openbmc_project.Inventory.Manager
@@ -1491,7 +1491,7 @@
             deassert: true
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/FAN2_Status
+  path: /system/chassis/motherboard/Fan2_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   serviceInterface: xyz.openbmc_project.Inventory.Manager
@@ -1513,7 +1513,7 @@
             deassert: true
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/FAN3_Status
+  path: /system/chassis/motherboard/Fan3_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   serviceInterface: xyz.openbmc_project.Inventory.Manager
@@ -1557,7 +1557,7 @@
             deassert: true
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/FAN5_Status
+  path: /system/chassis/motherboard/Fan5_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   serviceInterface: xyz.openbmc_project.Inventory.Manager
@@ -1579,7 +1579,7 @@
             deassert: true
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /system/chassis/motherboard/FAN6_Status
+  path: /system/chassis/motherboard/Fan6_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   serviceInterface: xyz.openbmc_project.Inventory.Manager
