@@ -170,7 +170,7 @@ void FPGASensor::handleResponse()
             if (mSnrInterrupt.name != "NA")
             {
                 // Interrupt event wait
-                // TODO 
+                 
 
                 for (auto& fpgaconfig : mSnrInterrupt.fpgaconfig)
                 {
@@ -344,7 +344,7 @@ int FPGASensor::add_sel_event(uint8_t snr_num, uint8_t snr_type,
     uint8_t lun = 0x00;
     uint8_t cmd = 0x44; // Add SEL Entry command
     std::vector<uint8_t> data = { 0x00, 0x00,             // Record ID
-                                  0x03,                   // Record Type
+                                  0x02,                   // Record Type
                                   0x00, 0x00, 0x00, 0x00, // Time Stamp
                                   0x20, 0x00,             // Generator ID
                                   0x04,                   // EvM Rev

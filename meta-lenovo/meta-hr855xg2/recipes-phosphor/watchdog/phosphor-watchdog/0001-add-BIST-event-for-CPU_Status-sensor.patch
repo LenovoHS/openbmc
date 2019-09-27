@@ -28,7 +28,7 @@
 +    uint8_t lun = 0x00;
 +    uint8_t cmd = 0x44; // Add SEL Entry command
 +    std::vector<uint8_t> data = { 0x00, 0x00,             // Record ID
-+                                  0x03,                   // Record Type
++                                  0x02,                   // Record Type
 +                                  0x00, 0x00, 0x00, 0x00, // Time Stamp
 +                                  0x20, 0x00,             // Generator ID
 +                                  0x04,                   // EvM Rev
