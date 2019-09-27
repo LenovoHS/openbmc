@@ -33,6 +33,9 @@ struct WriteFRUDataReq
 };
 #pragma pack(pop)
 
+#define CpuFruPath "/var/frus/fru_cpu%d.bin"
+#define DimmFruPath "/var/frus/fru_dimm%d.bin"
+
 enum class GetFRUAreaAccessType : uint8_t
 {
     byte = 0x0,
@@ -59,12 +62,3 @@ struct FRUHeader
 };
 #pragma pack(pop)
 
-/*namespace ipmi
-{
-namespace storage
-{
-ipmi_ret_t getFruSdrs(size_t index, get_sdr::SensorDataFruRecord& resp);
-
-ipmi_ret_t getFruSdrCount(size_t& count);
-} // namespace storage
-}*/ // namespace ipmi
