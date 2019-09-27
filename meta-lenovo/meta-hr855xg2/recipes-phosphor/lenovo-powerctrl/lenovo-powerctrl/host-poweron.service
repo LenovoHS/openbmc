@@ -3,8 +3,6 @@
 
 [Unit]
 Description=Lenovo Host power on
-Requires=host-gpio.service
-After=host-gpio.service
 Conflicts=obmc-chassis-poweroff@0.target
 
 [Service]
