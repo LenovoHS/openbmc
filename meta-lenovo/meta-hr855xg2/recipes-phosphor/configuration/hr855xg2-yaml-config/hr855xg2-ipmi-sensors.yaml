@@ -1817,7 +1817,7 @@
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
-  scale: -6
+  scale: -3
   rExp: -3
   mutability: Mutability::Read
   serviceInterface: org.freedesktop.DBus.Properties
@@ -1860,7 +1860,7 @@
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Watts
-  scale: -3
+  scale: -6
   rExp: 0
   mutability: Mutability::Read
   serviceInterface: org.freedesktop.DBus.Properties
@@ -5605,12 +5605,12 @@
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/CPU0_VCCIN
   sensorReadingType: 0x01
-  multiplierM: 63
+  multiplierM: 1
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
-  scale: -6
-  rExp: -3
+  scale: -3
+  rExp: -2
   mutability: Mutability::Read
   serviceInterface: org.freedesktop.DBus.Properties
   readingType: readingData
@@ -5626,12 +5626,12 @@
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/CPU0_VCCSA
   sensorReadingType: 0x01
-  multiplierM: 63
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
-  scale: -6
-  rExp: -3
+  scale: -3
+  rExp: -4
   mutability: Mutability::Read
   serviceInterface: org.freedesktop.DBus.Properties
   readingType: readingData
@@ -5647,12 +5647,12 @@
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/CPU1_VCCIO
   sensorReadingType: 0x01
-  multiplierM: 63
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
-  scale: -6
-  rExp: -3
+  scale: -3
+  rExp: -4
   mutability: Mutability::Read
   serviceInterface: org.freedesktop.DBus.Properties
   readingType: readingData
@@ -5668,12 +5668,12 @@
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/CPU1_VCCIN
   sensorReadingType: 0x01
-  multiplierM: 63
+  multiplierM: 1
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
-  scale: -6
-  rExp: -3
+  scale: -3
+  rExp: -2
   mutability: Mutability::Read
   serviceInterface: org.freedesktop.DBus.Properties
   readingType: readingData
@@ -5689,12 +5689,12 @@
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/CPU1_VCCSA
   sensorReadingType: 0x01
-  multiplierM: 63
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
-  scale: -6
-  rExp: -3
+  scale: -3
+  rExp: -4
   mutability: Mutability::Read
   serviceInterface: org.freedesktop.DBus.Properties
   readingType: readingData
@@ -5710,12 +5710,12 @@
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/CPU2_VCCIN
   sensorReadingType: 0x01
-  multiplierM: 63
+  multiplierM: 1
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
-  scale: -6
-  rExp: -3
+  scale: -3
+  rExp: -2
   mutability: Mutability::Read
   serviceInterface: org.freedesktop.DBus.Properties
   readingType: readingData
@@ -5731,12 +5731,12 @@
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/CPU2_VCCIO
   sensorReadingType: 0x01
-  multiplierM: 63
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
-  scale: -6
-  rExp: -3
+  scale: -3
+  rExp: -4
   mutability: Mutability::Read
   serviceInterface: org.freedesktop.DBus.Properties
   readingType: readingData
@@ -5752,12 +5752,12 @@
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/CPU2_VCCSA
   sensorReadingType: 0x01
-  multiplierM: 63
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
-  scale: -6
-  rExp: -3
+  scale: -3
+  rExp: -4
   mutability: Mutability::Read
   serviceInterface: org.freedesktop.DBus.Properties
   readingType: readingData
@@ -5773,12 +5773,12 @@
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/CPU3_VCCIN
   sensorReadingType: 0x01
-  multiplierM: 63
+  multiplierM: 1
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
-  scale: -6
-  rExp: -3
+  scale: -3
+  rExp: -2
   mutability: Mutability::Read
   serviceInterface: org.freedesktop.DBus.Properties
   readingType: readingData
@@ -5794,12 +5794,12 @@
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/CPU3_VCCIO
   sensorReadingType: 0x01
-  multiplierM: 63
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
-  scale: -6
-  rExp: -3
+  scale: -3
+  rExp: -4
   mutability: Mutability::Read
   serviceInterface: org.freedesktop.DBus.Properties
   readingType: readingData
@@ -5815,12 +5815,12 @@
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/CPU3_VCCSA
   sensorReadingType: 0x01
-  multiplierM: 63
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
-  scale: -6
-  rExp: -3
+  scale: -3
+  rExp: -4
   mutability: Mutability::Read
   serviceInterface: org.freedesktop.DBus.Properties
   readingType: readingData
@@ -5836,12 +5836,12 @@
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/CPU0_DIMM_VR2_V
   sensorReadingType: 0x01
-  multiplierM: 63
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
-  scale: -6
-  rExp: -3
+  scale: -4
+  rExp: -4
   mutability: Mutability::Read
   serviceInterface: org.freedesktop.DBus.Properties
   readingType: readingData
@@ -5857,12 +5857,12 @@
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/CPU1_DIMM_VR1_V
   sensorReadingType: 0x01
-  multiplierM: 63
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
-  scale: -6
-  rExp: -3
+  scale: -4
+  rExp: -4
   mutability: Mutability::Read
   serviceInterface: org.freedesktop.DBus.Properties
   readingType: readingData
@@ -5878,12 +5878,12 @@
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/CPU1_DIMM_VR2_V
   sensorReadingType: 0x01
-  multiplierM: 63
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
-  scale: -6
-  rExp: -3
+  scale: -4
+  rExp: -4
   mutability: Mutability::Read
   serviceInterface: org.freedesktop.DBus.Properties
   readingType: readingData
@@ -5899,12 +5899,12 @@
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/CPU2_DIMM_VR1_V
   sensorReadingType: 0x01
-  multiplierM: 63
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
-  scale: -6
-  rExp: -3
+  scale: -4
+  rExp: -4
   mutability: Mutability::Read
   serviceInterface: org.freedesktop.DBus.Properties
   readingType: readingData
@@ -5920,12 +5920,12 @@
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/CPU2_DIMM_VR2_V
   sensorReadingType: 0x01
-  multiplierM: 63
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
-  scale: 0
-  rExp: -3
+  scale: -4
+  rExp: -4
   mutability: Mutability::Read
   serviceInterface: org.freedesktop.DBus.Properties
   readingType: readingData
@@ -5941,12 +5941,12 @@
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/CPU3_DIMM_VR1_V
   sensorReadingType: 0x01
-  multiplierM: 63
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
-  scale: -3
-  rExp: -3
+  scale: -4
+  rExp: -4
   mutability: Mutability::Read
   serviceInterface: org.freedesktop.DBus.Properties
   readingType: readingData
@@ -5962,12 +5962,12 @@
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/CPU3_DIMM_VR2_V
   sensorReadingType: 0x01
-  multiplierM: 63
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.Volts
   scale: -4
-  rExp: -3
+  rExp: -4
   mutability: Mutability::Read
   serviceInterface: org.freedesktop.DBus.Properties
   readingType: readingData
