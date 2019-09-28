@@ -83,23 +83,23 @@ diff -Naur a/drivers/hwmon/pmbus/raa228006.c b/drivers/hwmon/pmbus/raa228006.c
 +	
 +	info->m[PSC_VOLTAGE_IN] = 1,
 +	info->b[PSC_VOLTAGE_IN] = 0,
-+	info->R[PSC_VOLTAGE_IN] = 3,
++	info->R[PSC_VOLTAGE_IN] = 1,
 +	
 +	info->m[PSC_VOLTAGE_OUT] = 1,
 +	info->b[PSC_VOLTAGE_OUT] = 0,
-+	info->R[PSC_VOLTAGE_OUT] = 0,
++	info->R[PSC_VOLTAGE_OUT] = 3,
 +	
 +	info->m[PSC_CURRENT_IN] = 1,
 +	info->b[PSC_CURRENT_IN] = 0,
-+	info->R[PSC_CURRENT_IN] = 1,
++	info->R[PSC_CURRENT_IN] = 2,
 +	
 +	info->m[PSC_CURRENT_OUT] = 1,
 +	info->b[PSC_CURRENT_OUT] = 0,
-+	info->R[PSC_CURRENT_OUT] = 2,
++	info->R[PSC_CURRENT_OUT] = 1,
 +
 +	info->m[PSC_POWER] = 1,
 +	info->b[PSC_POWER] = 0,
-+	info->R[PSC_POWER] = 3,
++	info->R[PSC_POWER] = 0,
 +
 +	info->m[PSC_TEMPERATURE] = 1,
 +	info->b[PSC_TEMPERATURE] = 0,
