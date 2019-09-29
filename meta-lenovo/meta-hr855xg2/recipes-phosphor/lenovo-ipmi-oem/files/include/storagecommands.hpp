@@ -61,3 +61,4 @@ struct FRUHeader
     uint8_t checksum;
 };
 #pragma pack(pop)
+

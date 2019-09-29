@@ -19,12 +19,16 @@ SRC_URI = "file://Makefile.am \
            file://configure.ac \
            file://bootstrap.sh \
            file://src/Makefile.am \
+           file://sensor.json \
            file://src/oemcommands.cpp \
            file://include/oemcommands.hpp \
            file://src/chassiscommands.cpp \
            file://include/chassiscommands.hpp \
-           file://include/storagecommands.hpp \
+           file://src/storage.cpp \
            file://src/storagecommands.cpp \
+           file://include/storagecommands.hpp \
+           file://include/sdrutils.hpp \
+           file://include/selutility.hpp \
            file://include/commandutils.hpp \
           "
 
@@ -36,4 +40,9 @@ FILES_${PN}_append = " ${libdir}/net-ipmid/lib*${SOLIBS}"
 FILES_${PN}-dev_append = " ${libdir}/ipmid-providers/lib*${SOLIBSDEV} ${libdir}/ipmid-providers/*.la"
 
 HOSTIPMI_PROVIDER_LIBRARY += "liboemcmds.so"
+
+do_install_append() {
+    install -d 0755 ${D}/var/lib/
+    install -m 0644 ${S}/sensor.json ${D}/var/lib/
+}
 
