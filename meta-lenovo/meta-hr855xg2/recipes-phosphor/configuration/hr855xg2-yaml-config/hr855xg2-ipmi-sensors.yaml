@@ -1369,7 +1369,7 @@
 0x42:
   entityID: 0x20
   sensorType: 0x01
-  path: /xyz/openbmc_project/sensors/temperature/CPU3_DIMM_VR1_T
+  path: /xyz/openbmc_project/sensors/temperature/CPU3_DIMM_VR2_T
   sensorReadingType: 0x01
   multiplierM: 1
   offsetB: 0
@@ -1767,7 +1767,7 @@
             type: int64_t
             
 
-0x57:
+0x58:
   entityID: 0x0A
   sensorType: 0x03
   path: /xyz/openbmc_project/sensors/current/PDB_IIN
@@ -1788,7 +1788,7 @@
           0x0:
             type: int64_t
             
-0x58:
+0x5A:
   entityID: 0x0A
   sensorType: 0x0B
   path: /xyz/openbmc_project/sensors/power/PDB_PIN
@@ -1808,7 +1808,7 @@
         Offsets:
           0x0:
             type: int64_t
-0x59:
+0x57:
   entityID: 0x0A
   sensorType: 0x02
   path: /xyz/openbmc_project/sensors/voltage/PDB_VOUT
@@ -1830,7 +1830,7 @@
             type: int64_t
             
 
-0x5A:
+0x59:
   entityID: 0x0A
   sensorType: 0x03
   path: /xyz/openbmc_project/sensors/current/PDB_IOUT
