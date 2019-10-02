@@ -3,13 +3,16 @@
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
-#inherit systemd
-#inherit obmc-phosphor-systemd
-
-#SRC_URI += "file://xyz.openbmc_project.State.Host.service \
-#           " 
-
 SYSTEMD_AUTO_ENABLE = "enable"
 
-#SYSTEMD_PACKAGES = "${PN}"
-#SYSTEMD_SERVICE_${PN} = "xyz.openbmc_project.State.Host.service"
+SRC_URI += " file://discover-state.sh \
+           "
+
+FILES_${PN}-discover += " ${sbindir} \
+                        "
+
+do_install_append() {
+    install -d ${D}${sbindir}
+    install -m 0755 ${WORKDIR}/discover-state.sh \
+    ${D}${sbindir}/discover-state.sh
+}
