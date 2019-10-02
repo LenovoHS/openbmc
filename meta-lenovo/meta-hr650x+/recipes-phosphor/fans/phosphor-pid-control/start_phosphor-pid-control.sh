@@ -16,8 +16,6 @@ while [ 1 ] ; do
         # TODO: query current BIOS status, if it's ready, then start pid-control.
         sleep 10
         ${PID_CONTROL}
-    else
-        echo "System is not power on, wait for power-on"
     fi
     sleep 1
 done
