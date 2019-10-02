@@ -1,0 +1,12 @@
+--- a/app/watchdog.cpp	2019-10-01 15:09:16.980923074 +0800
++++ b/app/watchdog.cpp	2019-10-01 17:31:14.894868129 +0800
+@@ -229,6 +229,9 @@
+             static_cast<uint8_t>(timeoutAction) & wd_timeout_action_mask);
+         wd_service.setExpireAction(ipmiActionToWdAction(ipmi_action));
+ 
++        timerActions = static_cast<uint8_t>(timeoutAction) | static_cast<uint8_t>(reserved1) << 3 | 
++                       static_cast<uint8_t>(preTimeoutInterrupt) << 4 | static_cast<uint8_t>(reserved2) << 7;
++
+         const auto ipmiTimerUse =
+             static_cast<IpmiTimerUse>(static_cast<uint8_t>(timerUse));
+         wd_service.setTimerUse(ipmiTimerUseToWdTimerUse(ipmiTimerUse));

@@ -419,22 +419,22 @@
     "path": "/xyz/openbmc_project/sensors/voltage/PDB_VIN",
     "sensorReadingType": 1
   },
-  "87": {
+  "88": {
     "sensorType": 3,
     "path": "/xyz/openbmc_project/sensors/current/PDB_IIN",
     "sensorReadingType": 1
   },
-  "88": {
+  "90": {
     "sensorType": 11,
     "path": "/xyz/openbmc_project/sensors/power/PDB_PIN",
     "sensorReadingType": 1
   },
-  "89": {
+  "87": {
     "sensorType": 2,
     "path": "/xyz/openbmc_project/sensors/voltage/PDB_VOUT",
     "sensorReadingType": 1
   },
-  "90": {
+  "89": {
     "sensorType": 3,
     "path": "/xyz/openbmc_project/sensors/current/PDB_IOUT",
     "sensorReadingType": 1
