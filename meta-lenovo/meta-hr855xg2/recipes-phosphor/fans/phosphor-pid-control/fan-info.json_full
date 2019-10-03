@@ -159,9 +159,9 @@
             "timeout": 0
         },
         {
-            "name": "Die_CPU1",
+            "name": "CPU0_Temp",
             "type": "temp",
-            "readPath": "/xyz/openbmc_project/sensors/temperature/Die_CPU1",
+            "readPath": "/xyz/openbmc_project/sensors/temperature/CPU0_Temp",
             "writePath": "",
             "min": 0,
             "max": 0,
@@ -169,9 +169,9 @@
             "timeout": 0
         },
         {
-            "name": "Die_CPU2",
+            "name": "CPU1_Temp",
             "type": "temp",
-            "readPath": "/xyz/openbmc_project/sensors/temperature/Die_CPU2",
+            "readPath": "/xyz/openbmc_project/sensors/temperature/CPU1_Temp",
             "writePath": "",
             "min": 0,
             "max": 0,
@@ -179,9 +179,9 @@
             "timeout": 0
         },
         {
-            "name": "Die_CPU3",
+            "name": "CPU2_Temp",
             "type": "temp",
-            "readPath": "/xyz/openbmc_project/sensors/temperature/Die_CPU3",
+            "readPath": "/xyz/openbmc_project/sensors/temperature/CPU2_Temp",
             "writePath": "",
             "min": 0,
             "max": 0,
@@ -189,9 +189,9 @@
             "timeout": 0
         },
         {
-            "name": "Die_CPU4",
+            "name": "CPU3_Temp",
             "type": "temp",
-            "readPath": "/xyz/openbmc_project/sensors/temperature/Die_CPU4",
+            "readPath": "/xyz/openbmc_project/sensors/temperature/CPU3_Temp",
             "writePath": "",
             "min": 0,
             "max": 0,
@@ -199,17 +199,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_A1_CPU1",
-            "type": "temp",
-            "readPath":"",
-            "writePath": "",
-            "min": 0,
-            "max": 0,
-            "ignoreDbusMinMax": true,
-            "timeout": 0
-        },
-        {
-            "name": "DIMM_A2_CPU1",
+            "name": "DIMM0_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -219,7 +209,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_B1_CPU1",
+            "name": "DIMM1_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -229,7 +219,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_B2_CPU1",
+            "name": "DIMM2_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -239,7 +229,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_C1_CPU1",
+            "name": "DIMM3_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -249,7 +239,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_C2_CPU1",
+            "name": "DIMM4_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -259,7 +249,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_D1_CPU1",
+            "name": "DIMM5_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -269,7 +259,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_D2_CPU1",
+            "name": "DIMM6_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -279,7 +269,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_E1_CPU1",
+            "name": "DIMM7_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -289,7 +279,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_E2_CPU1",
+            "name": "DIMM8_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -299,7 +289,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_F1_CPU1",
+            "name": "DIMM9_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -309,7 +299,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_F2_CPU1",
+            "name": "DIMM10_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -319,7 +309,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_A1_CPU2",
+            "name": "DIMM11_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -329,7 +319,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_A2_CPU2",
+            "name": "DIMM12_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -339,7 +329,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_B1_CPU2",
+            "name": "DIMM13_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -349,7 +339,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_B2_CPU2",
+            "name": "DIMM14_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -359,7 +349,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_C1_CPU2",
+            "name": "DIMM15_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -369,7 +359,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_C2_CPU2",
+            "name": "DIMM16_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -379,7 +369,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_D1_CPU2",
+            "name": "DIMM17_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -389,7 +379,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_D2_CPU2",
+            "name": "DIMM18_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -399,7 +389,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_E1_CPU2",
+            "name": "DIMM19_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -409,7 +399,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_E2_CPU2",
+            "name": "DIMM20_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -419,7 +409,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_F1_CPU2",
+            "name": "DIMM21_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -429,7 +419,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_F2_CPU2",
+            "name": "DIMM22_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -439,7 +429,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_A1_CPU3",
+            "name": "DIMM23_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -449,7 +439,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_A2_CPU3",
+            "name": "DIMM24_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -459,7 +449,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_B1_CPU3",
+            "name": "DIMM25_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -469,7 +459,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_B2_CPU3",
+            "name": "DIMM26_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -479,7 +469,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_C1_CPU3",
+            "name": "DIMM27_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -489,7 +479,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_C2_CPU3",
+            "name": "DIMM28_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -499,7 +489,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_D1_CPU3",
+            "name": "DIMM29_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -509,7 +499,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_D2_CPU3",
+            "name": "DIMM30_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -519,7 +509,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_E1_CPU3",
+            "name": "DIMM31_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -529,7 +519,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_E2_CPU3",
+            "name": "DIMM32_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -539,7 +529,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_F1_CPU3",
+            "name": "DIMM33_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -549,7 +539,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_F2_CPU3",
+            "name": "DIMM34_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -559,7 +549,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_A1_CPU4",
+            "name": "DIMM35_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -569,7 +559,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_A2_CPU4",
+            "name": "DIMM36_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -579,7 +569,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_B1_CPU4",
+            "name": "DIMM37_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -589,7 +579,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_B2_CPU4",
+            "name": "DIMM38_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -599,7 +589,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_C1_CPU4",
+            "name": "DIMM39_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -609,7 +599,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_C2_CPU4",
+            "name": "DIMM40_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -619,7 +609,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_D1_CPU4",
+            "name": "DIMM41_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -629,7 +619,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_D2_CPU4",
+            "name": "DIMM42_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -639,7 +629,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_E1_CPU4",
+            "name": "DIMM43_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -649,7 +639,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_E2_CPU4",
+            "name": "DIMM44_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -659,7 +649,7 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_F1_CPU4",
+            "name": "DIMM45_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -669,7 +659,17 @@
             "timeout": 0
         },
         {
-            "name": "DIMM_F2_CPU4",
+            "name": "DIMM46_Temp",
+            "type": "temp",
+            "readPath":"",
+            "writePath": "",
+            "min": 0,
+            "max": 0,
+            "ignoreDbusMinMax": true,
+            "timeout": 0
+        },
+        {
+            "name": "DIMM47_Temp",
             "type": "temp",
             "readPath":"",
             "writePath": "",
@@ -998,9 +998,9 @@
                     }
                 },
                 {
-                    "name": "Die_CPU1",
+                    "name": "CPU0_Temp",
                     "type": "temp",
-                    "inputs": ["Die_CPU1"],
+                    "inputs": ["CPU0_Temp"],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,
@@ -1019,9 +1019,9 @@
                     }
                 },
                 {
-                    "name": "Die_CPU2",
+                    "name": "CPU1_Temp",
                     "type": "temp",
-                    "inputs": ["Die_CPU2"],
+                    "inputs": ["CPU1_Temp"],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,
@@ -1040,9 +1040,9 @@
                     }
                 },
                 {
-                    "name": "Die_CPU3",
+                    "name": "CPU2_Temp",
                     "type": "temp",
-                    "inputs": ["Die_CPU3"],
+                    "inputs": ["CPU2_Temp"],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,
@@ -1061,9 +1061,9 @@
                     }
                 },
                 {
-                    "name": "Die_CPU4",
+                    "name": "CPU3_Temp",
                     "type": "temp",
-                    "inputs": ["Die_CPU4"],
+                    "inputs": ["CPU3_Temp"],
                     "setpoint": 65.0,
                     "pid": {
                         "samplePeriod": 1.0,
