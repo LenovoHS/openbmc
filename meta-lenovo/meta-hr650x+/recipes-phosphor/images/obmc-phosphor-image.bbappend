@@ -8,6 +8,7 @@ OBMC_IMAGE_EXTRA_INSTALL_append_hr650x+ = " lenovo-pwr-sequence \
                                             lenovo-ipmi-oem \
                                             uart-routing \
                                             lenovo-acpi-state \
+                                            cpld-version \
                                           "
 
 

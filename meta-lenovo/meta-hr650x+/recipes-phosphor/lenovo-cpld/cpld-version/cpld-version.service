@@ -1,0 +1,14 @@
+# Copyright (c) 2019-present Lenovo
+# Licensed under BSD-3, see COPYING.BSD file for details.
+
+[Unit]
+Description=Lenovo cpld version service
+
+[Service]
+ExecStart=/usr/bin/env cpld-version.sh
+SyslogIdentifier=cpld-version
+Type=oneshot
+RemainAfterExit=no
+
+[Install]
+WantedBy=multi-user.target
