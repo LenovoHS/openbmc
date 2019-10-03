@@ -13,7 +13,7 @@ ConditionPathExists=!/tmp/state_discovered
 [Service]
 Restart=no
 Type=oneshot
-ExecStart=/usr/bin/env phosphor-discover-system-state --host $1
+ExecStart=/usr/bin/env phosphor-discover-system-state --host %i
 ExecStartPost=touch /tmp/state_discovered
 SyslogIdentifier=phosphor-discover-system-state
 
