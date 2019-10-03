@@ -8,11 +8,13 @@ Wants=mapper-wait@-xyz-openbmc_project-state-chassis%i.service
 After=mapper-wait@-xyz-openbmc_project-state-chassis%i.service
 After=op-reset-chassis-on@%i.service
 ConditionPathExists=!/run/openbmc/chassis@%i-on
+ConditionPathExists=!/tmp/state_discovered
 
 [Service]
 Restart=no
 Type=oneshot
-ExecStart=/usr/sbin/discover-state.sh %i
+ExecStart=/usr/bin/env phosphor-discover-system-state --host $1
+ExecStartPost=touch /tmp/state_discovered
 SyslogIdentifier=phosphor-discover-system-state
 
 [Install]
