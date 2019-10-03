@@ -25,14 +25,17 @@ for ((dimm_idx=0; dimm_idx<${#dimm_list[@]}; dimm_idx++ )) ; do
 
     # Write DIMM sensor names to "zones" field.
     case ${dimm_list[$dimm_idx]} in 
-        DIMM_[D-F][1-2]_CPU1) sed -r -i '/DIMM_1_ZONE/,/\"inputs\"/s/""/"'${dimm_list[$dimm_idx]}'"/1' $full_config_file;;
-        DIMM_[A-C][1-2]_CPU1) sed -r -i '/DIMM_2_ZONE/,/\"inputs\"/s/""/"'${dimm_list[$dimm_idx]}'"/1' $full_config_file;;
-        DIMM_[A-C][1-2]_CPU2) sed -r -i '/DIMM_3_ZONE/,/\"inputs\"/s/""/"'${dimm_list[$dimm_idx]}'"/1' $full_config_file;;
-        DIMM_[D-F][1-2]_CPU2) sed -r -i '/DIMM_4_ZONE/,/\"inputs\"/s/""/"'${dimm_list[$dimm_idx]}'"/1' $full_config_file;;
-        DIMM_[D-F][1-2]_CPU3) sed -r -i '/DIMM_5_ZONE/,/\"inputs\"/s/""/"'${dimm_list[$dimm_idx]}'"/1' $full_config_file;;
-        DIMM_[A-C][1-2]_CPU3) sed -r -i '/DIMM_6_ZONE/,/\"inputs\"/s/""/"'${dimm_list[$dimm_idx]}'"/1' $full_config_file;;
-        DIMM_[A-C][1-2]_CPU4) sed -r -i '/DIMM_7_ZONE/,/\"inputs\"/s/""/"'${dimm_list[$dimm_idx]}'"/1' $full_config_file;;
-        DIMM_[D-F][1-2]_CPU4) sed -r -i '/DIMM_8_ZONE/,/\"inputs\"/s/""/"'${dimm_list[$dimm_idx]}'"/1' $full_config_file;;
+        DIMM[0-5]_Temp) sed -r -i '/DIMM_1_ZONE/,/\"inputs\"/s/""/"'${dimm_list[$dimm_idx]}'"/1' $full_config_file;;
+        DIMM[6-9]_Temp) sed -r -i '/DIMM_2_ZONE/,/\"inputs\"/s/""/"'${dimm_list[$dimm_idx]}'"/1' $full_config_file;;
+        DIMM1[0-1]_Temp) sed -r -i '/DIMM_2_ZONE/,/\"inputs\"/s/""/"'${dimm_list[$dimm_idx]}'"/1' $full_config_file;;
+        DIMM1[2-7]_Temp) sed -r -i '/DIMM_3_ZONE/,/\"inputs\"/s/""/"'${dimm_list[$dimm_idx]}'"/1' $full_config_file;;
+        DIMM1[8-9]_Temp) sed -r -i '/DIMM_4_ZONE/,/\"inputs\"/s/""/"'${dimm_list[$dimm_idx]}'"/1' $full_config_file;;
+        DIMM2[0-3]_Temp) sed -r -i '/DIMM_4_ZONE/,/\"inputs\"/s/""/"'${dimm_list[$dimm_idx]}'"/1' $full_config_file;;
+        DIMM2[4-9]_Temp) sed -r -i '/DIMM_5_ZONE/,/\"inputs\"/s/""/"'${dimm_list[$dimm_idx]}'"/1' $full_config_file;;
+        DIMM3[0-5]_Temp) sed -r -i '/DIMM_6_ZONE/,/\"inputs\"/s/""/"'${dimm_list[$dimm_idx]}'"/1' $full_config_file;;
+        DIMM3[6-9]_Temp) sed -r -i '/DIMM_7_ZONE/,/\"inputs\"/s/""/"'${dimm_list[$dimm_idx]}'"/1' $full_config_file;;
+        DIMM4[0-1]_Temp) sed -r -i '/DIMM_7_ZONE/,/\"inputs\"/s/""/"'${dimm_list[$dimm_idx]}'"/1' $full_config_file;;
+        DIMM4[2-7]_Temp) sed -r -i '/DIMM_8_ZONE/,/\"inputs\"/s/""/"'${dimm_list[$dimm_idx]}'"/1' $full_config_file;;
     esac
 done
 

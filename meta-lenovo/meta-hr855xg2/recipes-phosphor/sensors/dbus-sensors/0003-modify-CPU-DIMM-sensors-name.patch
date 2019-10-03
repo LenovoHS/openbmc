@@ -1,0 +1,95 @@
+diff -Nurd git/src/CPUSensorMain.cpp git_mod/src/CPUSensorMain.cpp
+--- git/src/CPUSensorMain.cpp	2019-10-02 17:12:16.373615155 +0800
++++ git_mod/src/CPUSensorMain.cpp	2019-10-02 17:16:10.611479607 +0800
+@@ -90,6 +90,58 @@
+ constexpr auto IPMIPath = "/xyz/openbmc_project/Ipmi";
+ constexpr auto IPMIIntf = "xyz.openbmc_project.Ipmi.Server";
+ 
++const std::map<std::string, std::string> g_DIMMmap =
++{
++    { "DIMM F1 CPU1", "DIMM0"  },
++    { "DIMM F2 CPU1", "DIMM1"  },
++    { "DIMM E1 CPU1", "DIMM2"  },
++    { "DIMM E2 CPU1", "DIMM3"  },
++    { "DIMM D1 CPU1", "DIMM4"  },
++    { "DIMM D2 CPU1", "DIMM5"  },
++    { "DIMM A2 CPU1", "DIMM6"  },
++    { "DIMM A1 CPU1", "DIMM7"  },
++    { "DIMM B2 CPU1", "DIMM8"  },
++    { "DIMM B1 CPU1", "DIMM9"  },
++    { "DIMM C2 CPU1", "DIMM10"  },
++    { "DIMM C1 CPU1", "DIMM11"  },
++    { "DIMM F1 CPU2", "DIMM12"  },
++    { "DIMM F2 CPU2", "DIMM13"  },
++    { "DIMM E1 CPU2", "DIMM14"  },
++    { "DIMM E2 CPU2", "DIMM15"  },
++    { "DIMM D1 CPU2", "DIMM16"  },
++    { "DIMM D2 CPU2", "DIMM17"  },
++    { "DIMM A2 CPU2", "DIMM18"  },
++    { "DIMM A1 CPU2", "DIMM19"  },
++    { "DIMM B2 CPU2", "DIMM20"  },
++    { "DIMM B1 CPU2", "DIMM21"  },
++    { "DIMM C2 CPU2", "DIMM22"  },
++    { "DIMM C1 CPU2", "DIMM23"  },
++    { "DIMM C1 CPU3", "DIMM24"  },
++    { "DIMM C2 CPU3", "DIMM25"  },
++    { "DIMM B1 CPU3", "DIMM26"  },
++    { "DIMM B2 CPU3", "DIMM27"  },
++    { "DIMM A1 CPU3", "DIMM28"  },
++    { "DIMM A2 CPU3", "DIMM29"  },
++    { "DIMM D2 CPU3", "DIMM30"  },
++    { "DIMM D1 CPU3", "DIMM31"  },
++    { "DIMM E2 CPU3", "DIMM32"  },
++    { "DIMM E1 CPU3", "DIMM33"  },
++    { "DIMM F2 CPU3", "DIMM34"  },
++    { "DIMM F1 CPU3", "DIMM35"  },
++    { "DIMM C1 CPU4", "DIMM36"  },
++    { "DIMM C2 CPU4", "DIMM37"  },
++    { "DIMM B1 CPU4", "DIMM38"  },
++    { "DIMM B2 CPU4", "DIMM39"  },
++    { "DIMM A1 CPU4", "DIMM40"  },
++    { "DIMM A2 CPU4", "DIMM41"  },
++    { "DIMM D2 CPU4", "DIMM42"  },
++    { "DIMM D1 CPU4", "DIMM43"  },
++    { "DIMM E2 CPU4", "DIMM44"  },
++    { "DIMM E1 CPU4", "DIMM45"  },
++    { "DIMM F2 CPU4", "DIMM46"  },
++    { "DIMM F1 CPU4", "DIMM47"  }
++};
++
+ uint8_t add_sel_event(const std::shared_ptr<sdbusplus::asio::connection>& bus, uint8_t snr_num, uint8_t snr_type,
+                       uint8_t ed1, uint8_t ed2, uint8_t ed3) 
+ {
+@@ -313,8 +365,30 @@
+             std::string label;
+             std::getline(labelFile, label);
+             labelFile.close();
+-
+-            std::string sensorName = label + " CPU" + std::to_string(cpuId);
++            std::string sensorName; 
++            // Modify sensor name to "CPU[num]_Temp" & "DIMM[num]_Temp" for CPU/DIMM temps.
++            if ( label.compare("Die") == 0 )
++                sensorName = "CPU" + std::to_string(cpuId-1) + " Temp";
++            else if ( label.compare( 0, 4, "DIMM") == 0 )
++            {
++                // Generate a map for DIMM label and DIMM num
++                // mapping should look like g_DIMMmap table.
++                std::string temp_dimm_key = label + " CPU" + std::to_string(cpuId);
++                std::map<std::string, std::string>::const_iterator iter;
++                iter = g_DIMMmap.find(temp_dimm_key);
++                if (iter != g_DIMMmap.end())
++                {
++                    sensorName = g_DIMMmap.find(temp_dimm_key)->second + " Temp";
++                }
++                else
++                {
++                    std::cerr << "DIMM " << temp_dimm_key << " not found in DIMM map list." << "\n"; 
++                    std::cerr << "Use original label on DBUS. " << "\n";
++                    sensorName = label + " CPU" + std::to_string(cpuId);
++                }
++            }
++            else
++                sensorName = label + " CPU" + std::to_string(cpuId);
+ 
+             auto findSensor = gCpuSensors.find(sensorName);
+             if (findSensor != gCpuSensors.end())
