@@ -9,9 +9,11 @@ Wants=mapper-wait@-xyz-openbmc_project-watchdog-host%i.service
 After=mapper-wait@-xyz-openbmc_project-watchdog-host%i.service
 Conflicts=obmc-host-stop@%i.target
 ConditionPathExists=!/run/openbmc/host@%i-on
+ConditionPathExists=!/tmp/wdt_en
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/env wdt_en.sh
+ExecStart=/bin/sh -c "busctl call `mapper get-service /xyz/openbmc_project/watchdog/host%i` /xyz/openbmc_project/watchdog/host%i org.freedesktop.DBus.Properties Set ssv xyz.openbmc_project.State.Watchdog Enabled b true"
+ExecStartPost=/usr/bin/env wdt_en.sh %i
 RemainAfterExit=yes
 SyslogIdentifier=obmc-enable-host-watchdog
