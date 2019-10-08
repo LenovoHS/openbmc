@@ -5,7 +5,7 @@ nobase_include_HEADERS =
 
 liboemcmdsdir = ${libdir}/ipmid-providers
 liboemcmds_LTLIBRARIES = liboemcmds.la
-liboemcmds_la_SOURCES = oemcommands.cpp chassiscommands.cpp storage.cpp storagecommands.cpp
+liboemcmds_la_SOURCES = oemcommands.cpp chassiscommands.cpp storagecommands.cpp
 	
 liboemcmds_la_LDFLAGS = \
 	$(LIBIPMID_LIBS)
