@@ -1,0 +1,14 @@
+# Copyright (c) 2019-present Lenovo
+# Licensed under BSD-3, see COPYING.BSD file for details.
+
+[Unit]
+Description=Lenovo Power State
+
+[Service]
+Restart=always
+RestartSec=5
+ExecStart=/usr/sbin/power-state.sh
+SyslogIdentifier=lenovo-power-state
+
+[Install]
+WantedBy={SYSTEMD_DEFAULT_TARGET}

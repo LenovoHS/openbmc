@@ -1,0 +1,233 @@
+diff -Naur a/mainloop.cpp b/mainloop.cpp
+--- a/mainloop.cpp	2019-10-03 16:25:40.085742406 +0800
++++ b/mainloop.cpp	2019-10-08 08:34:54.181402307 +0800
+@@ -39,6 +39,11 @@
+ #include <string>
+ #include <unordered_set>
+ #include <xyz/openbmc_project/Sensor/Device/error.hpp>
++#include <sdbusplus/bus.hpp>
++#include <sdbusplus/exception.hpp>
++#include <sdeventplus/event.hpp>
++#include <sdeventplus/exception.hpp>
++#include <unistd.h>
+ 
+ using namespace phosphor::logging;
+ 
+@@ -74,6 +79,53 @@
+     Thresholds<CriticalObject>::alarmHi) Thresholds<CriticalObject>::alarmHi =
+     &CriticalObject::criticalAlarmHigh;
+ 
++constexpr auto POWER_BUSNAME = "org.openbmc.control.Power";
++constexpr auto POWER_IFACE = "org.openbmc.control.Power";
++constexpr auto POWER_OBJ_PATH = "/org/openbmc/control/power0";
++constexpr auto PROPERTY_IFACE = "org.freedesktop.DBus.Properties";
++constexpr auto POWER_CHECK_FILE = "/tmp/pwr_on";
++
++/*bool checkPowerState()
++{
++    auto bus = sdbusplus::bus::new_default();
++    auto event = sdeventplus::Event::get_default();
++
++    bus.attach_event(event.get(), SD_EVENT_PRIORITY_NORMAL);
++
++    sdbusplus::message::variant<int> pgood = 0;
++    auto method = bus.new_method_call(
++        POWER_BUSNAME, POWER_OBJ_PATH,
++        PROPERTY_IFACE, "Get");
++
++    method.append(POWER_IFACE, "pgood");
++    try
++    {
++        auto reply = bus.call(method);
++        reply.read(pgood);
++        //fprintf(stderr, "ivan pgood = %d\n", std::get<int>(pgood));
++        if (sdbusplus::message::variant_ns::get<int>(pgood) == 0)
++        {
++            return false;
++        }
++    }
++    catch (const sdbusplus::exception::SdBusError& e)
++    {
++        log<level::ERR>("Failed to get pgood status");
++        return false;
++    }
++    return true;
++}*/
++
++bool checkPowerState()
++{
++    if (access(POWER_CHECK_FILE, F_OK) == -1)
++    {
++        return false;
++    }
++
++    return true;
++}
++
+ void updateSensorInterfaces(InterfaceMap& ifaces, int64_t value)
+ {
+     for (auto& iface : ifaces)
+@@ -391,7 +443,7 @@
+ {
+     // TODO: Issue#3 - Need to make calls to the dbus sensor cache here to
+     //       ensure the objects all exist?
+-
++    
+     // Iterate through all the sensors.
+     for (auto& [sensorSetKey, sensorStateTuple] : _state)
+     {
+@@ -429,6 +481,22 @@
+ 
+         try
+         {
++            //auto ivan = sensor->checkDevPath();
++            if (sensor->pwrOnMonitor()) 
++            {
++                //fprintf(stderr,"ivan read, sensorSysfsType = %s, sensorSysfsNum = %s, dev_path = %s\n", sensorSysfsType.c_str(), sensorSysfsNum.c_str(), ivan.c_str());
++                if(!checkPowerState())
++                {
++                    //fprintf(stderr,"ivan power off state, sensorSysfsType = %s, sensorSysfsNum = %s, dev_path = %s\n", sensorSysfsType.c_str(), sensorSysfsNum.c_str(), ivan.c_str());
++                    fprintf(stderr, "ivan power off state\n");
++                    statusIface->functional(false);
++                    continue;
++                }
++            //    else
++            //    {
++            //        fprintf(stderr,"ivan power on state, sensorSysfsType = %s, sensorSysfsNum = %s, dev_path = %s\n", sensorSysfsType.c_str(), sensorSysfsNum.c_str(), ivan.c_str());
++            //    }
++            }
+             if (sensor->hasFaultFile())
+             {
+                 auto fault = _ioAccess->read(sensorSysfsType, sensorSysfsNum,
+@@ -455,6 +523,22 @@
+ 
+                 value = sensor->adjustValue(value);
+ 
++                /*if (sensor->pwrOnMonitor())
++                {
++                    //fprintf(stderr,"ivan read 2, sensorSysfsType = %s, sensorSysfsNum = %s, dev_path = %s\n", sensorSysfsType.c_str(), sensorSysfsNum.c_str(), ivan.c_str());
++                    if(!checkPowerState())
++                    {
++                        //fprintf(stderr,"ivan power off 2 state, sensorSysfsType = %s, sensorSysfsNum = %s, dev_path = %s\n", sensorSysfsType.c_str(), sensorSysfsNum.c_str(), ivan.c_str());
++                        fprintf(stderr, "ivan power off state in inner loop\n");
++                        statusIface->functional(false);
++                        continue;
++                    }
++                    else
++                    {
++                        fprintf(stderr,"ivan power on state inner, sensorSysfsType = %s, sensorSysfsNum = %s, dev_path = %s\n", sensorSysfsType.c_str(), sensorSysfsNum.c_str(), ivan.c_str());
++                    }
++                }*/
++
+                 if (input == hwmon::entry::average)
+                 {
+                     // Calculate the values of averageMap based on current
+@@ -490,7 +574,21 @@
+                     }
+                 }
+             }
+-
++            if (sensor->pwrOnMonitor())
++            {
++                //fprintf(stderr,"ivan read, sensorSysfsType = %s, sensorSysfsNum = %s, dev_path = %s\n", sensorSysfsType.c_str(), sensorSysfsNum.c_str(), ivan.c_str());
++                if(!checkPowerState())
++                {
++                    //fprintf(stderr,"ivan power off state, sensorSysfsType = %s, sensorSysfsNum = %s, dev_path = %s\n", sensorSysfsType.c_str(), sensorSysfsNum.c_str(), ivan.c_str());
++                    //fprintf(stderr, "ivan power off state outside\n");
++                    statusIface->functional(false);
++                    continue;
++                }
++                //else
++                //{
++                    //fprintf(stderr,"ivan power on state outside, sensorSysfsType = %s, sensorSysfsNum = %s, dev_path = %s\n", sensorSysfsType.c_str(), sensorSysfsNum.c_str(), ivan.c_str());
++                //}
++            }
+             updateSensorInterfaces(obj, value);
+         }
+         catch (const std::system_error& e)
+diff -Naur a/sensor.cpp b/sensor.cpp
+--- a/sensor.cpp	2019-10-03 16:25:40.085742406 +0800
++++ b/sensor.cpp	2019-10-07 07:47:54.216519229 +0800
+@@ -41,7 +41,7 @@
+                const hwmonio::HwmonIOInterface* ioAccess,
+                const std::string& devPath) :
+     _sensor(sensor),
+-    _ioAccess(ioAccess), _devPath(devPath), _scale(0), _hasFaultFile(false)
++    _ioAccess(ioAccess), _devPath(devPath), _scale(0), _hasFaultFile(false), _pwrOnMonitor(false) 
+ {
+     auto chip = env::getEnv("GPIOCHIP", sensor);
+     auto access = env::getEnv("GPIO", sensor);
+@@ -70,6 +70,16 @@
+     auto senRmRCs = env::getEnv("REMOVERCS", sensor);
+     // Add sensor removal return codes defined per sensor
+     addRemoveRCs(senRmRCs);
++
++    auto pwrOnMon = env::getEnv("PWRONMON", sensor);
++    if (!pwrOnMon.empty())
++    {
++        if (pwrOnMon == "ON")
++        {
++            //fprintf(stderr, "ivan devPath = %s\n", devPath.c_str());
++            _pwrOnMonitor = true;
++        }
++    }
+ }
+ 
+ void Sensor::addRemoveRCs(const std::string& rcList)
+@@ -148,6 +158,7 @@
+     if (statusIface->functional())
+     {
+ #ifdef UPDATE_FUNCTIONAL_ON_FAIL
++        //fprintf(stderr, "ivan enable UPDATE_FUNCTIONAL_ON_FAIL\n");
+         try
+ #endif
+         {
+diff -Naur a/sensor.hpp b/sensor.hpp
+--- a/sensor.hpp	2019-10-03 16:25:40.085742406 +0800
++++ b/sensor.hpp	2019-10-04 11:04:32.818180022 +0800
+@@ -135,6 +135,21 @@
+         return _hasFaultFile;
+     }
+ 
++    /**
++     * @brief Get whether the sensor only need to be monitored in power on state or not.
++     *
++     * @return - Boolean on whether the sensor only need to be monitored in power on state
++     */
++    inline bool pwrOnMonitor(void) const
++    {
++        return _pwrOnMonitor;
++    }
++
++    inline std::string checkDevPath(void) const
++    {
++        return _devPath;
++    }
++
+   private:
+     /** @brief Sensor object's identifiers */
+     SensorSet::key_type _sensor;
+@@ -156,6 +171,9 @@
+ 
+     /** @brief Tracks whether the sensor has a fault file or not. */
+     bool _hasFaultFile;
++
++    /** @brief Whether the sensor only need to be monitored in power on state or not. */
++    bool _pwrOnMonitor;
+ };
+ 
+ /**
+diff -Naur a/thresholds.hpp b/thresholds.hpp
+--- a/thresholds.hpp	2019-10-04 15:10:30.394727261 +0800
++++ b/thresholds.hpp	2019-10-07 12:40:47.480316261 +0800
+@@ -101,8 +101,8 @@
+         auto hi = stod(tHi) * std::pow(10, scale);
+         (*iface.*Thresholds<T>::setLo)(lo);
+         (*iface.*Thresholds<T>::setHi)(hi);
+-        (*iface.*Thresholds<T>::alarmLo)(value <= lo);
+-        (*iface.*Thresholds<T>::alarmHi)(value >= hi);
++        //(*iface.*Thresholds<T>::alarmLo)(value <= lo);
++        //(*iface.*Thresholds<T>::alarmHi)(value >= hi);
+         auto type = Thresholds<T>::type;
+         obj[type] = iface;
+     }
