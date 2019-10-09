@@ -3,8 +3,8 @@
 
 [Unit]
 Description=Lenovo ACPI State
-Requires=fpga-recovery.service org.openbmc.control.Power@0.service
-After=fpga-recovery.service org.openbmc.control.Power@0.service
+Requires=fpga-recovery.service org.openbmc.control.Power@0.service phosphor-ipmi-host.service xyz.openbmc_project.oemsensor.service
+After=fpga-recovery.service org.openbmc.control.Power@0.service phosphor-ipmi-host.service xyz.openbmc_project.oemsensor.service
 
 [Service]
 Restart=always

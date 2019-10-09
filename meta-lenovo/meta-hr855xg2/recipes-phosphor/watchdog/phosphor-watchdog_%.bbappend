@@ -8,7 +8,7 @@ SRC_URI += "file://0001-add-BIST-event-for-CPU_Status-sensor.patch \
             file://poweron.conf \
             file://wdt_en.sh \
            "
-WATCHDOG_FMT = "../${WATCHDOG_TMPL}:time-sync.target.wants/${WATCHDOG_TGTFMT}"
+WATCHDOG_FMT = "../${WATCHDOG_TMPL}:phosphor-ipmi-host.service.wants/${WATCHDOG_TGTFMT}"
 
 do_install_append() {
         install -d ${D}${sbindir}
