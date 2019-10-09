@@ -29,6 +29,15 @@ do
       if [ $ret == "0" ]; then
          echo "ACPI state Init ...Done"
          init_done=true
+
+         if [ $curr_state == "1" ]; then
+            # Set ACPI status
+            busctl set-property xyz.openbmc_project.OEMSensor /xyz/openbmc_project/OEMSensor/ACPI_State xyz.openbmc_project.Sensor.Discrete.SpecificOffset Offset_0 b true
+            busctl set-property xyz.openbmc_project.OEMSensor /xyz/openbmc_project/OEMSensor/ACPI_State xyz.openbmc_project.Sensor.Discrete.SpecificOffset Offset_5 b false
+            # Add sel
+            ipmitool raw 0x0a 0x44 0x00 0x00 0x02 0x00 0x00 0x00 0x00 0x20 0x00 0x04 0x22 0xf0 0x6f 0x00 0xff 0xff
+         fi
+
          last_state=$curr_state
       else
          echo "Set Power State Failed !!"
@@ -55,7 +64,13 @@ do
          ipmitool raw 0x0a 0x44 0x00 0x00 0x02 0x00 0x00 0x00 0x00 0x20 0x00 0x04 0x22 0xf0 0x6f 0x05 0xff 0xff
       fi
 
-      last_state=$curr_state
+      ret=$?
+      if [ $ret == "0" ]; then
+         last_state=$curr_state
+      else
+         sleep 1
+         continue
+      fi
    fi
 
    sleep 1
