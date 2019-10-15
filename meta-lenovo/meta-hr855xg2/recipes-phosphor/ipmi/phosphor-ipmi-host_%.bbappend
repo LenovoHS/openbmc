@@ -10,9 +10,11 @@ SRC_URI += "file://0001-fru-workaround.patch \
             file://0002-Add-SEL-Implementation.patch \
             file://0003-add-sensor-property-set-in-add-sel.patch \
             file://0004-fix-incorrect-watchdog-action-rsp.patch \
+            file://0005-add-retry-for-sensor-reading.patch \
            "
 
 EXTRA_OECONF_append_hr855xg2 = " \
     SENSOR_YAML_GEN=${STAGING_DIR_HOST}${datadir}/hr855xg2-yaml-config/ipmi-sensors.yaml \
     FRU_YAML_GEN=${STAGING_DIR_HOST}${datadir}/hr855xg2-yaml-config/ipmi-fru-read.yaml \
+     --enable-update-functional-on-fail \
     "

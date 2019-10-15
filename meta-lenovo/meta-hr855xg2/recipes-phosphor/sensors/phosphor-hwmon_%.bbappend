@@ -3,12 +3,7 @@
 
 FILESEXTRAPATHS_prepend_hr855xg2 := "${THISDIR}/${PN}:"
 
-# Temporarily enable the configure "enable-negative-errno-on-fail", 
-# without the check, FAN readings become unavaliable.
-# See https://gerrit.openbmc-project.xyz/c/openbmc/meta-lenovo/+/23002/
-# and https://gerrit.openbmc-project.xyz/c/openbmc/phosphor-host-ipmid/+/22780 for details.
-# Once ipmi-host is fixed, the below configure can be removed. 
-EXTRA_OECONF_append_hr855xg2 = " --enable-negative-errno-on-fail"
+EXTRA_OECONF_append_hr855xg2 = " --enable-update-functional-on-fail "
 
 CHIPS = " bus@1e78a000/i2c-bus@1c0/tmp75@49  \
           bus@1e78a000/i2c-bus@1c0/tmp75@4d  \
