@@ -5,13 +5,14 @@
 Description=Start Watchdog%i
 Wants=obmc-host-started@%i.target
 After=obmc-host-started@%i.target
-Wants=mapper-wait@-xyz-openbmc_project-watchdog-host%i.service
-After=mapper-wait@-xyz-openbmc_project-watchdog-host%i.service
+Wants=mapper-wait@-xyz-openbmc_project-watchdog-host%i.service phosphor-ipmi-host.service
+After=mapper-wait@-xyz-openbmc_project-watchdog-host%i.service phosphor-ipmi-host.service
 Conflicts=obmc-host-stop@%i.target
 ConditionPathExists=!/run/openbmc/host@%i-on
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/env wdt_en.sh
+ExecStart=/bin/sh -c "busctl call `mapper get-service /xyz/openbmc_project/watchdog/host%i` /xyz/openbmc_project/watchdog/host%i org.freedesktop.DBus.Properties Set ssv xyz.openbmc_project.State.Watchdog Enabled b false"
+ExecStartPost=/usr/bin/env wdt_en.sh %i
 RemainAfterExit=yes
 SyslogIdentifier=obmc-enable-host-watchdog

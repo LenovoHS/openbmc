@@ -29,7 +29,7 @@ if [ $status == "1"  ];then
   echo "low" > /sys/class/gpio/gpio${FM_PCH_PWRBTN_N}/direction                                                                     
   sleep 6                                                                                                                               
   echo 1 > /sys/class/gpio/gpio${FM_PCH_PWRBTN_N}/value 
-  sleep 10
+
 fi
 
 echo "low" > /sys/class/gpio/gpio${PDB_RESTART_N}/direction

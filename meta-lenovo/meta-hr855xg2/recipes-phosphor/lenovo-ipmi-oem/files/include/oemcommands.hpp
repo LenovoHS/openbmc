@@ -12,15 +12,15 @@ static constexpr bool debug = true;
 #define FAST_SYNC_MAX_REGISTER 15
 #define FAST_SYNC_RONLY_MIN 4
 #define FAST_SYNC_RONLY_MAX 7
-
+constexpr std::uint32_t lenovoOemNumber = 19046;
 enum lenovo_oem_cmds
 {
-    CMD_OEM_ADD_UEFI_SEL = 0x00,
+    
 	CMD_OEM_READ_FPGA = 0x01,
 	CMD_OEM_WRITE_FPGA = 0x02,
 	CMD_OEM_SET_BIOS_LOAD_DEFAULT_STATUS = 0x03,
 	CMD_OEM_GET_BIOS_LOAD_DEFAULT_STATUS = 0x04,
-	CMD_OEM_PDB_POWER_CYCLE   = 0x05,
+	
 	CMD_OEM_Control_LED_Status	= 0x06,
 	CMD_OEM_SET_BIOS_CURRENT_PID = 0x07,
 	CMD_OEM_GET_BIOS_CURRENT_PID = 0x08,
@@ -75,20 +75,3 @@ struct FanCtrlSetPWM
     uint8_t val;
 } __attribute__((packed));
 
-inline static void printRegistration(unsigned int netfn, unsigned int cmd)
-{
-    if constexpr (debug)
-    {
-        std::fprintf(stderr, "Registering Lenovo NetFn:[%#04X], Cmd:[%#04X] \n",
-             netfn,cmd);                      
-    }
-}
-
-inline static void ipmiPrintAndRegister(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
-                                        ipmi_context_t context,
-                                        ipmid_callback_t handler,
-                                        ipmi_cmd_privilege_t priv)
-{
-    printRegistration(netfn, cmd);
-    ipmi_register_callback(netfn, cmd, context, handler, priv);
-}

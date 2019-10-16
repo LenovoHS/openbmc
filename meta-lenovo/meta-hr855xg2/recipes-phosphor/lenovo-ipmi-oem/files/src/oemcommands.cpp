@@ -12,10 +12,13 @@
 #include <nlohmann/json.hpp>
 #include <iostream>
 #include <stdio.h>
+#include <ipmid/oemopenbmc.hpp>
 
-
+namespace lenovo
+{
 namespace ipmi
 {
+
 	using phosphor::logging::level;
 	using phosphor::logging::log;
 	using phosphor::logging::entry;
@@ -26,7 +29,7 @@ namespace ipmi
 	//auto bus = sdbusplus::bus::new_default();
 	static constexpr auto pwmHwmonPath = "/sys/class/hwmon/hwmon0/pwm";
 	
-	static void registerOEMFunctions() __attribute__((constructor));
+
     sdbusplus::bus::bus bus(ipmid_get_sd_bus_connection()); // from ipmid/api.h
    
 nlohmann::json oemData;
@@ -49,7 +52,7 @@ int retrieveOemData ()
 	return 0;
 }
 
-std::string bytesToStr(uint8_t *byte, int len)
+std::string bytesToStr(const uint8_t *byte, int len)
 {
     std::stringstream ss;
     uint8_t i;
@@ -63,7 +66,7 @@ std::string bytesToStr(uint8_t *byte, int len)
     return ss.str();
 }
 
-int strToBytes(std::string &str, uint8_t *data)
+int strToBytes(const std::string &str, uint8_t *data)
 {
     std::string sstr;
     uint8_t i;
@@ -79,40 +82,31 @@ int strToBytes(std::string &str, uint8_t *data)
     return i;
 }
    
-ipmi_ret_t ipmiOemAddUefiSel(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
-                                   ipmi_request_t request,
-                                   ipmi_response_t response,
-                                   ipmi_data_len_t data_len,
-                                   ipmi_context_t context)
-{
-    /* Do nothing, return tset data */
-      ipmi_ret_t rc = IPMI_CC_OK;
-      uint8_t rsp[] = {0xFF, 0x00, 0xAA, 0x55};
-      memcpy(response, &rsp, 4);
-      *data_len = 4;
 
-      return rc;      
-}
-ipmi_ret_t ipmioemReadFPGA(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
-                                   ipmi_request_t request,
-                                   ipmi_response_t response,
-                                   ipmi_data_len_t data_len,
-                                   ipmi_context_t context)
+ipmi_ret_t ipmioemReadFPGA(ipmi_cmd_t cmd,
+                          const uint8_t* request,
+                           uint8_t* response,
+                           size_t* data_len
+                           )
 {
 	ipmi_ret_t rc = IPMI_CC_OK;
 	uint8_t res_data;
 	size_t respLen = 0;
 	fpgadata resp = {0};
-	auto* req = reinterpret_cast<readFPGA*>(request);
+	struct readFPGA req; 
+	
+	
 	if(*data_len != sizeof(readFPGA)){
 		*data_len = 0;
 		return IPMI_CC_REQ_DATA_LEN_INVALID;
 		
 	}
+	std::memcpy(&req, &request[0], sizeof(req));
+	
 	auto method = bus.new_method_call(fpgaService, fpgaRoot,
                                       fpgaInterface, "read_fpga");
 	
-	method.append(req->block,req->offset);
+	method.append(req.block,req.offset);
 	
     try
 	{
@@ -137,24 +131,27 @@ ipmi_ret_t ipmioemReadFPGA(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
 	return rc;
 }
 
-ipmi_ret_t ipmioemWriteFPGA(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
-                                   ipmi_request_t request,
-                                   ipmi_response_t response,
-                                   ipmi_data_len_t data_len,
-                                   ipmi_context_t context)
+ipmi_ret_t ipmioemWriteFPGA( ipmi_cmd_t cmd,
+                              const uint8_t* request,
+                              uint8_t* response,
+                              size_t* data_len
+                             )
 {
 	
 	ipmi_ret_t rc = IPMI_CC_OK;
-	auto* req = reinterpret_cast<writeFPGA*>(request);
+	struct writeFPGA req; 
+	
 	if(*data_len != sizeof(writeFPGA)){
 		*data_len = 0;
 		return IPMI_CC_REQ_DATA_LEN_INVALID;
 		
 	}
-		
+	
+	std::memcpy(&req, &request[0], sizeof(req));	
+	
 	auto method = bus.new_method_call(fpgaService, fpgaRoot,
                                       fpgaInterface, "write_fpga");
-	method.append(req->block,req->offset,req->data);
+	method.append(req.block,req.offset,req.data);
 	try
 	{
 		auto fast_sync = bus.call(method);
@@ -282,65 +279,14 @@ int ControlBMCLEDStatus (char *LEDName, char *LEDStatus){
 	
 }
 
-ipmi_ret_t ipmiOemPDBPowerCycle(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
-                                   ipmi_request_t request,
-                                   ipmi_response_t response,
-                                   ipmi_data_len_t data_len,
-                                   ipmi_context_t context)
-{
-	//step1: get host status on/off
-	//step2: set host off if it is on/off
-	//step3: sleep(10), wait host from S0-S5
-	//step4: Run PDB restart 
-	
-	uint8_t gpio_direction = 0;
-	uint8_t len  = *data_len;
-	
-	ExportGpio(PDB_RESTART_N);
-	ExportGpio(FM_PCH_PWRBTN_N);
-	ExportGpio(PWRGD_SYS_PWROK_BMC);
-	
-	if(len != 0)
-	{
-		return IPMI_CC_REQ_DATA_LEN_INVALID;
-	}
-	
-	phosphor::logging::log<phosphor::logging::level::INFO>(
-        "ipmiOemPDBPowerCycle");
-	gpio_direction = getGPIOValue(PWRGD_SYS_PWROK_BMC);
-	
-	
-	//step 2
-	if(gpio_direction == 0x31)
-	{
-		 phosphor::logging::log<phosphor::logging::level::INFO>(
-        "System power 111 is OK");
-		
-		setGPIODirection(FM_PCH_PWRBTN_N, "low");
-		std::this_thread::sleep_for (6s);
-		setGPIOValue(FM_PCH_PWRBTN_N,GPIO_VALUE_H);
-		
-		std::this_thread::sleep_for (10s);
-		phosphor::logging::log<phosphor::logging::level::INFO>(
-        "System power 44444 is OK");
-	}
-		
-	//step 3
-	setGPIODirection(PDB_RESTART_N, "low");
-	
-	*data_len = 0;
-	
-	return IPMI_CC_OK;      
-}
-	
 
-ipmi_ret_t ipmiOemSetBIOSLoadDefaultStatus(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
-                                   ipmi_request_t request,
-                                   ipmi_response_t response,
-                                   ipmi_data_len_t data_len,
-                                   ipmi_context_t context)
+ipmi_ret_t ipmiOemSetBIOSLoadDefaultStatus( ipmi_cmd_t cmd,
+											const uint8_t* req,
+											uint8_t* res,
+											size_t* data_len
+											)
 {
-	uint8_t *req = reinterpret_cast<uint8_t *>(request);
+	
 	uint8_t len = *data_len;
 	
 	std::string BIOSLoadDefaultStr;
@@ -364,13 +310,12 @@ ipmi_ret_t ipmiOemSetBIOSLoadDefaultStatus(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
 	return IPMI_CC_OK;      
 }
 
-ipmi_ret_t ipmiOemGetBIOSLoadDefaultStatus(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
-                                   ipmi_request_t request,
-                                   ipmi_response_t response,
-                                   ipmi_data_len_t data_len,
-                                   ipmi_context_t context)
+ipmi_ret_t ipmiOemGetBIOSLoadDefaultStatus( ipmi_cmd_t cmd,
+											const uint8_t* req,
+											uint8_t* res,
+											size_t* data_len
+											)
 {
-	uint8_t *res = reinterpret_cast<uint8_t *>(response);
 	std::string BIOSLoadDefaultStr;
 	int len = *data_len;
 	
@@ -385,13 +330,12 @@ ipmi_ret_t ipmiOemGetBIOSLoadDefaultStatus(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
 	
 	return IPMI_CC_OK;      
 }
-ipmi_ret_t ipmiOemSetBIOSCurrentPID(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
-                                   ipmi_request_t request,
-                                   ipmi_response_t response,
-                                   ipmi_data_len_t data_len,
-                                   ipmi_context_t context)
+ipmi_ret_t ipmiOemSetBIOSCurrentPID( ipmi_cmd_t cmd,
+									const uint8_t* req,
+									 uint8_t* res,
+									 size_t* data_len
+									)
 {
-	uint8_t *req = reinterpret_cast<uint8_t *>(request);
 	uint8_t len = *data_len;
 	
 	std::string BIOSCurrentPIDStr;
@@ -410,13 +354,13 @@ ipmi_ret_t ipmiOemSetBIOSCurrentPID(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
 	return IPMI_CC_OK;      
 }
 
-ipmi_ret_t ipmiOemGetBIOSCurrentPID(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
-                                   ipmi_request_t request,
-                                   ipmi_response_t response,
-                                   ipmi_data_len_t data_len,
-                                   ipmi_context_t context)
+ipmi_ret_t ipmiOemGetBIOSCurrentPID( ipmi_cmd_t cmd,
+									const uint8_t* req,
+									 uint8_t* res,
+									 size_t* data_len
+									)
 {
-    uint8_t *res = reinterpret_cast<uint8_t *>(response);
+   
     std::string BIOSCurrentPIDStr;
     int len = *data_len;
 	
@@ -435,13 +379,12 @@ ipmi_ret_t ipmiOemGetBIOSCurrentPID(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
     return IPMI_CC_OK;      
 }
 
-ipmi_ret_t ipmiOemSetBIOSWantedPID(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
-                                   ipmi_request_t request,
-                                   ipmi_response_t response,
-                                   ipmi_data_len_t data_len,
-                                   ipmi_context_t context)
+ipmi_ret_t ipmiOemSetBIOSWantedPID( ipmi_cmd_t cmd,
+                            const  uint8_t* req,
+                              uint8_t* res,
+                              size_t* data_len
+                             )
 {
-	uint8_t *req = reinterpret_cast<uint8_t *>(request);
 	uint8_t len = *data_len;
 	
 	std::string BIOSWantedPIDStr;
@@ -460,13 +403,12 @@ ipmi_ret_t ipmiOemSetBIOSWantedPID(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
 	return IPMI_CC_OK;      
 }
 
-ipmi_ret_t ipmiOemGetBIOSWantedPID(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
-                                   ipmi_request_t request,
-                                   ipmi_response_t response,
-                                   ipmi_data_len_t data_len,
-                                   ipmi_context_t context)
+ipmi_ret_t ipmiOemGetBIOSWantedPID( ipmi_cmd_t cmd,
+                           const   uint8_t* req,
+                              uint8_t* res,
+                              size_t* data_len
+                             )
 {
-	uint8_t *res = reinterpret_cast<uint8_t *>(response);
 	std::string BIOSWantedPIDStr;
 	int len = *data_len;
 	
@@ -485,13 +427,12 @@ ipmi_ret_t ipmiOemGetBIOSWantedPID(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
 #define LED_ON   1
 #define LED_BLINKING 2
 
-ipmi_ret_t ipmiOemControlLEDStatus(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
-                                   ipmi_request_t request,
-                                   ipmi_response_t response,
-                                   ipmi_data_len_t data_len,
-                                   ipmi_context_t context)
+ipmi_ret_t ipmiOemControlLEDStatus( ipmi_cmd_t cmd,
+                            const  uint8_t* req,
+                              uint8_t* res,
+                              size_t* data_len
+                             )
 {
-	uint8_t *req = reinterpret_cast<uint8_t *>(request);
 	uint8_t len = *data_len;
 	
 	char LEDName[MAX_STR_LEN];
@@ -553,11 +494,11 @@ uint8_t count_pwm(void)
     return num;
 }
 
-ipmi_ret_t ipmiOemSetManualPWMVal(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
-                                   ipmi_request_t request,
-                                   ipmi_response_t response,
-                                   ipmi_data_len_t data_len,
-                                   ipmi_context_t context)
+ipmi_ret_t ipmiOemSetManualPWMVal( ipmi_cmd_t cmd,
+                             const  uint8_t* request,
+                              uint8_t* response,
+                              size_t* data_len
+                             )
 {
     ipmi_ret_t rc = IPMI_CC_OK;
     uint8_t reqPWMName, reqPWMVal, total_pwm = 0;
@@ -607,63 +548,43 @@ ipmi_ret_t ipmiOemSetManualPWMVal(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
     }
 }
 
-static void registerOEMFunctions(void)
+void setupLenovoOEMCommands() __attribute__((constructor));
+
+void setupLenovoOEMCommands()
 {
-    phosphor::logging::log<phosphor::logging::level::INFO>(
-        "Registering Lenovo OEM commands");
-        
-    ipmiPrintAndRegister(NETFUN_OEM, CMD_OEM_ADD_UEFI_SEL, NULL,
-                         ipmiOemAddUefiSel,
-                         PRIVILEGE_USER); 
-#if 1
-	ipmiPrintAndRegister(NETFUN_OEM, CMD_OEM_READ_FPGA, NULL,
-                         ipmioemReadFPGA,
-                         PRIVILEGE_ADMIN);
-						 
-	ipmiPrintAndRegister(NETFUN_OEM, CMD_OEM_WRITE_FPGA, NULL,
-                         ipmioemWriteFPGA,
-                         PRIVILEGE_ADMIN);
-						 
-	ipmiPrintAndRegister(NETFUN_OEM, CMD_OEM_SET_BIOS_LOAD_DEFAULT_STATUS, NULL,
-                         ipmiOemSetBIOSLoadDefaultStatus,
-                         PRIVILEGE_USER); 
-						 
-	ipmiPrintAndRegister(NETFUN_OEM, CMD_OEM_GET_BIOS_LOAD_DEFAULT_STATUS, NULL,
-                         ipmiOemGetBIOSLoadDefaultStatus,
-                         PRIVILEGE_USER); 
+    oem::Router* oemRouter = oem::mutableRouter();
+	std::fprintf(stderr,
+                 "Registering OEM:[%#08X] lenovo OEM Commands\n",
+                 lenovoOemNumber);
+				 
 	
-	ipmiPrintAndRegister(NETFUN_OEM, CMD_OEM_SET_BIOS_CURRENT_PID, NULL,
-                         ipmiOemSetBIOSCurrentPID,
-                         PRIVILEGE_USER); 
+	oemRouter->registerHandler(lenovoOemNumber, CMD_OEM_READ_FPGA,ipmioemReadFPGA);
+	
+	
+	oemRouter->registerHandler(lenovoOemNumber, CMD_OEM_WRITE_FPGA,ipmioemWriteFPGA);
 						 
-	ipmiPrintAndRegister(NETFUN_OEM, CMD_OEM_GET_BIOS_CURRENT_PID, NULL,
-                         ipmiOemGetBIOSCurrentPID,
-                         PRIVILEGE_USER);
+	oemRouter->registerHandler(lenovoOemNumber, CMD_OEM_SET_BIOS_LOAD_DEFAULT_STATUS,ipmiOemSetBIOSLoadDefaultStatus); 
 						 
-	ipmiPrintAndRegister(NETFUN_OEM, CMD_OEM_SET_BIOS_WANTED_PID, NULL,
-                         ipmiOemSetBIOSWantedPID,
-                         PRIVILEGE_USER); 
+	oemRouter->registerHandler(lenovoOemNumber, CMD_OEM_GET_BIOS_LOAD_DEFAULT_STATUS,ipmiOemGetBIOSLoadDefaultStatus); 
+	
+	oemRouter->registerHandler(lenovoOemNumber, CMD_OEM_SET_BIOS_CURRENT_PID,ipmiOemSetBIOSCurrentPID); 
 						 
-	ipmiPrintAndRegister(NETFUN_OEM, CMD_OEM_GET_BIOS_WANTED_PID, NULL,
-                         ipmiOemGetBIOSWantedPID,
-                         PRIVILEGE_USER);
+	oemRouter->registerHandler(lenovoOemNumber, CMD_OEM_GET_BIOS_CURRENT_PID,ipmiOemGetBIOSCurrentPID);
 						 
-	ipmiPrintAndRegister(NETFUN_OEM, CMD_OEM_PDB_POWER_CYCLE, NULL,
-                         ipmiOemPDBPowerCycle,
-                         PRIVILEGE_USER); 
+	oemRouter->registerHandler(lenovoOemNumber, CMD_OEM_SET_BIOS_WANTED_PID,ipmiOemSetBIOSWantedPID); 
 						 
-	ipmiPrintAndRegister(NETFUN_OEM, CMD_OEM_Control_LED_Status, NULL,
-                         ipmiOemControlLEDStatus,
-                         PRIVILEGE_USER);
+	oemRouter->registerHandler(lenovoOemNumber, CMD_OEM_GET_BIOS_WANTED_PID,ipmiOemGetBIOSWantedPID);
+						  
+						 
+	oemRouter->registerHandler(lenovoOemNumber, CMD_OEM_Control_LED_Status,ipmiOemControlLEDStatus);
 
-	ipmiPrintAndRegister(NETFUN_OEM, CMD_OEM_SET_FAN_PWM, NULL,
-                         ipmiOemSetManualPWMVal,
-                         PRIVILEGE_USER);
-
-#endif
+	oemRouter->registerHandler(lenovoOemNumber, CMD_OEM_SET_FAN_PWM, ipmiOemSetManualPWMVal);
+	
+	
 }
 
-
 } // namespace ipmi
+
+} // namespace lenovo
 
 

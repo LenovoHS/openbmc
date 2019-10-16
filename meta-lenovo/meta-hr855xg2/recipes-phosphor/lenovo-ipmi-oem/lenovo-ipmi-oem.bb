@@ -24,7 +24,6 @@ SRC_URI = "file://Makefile.am \
            file://include/oemcommands.hpp \
            file://src/chassiscommands.cpp \
            file://include/chassiscommands.hpp \
-           file://src/storage.cpp \
            file://src/storagecommands.cpp \
            file://include/storagecommands.hpp \
            file://include/sdrutils.hpp \

@@ -281,9 +281,9 @@ int get_power_status(void)
 {
         uint8_t pgood_state;
         GPIO power_gpio;
-        power_gpio.name = "PGOOD";
+        power_gpio.name = "CPU_PGOOD";
         power_gpio.dev  = "/sys/class/gpio";
-        power_gpio.num  = 63;
+        power_gpio.num  = 195;
         power_gpio.chip_id = 0;
         power_gpio.direction = "in";
         int rc = gpio_open(&power_gpio, 0);
@@ -302,19 +302,19 @@ int get_power_status(void)
 int main(int argc, char *argv[]) {
     fprintf(stderr, "Power sequence control service running...\n");
 	
-	int PowerOKStatus = get_power_status();
+    int PowerOKStatus = get_power_status();
 //	exportGPIO(PWRGD_SYS_PWROK_BMC);
 	
 //	PowerOKStatus = getGPIOValue(PWRGD_SYS_PWROK_BMC);
 	
-	exportGPIO(PDB_RESTART_N);
-	setGPIODirection(PDB_RESTART_N, "high");
+    exportGPIO(PDB_RESTART_N);
+    setGPIODirection(PDB_RESTART_N, "high");
 	
-	if(1 == PowerOKStatus)
-	{
-		fprintf(stderr, "do nothing when host is on\n");
-		return 0;
-	}
+    if(1 == PowerOKStatus)
+    {
+        fprintf(stderr, "pwr seq: do nothing when host is on\n");
+        return 0;
+    }
     // Export necessary GPIOs
     exportGPIO(BMC_FPGA_FLASH_MUX_SEL1);
     exportGPIO(CP_SPI_FLASH_NCONFIG);
@@ -323,9 +323,9 @@ int main(int argc, char *argv[]) {
 
     verifyBIOS();
 	
-	sleep(3);
+    sleep(3);
 	
-	verifyFPGA();
+    verifyFPGA();
 
   //  printf("Start monitoring...\n");
 

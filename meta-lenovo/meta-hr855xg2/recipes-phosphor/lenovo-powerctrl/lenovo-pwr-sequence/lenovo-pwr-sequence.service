@@ -3,12 +3,15 @@
 
 [Unit]
 Description=Lenovo Power Sequence Control
+Before=xyz.openbmc_project.State.Host.service
 Requires=fpga-recovery.service
 After=fpga-recovery.service
 
 [Service]
-ExecStart=/usr/sbin/pwr-seq
 Type=oneshot
+ExecStart=/usr/sbin/pwr-seq
+Restart=no
+RemainAfterExit=true
 
 [Install]
 WantedBy={SYSTEMD_DEFAULT_TARGET}

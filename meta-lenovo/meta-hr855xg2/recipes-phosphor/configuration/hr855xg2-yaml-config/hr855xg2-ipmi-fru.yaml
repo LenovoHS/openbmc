@@ -140,7 +140,7 @@
           IPMIFruSection: Board
                    
 5:
-  /system/chassis/motherboard/cpu0:
+  /system/chassis/motherboard/CPU0:
     entityID: 3
     entityInstance: 1
     interfaces:
@@ -170,7 +170,7 @@
           IPMIFruSection: Product
 
 6:
-  /system/chassis/motherboard/cpu1:
+  /system/chassis/motherboard/CPU1:
     entityID: 3
     entityInstance: 2
     interfaces:
@@ -200,7 +200,7 @@
           IPMIFruSection: Product
 
 7:
-  /system/chassis/motherboard/cpu2:
+  /system/chassis/motherboard/CPU2:
     entityID: 3
     entityInstance: 3
     interfaces:
@@ -230,7 +230,7 @@
           IPMIFruSection: Product
 
 8:
-  /system/chassis/motherboard/cpu3:
+  /system/chassis/motherboard/CPU3:
     entityID: 3
     entityInstance: 4
     interfaces:
@@ -260,7 +260,7 @@
           IPMIFruSection: Product
 
 9:
-  /system/chassis/motherboard/CPU0_DIMM_A1:
+  /system/chassis/motherboard/DIMM0:
     entityID: 32
     entityInstance: 1
     interfaces:
@@ -290,7 +290,7 @@
           IPMIFruSection: Product
 
 10:
-  /system/chassis/motherboard/CPU0_DIMM_A2:
+  /system/chassis/motherboard/DIMM1:
     entityID: 32
     entityInstance: 2
     interfaces:
@@ -320,7 +320,7 @@
           IPMIFruSection: Product
 
 11:
-  /system/chassis/motherboard/CPU0_DIMM_B1:
+  /system/chassis/motherboard/DIMM2:
     entityID: 32
     entityInstance: 3
     interfaces:
@@ -350,7 +350,7 @@
           IPMIFruSection: Product
 
 12:
-  /system/chassis/motherboard/CPU0_DIMM_B2:
+  /system/chassis/motherboard/DIMM3:
     entityID: 32
     entityInstance: 4
     interfaces:
@@ -380,7 +380,7 @@
           IPMIFruSection: Product
 
 13:
-  /system/chassis/motherboard/CPU0_DIMM_C1:
+  /system/chassis/motherboard/DIMM4:
     entityID: 32
     entityInstance: 5
     interfaces:
@@ -410,7 +410,7 @@
           IPMIFruSection: Product
 
 14:
-  /system/chassis/motherboard/CPU0_DIMM_C2:
+  /system/chassis/motherboard/DIMM5:
     entityID: 32
     entityInstance: 6
     interfaces:
@@ -440,7 +440,7 @@
           IPMIFruSection: Product
 
 15:
-  /system/chassis/motherboard/CPU0_DIMM_D1:
+  /system/chassis/motherboard/DIMM6:
     entityID: 32
     entityInstance: 7
     interfaces:
@@ -470,7 +470,7 @@
           IPMIFruSection: Product
 
 16:
-  /system/chassis/motherboard/CPU0_DIMM_D2:
+  /system/chassis/motherboard/DIMM7:
     entityID: 32
     entityInstance: 8
     interfaces:
@@ -500,7 +500,7 @@
           IPMIFruSection: Product
 
 17:
-  /system/chassis/motherboard/CPU0_DIMM_E1:
+  /system/chassis/motherboard/DIMM8:
     entityID: 32
     entityInstance: 9
     interfaces:
@@ -530,7 +530,7 @@
           IPMIFruSection: Product
 
 18:
-  /system/chassis/motherboard/CPU0_DIMM_E2:
+  /system/chassis/motherboard/DIMM9:
     entityID: 32
     entityInstance: 10
     interfaces:
@@ -560,7 +560,7 @@
           IPMIFruSection: Product
 
 19:
-  /system/chassis/motherboard/CPU0_DIMM_F1:
+  /system/chassis/motherboard/DIMM10:
     entityID: 32
     entityInstance: 11
     interfaces:
@@ -590,7 +590,7 @@
           IPMIFruSection: Product
 
 20:
-  /system/chassis/motherboard/CPU0_DIMM_F2:
+  /system/chassis/motherboard/DIMM11:
     entityID: 32
     entityInstance: 12
     interfaces:
@@ -620,7 +620,7 @@
           IPMIFruSection: Product
 
 21:
-  /system/chassis/motherboard/CPU1_DIMM_A1:
+  /system/chassis/motherboard/DIMM12:
     entityID: 32
     entityInstance: 13
     interfaces:
@@ -650,7 +650,7 @@
           IPMIFruSection: Product
 
 22:
-  /system/chassis/motherboard/CPU1_DIMM_A2:
+  /system/chassis/motherboard/DIMM13:
     entityID: 32
     entityInstance: 14
     interfaces:
@@ -680,7 +680,7 @@
           IPMIFruSection: Product
 
 23:
-  /system/chassis/motherboard/CPU1_DIMM_B1:
+  /system/chassis/motherboard/DIMM14:
     entityID: 32
     entityInstance: 15
     interfaces:
@@ -710,7 +710,7 @@
           IPMIFruSection: Product
 
 24:
-  /system/chassis/motherboard/CPU1_DIMM_B2:
+  /system/chassis/motherboard/DIMM15:
     entityID: 32
     entityInstance: 16
     interfaces:
@@ -740,7 +740,7 @@
           IPMIFruSection: Product
 
 25:
-  /system/chassis/motherboard/CPU1_DIMM_C1:
+  /system/chassis/motherboard/DIMM16:
     entityID: 32
     entityInstance: 17
     interfaces:
@@ -770,7 +770,7 @@
           IPMIFruSection: Product
 
 26:
-  /system/chassis/motherboard/CPU1_DIMM_C2:
+  /system/chassis/motherboard/DIMM17:
     entityID: 32
     entityInstance: 18
     interfaces:
@@ -800,7 +800,7 @@
           IPMIFruSection: Product
 
 27:
-  /system/chassis/motherboard/CPU1_DIMM_D1:
+  /system/chassis/motherboard/DIMM18:
     entityID: 32
     entityInstance: 19
     interfaces:
@@ -830,7 +830,7 @@
           IPMIFruSection: Product
 
 28:
-  /system/chassis/motherboard/CPU1_DIMM_D2:
+  /system/chassis/motherboard/DIMM19:
     entityID: 32
     entityInstance: 20
     interfaces:
@@ -860,7 +860,7 @@
           IPMIFruSection: Product
 
 29:
-  /system/chassis/motherboard/CPU1_DIMM_E1:
+  /system/chassis/motherboard/DIMM20:
     entityID: 32
     entityInstance: 21
     interfaces:
@@ -890,7 +890,7 @@
           IPMIFruSection: Product
 
 30:
-  /system/chassis/motherboard/CPU1_DIMM_E2:
+  /system/chassis/motherboard/DIMM21:
     entityID: 32
     entityInstance: 22
     interfaces:
@@ -920,7 +920,7 @@
           IPMIFruSection: Product
 
 31:
-  /system/chassis/motherboard/CPU1_DIMM_F1:
+  /system/chassis/motherboard/DIMM22:
     entityID: 32
     entityInstance: 23
     interfaces:
@@ -950,7 +950,7 @@
           IPMIFruSection: Product
 
 32:
-  /system/chassis/motherboard/CPU1_DIMM_F2:
+  /system/chassis/motherboard/DIMM23:
     entityID: 32
     entityInstance: 24
     interfaces:
@@ -980,7 +980,7 @@
           IPMIFruSection: Product
 
 33:
-  /system/chassis/motherboard/CPU2_DIMM_A1:
+  /system/chassis/motherboard/DIMM24:
     entityID: 32
     entityInstance: 25
     interfaces:
@@ -1010,7 +1010,7 @@
           IPMIFruSection: Product
 
 34:
-  /system/chassis/motherboard/CPU2_DIMM_A2:
+  /system/chassis/motherboard/DIMM25:
     entityID: 32
     entityInstance: 26
     interfaces:
@@ -1040,7 +1040,7 @@
           IPMIFruSection: Product
 
 35:
-  /system/chassis/motherboard/CPU2_DIMM_B1:
+  /system/chassis/motherboard/DIMM26:
     entityID: 32
     entityInstance: 27
     interfaces:
@@ -1070,7 +1070,7 @@
           IPMIFruSection: Product
 
 36:
-  /system/chassis/motherboard/CPU2_DIMM_B2:
+  /system/chassis/motherboard/DIMM27:
     entityID: 32
     entityInstance: 28
     interfaces:
@@ -1100,7 +1100,7 @@
           IPMIFruSection: Product
 
 37:
-  /system/chassis/motherboard/CPU2_DIMM_C1:
+  /system/chassis/motherboard/DIMM28:
     entityID: 32
     entityInstance: 29
     interfaces:
@@ -1130,7 +1130,7 @@
           IPMIFruSection: Product
 
 38:
-  /system/chassis/motherboard/CPU2_DIMM_C2:
+  /system/chassis/motherboard/DIMM29:
     entityID: 32
     entityInstance: 30
     interfaces:
@@ -1160,7 +1160,7 @@
           IPMIFruSection: Product
 
 39:
-  /system/chassis/motherboard/CPU2_DIMM_D1:
+  /system/chassis/motherboard/DIMM30:
     entityID: 32
     entityInstance: 31
     interfaces:
@@ -1190,7 +1190,7 @@
           IPMIFruSection: Product
 
 40:
-  /system/chassis/motherboard/CPU2_DIMM_D2:
+  /system/chassis/motherboard/DIMM31:
     entityID: 32
     entityInstance: 32
     interfaces:
@@ -1220,7 +1220,7 @@
           IPMIFruSection: Product
 
 41:
-  /system/chassis/motherboard/CPU2_DIMM_E1:
+  /system/chassis/motherboard/DIMM32:
     entityID: 32
     entityInstance: 33
     interfaces:
@@ -1250,7 +1250,7 @@
           IPMIFruSection: Product
 
 42:
-  /system/chassis/motherboard/CPU2_DIMM_E2:
+  /system/chassis/motherboard/DIMM33:
     entityID: 32
     entityInstance: 34
     interfaces:
@@ -1280,7 +1280,7 @@
           IPMIFruSection: Product
 
 43:
-  /system/chassis/motherboard/CPU2_DIMM_F1:
+  /system/chassis/motherboard/DIMM34:
     entityID: 32
     entityInstance: 35
     interfaces:
@@ -1310,7 +1310,7 @@
           IPMIFruSection: Product
 
 44:
-  /system/chassis/motherboard/CPU2_DIMM_F2:
+  /system/chassis/motherboard/DIMM35:
     entityID: 32
     entityInstance: 36
     interfaces:
@@ -1340,7 +1340,7 @@
           IPMIFruSection: Product
 
 45:
-  /system/chassis/motherboard/CPU3_DIMM_A1:
+  /system/chassis/motherboard/DIMM36:
     entityID: 32
     entityInstance: 37
     interfaces:
@@ -1370,7 +1370,7 @@
           IPMIFruSection: Product
 
 46:
-  /system/chassis/motherboard/CPU3_DIMM_A2:
+  /system/chassis/motherboard/DIMM37:
     entityID: 32
     entityInstance: 38
     interfaces:
@@ -1400,7 +1400,7 @@
           IPMIFruSection: Product
 
 47:
-  /system/chassis/motherboard/CPU3_DIMM_B1:
+  /system/chassis/motherboard/DIMM38:
     entityID: 32
     entityInstance: 39
     interfaces:
@@ -1430,7 +1430,7 @@
           IPMIFruSection: Product
 
 48:
-  /system/chassis/motherboard/CPU3_DIMM_B2:
+  /system/chassis/motherboard/DIMM39:
     entityID: 32
     entityInstance: 40
     interfaces:
@@ -1460,7 +1460,7 @@
           IPMIFruSection: Product
 
 49:
-  /system/chassis/motherboard/CPU3_DIMM_C1:
+  /system/chassis/motherboard/DIMM40:
     entityID: 32
     entityInstance: 41
     interfaces:
@@ -1490,7 +1490,7 @@
           IPMIFruSection: Product
 
 50:
-  /system/chassis/motherboard/CPU3_DIMM_C2:
+  /system/chassis/motherboard/DIMM41:
     entityID: 32
     entityInstance: 42
     interfaces:
@@ -1520,7 +1520,7 @@
           IPMIFruSection: Product
 
 51:
-  /system/chassis/motherboard/CPU3_DIMM_D1:
+  /system/chassis/motherboard/DIMM42:
     entityID: 32
     entityInstance: 43
     interfaces:
@@ -1550,7 +1550,7 @@
           IPMIFruSection: Product
 
 52:
-  /system/chassis/motherboard/CPU3_DIMM_D2:
+  /system/chassis/motherboard/DIMM43:
     entityID: 32
     entityInstance: 44
     interfaces:
@@ -1580,7 +1580,7 @@
           IPMIFruSection: Product
 
 53:
-  /system/chassis/motherboard/CPU3_DIMM_E1:
+  /system/chassis/motherboard/DIMM44:
     entityID: 32
     entityInstance: 45
     interfaces:
@@ -1610,7 +1610,7 @@
           IPMIFruSection: Product
 
 54:
-  /system/chassis/motherboard/CPU3_DIMM_E2:
+  /system/chassis/motherboard/DIMM45:
     entityID: 32
     entityInstance: 46
     interfaces:
@@ -1640,7 +1640,7 @@
           IPMIFruSection: Product
 
 55:
-  /system/chassis/motherboard/CPU3_DIMM_F1:
+  /system/chassis/motherboard/DIMM46:
     entityID: 32
     entityInstance: 47
     interfaces:
@@ -1670,7 +1670,7 @@
           IPMIFruSection: Product
 
 56:
-  /system/chassis/motherboard/CPU3_DIMM_F2:
+  /system/chassis/motherboard/DIMM47:
     entityID: 32
     entityInstance: 48
     interfaces:

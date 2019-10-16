@@ -1,0 +1,50 @@
+diff -Naur git/sensordatahandler.hpp git_mod/sensordatahandler.hpp
+--- git/sensordatahandler.hpp	2019-10-15 13:25:05.261466030 +0800
++++ git_mod/sensordatahandler.hpp	2019-10-15 13:33:31.149476020 +0800
+@@ -194,26 +194,30 @@
+ 
+ #ifdef UPDATE_FUNCTIONAL_ON_FAIL
+     // Check the OperationalStatus interface for functional property
+-    if (sensorInfo.propertyInterfaces.begin()->first ==
+-        "xyz.openbmc_project.Sensor.Value")
++    for (unsigned int retry = 0 ; retry < 2; retry++)
+     {
+-        bool functional = true;
+-        try
+-        {
+-            auto funcValue = ipmi::getDbusProperty(
+-                bus, service, sensorInfo.sensorPath,
+-                "xyz.openbmc_project.State.Decorator.OperationalStatus",
+-                "Functional");
+-            functional = std::get<bool>(funcValue);
+-        }
+-        catch (...)
++        if (sensorInfo.propertyInterfaces.begin()->first ==
++            "xyz.openbmc_project.Sensor.Value")
+         {
++            bool functional = true;
++            std::chrono::microseconds DBUSTIMEOUT = 10s;
++            try
++            {
++                auto funcValue = ipmi::getDbusProperty(
++                    bus, service, sensorInfo.sensorPath,
++                    "xyz.openbmc_project.State.Decorator.OperationalStatus",
++                    "Functional", DBUSTIMEOUT);
++                functional = std::get<bool>(funcValue);
++            }
++            catch (...)
++            {
+             // No-op if Functional property could not be found since this
+             // check is only valid for Sensor.Value read for hwmonio
+-        }
+-        if (!functional)
+-        {
+-            throw SensorFunctionalError();
++            }
++            if (!functional)
++            {
++                throw SensorFunctionalError();
++            }
+         }
+     }
+ #endif
