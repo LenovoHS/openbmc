@@ -631,251 +631,251 @@
   },
   "153": {
     "path": "/xyz/openbmc_project/FPGASensor/CPU_IERR",
-    "sensorReadingType": 111,
+    "sensorReadingType": 3,
     "sensorType": 7
   },
   "154": {
     "path": "/xyz/openbmc_project/FPGASensor/CPU_MCERR",
-    "sensorReadingType": 111,
+    "sensorReadingType": 3,
     "sensorType": 7
   },
   "160": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_A1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM0",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "161": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_A2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM1",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "162": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_B1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM2",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "163": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_B2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM3",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "164": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_C1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM4",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "165": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_C2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM5",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "166": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_D1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM6",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "167": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_D2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM7",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "168": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_E1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM8",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "169": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_E2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM9",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "170": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_F1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM10",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "171": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_DIMM_F2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM11",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "172": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_A1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM12",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "173": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_A2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM13",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "174": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_B1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM14",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "175": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_B2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM15",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "176": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_C1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM16",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "177": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_C2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM17",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "178": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_D1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM18",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "179": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_D2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM19",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "180": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_E1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM20",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "181": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_E2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM21",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "182": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_F1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM22",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "183": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_DIMM_F2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM23",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "184": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_A1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM24",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "185": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_A2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM25",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "186": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_B1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM26",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "187": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_B2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM27",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "188": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_C1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM28",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "189": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_C2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM29",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "190": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_D1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM30",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "191": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_D2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM31",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "192": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_E1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM32",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "193": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_E2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM33",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "194": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_F1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM34",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "195": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_DIMM_F2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM35",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "196": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_A1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM36",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "197": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_A2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM37",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "198": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_B1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM38",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "199": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_B2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM39",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "200": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_C1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM40",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "201": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_C2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM41",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "202": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_D1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM42",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "203": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_D2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM43",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "204": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_E1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM44",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "205": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_E2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM45",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "206": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_F1",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM46",
     "sensorReadingType": 111,
     "sensorType": 12
   },
   "207": {
-    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_DIMM_F2",
+    "path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM47",
     "sensorReadingType": 111,
     "sensorType": 12
   },
@@ -887,62 +887,62 @@
   "208": {
     "path": "/xyz/openbmc_project/OEMSensor/PE1S1_Bus_Status",
     "sensorReadingType": 111,
-    "sensorType": 13
+    "sensorType": 19
   },
   "209": {
     "path": "/xyz/openbmc_project/OEMSensor/PE1S2_Bus_Status",
     "sensorReadingType": 111,
-    "sensorType": 13
+    "sensorType": 19
   },
   "210": {
     "path": "/xyz/openbmc_project/OEMSensor/PE1S3_Bus_Status",
     "sensorReadingType": 111,
-    "sensorType": 13
+    "sensorType": 19
   },
   "211": {
     "path": "/xyz/openbmc_project/OEMSensor/PE1S4_Bus_Status",
     "sensorReadingType": 111,
-    "sensorType": 13
+    "sensorType": 19
   },
   "212": {
     "path": "/xyz/openbmc_project/OEMSensor/PE1S5_Bus_Status",
     "sensorReadingType": 111,
-    "sensorType": 13
+    "sensorType": 19
   },
   "213": {
     "path": "/xyz/openbmc_project/OEMSensor/PE2S1_Bus_Status",
     "sensorReadingType": 111,
-    "sensorType": 13
+    "sensorType": 19
   },
   "214": {
     "path": "/xyz/openbmc_project/OEMSensor/PE2S2_Bus_Status",
     "sensorReadingType": 111,
-    "sensorType": 13
+    "sensorType": 19
   },
   "215": {
     "path": "/xyz/openbmc_project/OEMSensor/PE2S3_Bus_Status",
     "sensorReadingType": 111,
-    "sensorType": 13
+    "sensorType": 19
   },
   "216": {
     "path": "/xyz/openbmc_project/OEMSensor/PE2S4_Bus_Status",
     "sensorReadingType": 111,
-    "sensorType": 13
+    "sensorType": 19
   },
   "217": {
     "path": "/xyz/openbmc_project/OEMSensor/PE2S5_Bus_Status",
     "sensorReadingType": 111,
-    "sensorType": 13
+    "sensorType": 19
   },
   "218": {
     "path": "/xyz/openbmc_project/OEMSensor/PE3S1_Bus_Status",
     "sensorReadingType": 111,
-    "sensorType": 13
+    "sensorType": 19
   },
   "219": {
     "path": "/xyz/openbmc_project/OEMSensor/PE3S2_Bus_Status",
     "sensorReadingType": 111,
-    "sensorType": 13
+    "sensorType": 19
   },
   "224": {
     "path": "/xyz/openbmc_project/FPGASensor/PE1S1_Status",
