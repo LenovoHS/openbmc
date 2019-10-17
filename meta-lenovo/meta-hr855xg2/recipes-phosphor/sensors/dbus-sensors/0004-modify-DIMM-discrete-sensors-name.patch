@@ -1,0 +1,78 @@
+diff -Naur a/dbus-sensors/src/CPUSensorMain.cpp b/dbus-sensors/src/CPUSensorMain.cpp
+--- a/src/CPUSensorMain.cpp	2019-10-15 18:12:56.738534872 +0800
++++ b/src/CPUSensorMain.cpp	2019-10-16 16:15:26.620257654 +0800
+@@ -851,38 +851,51 @@
+     }
+ 
+     fprintf(stderr, "dimm_present: %x\n", dimm_present);
+-    std::string index[] = { "C1", "C2", "B1", "B2", "A1", "A2", "D2", "D1", "E2", "E1", "F2", "F1" };
+-    uint8_t dimm_loc[] = { 4, 5, 2, 3, 0, 1, 7, 6, 9, 8, 11, 10 };
+     for (uint64_t dimm_num=0; dimm_num<48; dimm_num++)
+     {
+-        sdbusplus::message::variant<bool> dpresent = false;
++        bool dpresent = false;
++        uint8_t phy_dimm_num = 0;
++
++        if (dimm_num < 24) // DIMM0 to DIMM23
++        {
++            phy_dimm_num = ((dimm_num/12 + 1)*12 - 1) - (dimm_num%12);
++        }
++        else
++        {
++            phy_dimm_num = dimm_num;
++        }
++
++        const auto dimm_name = "DIMM" + std::to_string(phy_dimm_num);
++        if (inventoryIfaces.find(dimm_name) == inventoryIfaces.end())
++        {
++            auto iface = objectServer.add_interface(
++                         cpuInventoryPath + std::string("/") + dimm_name,
++                         "xyz.openbmc_project.Memory.MemoryECC");
++            iface->register_property("isLoggingLimitReached", false,
++                                     sdbusplus::asio::PropertyPermission::readWrite);
++            iface->register_property("state", std::string("xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"),
++                                     sdbusplus::asio::PropertyPermission::readWrite);
++            iface->initialize();
++            iface = objectServer.add_interface(
++                         cpuInventoryPath + std::string("/") + dimm_name,
++                         "xyz.openbmc_project.Inventory.Item");
++            iface->register_property("PrettyName", dimm_name);
++            iface->register_property("Present", dpresent);
++            iface->initialize();
++
++            inventoryIfaces[dimm_name] = std::move(iface);
++        }
++
+         if (0 != ((dimm_present & (1 << dimm_num))))
+         {
++            dpresent = true;
++            inventoryIfaces[dimm_name]->set_property("Present", dpresent);
+             // Add SEL
+-            uint8_t ret = add_sel_event(systemBus, (0xA0 + 12*(dimm_num/12) + dimm_loc[dimm_num%12]), 0x0C, 0x06, 0xFF, 0xFF);
++            uint8_t ret = add_sel_event(systemBus, (0xA0 + phy_dimm_num), 0x0C, 0x06, 0xFF, 0xFF);
+             if (0 != ret)
+             {
+                 std::cerr << "Failed to add sel event\n";
+             }
+-            dpresent = true;
+-        }
+-
+-        // Set Discrete sesnsor
+-        const auto dimm_name = "CPU" + std::to_string(dimm_num/12) +
+-                               "_DIMM_" + index[((dimm_num)%12)];
+-        try
+-        {
+-            auto method = systemBus->new_method_call(InventoryService, (InventoryPath + dimm_name).c_str(),
+-                                                     PROP_INTF, "Set");
+-            method.append(InventoryItemIntf, "Present", dpresent);
+-            if (!systemBus->call(method))
+-            {
+-                std::cerr << "Failed to set property DIMM presence" << "\n";
+-            }
+-        }
+-        catch (const sdbusplus::exception::SdBusError& e)
+-        {
+-            std::cerr << e.what() << "\n";
+         }
+     }
+ 

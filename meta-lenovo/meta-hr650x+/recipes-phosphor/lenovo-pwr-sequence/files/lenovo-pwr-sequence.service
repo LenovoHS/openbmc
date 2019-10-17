@@ -6,7 +6,7 @@ Description=Lenovo Power sequence control
 
 [Service]
 ExecStart=/usr/sbin/pwr-seq
-Type=oneshot
+Type=simple
 
 [Install]
 WantedBy={SYSTEMD_DEFAULT_TARGET}

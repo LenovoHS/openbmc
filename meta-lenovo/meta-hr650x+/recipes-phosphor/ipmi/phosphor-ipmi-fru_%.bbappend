@@ -1,10 +1,11 @@
-#"Copyright (c) 2019-present Lenovo
-#Licensed under BSD-3, see COPYING.BSD file for details."
+# Copyright (c) 2019-present Lenovo
+# Licensed under BSD-3, see COPYING.BSD file for details.
 
 DEPENDS_append_hr650x+ = " hr650x+-yaml-config"
 
 FILESEXTRAPATHS_append := "${THISDIR}/${PN}:"
 SRC_URI += "file://0001-Add-workaround-patch-to-fix-get-wrong-service-issue.patch \
+            file://0002-Disable-fru-write-command-in-fru-parser.patch \
            "
 
 EXTRA_OECONF_append_hr650x+ = " \

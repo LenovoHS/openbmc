@@ -155,7 +155,7 @@
                     "EvtBit": 1,
                     "TrigState": 1,
                     "Service": "xyz.openbmc_project.CPUSensor",
-                    "Path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_Status",
+                    "Path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_Status",
                     "Iface": "xyz.openbmc_project.Inventory.Item.Cpu",
                     "Property": "Thermal_Trip",
                     "Ptype": "bool",
@@ -177,7 +177,7 @@
                     "EvtBit": 1,
                     "TrigState": 1,
                     "Service": "xyz.openbmc_project.CPUSensor",
-                    "Path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_Status",
+                    "Path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_Status",
                     "Iface": "xyz.openbmc_project.Inventory.Item.Cpu",
                     "Property": "Thermal_Trip",
                     "Ptype": "bool",
@@ -199,7 +199,7 @@
                     "EvtBit": 1,
                     "TrigState": 1,
                     "Service": "xyz.openbmc_project.CPUSensor",
-                    "Path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_Status",
+                    "Path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_Status",
                     "Iface": "xyz.openbmc_project.Inventory.Item.Cpu",
                     "Property": "Thermal_Trip",
                     "Ptype": "bool",
@@ -944,8 +944,8 @@
             "Offset": [
                 {
                     "Block": 12,
-                    "Addr": 4,
-                    "Bit": 6,
+                    "Addr": 5,
+                    "Bit": 0,
                     "EvtBit": 2,
                     "TrigState": 0
                 }
@@ -960,8 +960,8 @@
             "Offset": [
                 {
                     "Block": 12,
-                    "Addr": 4,
-                    "Bit": 7,
+                    "Addr": 5,
+                    "Bit": 1,
                     "EvtBit": 2,
                     "TrigState": 0
                 }
@@ -977,7 +977,7 @@
                 {
                     "Block": 12,
                     "Addr": 5,
-                    "Bit": 0,
+                    "Bit": 2,
                     "EvtBit": 2,
                     "TrigState": 0
                 }
@@ -993,7 +993,7 @@
                 {
                     "Block": 12,
                     "Addr": 5,
-                    "Bit": 1,
+                    "Bit": 3,
                     "EvtBit": 2,
                     "TrigState": 0
                 }
@@ -1008,8 +1008,8 @@
             "Offset": [
                 {
                     "Block": 12,
-                    "Addr": 5,
-                    "Bit": 2,
+                    "Addr": 4,
+                    "Bit": 6,
                     "EvtBit": 2,
                     "TrigState": 0
                 }
@@ -1024,8 +1024,8 @@
             "Offset": [
                 {
                     "Block": 12,
-                    "Addr": 5,
-                    "Bit": 3,
+                    "Addr": 4,
+                    "Bit": 7,
                     "EvtBit": 2,
                     "TrigState": 0
                 }

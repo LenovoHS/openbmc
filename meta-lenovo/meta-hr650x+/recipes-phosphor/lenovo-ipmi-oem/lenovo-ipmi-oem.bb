@@ -19,7 +19,12 @@ SRC_URI = "file://Makefile.am \
            file://bootstrap.sh \
            file://src/Makefile.am \
            file://src/oemcommands.cpp \
-           file://include/oemcommands.hpp \           
+           file://include/oemcommands.hpp \
+           file://src/storagecommands.cpp \
+           file://include/storagecommands.hpp \
+           file://include/sdrutils.hpp \
+           file://include/selutility.hpp \
+           file://include/commandutils.hpp \ 
           " 
 
 # The following installs the OEM IPMI handler for the Lenovo OEM IPMI commands.
