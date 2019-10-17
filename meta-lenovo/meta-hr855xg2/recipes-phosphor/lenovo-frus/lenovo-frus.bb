@@ -7,9 +7,7 @@ LIC_FILES_CHKSUM = "file://${LENOVOBASE}/COPYING.BSD;md5=efc72ac5d37ea632ccf0001
 
 S = "${WORKDIR}/"
 
-SRC_URI = "file://fru_dimm.bin \
-           file://fru_cpu.bin \
-           file://fru_cpu0.bin \
+SRC_URI = "file://fru_cpu0.bin \
            file://fru_cpu1.bin \
            file://fru_cpu2.bin \
            file://fru_cpu3.bin \
@@ -65,9 +63,6 @@ SRC_URI = "file://fru_dimm.bin \
 
 do_install() {
     install -d 0755 ${D}/var/frus
-    install -d ${D}/usr/sbin
-    install -m 0755 ${S}fru_dimm.bin ${D}/${sbindir}/
-    install -m 0755 ${S}fru_cpu.bin ${D}/${sbindir}/
     install -m 0755 ${S}fru_cpu0.bin ${D}/var/frus/
     install -m 0755 ${S}fru_cpu1.bin ${D}/var/frus/
     install -m 0755 ${S}fru_cpu2.bin ${D}/var/frus/

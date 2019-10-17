@@ -6,7 +6,7 @@ OBMC_IMAGE_EXTRA_INSTALL_append_hr855xg2 = " lenovo-pwr-sequence \
                                              id-button \
                                              pwr-button \
                                              lenovo-ipmi-oem \
-                                             frus \
+                                             lenovo-frus \
                                              fpga-version \
                                              lenovo-fpga-update \
                                              lenovo-bmc-update \
