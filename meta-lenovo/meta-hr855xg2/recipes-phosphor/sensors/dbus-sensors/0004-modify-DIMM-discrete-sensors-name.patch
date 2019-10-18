@@ -22,7 +22,7 @@ diff -Naur a/dbus-sensors/src/CPUSensorMain.cpp b/dbus-sensors/src/CPUSensorMain
 +            phy_dimm_num = dimm_num;
 +        }
 +
-+        const auto dimm_name = "DIMM" + std::to_string(phy_dimm_num);
++        const auto dimm_name = "DIMM" + std::to_string(phy_dimm_num) + "_Status";
 +        if (inventoryIfaces.find(dimm_name) == inventoryIfaces.end())
 +        {
 +            auto iface = objectServer.add_interface(
