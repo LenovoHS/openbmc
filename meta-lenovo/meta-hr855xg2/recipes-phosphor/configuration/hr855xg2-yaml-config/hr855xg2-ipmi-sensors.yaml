@@ -43,6 +43,7 @@
         Offsets:
           0x0:
             type: int64_t
+
 0x03:
   sensorType: 0x01
   entityID: 0x03
@@ -126,7 +127,7 @@
         Offsets:
           0x0:
             type: double
-            
+
 0x07:
   sensorType: 0x01
   entityID: 0x03
@@ -147,7 +148,7 @@
         Offsets:
           0x0:
             type: int64_t
-            
+
 0x08:
   sensorType: 0x01
   entityID: 0x03
@@ -168,7 +169,7 @@
         Offsets:
           0x0:
             type: int64_t
-            
+
 0x09:
   sensorType: 0x01
   entityID: 0x03
@@ -189,7 +190,7 @@
         Offsets:
           0x0:
             type: int64_t
-            
+
 0x0A:
   sensorType: 0x01
   entityID: 0x03
@@ -210,7 +211,7 @@
         Offsets:
           0x0:
             type: int64_t
-                       
+
 0x0B:
   sensorType: 0x01
   entityID: 0x20
@@ -1155,7 +1156,7 @@
         Offsets:
           0x0:
             type: double
-            
+
 0x38:
   sensorType: 0x01
   entityID: 0x20
@@ -1513,7 +1514,6 @@
           0x0:
             type: int64_t
 
-
 0x4B:
   entityID: 0x07
   sensorType: 0x02
@@ -1576,7 +1576,7 @@
         Offsets:
           0x0:
             type: int64_t
-            
+
 0x4E:
   entityID: 0x07
   sensorType: 0x02
@@ -1597,6 +1597,7 @@
         Offsets:
           0x0:
             type: int64_t
+
 0x4F:
   entityID: 0x07
   sensorType: 0x02
@@ -1637,7 +1638,7 @@
       Value:
         Offsets:
           0x0:
-            type: int64_t            
+            type: int64_t
 
 0x51:
   entityID: 0x07
@@ -1658,8 +1659,8 @@
       Value:
         Offsets:
           0x0:
-            type: int64_t            
-            
+            type: int64_t
+
 0x52:
   entityID: 0x07
   sensorType: 0x02
@@ -1723,7 +1724,6 @@
           0x0:
             type: int64_t
 
-
 0x55:
   entityID: 0x07
   sensorType: 0x02
@@ -1765,7 +1765,6 @@
         Offsets:
           0x0:
             type: int64_t
-            
 
 0x58:
   entityID: 0x0A
@@ -1787,7 +1786,7 @@
         Offsets:
           0x0:
             type: int64_t
-            
+
 0x5A:
   entityID: 0x0A
   sensorType: 0x0B
@@ -1808,6 +1807,7 @@
         Offsets:
           0x0:
             type: int64_t
+
 0x57:
   entityID: 0x0A
   sensorType: 0x02
@@ -1828,7 +1828,6 @@
         Offsets:
           0x0:
             type: int64_t
-            
 
 0x59:
   entityID: 0x0A
@@ -1850,7 +1849,7 @@
         Offsets:
           0x0:
             type: int64_t
-            
+
 0x5B:
   entityID: 0x0A
   sensorType: 0x0B
@@ -1893,7 +1892,6 @@
           0x0:
             type: int64_t
 
-
 0x5D:
   entityID: 0x1D
   sensorType: 0x04
@@ -1915,7 +1913,6 @@
           0x0:
             type: int64_t
 
-
 0x5E:
   entityID: 0x1D
   sensorType: 0x04
@@ -1936,7 +1933,6 @@
         Offsets:
           0x0:
             type: int64_t
-
 
 0x5F:
   entityID: 0x1D
@@ -2020,6 +2016,7 @@
         Offsets:
           0x0:
             type: int64_t
+
 0x63:
   entityID: 0x1D
   sensorType: 0x04
@@ -2061,6 +2058,7 @@
         Offsets:
           0x0:
             type: int64_t
+
 0x65:
   entityID: 0x1D
   sensorType: 0x04
@@ -2081,6 +2079,7 @@
         Offsets:
           0x0:
             type: int64_t
+
 0x66:
   entityID: 0x1D
   sensorType: 0x04
@@ -2143,6 +2142,7 @@
         Offsets:
           0x0:
             type: int64_t
+
 0x69:
   entityID: 0x1D
   sensorType: 0x04
@@ -2497,7 +2497,7 @@
   sensorReadingType: 111
   sensorType: 12
   serviceInterface: org.freedesktop.DBus.Properties
-  
+
 0xA3:
   entityID: 32
   entityInstance: 4
@@ -2531,7 +2531,7 @@
   sensorReadingType: 111
   sensorType: 12
   serviceInterface: org.freedesktop.DBus.Properties
-  
+
 0xA4:
   entityID: 32
   entityInstance: 5
@@ -2565,7 +2565,7 @@
   sensorReadingType: 111
   sensorType: 12
   serviceInterface: org.freedesktop.DBus.Properties
-  
+
 0xA5:
   entityID: 32
   entityInstance: 6
@@ -2599,7 +2599,7 @@
   sensorReadingType: 111
   sensorType: 12
   serviceInterface: org.freedesktop.DBus.Properties
-  
+
 0xA6:
   entityID: 32
   entityInstance: 7
@@ -2633,7 +2633,7 @@
   sensorReadingType: 111
   sensorType: 12
   serviceInterface: org.freedesktop.DBus.Properties
-  
+
 0xA7:
   entityID: 32
   entityInstance: 8
@@ -2667,7 +2667,7 @@
   sensorReadingType: 111
   sensorType: 12
   serviceInterface: org.freedesktop.DBus.Properties
-  
+
 0xA8:
   entityID: 32
   entityInstance: 9
@@ -2701,7 +2701,7 @@
   sensorReadingType: 111
   sensorType: 12
   serviceInterface: org.freedesktop.DBus.Properties
-  
+
 0xA9:
   entityID: 32
   entityInstance: 10
@@ -2735,7 +2735,7 @@
   sensorReadingType: 111
   sensorType: 12
   serviceInterface: org.freedesktop.DBus.Properties
-  
+
 0xAA:
   entityID: 32
   entityInstance: 11
@@ -2769,7 +2769,7 @@
   sensorReadingType: 111
   sensorType: 12
   serviceInterface: org.freedesktop.DBus.Properties
-  
+
 0xAB:
   entityID: 32
   entityInstance: 12
@@ -2803,7 +2803,7 @@
   sensorReadingType: 111
   sensorType: 12
   serviceInterface: org.freedesktop.DBus.Properties
-  
+
 0xAC:
   entityID: 32
   entityInstance: 13
@@ -2837,7 +2837,7 @@
   sensorReadingType: 111
   sensorType: 12
   serviceInterface: org.freedesktop.DBus.Properties
-  
+
 0xAD:
   entityID: 32
   entityInstance: 14
@@ -2871,7 +2871,7 @@
   sensorReadingType: 111
   sensorType: 12
   serviceInterface: org.freedesktop.DBus.Properties
-  
+
 0xAE:
   entityID: 32
   entityInstance: 15
@@ -2905,7 +2905,7 @@
   sensorReadingType: 111
   sensorType: 12
   serviceInterface: org.freedesktop.DBus.Properties
-  
+
 0xAF:
   entityID: 32
   entityInstance: 16
@@ -2939,7 +2939,7 @@
   sensorReadingType: 111
   sensorType: 12
   serviceInterface: org.freedesktop.DBus.Properties
-  
+
 0xB0:
   entityID: 32
   entityInstance: 17
@@ -5130,7 +5130,6 @@
   sensorType: 27
   serviceInterface: org.freedesktop.DBus.Properties
 
-
 0xF8:
   entityID: 3
   entityInstance: 1
@@ -5225,7 +5224,7 @@
   sensorReadingType: 111
   sensorType: 15
   serviceInterface: org.freedesktop.DBus.Properties
-  
+
 0x6e:
   entityID: 0x03
   sensorType: 0x02
@@ -5267,7 +5266,7 @@
         Offsets:
           0x0:
             type: int64_t
-            
+
 0x70:
   entityID: 0x03
   sensorType: 0x02
@@ -5330,7 +5329,7 @@
         Offsets:
           0x0:
             type: int64_t
-                                       
+
 0x73:
   entityID: 0x03
   sensorType: 0x02
@@ -5371,8 +5370,8 @@
       Value:
         Offsets:
           0x0:
-            type: int64_t   
-            
+            type: int64_t
+
 0x75:
   entityID: 0x03
   sensorType: 0x02
@@ -5392,8 +5391,8 @@
       Value:
         Offsets:
           0x0:
-            type: int64_t             
-            
+            type: int64_t
+
 0x76:
   entityID: 0x03
   sensorType: 0x02
@@ -5413,8 +5412,8 @@
       Value:
         Offsets:
           0x0:
-            type: int64_t             
- 
+            type: int64_t
+
 0x77:
   entityID: 0x03
   sensorType: 0x02
@@ -5434,8 +5433,8 @@
       Value:
         Offsets:
           0x0:
-            type: int64_t   
-            
+            type: int64_t
+
 0x78:
   entityID: 0x03
   sensorType: 0x02
@@ -5455,8 +5454,8 @@
       Value:
         Offsets:
           0x0:
-            type: int64_t               
-            
+            type: int64_t
+
 0x79:
   entityID: 0x20
   sensorType: 0x02
@@ -5476,7 +5475,7 @@
       Value:
         Offsets:
           0x0:
-            type: int64_t     
+            type: int64_t
 
 0x7a:
   entityID: 0x20
@@ -5497,7 +5496,7 @@
       Value:
         Offsets:
           0x0:
-            type: int64_t             
+            type: int64_t
 
 0x7b:
   entityID: 0x20
@@ -5518,7 +5517,7 @@
       Value:
         Offsets:
           0x0:
-            type: int64_t  
+            type: int64_t
 
 0x7c:
   entityID: 0x20
@@ -5539,7 +5538,7 @@
       Value:
         Offsets:
           0x0:
-            type: int64_t  
+            type: int64_t
 
 0x7d:
   entityID: 0x20
@@ -5560,7 +5559,7 @@
       Value:
         Offsets:
           0x0:
-            type: int64_t    
+            type: int64_t
 
 0x7e:
   entityID: 0x20
@@ -5581,7 +5580,7 @@
       Value:
         Offsets:
           0x0:
-            type: int64_t    
+            type: int64_t
 
 0x7f:
   entityID: 0x20
