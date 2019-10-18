@@ -138,7 +138,7 @@
         PrettyName:
           IPMIFruProperty: Name
           IPMIFruSection: Board
-                   
+
 5:
   /system/chassis/motherboard/CPU0:
     entityID: 3
