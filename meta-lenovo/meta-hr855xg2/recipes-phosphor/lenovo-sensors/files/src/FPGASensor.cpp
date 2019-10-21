@@ -60,8 +60,6 @@ void FPGASensor::setupRead(void)
             fprintf(stderr, "%s sensor type: %x\n", __func__, fpgaconfig.snrtype);
         }
 
-        mAssert[fpgaconfig.name] = false;
-
         uint8_t snrnum = fpgaconfig.snrnum;
         uint8_t snrtype = fpgaconfig.snrtype;
         auto name = fpgaconfig.name;
@@ -84,6 +82,9 @@ void FPGASensor::setupRead(void)
                  fprintf(stderr, "%s evtbit: %x\n", __func__, evtbit);
                  fprintf(stderr, "%s trigstate: %x\n", __func__, trigstate);
             }
+
+            auto assert_name = name + "_" + std::to_string(evtbit);
+            mAssert[assert_name] = false;
 
             // Make sure FPGA dbus is ready
             uint8_t res_data = 0xFF;
@@ -121,6 +122,7 @@ void FPGASensor::setupRead(void)
             if (0 != rc)
             {
                 fprintf(stderr, "fpga read error");
+                continue;
             }
             res_data = t.data[0];
 #endif
@@ -222,6 +224,7 @@ void FPGASensor::handleResponse()
                         if (0 != rc)
                         {
                             fprintf(stderr, "fpga read error");
+                            continue;
                         }
                         res_data = t.data[0];
 #endif
@@ -236,13 +239,14 @@ void FPGASensor::handleResponse()
                         auto setvalue = fpgainfo.setvalue;
                         int ret = -1;
 
+                        auto assert_name = name + "_" + std::to_string(evtbit);
                         // Assert
-                        if (!mAssert[name] && (trigstate == event))
+                        if (!mAssert[assert_name] && (trigstate == event))
                         {
-                            mAssert[name] = true;
+                            mAssert[assert_name] = true;
 
                             // Set Property
-                            ret = eventUpdate(fpgaconfig, service, path, iface, property, ptype, setvalue, mAssert[name]);
+                            ret = eventUpdate(fpgaconfig, service, path, iface, property, ptype, setvalue, mAssert[assert_name]);
                             if (0 != ret)
                             {
                                 fprintf(stderr, "set property fail\n");
@@ -258,10 +262,10 @@ void FPGASensor::handleResponse()
                         }
 
                         // Deassert
-                        if (mAssert[name] && (trigstate != event))
+                        if (mAssert[assert_name] && (trigstate != event))
                         {
-                            mAssert[name] = false;
-                            ret = eventUpdate(fpgaconfig, service, path, iface, property, ptype, setvalue, mAssert[name]);
+                            mAssert[assert_name] = false;
+                            ret = eventUpdate(fpgaconfig, service, path, iface, property, ptype, setvalue, mAssert[assert_name]);
                             if (0 != ret)
                             {
                                 fprintf(stderr, "set property fail\n");
