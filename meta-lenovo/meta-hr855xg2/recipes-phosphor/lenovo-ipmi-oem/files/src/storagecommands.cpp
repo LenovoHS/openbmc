@@ -671,10 +671,7 @@ uint8_t LenovoSetSensorProperty(uint8_t sensorNumber,
     std::string PropertyPath;
     if (sensorNumber >= 0xA0 && sensorNumber <= 0xCF)
     {
-        char index[] = { 'A', 'B', 'C', 'D', 'E', 'F' };
-        const auto name = "CPU" + std::to_string((sensorNumber - 0xA0)/12) +
-                          "_DIMM" + index[((sensorNumber - 0xA0)%12)/2] +
-                          std::to_string((sensorNumber - 0xA0)%2 + 1);
+        const auto name = "DIMM" + std::to_string(sensorNumber - 0xA0) + "_Status";
         try
         {
             switch (eventData[0])
@@ -682,21 +679,21 @@ uint8_t LenovoSetSensorProperty(uint8_t sensorNumber,
                 case 0x00:
                     event_state = "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE";
                     PropertyPath = "state";
-                    ipmi::setDbusProperty(bus, InventoryService,
-                                          InventoryPath + name, InventoryECCIntf,
+                    ipmi::setDbusProperty(bus, CPUSensorService,
+                                          CPUSensorPath + name, InventoryECCIntf,
                                           PropertyPath, event_state);
                     break;
                 case 0x01:
                     event_state = "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE";
                     PropertyPath = "state";
-                    ipmi::setDbusProperty(bus, InventoryService,
-                                          InventoryPath + name, InventoryECCIntf,
+                    ipmi::setDbusProperty(bus, CPUSensorService,
+                                          CPUSensorPath + name, InventoryECCIntf,
                                           PropertyPath, event_state);
                     break;
                 case 0x05:
                     PropertyPath = "isLoggingLimitReached";
-                    ipmi::setDbusProperty(bus, InventoryService,
-                                          InventoryPath + name, InventoryECCIntf,
+                    ipmi::setDbusProperty(bus, CPUSensorService,
+                                          CPUSensorPath + name, InventoryECCIntf,
                                           PropertyPath, true);
                     break;
                 default:
