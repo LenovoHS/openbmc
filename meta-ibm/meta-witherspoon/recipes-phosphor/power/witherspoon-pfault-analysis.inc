@@ -1,5 +1,5 @@
-HOMEPAGE = "https://github.com/openbmc/witherspoon-pfault-analysis"
+HOMEPAGE = "https://github.com/openbmc/phosphor-power"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://${S}/LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e"
-SRC_URI += "git://github.com/openbmc/witherspoon-pfault-analysis"
-SRCREV = "817f8a7a82983d3e7bdc409ca86f2897540e400f"
+SRC_URI += "git://github.com/openbmc/phosphor-power"
+SRCREV = "bd4b86d3982cd5592e0417a5e45be6d3083f4c81"

@@ -3,7 +3,7 @@ DESCRIPTION = "Analyzes power devices for faults"
 PR = "r1"
 PV = "1.0+git${SRCPV}"
 
-inherit autotools
+inherit meson
 inherit pkgconfig
 inherit obmc-phosphor-systemd
 inherit pythonnative
@@ -19,9 +19,10 @@ DEPENDS += " \
          sdbus++-native \
          sdeventplus \
          power-sequencer \
+         nlohmann-json \
          "
 
-EXTRA_OECONF = "UCD90160_DEF_YAML_FILE=${STAGING_DIR_HOST}${datadir}/power-sequencer/ucd90160.yaml"
+EXTRA_OEMESON += "-Ducd90160-yaml=${STAGING_DIR_HOST}${datadir}/power-sequencer/ucd90160.yaml"
 
 CHASSIS_ON_TGT = "obmc-chassis-poweron@0.target"
 SEQ_MONITOR_SVC = "pseq-monitor.service"

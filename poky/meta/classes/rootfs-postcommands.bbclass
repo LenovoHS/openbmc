@@ -29,7 +29,7 @@ APPEND_append = '${@bb.utils.contains("IMAGE_FEATURES", "read-only-rootfs", " ro
 ROOTFS_POSTPROCESS_COMMAND += "write_image_test_data ; "
 
 # Write manifest
-IMAGE_MANIFEST = "${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.manifest"
+IMAGE_MANIFEST = "${IMGDEPLOYDIR}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.manifest"
 ROOTFS_POSTUNINSTALL_COMMAND =+ "write_image_manifest ; "
 # Set default postinst log file
 POSTINST_LOGFILE ?= "${localstatedir}/log/postinstall.log"
@@ -361,7 +361,9 @@ rootfs_reproducible () {
 		echo $sformatted > ${IMAGE_ROOTFS}/etc/version
 		bbnote "rootfs_reproducible: set /etc/version to $sformatted"
 
-		find ${IMAGE_ROOTFS}/etc/gconf -name '%gconf.xml' -print0 | xargs -0r \
-		sed -i -e 's@\bmtime="[0-9][0-9]*"@mtime="'${REPRODUCIBLE_TIMESTAMP_ROOTFS}'"@g'
+		if [ -d ${IMAGE_ROOTFS}${sysconfdir}/gconf ]; then
+			find ${IMAGE_ROOTFS}${sysconfdir}/gconf -name '%gconf.xml' -print0 | xargs -0r \
+			sed -i -e 's@\bmtime="[0-9][0-9]*"@mtime="'${REPRODUCIBLE_TIMESTAMP_ROOTFS}'"@g'
+		fi
 	fi
 }

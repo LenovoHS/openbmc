@@ -1,6 +1,6 @@
 SUMMARY = "X screen saver and locker"
 
-LICENSE = "BSD"
+LICENSE = "BSD-0-Clause"
 LIC_FILES_CHKSUM = "file://driver/xscreensaver.h;endline=10;md5=e141ab5822fb2d43694e1e47b59fc0df"
 
 SRC_URI = "https://www.jwz.org/${BPN}/${BP}.tar.gz"
@@ -15,7 +15,7 @@ SRC_URI += " \
 
 DEPENDS = "intltool-native libx11 libxext libxt libxft glib-2.0-native bc-native"
 # These are only needed as part of the stopgap screensaver implementation:
-RDEPENDS_${PN} += "xserver-nodm-init liberation-fonts"
+RDEPENDS_${PN} += "liberation-fonts"
 
 inherit systemd perlnative pkgconfig gettext autotools-brokensep distro_features_check
 
