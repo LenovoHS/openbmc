@@ -1,10 +1,12 @@
---- a/service_files/xyz.openbmc_project.cpusensor.service	2019-08-07 12:49:27.458617470 +0800
-+++ b/service_files/xyz.openbmc_project.cpusensor.service	2019-08-08 00:54:17.287149804 +0800
-@@ -1,6 +1,7 @@
- [Unit]
+diff -Naur a/service_files/xyz.openbmc_project.cpusensor.service b/service_files/xyz.openbmc_project.cpusensor.service
+--- a/service_files/xyz.openbmc_project.cpusensor.service	2019-10-22 16:45:22.175993970 +0800
++++ b/service_files/xyz.openbmc_project.cpusensor.service	2019-10-22 16:45:55.307754958 +0800
+@@ -2,7 +2,7 @@
  Description=CPU Sensor
  StopWhenUnneeded=false
-+After=logrotate.service
+ Requires=xyz.openbmc_project.EntityManager.service
+-After=xyz.openbmc_project.EntityManager.service
++After=xyz.openbmc_project.EntityManager.service logrotate.service
  
  [Service]
  Restart=always
