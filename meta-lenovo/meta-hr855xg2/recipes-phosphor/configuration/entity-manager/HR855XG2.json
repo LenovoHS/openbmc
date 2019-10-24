@@ -929,7 +929,7 @@
                 {
                     "Block": 12,
                     "Addr": 4,
-                    "Bit": 5,
+                    "Bit": 7,
                     "EvtBit": 2,
                     "TrigState": 0
                 }
@@ -1009,7 +1009,7 @@
                 {
                     "Block": 12,
                     "Addr": 4,
-                    "Bit": 6,
+                    "Bit": 5,
                     "EvtBit": 2,
                     "TrigState": 0
                 }
@@ -1025,7 +1025,7 @@
                 {
                     "Block": 12,
                     "Addr": 4,
-                    "Bit": 7,
+                    "Bit": 6,
                     "EvtBit": 2,
                     "TrigState": 0
                 }
