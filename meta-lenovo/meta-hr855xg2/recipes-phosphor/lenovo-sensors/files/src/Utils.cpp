@@ -52,8 +52,12 @@ bool getSensorConfiguration(
                 dbusConnection->call(getManagedObjects);
             reply.read(managedObj);
         }
-        catch (const sdbusplus::exception::exception&)
+        catch (const sdbusplus::exception::exception& e)
         {
+            std::cerr << "While calling GetManagedObjects on service:"
+                      << entityManagerName << " exception name:" << e.name()
+                      << "and description:" << e.description()
+                      << " was thrown\n";
             err = true;
         }
 
@@ -65,8 +69,6 @@ bool getSensorConfiguration(
     }
     for (const auto& pathPair : managedObj)
     {
-        std::vector<boost::container::flat_map<std::string, BasicVariantType>>
-            sensorData;
         bool correctType = false;
         for (const auto& entry : pathPair.second)
         {
@@ -128,6 +130,7 @@ bool hasBiosPost(void)
 
 void setupPowerMatch(const std::shared_ptr<sdbusplus::asio::connection>& conn)
 {
+    static boost::asio::steady_timer timer(conn->get_io_context());
     // create a match for powergood changes, first time do a method call to
     // cache the correct value
     if (powerMatch)
@@ -148,8 +151,28 @@ void setupPowerMatch(const std::shared_ptr<sdbusplus::asio::connection>& conn)
             auto findState = values.find(power::property);
             if (findState != values.end())
             {
-                powerStatusOn = boost::ends_with(
+                bool on = boost::ends_with(
                     std::get<std::string>(findState->second), "Running");
+                if (!on)
+                {
+                    timer.cancel();
+                    powerStatusOn = false;
+                    return;
+                }
+                // on comes too quickly
+                timer.expires_after(std::chrono::seconds(10));
+                timer.async_wait([](boost::system::error_code ec) {
+                    if (ec == boost::asio::error::operation_aborted)
+                    {
+                        return;
+                    }
+                    else if (ec)
+                    {
+                        std::cerr << "Timer error " << ec.message() << "\n";
+                        return;
+                    }
+                    powerStatusOn = true;
+                });
             }
         });
 
@@ -233,7 +256,53 @@ void createAssociation(
         std::vector<Association> associations;
         associations.push_back(
             Association("chassis", "all_sensors", p.parent_path().string()));
-        association->register_property("associations", associations);
+        association->register_property("Associations", associations);
         association->initialize();
     }
+}
+
+void setInventoryAssociation(
+    std::shared_ptr<sdbusplus::asio::dbus_interface> association,
+    const std::string& path, const std::string& chassisPath)
+{
+    if (association)
+    {
+        std::filesystem::path p(path);
+
+        std::vector<Association> associations;
+        associations.push_back(
+            Association("inventory", "sensors", p.parent_path().string()));
+        associations.push_back(
+            Association("chassis", "all_sensors", chassisPath));
+        association->register_property("Associations", associations);
+        association->initialize();
+    }
+}
+
+void createInventoryAssoc(
+    std::shared_ptr<sdbusplus::asio::connection> conn,
+    std::shared_ptr<sdbusplus::asio::dbus_interface> association,
+    const std::string& path)
+{
+    if (!association)
+    {
+        return;
+    }
+    conn->async_method_call(
+        [association, path](const boost::system::error_code ec,
+                            const std::vector<std::string>& ret) {
+            if (ec)
+            {
+                std::cerr << "Error calling mapper\n";
+                return;
+            }
+            for (const auto& object : ret)
+            {
+                setInventoryAssociation(association, path, object);
+            }
+        },
+        mapper::busName, mapper::path, mapper::interface, "GetSubTreePaths",
+        "/xyz/openbmc_project/inventory/system", 2,
+        std::array<std::string, 1>{
+            "xyz.openbmc_project.Inventory.Item.System"});
 }
