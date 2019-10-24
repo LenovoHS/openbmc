@@ -110,6 +110,8 @@ static constexpr auto CPUSensorIntf ="xyz.openbmc_project.Inventory.Item.Cpu";
 static constexpr auto OEMSensorService = "xyz.openbmc_project.OEMSensor";
 static constexpr auto OEMSensorPath = "/xyz/openbmc_project/OEMSensor/";
 static constexpr auto OEMSensorIntf = "xyz.openbmc_project.Sensor.Discrete.SpecificOffset";
+static const std::filesystem::path selLogDir = "/var/log";
+static const std::string selLogFilename = "ipmi_sel";
 
 using ManagedObjectType = boost::container::flat_map<
     sdbusplus::message::object_path,
@@ -1335,6 +1337,28 @@ ipmi_ret_t getSELEntry(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
     return IPMI_CC_OK;
 }
 
+static bool getSELLogFiles(std::vector<std::filesystem::path>& selLogFiles)
+{
+    // Loop through the directory looking for ipmi_sel log files
+    for (const std::filesystem::directory_entry& dirEnt :
+         std::filesystem::directory_iterator(ipmi::storage::selLogDir))
+    {
+        std::string filename = dirEnt.path().filename();
+        if (boost::starts_with(filename, ipmi::storage::selLogFilename))
+        {
+            // If we find an ipmi_sel log file, save the path
+            selLogFiles.emplace_back(ipmi::storage::selLogDir /
+                                     filename);
+        }
+    }
+    // As the log files rotate, they are appended with a ".#" that is higher for
+    // the older logs. Since we don't expect more than 10 log files, we
+    // can just sort the list to get them in order from newest to oldest
+    std::sort(selLogFiles.begin(), selLogFiles.end());
+
+    return !selLogFiles.empty();
+}
+
 ipmi_ret_t clearSEL(ipmi_netfn_t netfn, ipmi_cmd_t cmd, ipmi_request_t request,
                     ipmi_response_t response, ipmi_data_len_t data_len,
                     ipmi_context_t context)
@@ -1391,6 +1415,33 @@ ipmi_ret_t clearSEL(ipmi_netfn_t netfn, ipmi_cmd_t cmd, ipmi_request_t request,
 
     *static_cast<uint8_t*>(response) = eraseProgress;
     *data_len = sizeof(eraseProgress);
+
+    // Clear the SEL by deleting the log files
+    std::vector<std::filesystem::path> selLogFiles;
+    if (getSELLogFiles(selLogFiles))
+    {
+        for (const std::filesystem::path& file : selLogFiles)
+        {
+            std::error_code ec;
+            std::filesystem::remove(file, ec);
+        }
+    }
+
+    // Reload rsyslog so it knows to start new log files
+    std::shared_ptr<sdbusplus::asio::connection> dbus = getSdBus();
+    sdbusplus::message::message rsyslogReload = dbus->new_method_call(
+        "org.freedesktop.systemd1", "/org/freedesktop/systemd1",
+        "org.freedesktop.systemd1.Manager", "ReloadUnit");
+    rsyslogReload.append("rsyslog.service", "replace");
+    try
+    {
+        sdbusplus::message::message reloadResponse = dbus->call(rsyslogReload);
+    }
+    catch (sdbusplus::exception_t& e)
+    {
+        phosphor::logging::log<phosphor::logging::level::ERR>(e.what());
+    }
+
     return IPMI_CC_OK;
 }
 
