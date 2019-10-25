@@ -1,8 +1,8 @@
---- a/drivers/mtd/spi-nor/aspeed-smc.c	2019-06-22 18:49:43.632736000 +0800
-+++ b/drivers/mtd/spi-nor/aspeed-smc.c	2019-06-22 18:39:06.071017200 +0800
-@@ -220,6 +220,9 @@
- #define SEGMENT_ADDR_REG(controller, cs)	\
- 	((controller)->regs + SEGMENT_ADDR_REG0 + (cs) * 4)
+--- a/drivers/mtd/spi-nor/aspeed-smc.c	2019-10-25 12:58:16.498092468 +0800
++++ b/drivers/mtd/spi-nor/aspeed-smc.c	2019-10-25 13:01:06.005328543 +0800
+@@ -355,6 +355,9 @@
+ 		((end - 1) & AST2600_SEG_ADDR_MASK);
+ }
  
 +// for innsbruct FPGA ROM 2M
 +#define SIZE_2M 0x200000
@@ -10,16 +10,17 @@
  /*
   * Switch to turn off read optimisation if needed
   */
-@@ -576,7 +579,11 @@
+@@ -716,7 +719,12 @@
  
  	end = start + size;
- 	seg_newval = SEGMENT_ADDR_VALUE(start, end);
+ 	seg_newval = info->segment_reg(controller, start, end);
 -	writel(seg_newval, seg_reg);
-+	
-+	if (size != SIZE_2M){
-+	    writel(seg_newval, seg_reg);
-+		dev_info(chip->nor.dev,"do not set read address register for 2M fpga rom\n"); 
-+	}
++
++        if (size != SIZE_2M){
++            writel(seg_newval, seg_reg);
++                dev_info(chip->nor.dev,"do not set read address register for 2M fpga rom\n");
++        }
++
  
  	/*
  	 * Restore default value if something goes wrong. The chip
