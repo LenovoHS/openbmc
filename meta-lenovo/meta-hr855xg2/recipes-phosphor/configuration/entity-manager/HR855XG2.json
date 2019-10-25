@@ -18,14 +18,14 @@
                     "Label": "DIMM",
                     "Name": "upper critical",
                     "Severity": 1,
-                    "Value": 83
+                    "Value": 84
                 },
                 {
                     "Direction": "greater than",
                     "Label": "DIMM",
                     "Name": "upper non critical",
                     "Severity": 0,
-                    "Value": 81
+                    "Value": 83
                 }
             ],
             "Type": "XeonCPU"
@@ -48,14 +48,14 @@
                     "Label": "DIMM",
                     "Name": "upper critical",
                     "Severity": 1,
-                    "Value": 83
+                    "Value": 84
                 },
                 {
                     "Direction": "greater than",
                     "Label": "DIMM",
                     "Name": "upper non critical",
                     "Severity": 0,
-                    "Value": 81
+                    "Value": 83
                 }
             ],
             "Type": "XeonCPU"
@@ -78,14 +78,14 @@
                     "Label": "DIMM",
                     "Name": "upper critical",
                     "Severity": 1,
-                    "Value": 83
+                    "Value": 84
                 },
                 {
                     "Direction": "greater than",
                     "Label": "DIMM",
                     "Name": "upper non critical",
                     "Severity": 0,
-                    "Value": 81
+                    "Value": 83
                 }
             ],
             "Type": "XeonCPU"
@@ -108,14 +108,14 @@
                     "Label": "DIMM",
                     "Name": "upper critical",
                     "Severity": 1,
-                    "Value": 99
+                    "Value": 84
                 },
                 {
                     "Direction": "greater than",
                     "Label": "DIMM",
                     "Name": "upper non critical",
                     "Severity": 0,
-                    "Value": 89
+                    "Value": 83
                 }
             ],
             "Type": "XeonCPU"
