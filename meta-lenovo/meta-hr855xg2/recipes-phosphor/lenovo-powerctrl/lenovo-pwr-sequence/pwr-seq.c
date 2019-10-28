@@ -310,16 +310,22 @@ int main(int argc, char *argv[]) {
     exportGPIO(PDB_RESTART_N);
     setGPIODirection(PDB_RESTART_N, "high");
 	
-    if(1 == PowerOKStatus)
-    {
-        fprintf(stderr, "pwr seq: do nothing when host is on\n");
-        return 0;
-    }
     // Export necessary GPIOs
     exportGPIO(BMC_FPGA_FLASH_MUX_SEL1);
     exportGPIO(CP_SPI_FLASH_NCONFIG);
     exportGPIO(BMC_RESET_FPGA_N);
     exportGPIO(FM_BIOS_SPI_SW_CTRL_R_0);
+
+    if(1 == PowerOKStatus)
+    {
+        fprintf(stderr, "pwr seq: do nothing when host is on\n");
+        //switch FPGA SPI ROM TO FPGA
+        setGPIODirection(BMC_FPGA_FLASH_MUX_SEL1, "low");
+
+        //Enable Nconfig to make FPGA boot
+        setGPIODirection(CP_SPI_FLASH_NCONFIG, "high");
+        return 0;
+    }
 
     verifyBIOS();
 	
