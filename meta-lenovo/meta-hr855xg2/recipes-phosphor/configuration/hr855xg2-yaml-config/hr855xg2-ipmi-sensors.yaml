@@ -5602,3 +5602,43 @@
         Offsets:
           0x0:
             type: int64_t
+
+0x80: &fan_pwm
+  sensorType: 0x04
+  path: /xyz/openbmc_project/sensors/fan_tach/FAN0_Speed
+  sensorReadingType: 0x01
+  multiplierM: 1
+  offsetB: 0
+  bExp: 0
+  mutability: Mutability::Write|Mutability::Read
+  serviceInterface: org.freedesktop.DBus.Properties
+  readingType: readingData
+  interfaces:
+    xyz.openbmc_project.Control.FanPwm:
+      Target:
+        Offsets:
+          0xFF:
+            type: uint64_t
+0x81:
+  <<: *fan_pwm
+  path: /xyz/openbmc_project/sensors/fan_tach/FAN2_Speed
+
+0x82:
+  <<: *fan_pwm
+  path: /xyz/openbmc_project/sensors/fan_tach/FAN4_Speed
+
+0x83:
+  <<: *fan_pwm
+  path: /xyz/openbmc_project/sensors/fan_tach/FAN6_Speed
+
+0x84:
+  <<: *fan_pwm
+  path: /xyz/openbmc_project/sensors/fan_tach/FAN8_Speed
+
+0x85:
+  <<: *fan_pwm
+  path: /xyz/openbmc_project/sensors/fan_tach/FAN10_Speed
+
+0x86:
+  <<: *fan_pwm
+  path: /xyz/openbmc_project/sensors/fan_tach/PDB_FAN0_Speed

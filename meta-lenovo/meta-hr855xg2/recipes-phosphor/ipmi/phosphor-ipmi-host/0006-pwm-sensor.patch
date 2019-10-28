@@ -1,0 +1,34 @@
+diff -Nurd git/sensordatahandler.hpp git_mod/sensordatahandler.hpp
+--- git/sensordatahandler.hpp	2019-10-28 14:36:57.544040520 +0800
++++ git_mod/sensordatahandler.hpp	2019-10-28 14:50:50.053924615 +0800
+@@ -92,9 +92,29 @@
+  */
+ inline SensorName nameLeaf(const Info& sensorInfo)
+ {
+-    return sensorInfo.sensorPath.substr(
++    auto tempSensorName = sensorInfo.sensorPath.substr(
+         sensorInfo.sensorPath.find_last_of('/') + 1,
+         sensorInfo.sensorPath.length());
++    if (sensorInfo.sensorInterface == "xyz.openbmc_project.Control.FanPwm")
++    {
++        if (tempSensorName == "FAN0_Speed")
++            tempSensorName = "FAN_PWM1";
++        else if (tempSensorName == "FAN2_Speed")
++            tempSensorName = "FAN_PWM2";
++        else if (tempSensorName == "FAN4_Speed")
++            tempSensorName = "FAN_PWM3";
++        else if (tempSensorName == "FAN6_Speed")
++            tempSensorName = "FAN_PWM4";
++        else if (tempSensorName == "FAN8_Speed")
++            tempSensorName = "FAN_PWM5";
++        else if (tempSensorName == "FAN10_Speed")
++            tempSensorName = "FAN_PWM6";
++        else if (tempSensorName == "FAN12_Speed")
++            tempSensorName = "FAN_PWM7";
++        else if (tempSensorName == "PDB_FAN0_Speed")
++            tempSensorName = "FAN_PWM8";
++    }
++    return tempSensorName;
+ }
+ 
+ /** @brief Populate sensor name from the D-Bus object associated with the
