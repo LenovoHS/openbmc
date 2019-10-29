@@ -5605,6 +5605,7 @@
 
 0x80: &fan_pwm
   sensorType: 0x04
+  entityID: 0x1D
   path: /xyz/openbmc_project/sensors/fan_tach/FAN0_Speed
   sensorReadingType: 0x01
   multiplierM: 1
