@@ -70,17 +70,25 @@
 	gpio-keys {
 		compatible = "gpio-keys";
 
-		id-button {
-			label = "id-button";
-			gpios = <&gpio ASPEED_GPIO(Y, 2) GPIO_ACTIVE_LOW>;
-			linux,code = <ASPEED_GPIO(Y, 2)>;
-		};
-                pwr-button {
-                        label = "pwr-button";
-                        gpios = <&gpio ASPEED_GPIO(I, 1) GPIO_ACTIVE_LOW>;
-                        linux,code = <ASPEED_GPIO(I, 1)>;
-                };
+        id-button {
+            label = "id-button";
+            gpios = <&gpio ASPEED_GPIO(Y, 2) GPIO_ACTIVE_LOW>;
+            linux,code = <ASPEED_GPIO(Y, 2)>;
+        };
+
+        pwr-button {
+            label = "pwr-button";
+            gpios = <&gpio ASPEED_GPIO(I, 1) GPIO_ACTIVE_LOW>;
+            linux,code = <ASPEED_GPIO(I, 1)>;
+        };
+        
+        cpu-caterr {
+            label = "cpu-caterr";
+            gpios = <&gpio ASPEED_GPIO(G, 1) GPIO_ACTIVE_LOW>;
+            linux,code = <ASPEED_GPIO(G, 1)>;
+        };        
 	};
+    
 	pcie-slot {
 		pcie_slot1: pcie-slot@0{
 			label = "pcie-slot-1";
