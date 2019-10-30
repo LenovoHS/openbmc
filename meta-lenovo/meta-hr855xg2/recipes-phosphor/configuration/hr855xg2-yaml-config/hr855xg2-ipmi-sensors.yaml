@@ -5642,4 +5642,8 @@
 
 0x86:
   <<: *fan_pwm
+  path: /xyz/openbmc_project/sensors/fan_tach/FAN12_Speed
+
+0x87:
+  <<: *fan_pwm
   path: /xyz/openbmc_project/sensors/fan_tach/PDB_FAN0_Speed
