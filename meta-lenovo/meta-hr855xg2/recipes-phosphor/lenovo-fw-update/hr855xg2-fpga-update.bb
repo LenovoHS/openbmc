@@ -25,8 +25,8 @@ INSANE_SKIP_${PN} = "installed-vs-shipped "
 
 do_install() {
 	install -d ${D}/var
-	install -m 0755 ${S}fpga_recovery ${D}/var/
-    install -m 0444 ${S}version-in-bmc ${D}/var/
-	install -d ${D}/usr/sbin
-    install -m 0755 ${S}fpga-recovery.sh ${D}/${sbindir}/
+	install -m 0755 ${S}/fpga_recovery ${D}/var/
+    install -m 0444 ${S}/version-in-bmc ${D}/var/
+	install -d ${D}/${sbindir}
+    install -m 0755 ${S}/fpga-recovery.sh ${D}/${sbindir}/
 }

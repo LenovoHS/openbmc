@@ -26,17 +26,15 @@ SYSTEMD_PACKAGES = "${PN}"
 SYSTEMD_SERVICE_${PN} = "bios-verify.service bios-update.service"
 
 do_install() {
-    install -d ${D}/usr/sbin
-    install -d ${D}/usr/share/phosphor-ipmi-flash/
-    install -m 0755 ${S}bios-verify.sh ${D}/${sbindir}/
-    install -m 0755 ${S}bios-update.sh ${D}/${sbindir}/
-    install -m 0644 ${S}config-bios.json ${D}/usr/share/phosphor-ipmi-flash/
+    install -d ${D}/${sbindir} 
+    install -d ${D}/${datadir}/phosphor-ipmi-flash/
+    install -m 0755 ${S}/bios-verify.sh ${D}/${sbindir}/
+    install -m 0755 ${S}/bios-update.sh ${D}/${sbindir}/
+    install -m 0644 ${S}/config-bios.json ${D}/${datadir}/phosphor-ipmi-flash/
 }
 
-FILES_${PN} = " \
+FILES_${PN} += " \
     /usr/share/phosphor-ipmi-flash/config-bios.json \
-    ${sbindir}/bios-update.sh \
-    ${sbindir}/bios-verify.sh \
     "
 
 

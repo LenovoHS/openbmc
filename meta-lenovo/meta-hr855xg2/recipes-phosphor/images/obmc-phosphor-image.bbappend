@@ -8,9 +8,9 @@ OBMC_IMAGE_EXTRA_INSTALL_append_hr855xg2 = " lenovo-pwr-sequence \
                                              lenovo-ipmi-oem \
                                              lenovo-frus \
                                              fpga-version \
-                                             lenovo-fpga-update \
-                                             lenovo-bmc-update \
-                                             lenovo-bios-update \
+                                             hr855xg2-fpga-update \
+                                             hr855xg2-bmc-update \
+                                             hr855xg2-bios-update \
                                              lenovo-fan-service \
                                              lenovo-uart-switch \
                                              uart-routing \

@@ -20,6 +20,6 @@ SYSTEMD_PACKAGES = "${PN}"
 SYSTEMD_SERVICE_${PN} = "bmc-verify.service "
 
 do_install() {
-    install -d ${D}/usr/sbin
-    install -m 0755 ${S}bmc-verify.sh ${D}/${sbindir}/    
+    install -d ${D}/${sbindir}
+    install -m 0755 ${S}/bmc-verify.sh ${D}/${sbindir}/    
 }
