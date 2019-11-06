@@ -86,6 +86,12 @@
             label = "cpu-caterr";
             gpios = <&gpio ASPEED_GPIO(G, 1) GPIO_ACTIVE_LOW>;
             linux,code = <ASPEED_GPIO(G, 1)>;
+        };
+
+        int-fpga-bmc {
+            label = "int-fpga-bmc";
+            gpios = <&gpio ASPEED_GPIO(F, 5) GPIO_ACTIVE_LOW>;
+            linux,code = <ASPEED_GPIO(F, 5)>;
         };        
 	};
     

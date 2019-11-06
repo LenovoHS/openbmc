@@ -1,0 +1,11 @@
+# "Copyright (c) 2019-present Lenovo
+# Licensed under BSD-3, see COPYING.BSD file for details."
+
+[Unit]
+Description=Interrupt FPGA to BMC Service
+StartLimitIntervalSec=0
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/env int-fpga-bmc.sh
+SyslogIdentifier=int-fpga-bmc

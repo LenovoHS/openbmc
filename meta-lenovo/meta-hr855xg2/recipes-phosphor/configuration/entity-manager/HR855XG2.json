@@ -121,124 +121,32 @@
             "Type": "XeonCPU"
         },
         {
-            "SnrNum": 145,
-            "SnrType": 7,
-            "Name": "CPU0 Status",
-            "FpgaGpio": "INT_SPI_FPGA_BMC_N",
-            "Offset": [
-                {
-                    "Block": 14,
-                    "Addr": 1,
-                    "Bit": 0,
-                    "EvtBit": 1,
-                    "TrigState": 1,
-                    "Service": "xyz.openbmc_project.CPUSensor",
-                    "Path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_Status",
-                    "Iface": "xyz.openbmc_project.Inventory.Item.Cpu",
-                    "Property": "Thermal_Trip",
-                    "Ptype": "bool",
-                    "Setvalue": "1"
-                }
-            ],
-            "Type": "Fpga"
-        },
-        {
-            "SnrNum": 146,
-            "SnrType": 7,
-            "Name": "CPU1 Status",
-            "FpgaGpio": "INT_SPI_FPGA_BMC_N",
-            "Offset": [
-                {
-                    "Block": 14,
-                    "Addr": 1,
-                    "Bit": 1,
-                    "EvtBit": 1,
-                    "TrigState": 1,
-                    "Service": "xyz.openbmc_project.CPUSensor",
-                    "Path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_Status",
-                    "Iface": "xyz.openbmc_project.Inventory.Item.Cpu",
-                    "Property": "Thermal_Trip",
-                    "Ptype": "bool",
-                    "Setvalue": "1"
-                }
-            ],
-            "Type": "Fpga"
-        },
-        {
-            "SnrNum": 147,
-            "SnrType": 7,
-            "Name": "CPU2 Status",
-            "FpgaGpio": "INT_SPI_FPGA_BMC_N",
-            "Offset": [
-                {
-                    "Block": 14,
-                    "Addr": 1,
-                    "Bit": 2,
-                    "EvtBit": 1,
-                    "TrigState": 1,
-                    "Service": "xyz.openbmc_project.CPUSensor",
-                    "Path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_Status",
-                    "Iface": "xyz.openbmc_project.Inventory.Item.Cpu",
-                    "Property": "Thermal_Trip",
-                    "Ptype": "bool",
-                    "Setvalue": "1"
-                }
-            ],
-            "Type": "Fpga"
-        },
-        {
-            "SnrNum": 148,
-            "SnrType": 7,
-            "Name": "CPU3 Status",
-            "FpgaGpio": "INT_SPI_FPGA_BMC_N",
-            "Offset": [
-                {
-                    "Block": 14,
-                    "Addr": 1,
-                    "Bit": 3,
-                    "EvtBit": 1,
-                    "TrigState": 1,
-                    "Service": "xyz.openbmc_project.CPUSensor",
-                    "Path": "/xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_Status",
-                    "Iface": "xyz.openbmc_project.Inventory.Item.Cpu",
-                    "Property": "Thermal_Trip",
-                    "Ptype": "bool",
-                    "Setvalue": "1"
-                }
-            ],
-            "Type": "Fpga"
-        },
-        {
             "SnrNum": 153,
             "SnrType": 7,
             "Name": "CPU IERR",
-            "FpgaGpio": "FM_CPU_CATERR_DELAY_N",
             "Offset": [
                 {
-                    "Block": 14,
-                    "Addr": 7,
-                    "Bit": 0,
-                    "EvtBit": 1,
-                    "TrigState": 1
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_1",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
-            "Type": "Fpga"
+            "Type": "Oem"
         },
         {
             "SnrNum": 154,
             "SnrType": 7,
             "Name": "CPU MCERR",
-            "FpgaGpio": "FM_CPU_CATERR_DELAY_N",
             "Offset": [
                 {
-                    "Block": 14,
-                    "Addr": 7,
-                    "Bit": 4,
-                    "EvtBit": 1,
-                    "TrigState": 1
+                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
+                    "Property": "Offset_1",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
-            "Type": "Fpga"
+            "Type": "Oem"
         },
         {
             "SnrNum": 208,
