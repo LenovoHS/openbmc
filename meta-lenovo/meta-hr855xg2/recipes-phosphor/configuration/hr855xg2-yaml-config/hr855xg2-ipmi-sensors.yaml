@@ -4940,19 +4940,15 @@
   entityID: 0
   entityInstance: 1
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_0:
+    xyz.openbmc_project.Control.Power.ACPIPowerState:
+      SysACPIStatus:
         Offsets:
           0:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_5:
-        Offsets:
+            assert: xyz.openbmc_project.Control.Power.ACPIPowerState.ACPI.S0_G0_D0
+            type: string
           5:
-            assert: true
-            deassert: false
-            type: bool
+            assert: xyz.openbmc_project.Control.Power.ACPIPowerState.ACPI.S5_G2
+            type: string
   mutability: Mutability::Write|Mutability::Read
   path: /xyz/openbmc_project/OEMSensor/ACPI_State
   readingType: assertion
@@ -5008,8 +5004,8 @@
   entityID: 12
   entityInstance: 1
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_0:
+    xyz.openbmc_project.Chassis.Buttons.Power:
+      Enabled:
         Offsets:
           0:
             assert: true

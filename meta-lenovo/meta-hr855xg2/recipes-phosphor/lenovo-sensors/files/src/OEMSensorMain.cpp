@@ -162,20 +162,14 @@ bool getOemConfig(
                     }
                 }
 
-                if (sensorIfaces.find(name) == sensorIfaces.end())
+                auto ifacename = name + "_" + OemIface;
+                if (sensorIfaces.find(ifacename) == sensorIfaces.end())
                 {
-                    auto iface = objectServer.add_interface(
-                                 "/xyz/openbmc_project/OEMSensor" + std::string("/") + name,
-                                 "xyz.openbmc_project.Sensor.Discrete.SensorInfo");
-                    iface->register_property("SensorNum", snrnum);
-                    iface->register_property("SensorType", snrtype);
-                    iface->initialize();
-
                     for (auto& oemEvt : ifaceList)
                     {
-                        iface = objectServer.add_interface(
-                                "/xyz/openbmc_project/OEMSensor" + std::string("/") + name,
-                                oemEvt.first);
+                        auto iface = objectServer.add_interface(
+                                    "/xyz/openbmc_project/OEMSensor" + std::string("/") + name,
+                                    oemEvt.first);
                         for (auto& oemsetting : oemEvt.second)
                         {
                             const auto property = oemsetting.property;
@@ -190,11 +184,17 @@ bool getOemConfig(
                                 }
                                 iface->register_property(property, value,
                                                          sdbusplus::asio::PropertyPermission::readWrite);
+                            } 
+                            else if (oemsetting.ptype == "string")
+                            {
+                                auto value = oemsetting.dfvalue;
+                                iface->register_property(property, value,
+                                                         sdbusplus::asio::PropertyPermission::readWrite);
                             }
                         }
+                        iface->initialize();
+                        sensorIfaces[ifacename] = std::move(iface);
                     }
-                    iface->initialize();
-                    sensorIfaces[name] = std::move(iface);
                 }
 
                 oemConfigs.emplace(snrnum, snrtype, name, oeminfoVector);

@@ -3,6 +3,9 @@
 # "Copyright (c) 2019-present Lenovo
 # Licensed under BSD-3, see COPYING.BSD file for details."
 
+# Add Power Button Press SEL
+ipmitool raw 0x0a 0x44 0x00 0x00 0x02 0x00 0x00 0x00 0x00 0x20 0x00 0x04 0x14 0xf2 0x6f 0x00 0xff 0xff
+
 # Get PWRGOOD state
 last_state=`busctl get-property org.openbmc.control.Power /org/openbmc/control/power0 org.openbmc.control.Power pgood | awk '{print $2}'`
 

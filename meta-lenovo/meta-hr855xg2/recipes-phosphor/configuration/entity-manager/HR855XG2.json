@@ -946,16 +946,10 @@
             "Name": "ACPI State",
             "Offset": [
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_0",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_5",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.Control.Power.ACPIPowerState",
+                    "Property": "SysACPIStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Control.Power.ACPIPowerState.ACPI.Unknown"
                 }
             ],
             "Type": "Oem"
@@ -1004,8 +998,8 @@
             "Name": "Power Button",
             "Offset": [
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_0",
+                    "Iface": "xyz.openbmc_project.Chassis.Buttons.Power",
+                    "Property": "Enabled",
                     "Ptype": "bool",
                     "Dfvalue": "0"
                 }
