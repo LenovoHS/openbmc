@@ -1,0 +1,16 @@
+diff -Nurd git/src/Thresholds.cpp git_mod/src/Thresholds.cpp
+--- git/src/Thresholds.cpp	2019-11-08 16:23:14.658468828 +0800
++++ git_mod/src/Thresholds.cpp	2019-11-08 16:29:35.291616038 +0800
+@@ -345,6 +345,12 @@
+         std::getline(attrFile, attr);
+         attrFile.close();
+ 
++        // Do not update DIMM thresholds from attribute.
++        // Use config file.
++        std::size_t found = attrPath.find("peci-dimmtemp");
++        if (found != std::string::npos)
++            break;
++
+         Level level;
+         Direction direction;
+         double val;

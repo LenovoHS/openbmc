@@ -7,6 +7,7 @@ SRC_URI += "file://0001-implement-CPU_Status-and-DIMM_Status-sensor.patch \
             file://0002-add-service-dependency.patch \
             file://0003-modify-CPU-DIMM-sensors-name.patch \
             file://0004-modify-DIMM-discrete-sensors-name.patch \
+            file://0005-use-DIMM-thresholds-from-configs.patch \
            "
 # Overwrite the SYSTEMD_SERVICE_${PN} to select the services we want to use
 SYSTEMD_SERVICE_${PN} = "xyz.openbmc_project.cpusensor.service"
