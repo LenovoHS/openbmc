@@ -29,6 +29,7 @@ SRC_URI = "file://Makefile.am \
            file://include/sdrutils.hpp \
            file://include/selutility.hpp \
            file://include/commandutils.hpp \
+           file://include/status.hpp \
           "
 
 

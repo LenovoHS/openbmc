@@ -4,60 +4,48 @@
 
 */
 
+#include "../include/chassiscommands.hpp"
+#include <ipmid/api.h>
 #include <fstream>
-#include <iostream>
 #include <ipmid/api-types.hpp>
 #include <ipmid/utils.hpp>
+#include <iostream>
 #include <nlohmann/json.hpp>
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/log.hpp>
 #include <regex>
-#include <sdbusplus/timer.hpp>
-#include <sdbusplus/bus.hpp>
 #include <stdexcept>
 #include <string_view>
-#include <ipmid/api.h>
-#include <cstdint>
-//#include <ipmid/oemrouter.hpp>
-#include <sdbusplus/bus.hpp>
-#include <sdbusplus/timer.hpp>
-#include "../include/chassiscommands.hpp"
-
 using namespace phosphor::logging;
 
 namespace ipmi::chassis
 {
 std::unique_ptr<phosphor::Timer> identifyTimer
     __attribute__((init_priority(101)));
-	
+
 constexpr size_t defaultIdentifyTimeOut = 15;
 
 
 static void registerChassisFunctions() __attribute__((constructor));
 sdbusplus::bus::bus dbus(ipmid_get_sd_bus_connection()); // from ipmid/api.h
 
-void IdentifyLedoff(void)
+void identifyLedOff(void)
 {
-	static constexpr auto uidservice = "uidoff.service";
-	auto uider = ipmi::chassis::UIDIdentify::CreateIdentify(
-        sdbusplus::bus::new_default(), uidservice);
-	std::unique_ptr<TriggerableActionInterface> uid = std::move(uider);
-	bool result = uid->trigger();
-	if (result){
-		log<level::INFO>("force identify trigger");
-	}
+    static constexpr auto uidService = "uidoff.service";
+    auto uider = ipmi::chassis::UIDIdentify::createIdentify(
+        sdbusplus::bus::new_default(), uidService);
+    std::unique_ptr<TriggerableActionInterface> uid = std::move(uider);
+    uid->trigger();
 }
 
-void IdentifyLedon(void)
+void identifyLedOn(void)
 {
-	static constexpr auto uidservice = "uidon.service";
-	auto uider = ipmi::chassis::UIDIdentify::CreateIdentify(
-        sdbusplus::bus::new_default(), uidservice);
-	std::unique_ptr<TriggerableActionInterface> uid = std::move(uider);
-	bool result = uid->trigger();
-	if (result){
-		log<level::INFO>("force identify trigger");
-	}
+    static constexpr auto uidService = "uidon.service";
+    auto uider = ipmi::chassis::UIDIdentify::createIdentify(
+        sdbusplus::bus::new_default(), uidService);
+    std::unique_ptr<TriggerableActionInterface> uid = std::move(uider);
+    uid->trigger();
+
 }
 
 /** @brief Create timer to turn on and off the enclosure LED
@@ -67,53 +55,57 @@ void createIdentifyTimer()
     if (!identifyTimer)
     {
         identifyTimer =
-            std::make_unique<phosphor::Timer>(IdentifyLedoff);
+            std::make_unique<phosphor::Timer>(identifyLedOff);
     }
 }
 
 ipmi_ret_t ipmiChassisIdentify(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
-                                   ipmi_request_t request,
-                                   ipmi_response_t response,
-                                   ipmi_data_len_t data_len,
-                                   ipmi_context_t context)
+                               ipmi_request_t request,
+                               ipmi_response_t response,
+                               ipmi_data_len_t data_len,
+                               ipmi_context_t context)
 {
     
-	ipmi_ret_t rc = IPMI_CC_OK;
+    ipmi_ret_t rc = IPMI_CC_OK;
     
-	auto time = std::chrono::duration_cast<std::chrono::microseconds>(
+    auto time = std::chrono::duration_cast<std::chrono::microseconds>(
             std::chrono::seconds(defaultIdentifyTimeOut));
-			
-	if( request != NULL){ 
-		auto* req = reinterpret_cast<ipmi::chassis::Identify*>(request);
-		if (*data_len != sizeof(Identify)){
-			req->forceIdentify = 0;	
-		}
-		if (req->identifyInterval || req->forceIdentify){
-       	log<level::INFO>("force identify");
-		// stop the timer if already started;
-        // for force identify we should not turn off LED
-        identifyTimer->stop();
-		IdentifyLedon();
-        if (req->forceIdentify){
-			//turn on always
-			log<level::INFO>("force identify start");
-			return rc;
-			}
-		}else if (req->identifyInterval == 0){
-			log<level::INFO>("no identify");
-			identifyTimer->stop();
-			IdentifyLedoff(); //turn off
-			return rc;
-		}
-		// start the timer
+
+    if( request != NULL)
+    { 
+        auto* req = reinterpret_cast<ipmi::chassis::Identify*>(request);
+        if (*data_len != sizeof(Identify))
+        {
+            req->forceIdentify = 0;
+        }
+        if (req->identifyInterval || req->forceIdentify)
+        {
+            // stop the timer if already started;
+            // for force identify we should not turn off LED
+            identifyTimer->stop();
+            identifyLedOn();
+            if (req->forceIdentify)
+            {
+                return rc;
+            }
+        }
+        else if (req->identifyInterval == 0)
+        {
+            identifyTimer->stop();
+            identifyLedOff(); //turn off
+            return rc;
+        }
+        // start the timer
          time = std::chrono::duration_cast<std::chrono::microseconds>(
             std::chrono::seconds(req->identifyInterval));
         
-	}else{
-		identifyTimer->stop();
-		IdentifyLedon();	
-	}
-	identifyTimer->start(time);
+    }
+    else
+    {
+        identifyTimer->stop();
+        identifyLedOn();
+    }
+    identifyTimer->start(time);
     return rc;
 }
 
@@ -121,15 +113,15 @@ ipmi_ret_t ipmiChassisIdentify(ipmi_netfn_t netfn, ipmi_cmd_t cmd,
 static void registerChassisFunctions(void)
 {
     log<level::INFO>("Registering Chassis commands");
-	createIdentifyTimer();
+    createIdentifyTimer();
     // <Chassis Identify>
-	ipmi_register_callback(ipmi::netFnChassis,ipmi::chassis::cmdChassisIdentify,NULL,ipmiChassisIdentify,PRIVILEGE_USER);
+    ipmi_register_callback(ipmi::netFnChassis,ipmi::chassis::cmdChassisIdentify,NULL,ipmiChassisIdentify,PRIVILEGE_USER);
 
 }
 
 std::unique_ptr<TriggerableActionInterface>
-    UIDIdentify::CreateIdentify(sdbusplus::bus::bus&& bus,
-                                            const std::string& service)
+    UIDIdentify::createIdentify(sdbusplus::bus::bus&& bus,
+                                const std::string& service)
 {
     return std::make_unique<UIDIdentify>(std::move(bus), service);
 }
@@ -144,7 +136,6 @@ bool UIDIdentify::trigger()
                                       systemdInterface, "StartUnit");
     method.append(triggerService);
     method.append("replace");
-	log<level::INFO>("UIDIdentify::trigger");
     try
     {
         bus.call_noreply(method);
