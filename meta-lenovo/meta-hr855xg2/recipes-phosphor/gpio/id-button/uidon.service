@@ -6,4 +6,4 @@ Description=UID on Service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/env UID.sh on
+ExecStart=/usr/bin/env uid.sh on

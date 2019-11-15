@@ -6,4 +6,4 @@ Description=UID off Service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/env UID.sh off
+ExecStart=/usr/bin/env uid.sh off
