@@ -1876,7 +1876,7 @@
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN0_Speed
   sensorReadingType: 0x01
-  multiplierM: 115
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.RPMS
@@ -1897,7 +1897,7 @@
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN1_Speed
   sensorReadingType: 0x01
-  multiplierM: 115
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.RPMS
@@ -1918,7 +1918,7 @@
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN2_Speed
   sensorReadingType: 0x01
-  multiplierM: 115
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.RPMS
@@ -1939,7 +1939,7 @@
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN3_Speed
   sensorReadingType: 0x01
-  multiplierM: 115
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.RPMS
@@ -1960,7 +1960,7 @@
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN4_Speed
   sensorReadingType: 0x01
-  multiplierM: 115
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.RPMS
@@ -1981,7 +1981,7 @@
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN5_Speed
   sensorReadingType: 0x01
-  multiplierM: 115
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.RPMS
@@ -2001,7 +2001,7 @@
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN6_Speed
   sensorReadingType: 0x01
-  multiplierM: 115
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.RPMS
@@ -2022,7 +2022,7 @@
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN7_Speed
   sensorReadingType: 0x01
-  multiplierM: 115
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.RPMS
@@ -2043,7 +2043,7 @@
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN8_Speed
   sensorReadingType: 0x01
-  multiplierM: 115
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.RPMS
@@ -2064,7 +2064,7 @@
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN9_Speed
   sensorReadingType: 0x01
-  multiplierM: 115
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.RPMS
@@ -2085,7 +2085,7 @@
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN10_Speed
   sensorReadingType: 0x01
-  multiplierM: 115
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.RPMS
@@ -2106,7 +2106,7 @@
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN11_Speed
   sensorReadingType: 0x01
-  multiplierM: 115
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.RPMS
@@ -2127,7 +2127,7 @@
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN12_Speed
   sensorReadingType: 0x01
-  multiplierM: 115
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.RPMS
@@ -2148,7 +2148,7 @@
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/FAN13_Speed
   sensorReadingType: 0x01
-  multiplierM: 115
+  multiplierM: 75
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.RPMS
@@ -2169,7 +2169,7 @@
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/PDB_FAN0_Speed
   sensorReadingType: 0x01
-  multiplierM: 140
+  multiplierM: 90
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.RPMS
@@ -2190,7 +2190,7 @@
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/PDB_FAN1_2_Speed
   sensorReadingType: 0x01
-  multiplierM: 140
+  multiplierM: 90
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.RPMS
