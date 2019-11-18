@@ -8,7 +8,6 @@ FILESEXTRAPATHS_append_hr855xg2 := "${THISDIR}/${PN}:"
 
 SRC_URI += "file://0001-fru-workaround.patch \
             file://0004-fix-incorrect-watchdog-action-rsp.patch \
-            file://0005-add-retry-for-sensor-reading.patch \
             file://0006-pwm-sensor.patch \
            "
 
