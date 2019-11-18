@@ -2169,7 +2169,7 @@
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/PDB_FAN0_Speed
   sensorReadingType: 0x01
-  multiplierM: 90
+  multiplierM: 133
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.RPMS
@@ -2190,7 +2190,7 @@
   sensorType: 0x04
   path: /xyz/openbmc_project/sensors/fan_tach/PDB_FAN1_2_Speed
   sensorReadingType: 0x01
-  multiplierM: 90
+  multiplierM: 133
   offsetB: 0
   bExp: 0
   unit: xyz.openbmc_project.Sensor.Value.Unit.RPMS
