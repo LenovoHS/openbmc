@@ -2370,7 +2370,7 @@
             deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/CPU_IERR
+  path: /xyz/openbmc_project/OEMSensor/CPU_IERR
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 3
@@ -2389,7 +2389,7 @@
             deassert: false
             type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/CPU_MCERR
+  path: /xyz/openbmc_project/OEMSensor/CPU_MCERR
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 3
