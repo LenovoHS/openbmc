@@ -38,5 +38,8 @@ HR855XG2_ITEMS += "iio-hwmon.conf"
 
 HR855XG2_ITEMS += "iio-hwmon-battery.conf"
 
+SRC_URI += "file://0001-sensors-slow-readings.patch \
+           "
+
 ENVS = "obmc/hwmon/{0}"
 SYSTEMD_ENVIRONMENT_FILE_${PN}_append_hr855xg2 := "${@compose_list(d, 'ENVS', 'HR855XG2_ITEMS')}"
