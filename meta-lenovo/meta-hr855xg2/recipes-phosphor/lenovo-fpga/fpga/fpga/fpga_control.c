@@ -633,6 +633,6 @@ int main(int argc, char *argv[])
 	#if 1
 	start_fpga_services();
 	#endif
-	//rc = close_dev(fd);
+	rc = close_dev(fd);
 	return rc;
 }
