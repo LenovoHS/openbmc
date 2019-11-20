@@ -228,7 +228,7 @@ int setGPIODirection (int num, char *dir) {
 
 int verifyBIOS() {
    // int value = 0;
-    printf("Prepare to verify BIOS...\n");
+    fprintf(stderr,"Prepare to verify BIOS...\n");
 	
  //Switch BIOS SPI ROM TO BMC for BIOS verification
     setGPIODirection(FM_BIOS_SPI_SW_CTRL_R_0, "out");
@@ -237,8 +237,7 @@ int verifyBIOS() {
 	// value = getGPIODirection(FM_BIOS_SPI_SW_CTRL_R_0);
 	// printf("====debug==value==%d\n", value);
 	//printf("begin to verify BIOS...\n");
-	sleep(10);
-	
+	sleep(60);
 	//printf("finish verifying BIOS ...\n ");
 	
 //Switch BIOS SPI ROM to Host ==low
@@ -246,7 +245,7 @@ int verifyBIOS() {
 	 setGPIOValue(FM_BIOS_SPI_SW_CTRL_R_0, GPIO_VALUE_L);
 	 //printf("Switch BIOS SPI rom to HOST ...\n ");
 	 
-	
+	fprintf(stderr,"Verify BIOS done \n");
     return 0;
 }
 
