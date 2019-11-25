@@ -4,14 +4,7 @@
             "Address": "0x30",
             "Bus": 0,
             "CpuID": 1,
-            "Name": "CPU0 Status",
-            "PresenceByFPGA": [
-                {
-                    "FpgaBlock": 28,
-                    "FpgaAddr": 7,
-                    "FpgaBit": 3
-                }
-            ],
+            "Name": "CPU0",
             "Thresholds": [
                 {
                     "Direction": "greater than",
@@ -34,14 +27,7 @@
             "Address": "0x31",
             "Bus": 0,
             "CpuID": 2,
-            "Name": "CPU1 Status",
-            "PresenceByFPGA": [
-                {
-                    "FpgaBlock": 28,
-                    "FpgaAddr": 8,
-                    "FpgaBit": 3
-                }
-            ],
+            "Name": "CPU1",
             "Thresholds": [
                 {
                     "Direction": "greater than",
@@ -64,14 +50,7 @@
             "Address": "0x32",
             "Bus": 0,
             "CpuID": 3,
-            "Name": "CPU2 Status",
-            "PresenceByFPGA": [
-                {
-                    "FpgaBlock": 28,
-                    "FpgaAddr": 9,
-                    "FpgaBit": 3
-                }
-            ],
+            "Name": "CPU2",
             "Thresholds": [
                 {
                     "Direction": "greater than",
@@ -94,14 +73,7 @@
             "Address": "0x33",
             "Bus": 0,
             "CpuID": 4,
-            "Name": "CPU3 Status",
-            "PresenceByFPGA": [
-                {
-                    "FpgaBlock": 28,
-                    "FpgaAddr": 10,
-                    "FpgaBit": 3
-                }
-            ],
+            "Name": "CPU3",
             "Thresholds": [
                 {
                     "Direction": "greater than",
@@ -126,8 +98,8 @@
             "Name": "CPU IERR",
             "Offset": [
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_1",
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "IERR",
                     "Ptype": "bool",
                     "Dfvalue": "0"
                 }
@@ -140,10 +112,1462 @@
             "Name": "CPU MCERR",
             "Offset": [
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_1",
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "MCERR",
                     "Ptype": "bool",
                     "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 145,
+            "SnrType": 7,
+            "Name": "CPU0 Status",
+            "Monitor": "oneshot",
+            "Exec": "/usr/sbin/fpga-util --s 0x91",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "Thermal_Trip",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "BIST_failure",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "Configuration_Error",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "Processor_Auto_Throttled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "MC_Exception",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "MCERR",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 146,
+            "SnrType": 7,
+            "Name": "CPU1 Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "Thermal_Trip",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "BIST_failure",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "Configuration_Error",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "Processor_Auto_Throttled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "MC_Exception",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "MCERR",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 147,
+            "SnrType": 7,
+            "Name": "CPU2 Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "Thermal_Trip",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "BIST_failure",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "Configuration_Error",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "Processor_Auto_Throttled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "MC_Exception",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "MCERR",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 148,
+            "SnrType": 7,
+            "Name": "CPU3 Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "Thermal_Trip",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "BIST_failure",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "Configuration_Error",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "Processor_Auto_Throttled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "MC_Exception",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "MCERR",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 160,
+            "SnrType": 7,
+            "Name": "DIMM0_Status",
+            "Monitor": "oneshot",
+            "Exec": "/usr/sbin/fpga-util --s 0xA0",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 161,
+            "SnrType": 7,
+            "Name": "DIMM1_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 162,
+            "SnrType": 7,
+            "Name": "DIMM2_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 163,
+            "SnrType": 7,
+            "Name": "DIMM3_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 164,
+            "SnrType": 7,
+            "Name": "DIMM4_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 165,
+            "SnrType": 7,
+            "Name": "DIMM5_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 166,
+            "SnrType": 7,
+            "Name": "DIMM6_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 167,
+            "SnrType": 7,
+            "Name": "DIMM7_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 168,
+            "SnrType": 7,
+            "Name": "DIMM8_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 169,
+            "SnrType": 7,
+            "Name": "DIMM9_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 170,
+            "SnrType": 7,
+            "Name": "DIMM10_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 171,
+            "SnrType": 7,
+            "Name": "DIMM11_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 172,
+            "SnrType": 7,
+            "Name": "DIMM12_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 173,
+            "SnrType": 7,
+            "Name": "DIMM13_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 174,
+            "SnrType": 7,
+            "Name": "DIMM14_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 175,
+            "SnrType": 7,
+            "Name": "DIMM15_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 176,
+            "SnrType": 7,
+            "Name": "DIMM16_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 177,
+            "SnrType": 7,
+            "Name": "DIMM17_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 178,
+            "SnrType": 7,
+            "Name": "DIMM18_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 179,
+            "SnrType": 7,
+            "Name": "DIMM19_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 180,
+            "SnrType": 7,
+            "Name": "DIMM20_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 181,
+            "SnrType": 7,
+            "Name": "DIMM21_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 182,
+            "SnrType": 7,
+            "Name": "DIMM22_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 183,
+            "SnrType": 7,
+            "Name": "DIMM23_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 184,
+            "SnrType": 7,
+            "Name": "DIMM24_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 185,
+            "SnrType": 7,
+            "Name": "DIMM25_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 186,
+            "SnrType": 7,
+            "Name": "DIMM26_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 187,
+            "SnrType": 7,
+            "Name": "DIMM27_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 188,
+            "SnrType": 7,
+            "Name": "DIMM28_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 189,
+            "SnrType": 7,
+            "Name": "DIMM29_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 190,
+            "SnrType": 7,
+            "Name": "DIMM30_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 191,
+            "SnrType": 7,
+            "Name": "DIMM31_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 192,
+            "SnrType": 7,
+            "Name": "DIMM32_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 193,
+            "SnrType": 7,
+            "Name": "DIMM33_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 194,
+            "SnrType": 7,
+            "Name": "DIMM34_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 195,
+            "SnrType": 7,
+            "Name": "DIMM35_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 196,
+            "SnrType": 7,
+            "Name": "DIMM36_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 197,
+            "SnrType": 7,
+            "Name": "DIMM37_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 198,
+            "SnrType": 7,
+            "Name": "DIMM38_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 199,
+            "SnrType": 7,
+            "Name": "DIMM39_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 200,
+            "SnrType": 7,
+            "Name": "DIMM40_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 201,
+            "SnrType": 7,
+            "Name": "DIMM41_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 202,
+            "SnrType": 7,
+            "Name": "DIMM42_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 203,
+            "SnrType": 7,
+            "Name": "DIMM43_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 204,
+            "SnrType": 7,
+            "Name": "DIMM44_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 205,
+            "SnrType": 7,
+            "Name": "DIMM45_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 206,
+            "SnrType": 7,
+            "Name": "DIMM46_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                }
+            ],
+            "Type": "Oem"
+        },
+        {
+            "SnrNum": 207,
+            "SnrType": 7,
+            "Name": "DIMM47_Status",
+            "Offset": [
+                {
+                    "Iface": "xyz.openbmc_project.Inventory.Item",
+                    "Property": "Present",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "isLoggingLimitReached",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryECC",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
                 }
             ],
             "Type": "Oem"
@@ -154,44 +1578,20 @@
             "Name": "PE1S1 Bus Status",
             "Offset": [
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_4",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "PCIStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_5",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "BusStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.BusState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_7",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_8",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_10",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_11",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_15",
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "LastBootFail",
                     "Ptype": "bool",
                     "Dfvalue": "0"
                 }
@@ -204,44 +1604,20 @@
             "Name": "PE1S2 Bus Status",
             "Offset": [
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_4",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "PCIStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_5",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "BusStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.BusState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_7",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_8",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_10",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_11",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_15",
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "LastBootFail",
                     "Ptype": "bool",
                     "Dfvalue": "0"
                 }
@@ -254,44 +1630,20 @@
             "Name": "PE1S3 Bus Status",
             "Offset": [
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_4",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "PCIStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_5",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "BusStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.BusState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_7",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_8",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_10",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_11",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_15",
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "LastBootFail",
                     "Ptype": "bool",
                     "Dfvalue": "0"
                 }
@@ -304,44 +1656,20 @@
             "Name": "PE1S4 Bus Status",
             "Offset": [
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_4",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "PCIStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_5",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "BusStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.BusState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_7",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_8",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_10",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_11",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_15",
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "LastBootFail",
                     "Ptype": "bool",
                     "Dfvalue": "0"
                 }
@@ -354,44 +1682,20 @@
             "Name": "PE1S5 Bus Status",
             "Offset": [
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_4",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "PCIStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_5",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "BusStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.BusState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_7",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_8",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_10",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_11",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_15",
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "LastBootFail",
                     "Ptype": "bool",
                     "Dfvalue": "0"
                 }
@@ -404,44 +1708,20 @@
             "Name": "PE2S1 Bus Status",
             "Offset": [
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_4",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "PCIStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_5",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "BusStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.BusState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_7",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_8",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_10",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_11",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_15",
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "LastBootFail",
                     "Ptype": "bool",
                     "Dfvalue": "0"
                 }
@@ -454,44 +1734,20 @@
             "Name": "PE2S2 Bus Status",
             "Offset": [
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_4",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "PCIStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_5",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "BusStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.BusState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_7",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_8",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_10",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_11",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_15",
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "LastBootFail",
                     "Ptype": "bool",
                     "Dfvalue": "0"
                 }
@@ -504,44 +1760,20 @@
             "Name": "PE2S3 Bus Status",
             "Offset": [
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_4",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "PCIStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_5",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "BusStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.BusState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_7",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_8",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_10",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_11",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_15",
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "LastBootFail",
                     "Ptype": "bool",
                     "Dfvalue": "0"
                 }
@@ -554,44 +1786,20 @@
             "Name": "PE2S4 Bus Status",
             "Offset": [
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_4",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "PCIStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_5",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "BusStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.BusState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_7",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_8",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_10",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_11",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_15",
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "LastBootFail",
                     "Ptype": "bool",
                     "Dfvalue": "0"
                 }
@@ -604,44 +1812,20 @@
             "Name": "PE2S5 Bus Status",
             "Offset": [
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_4",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "PCIStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_5",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "BusStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.BusState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_7",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_8",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_10",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_11",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_15",
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "LastBootFail",
                     "Ptype": "bool",
                     "Dfvalue": "0"
                 }
@@ -654,44 +1838,20 @@
             "Name": "PE3S1 Bus Status",
             "Offset": [
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_4",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "PCIStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_5",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "BusStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.BusState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_7",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_8",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_10",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_11",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_15",
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "LastBootFail",
                     "Ptype": "bool",
                     "Dfvalue": "0"
                 }
@@ -704,44 +1864,20 @@
             "Name": "PE3S2 Bus Status",
             "Offset": [
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_4",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "PCIStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_5",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "BusStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.PCIeDevice.PCIErr.BusState.ok"
                 },
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_7",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_8",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_10",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_11",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_15",
+                    "Iface": "xyz.openbmc_project.PCIeDevice.PCIErr",
+                    "Property": "LastBootFail",
                     "Ptype": "bool",
                     "Dfvalue": "0"
                 }
@@ -752,193 +1888,193 @@
             "SnrNum": 224,
             "SnrType": 33,
             "Name": "PE1S1 Status",
-            "FpgaGpio": "NA",
+            "Monitor": "oneshot",
+            "Exec": "/usr/sbin/fpga-util --s 0xE0",
             "Offset": [
                 {
-                    "Block": 12,
-                    "Addr": 4,
-                    "Bit": 0,
-                    "EvtBit": 2,
-                    "TrigState": 0
+                    "Iface": "xyz.openbmc_project.SlotConn.State",
+                    "Property": "DeviceStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.SlotConn.State.DeviceState.None"
                 }
             ],
-            "Type": "Fpga"
+            "Type": "Oem"
         },
         {
             "SnrNum": 225,
             "SnrType": 33,
             "Name": "PE1S2 Status",
-            "FpgaGpio": "NA",
+            "Monitor": "oneshot",
+            "Exec": "/usr/sbin/fpga-util --s 0xE1",
             "Offset": [
                 {
-                    "Block": 12,
-                    "Addr": 4,
-                    "Bit": 1,
-                    "EvtBit": 2,
-                    "TrigState": 0
+                    "Iface": "xyz.openbmc_project.SlotConn.State",
+                    "Property": "DeviceStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.SlotConn.State.DeviceState.None"
                 }
             ],
-            "Type": "Fpga"
+            "Type": "Oem"
         },
         {
             "SnrNum": 226,
             "SnrType": 33,
             "Name": "PE1S3 Status",
-            "FpgaGpio": "NA",
+            "Monitor": "oneshot",
+            "Exec": "/usr/sbin/fpga-util --s 0xE2",
             "Offset": [
                 {
-                    "Block": 12,
-                    "Addr": 4,
-                    "Bit": 2,
-                    "EvtBit": 2,
-                    "TrigState": 0
+                    "Iface": "xyz.openbmc_project.SlotConn.State",
+                    "Property": "DeviceStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.SlotConn.State.DeviceState.None"
                 }
             ],
-            "Type": "Fpga"
+            "Type": "Oem"
         },
         {
             "SnrNum": 227,
             "SnrType": 33,
             "Name": "PE1S4 Status",
-            "FpgaGpio": "NA",
+            "Monitor": "oneshot",
+            "Exec": "/usr/sbin/fpga-util --s 0xE3",
             "Offset": [
                 {
-                    "Block": 12,
-                    "Addr": 4,
-                    "Bit": 3,
-                    "EvtBit": 2,
-                    "TrigState": 0
+                    "Iface": "xyz.openbmc_project.SlotConn.State",
+                    "Property": "DeviceStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.SlotConn.State.DeviceState.None"
                 }
             ],
-            "Type": "Fpga"
+            "Type": "Oem"
         },
         {
             "SnrNum": 228,
             "SnrType": 33,
             "Name": "PE1S5 Status",
-            "FpgaGpio": "NA",
+            "Monitor": "oneshot",
+            "Exec": "/usr/sbin/fpga-util --s 0xE4",
             "Offset": [
                 {
-                    "Block": 12,
-                    "Addr": 4,
-                    "Bit": 4,
-                    "EvtBit": 2,
-                    "TrigState": 0
+                    "Iface": "xyz.openbmc_project.SlotConn.State",
+                    "Property": "DeviceStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.SlotConn.State.DeviceState.None"
                 }
             ],
-            "Type": "Fpga"
+            "Type": "Oem"
         },
         {
             "SnrNum": 229,
             "SnrType": 33,
             "Name": "PE2S1 Status",
-            "FpgaGpio": "NA",
+            "Monitor": "oneshot",
+            "Exec": "/usr/sbin/fpga-util --s 0xE5",
             "Offset": [
                 {
-                    "Block": 12,
-                    "Addr": 4,
-                    "Bit": 7,
-                    "EvtBit": 2,
-                    "TrigState": 0
+                    "Iface": "xyz.openbmc_project.SlotConn.State",
+                    "Property": "DeviceStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.SlotConn.State.DeviceState.None"
                 }
             ],
-            "Type": "Fpga"
+            "Type": "Oem"
         },
         {
             "SnrNum": 230,
             "SnrType": 33,
             "Name": "PE2S2 Status",
-            "FpgaGpio": "NA",
+            "Monitor": "oneshot",
+            "Exec": "/usr/sbin/fpga-util --s 0xE6",
             "Offset": [
                 {
-                    "Block": 12,
-                    "Addr": 5,
-                    "Bit": 0,
-                    "EvtBit": 2,
-                    "TrigState": 0
+                    "Iface": "xyz.openbmc_project.SlotConn.State",
+                    "Property": "DeviceStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.SlotConn.State.DeviceState.None"
                 }
             ],
-            "Type": "Fpga"
+            "Type": "Oem"
         },
         {
             "SnrNum": 231,
             "SnrType": 33,
             "Name": "PE2S3 Status",
-            "FpgaGpio": "NA",
+            "Monitor": "oneshot",
+            "Exec": "/usr/sbin/fpga-util --s 0xE7",
             "Offset": [
                 {
-                    "Block": 12,
-                    "Addr": 5,
-                    "Bit": 1,
-                    "EvtBit": 2,
-                    "TrigState": 0
+                    "Iface": "xyz.openbmc_project.SlotConn.State",
+                    "Property": "DeviceStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.SlotConn.State.DeviceState.None"
                 }
             ],
-            "Type": "Fpga"
+            "Type": "Oem"
         },
         {
             "SnrNum": 232,
             "SnrType": 33,
             "Name": "PE2S4 Status",
-            "FpgaGpio": "NA",
+            "Monitor": "oneshot",
+            "Exec": "/usr/sbin/fpga-util --s 0xE8",
             "Offset": [
                 {
-                    "Block": 12,
-                    "Addr": 5,
-                    "Bit": 2,
-                    "EvtBit": 2,
-                    "TrigState": 0
+                    "Iface": "xyz.openbmc_project.SlotConn.State",
+                    "Property": "DeviceStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.SlotConn.State.DeviceState.None"
                 }
             ],
-            "Type": "Fpga"
+            "Type": "Oem"
         },
         {
             "SnrNum": 233,
             "SnrType": 33,
             "Name": "PE2S5 Status",
-            "FpgaGpio": "NA",
+            "Monitor": "oneshot",
+            "Exec": "/usr/sbin/fpga-util --s 0xE9",
             "Offset": [
                 {
-                    "Block": 12,
-                    "Addr": 5,
-                    "Bit": 3,
-                    "EvtBit": 2,
-                    "TrigState": 0
+                    "Iface": "xyz.openbmc_project.SlotConn.State",
+                    "Property": "DeviceStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.SlotConn.State.DeviceState.None"
                 }
             ],
-            "Type": "Fpga"
+            "Type": "Oem"
         },
         {
             "SnrNum": 234,
             "SnrType": 33,
             "Name": "PE3S1 Status",
-            "FpgaGpio": "NA",
+            "Monitor": "oneshot",
+            "Exec": "/usr/sbin/fpga-util --s 0xEA",
             "Offset": [
                 {
-                    "Block": 12,
-                    "Addr": 4,
-                    "Bit": 5,
-                    "EvtBit": 2,
-                    "TrigState": 0
+                    "Iface": "xyz.openbmc_project.SlotConn.State",
+                    "Property": "DeviceStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.SlotConn.State.DeviceState.None"
                 }
             ],
-            "Type": "Fpga"
+            "Type": "Oem"
         },
         {
             "SnrNum": 235,
             "SnrType": 33,
             "Name": "PE3S2 Status",
-            "FpgaGpio": "NA",
+            "Monitor": "oneshot",
+            "Exec": "/usr/sbin/fpga-util --s 0xEB",
             "Offset": [
                 {
-                    "Block": 12,
-                    "Addr": 4,
-                    "Bit": 6,
-                    "EvtBit": 2,
-                    "TrigState": 0
+                    "Iface": "xyz.openbmc_project.SlotConn.State",
+                    "Property": "DeviceStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.SlotConn.State.DeviceState.None"
                 }
             ],
-            "Type": "Fpga"
+            "Type": "Oem"
         },
         {
             "SnrNum": 240,
@@ -1010,95 +2146,81 @@
             "SnrNum": 243,
             "SnrType": 23,
             "Name": "M2 Status",
-            "FpgaGpio": "NA",
+            "Monitor": "oneshot",
+            "Exec": "/usr/sbin/fpga-util --s 0xF3",
             "Offset": [
                 {
-                    "Block": 12,
-                    "Addr": 10,
-                    "Bit": 3,
-                    "EvtBit": 0,
-                    "TrigState": 0
-                },
-                {
-                    "Block": 12,
-                    "Addr": 10,
-                    "Bit": 3,
-                    "EvtBit": 1,
-                    "TrigState": 1
+                    "Iface": "xyz.openbmc_project.SlotConn.State",
+                    "Property": "DeviceStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.SlotConn.State.DeviceState.None"
                 }
             ],
-            "Type": "Fpga"
+            "Type": "Oem"
         },
         {
             "SnrNum": 244,
             "SnrType": 33,
             "Name": "Riser 1 Status",
-            "FpgaGpio": "NA",
+            "Monitor": "oneshot",
+            "Exec": "/usr/sbin/fpga-util --s 0xF4",
             "Offset": [
                 {
-                    "Block": 12,
-                    "Addr": 10,
-                    "Bit": 0,
-                    "EvtBit": 2,
-                    "TrigState": 0
+                    "Iface": "xyz.openbmc_project.SlotConn.State",
+                    "Property": "DeviceStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.SlotConn.State.DeviceState.None"
                 }
             ],
-            "Type": "Fpga"
+            "Type": "Oem"
         },
         {
             "SnrNum": 245,
             "SnrType": 33,
             "Name": "Riser 2 Status",
-            "FpgaGpio": "NA",
+            "Monitor": "oneshot",
+            "Exec": "/usr/sbin/fpga-util --s 0xF5",
             "Offset": [
                 {
-                    "Block": 12,
-                    "Addr": 10,
-                    "Bit": 1,
-                    "EvtBit": 2,
-                    "TrigState": 0
+                    "Iface": "xyz.openbmc_project.SlotConn.State",
+                    "Property": "DeviceStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.SlotConn.State.DeviceState.None"
                 }
             ],
-            "Type": "Fpga"
+            "Type": "Oem"
         },
         {
             "SnrNum": 246,
             "SnrType": 33,
             "Name": "Riser 3 Status",
-            "FpgaGpio": "NA",
+            "Monitor": "oneshot",
+            "Exec": "/usr/sbin/fpga-util --s 0xF6",
             "Offset": [
                 {
-                    "Block": 12,
-                    "Addr": 10,
-                    "Bit": 2,
-                    "EvtBit": 2,
-                    "TrigState": 0
+                    "Iface": "xyz.openbmc_project.SlotConn.State",
+                    "Property": "DeviceStatus",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.SlotConn.State.DeviceState.None"
                 }
             ],
-            "Type": "Fpga"
+            "Type": "Oem"
         },
         {
             "SnrNum": 247,
             "SnrType": 27,
             "Name": "NCSI Cable",
-            "FpgaGpio": "NA",
+            "Monitor": "oneshot",
+            "Exec": "/usr/sbin/fpga-util --s 0xF7",
             "Offset": [
                 {
-                    "Block": 12,
-                    "Addr": 10,
-                    "Bit": 6,
-                    "EvtBit": 0,
-                    "TrigState": 0
-                },
-                {
-                    "Block": 12,
-                    "Addr": 10,
-                    "Bit": 6,
-                    "EvtBit": 1,
-                    "TrigState": 1
+                    "Iface": "xyz.openbmc_project.Cable.State",
+                    "Property": "state",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.Cable.State.CableState.None"
                 }
             ],
-            "Type": "Fpga"
+            "Type": "Oem"
         },
         {
             "SnrNum": 248,
@@ -1106,8 +2228,8 @@
             "Name": "UPI Error",
             "Offset": [
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_5",
+                    "Iface": "xyz.openbmc_project.Cpu.CpuErr",
+                    "Property": "Configuration_Error",
                     "Ptype": "bool",
                     "Dfvalue": "0"
                 }
@@ -1120,10 +2242,10 @@
             "Name": "FPGA Corrupt",
             "Offset": [
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_0",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.State.Boot.Progress",
+                    "Property": "SysFirmwareErr",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.State.Boot.Progress.PostError.None"
                 }
             ],
             "Type": "Oem"
@@ -1134,10 +2256,10 @@
             "Name": "UEFI Corrupt",
             "Offset": [
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_0",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.State.Boot.Progress",
+                    "Property": "SysFirmwareErr",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.State.Boot.Progress.PostError.None"
                 }
             ],
             "Type": "Oem"
@@ -1148,10 +2270,10 @@
             "Name": "NVRAM Corrupt",
             "Offset": [
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_0",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.State.Boot.Progress",
+                    "Property": "SysFirmwareErr",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.State.Boot.Progress.PostError.None"
                 }
             ],
             "Type": "Oem"
@@ -1162,8 +2284,8 @@
             "Name": "CPU Exception",
             "Offset": [
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_1",
+                    "Iface": "xyz.openbmc_project.State.Boot.Progress",
+                    "Property": "SysFirmwareHang",
                     "Ptype": "bool",
                     "Dfvalue": "0"
                 }

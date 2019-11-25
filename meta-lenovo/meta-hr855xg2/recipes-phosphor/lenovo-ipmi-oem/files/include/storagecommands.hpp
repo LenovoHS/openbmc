@@ -62,3 +62,6 @@ struct FRUHeader
 };
 #pragma pack(pop)
 
+static constexpr auto OEMSensorService = "xyz.openbmc_project.OEMSensor";
+static constexpr auto OEMSensorPath = "/xyz/openbmc_project/OEMSensor/";
+static constexpr auto OEMSensorIntf = "xyz.openbmc_project.Sensor.Discrete.SpecificOffset";

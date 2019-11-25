@@ -101,15 +101,6 @@ constexpr static const size_t maxFruSdrNameSize = 16;
 constexpr static const size_t maxFruNum = 56;
 constexpr static const size_t cpuFruStart = 5;
 constexpr static const size_t dimmFruStart = 9;
-static constexpr auto InventoryService = "xyz.openbmc_project.Inventory.Manager";
-static constexpr auto InventoryPath = "/xyz/openbmc_project/inventory/system/chassis/motherboard/";
-static constexpr auto InventoryECCIntf = "xyz.openbmc_project.Memory.MemoryECC";
-static constexpr auto CPUSensorService = "xyz.openbmc_project.CPUSensor";
-static constexpr auto CPUSensorPath = "/xyz/openbmc_project/inventory/system/chassis/motherboard/";
-static constexpr auto CPUSensorIntf ="xyz.openbmc_project.Inventory.Item.Cpu";
-static constexpr auto OEMSensorService = "xyz.openbmc_project.OEMSensor";
-static constexpr auto OEMSensorPath = "/xyz/openbmc_project/OEMSensor/";
-static constexpr auto OEMSensorIntf = "xyz.openbmc_project.Sensor.Discrete.SpecificOffset";
 static const std::filesystem::path selLogDir = "/var/log";
 static const std::string selLogFilename = "ipmi_sel";
 
@@ -681,21 +672,27 @@ uint8_t LenovoSetSensorProperty(uint8_t sensorNumber,
                 case 0x00:
                     event_state = "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.CE";
                     PropertyPath = "state";
-                    ipmi::setDbusProperty(bus, CPUSensorService,
-                                          CPUSensorPath + name, InventoryECCIntf,
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.Memory.MemoryECC",
                                           PropertyPath, event_state);
                     break;
                 case 0x01:
                     event_state = "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE";
                     PropertyPath = "state";
-                    ipmi::setDbusProperty(bus, CPUSensorService,
-                                          CPUSensorPath + name, InventoryECCIntf,
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.Memory.MemoryECC",
                                           PropertyPath, event_state);
                     break;
                 case 0x05:
                     PropertyPath = "isLoggingLimitReached";
-                    ipmi::setDbusProperty(bus, CPUSensorService,
-                                          CPUSensorPath + name, InventoryECCIntf,
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.Memory.MemoryECC",
+                                          PropertyPath, true);
+                    break;
+                case 0x06:
+                    PropertyPath = "Present";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.Inventory.Item",
                                           PropertyPath, true);
                     break;
                 default:
@@ -716,10 +713,106 @@ uint8_t LenovoSetSensorProperty(uint8_t sensorNumber,
         {
             switch (eventData[0])
             {
+                case 0x01:
+                    PropertyPath = "Thermal_Trip";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.Cpu.CpuErr",
+                                          PropertyPath, true);
+                    break;
+                case 0x02:
+                    PropertyPath = "BIST_failure";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.Cpu.CpuErr",
+                                          PropertyPath, true);
+                    break;
                 case 0x05:
                     PropertyPath = "Configuration_Error";
-                    ipmi::setDbusProperty(bus, CPUSensorService,
-                                          CPUSensorPath + name, CPUSensorIntf,
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.Cpu.CpuErr",
+                                          PropertyPath, true);
+                    break;
+                case 0x07:
+                    PropertyPath = "Present";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.Inventory.Item",
+                                          PropertyPath, true);
+                    break;
+                case 0x0A:
+                    PropertyPath = "Processor_Auto_Throttled";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.Cpu.CpuErr",
+                                          PropertyPath, true);
+                    break;
+                case 0x0B:
+                    PropertyPath = "MC_Exception";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.Cpu.CpuErr",
+                                          PropertyPath, true);
+                    break;
+                case 0x0C:
+                    PropertyPath = "MCERR";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.Cpu.CpuErr",
+                                          PropertyPath, true);
+                    break;
+                default:
+                    return 1;
+                    break;
+            }
+        }
+        catch (std::exception& e)
+        {
+            log<level::ERR>(e.what());
+            return 1;
+        }
+    }
+    else if (sensorNumber == 0x99)
+    {
+        std::string name = "CPU_IERR";
+        try
+        {
+            switch (eventData[0])
+            {
+                case 0x00:
+                    PropertyPath = "IERR";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.Cpu.CpuErr",
+                                          PropertyPath, false);
+                    break;
+                case 0x01:
+                    PropertyPath = "IERR";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.Cpu.CpuErr",
+                                          PropertyPath, true);
+                    break;
+                default:
+                    return 1;
+                    break;
+            }
+        }
+        catch (std::exception& e)
+        {
+            log<level::ERR>(e.what());
+            return 1;
+        }
+    }
+    else if (sensorNumber == 0x9A)
+    {
+        std::string name = "CPU_MCERR";
+        try
+        {
+            switch (eventData[0])
+            {
+                case 0x00:
+                    PropertyPath = "MCERR";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.Cpu.CpuErr",
+                                          PropertyPath, false);
+                    break;
+                case 0x01:
+                    PropertyPath = "MCERR";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.Cpu.CpuErr",
                                           PropertyPath, true);
                     break;
                 default:
@@ -743,46 +836,226 @@ uint8_t LenovoSetSensorProperty(uint8_t sensorNumber,
         {
             switch (eventData[0])
             {
-                case 0x04:
-                    PropertyPath = "Offset_4";
+                case 0x15:
+                    PropertyPath = "LastBootFail";
                     ipmi::setDbusProperty(bus, OEMSensorService,
-                                          OEMSensorPath + name, OEMSensorIntf,
+                                          OEMSensorPath + name, "xyz.openbmc_project.PCIeDevice.PCIErr",
                                           PropertyPath, true);
+                    break;
+                case 0x04:
+                    event_state = "xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.PERR";
+                    PropertyPath = "PCIStatus";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.PCIeDevice.PCIErr",
+                                          PropertyPath, event_state);
                     break;
                 case 0x05:
-                    PropertyPath = "Offset_5";
+                    event_state = "xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.SERR";
+                    PropertyPath = "PCIStatus";
                     ipmi::setDbusProperty(bus, OEMSensorService,
-                                          OEMSensorPath + name, OEMSensorIntf,
-                                          PropertyPath, true);
+                                          OEMSensorPath + name, "xyz.openbmc_project.PCIeDevice.PCIErr",
+                                          PropertyPath, event_state);
                     break;
                 case 0x07:
-                    PropertyPath = "Offset_7";
+                    event_state = "xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.CE";
+                    PropertyPath = "PCIStatus";
                     ipmi::setDbusProperty(bus, OEMSensorService,
-                                          OEMSensorPath + name, OEMSensorIntf,
-                                          PropertyPath, true);
+                                          OEMSensorPath + name, "xyz.openbmc_project.PCIeDevice.PCIErr",
+                                          PropertyPath, event_state);
                     break;
                 case 0x08:
-                    PropertyPath = "Offset_8";
+                    event_state = "xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.UE";
+                    PropertyPath = "PCIStatus";
                     ipmi::setDbusProperty(bus, OEMSensorService,
-                                          OEMSensorPath + name, OEMSensorIntf,
-                                          PropertyPath, true);
+                                          OEMSensorPath + name, "xyz.openbmc_project.PCIeDevice.PCIErr",
+                                          PropertyPath, event_state);
                     break;
                 case 0x0A:
-                    PropertyPath = "Offset_10";
+                    event_state = "xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.FE";
+                    PropertyPath = "PCIStatus";
                     ipmi::setDbusProperty(bus, OEMSensorService,
-                                          OEMSensorPath + name, OEMSensorIntf,
-                                          PropertyPath, true);
+                                          OEMSensorPath + name, "xyz.openbmc_project.PCIeDevice.PCIErr",
+                                          PropertyPath, event_state);
                     break;
                 case 0x0B:
-                    PropertyPath = "Offset_11";
+                    event_state = "xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.Degraded";
+                    PropertyPath = "PCIStatus";
                     ipmi::setDbusProperty(bus, OEMSensorService,
-                                          OEMSensorPath + name, OEMSensorIntf,
-                                          PropertyPath, true);
+                                          OEMSensorPath + name, "xyz.openbmc_project.PCIeDevice.PCIErr",
+                                          PropertyPath, event_state);
                     break;
-                case 0x0F:
-                    PropertyPath = "Offset_15";
+                default:
+                    return 1;
+                    break;
+            }
+        }
+        catch (std::exception& e)
+        {
+            log<level::ERR>(e.what());
+            return 1;
+        }
+    }
+    else if (sensorNumber >= 0xE0 && sensorNumber <= 0xEB)
+    {
+        const auto name = "PE" + std::to_string((sensorNumber - 0xE0)/5 + 1) +
+                          "S" + std::to_string((sensorNumber - 0xE0)%5 + 1) +
+                          "_Status";
+
+        try
+        {
+            switch (eventData[0])
+            {
+                case 0x02:
+                    event_state = "xyz.openbmc_project.SlotConn.State.DeviceState.installed";
+                    PropertyPath = "DeviceStatus";
                     ipmi::setDbusProperty(bus, OEMSensorService,
-                                          OEMSensorPath + name, OEMSensorIntf,
+                                          OEMSensorPath + name, "xyz.openbmc_project.SlotConn.State",
+                                          PropertyPath, event_state);
+                    break;
+                default:
+                    return 1;
+                    break;
+            }
+        }
+        catch (std::exception& e)
+        {
+            log<level::ERR>(e.what());
+            return 1;
+        }
+    }
+    else if (sensorNumber == 0xF0)
+    {
+        std::string name = "ACPI_State";
+        try
+        {
+            switch (eventData[0])
+            {
+                case 0x00:
+                    event_state = "xyz.openbmc_project.Control.Power.ACPIPowerState.ACPI.S0_G0_D0";
+                    PropertyPath = "SysACPIStatus";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.Control.Power.ACPIPowerState",
+                                          PropertyPath, event_state);
+                    break;
+                case 0x05:
+                    event_state = "xyz.openbmc_project.Control.Power.ACPIPowerState.ACPI.S5_G2";
+                    PropertyPath = "SysACPIStatus";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.Control.Power.ACPIPowerState",
+                                          PropertyPath, event_state);
+                    break;
+                default:
+                    return 1;
+                    break;
+            }
+        }
+        catch (std::exception& e)
+        {
+            log<level::ERR>(e.what());
+            return 1;
+        }
+    }
+    else if (sensorNumber == 0xF3)
+    {
+        std::string name = "M2_Status";
+        try
+        {
+            switch (eventData[0])
+            {
+                case 0x00:
+                    event_state = "xyz.openbmc_project.SlotConn.State.DeviceState.installed";
+                    PropertyPath = "DeviceStatus";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.SlotConn.State",
+                                          PropertyPath, event_state);
+                    break;
+                case 0x01:
+                    event_state = "xyz.openbmc_project.SlotConn.State.DeviceState.None";
+                    PropertyPath = "DeviceStatus";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.SlotConn.State",
+                                          PropertyPath, event_state);
+                    break;
+                default:
+                    return 1;
+                    break;
+            }
+        }
+        catch (std::exception& e)
+        {
+            log<level::ERR>(e.what());
+            return 1;
+        }
+    }
+    else if (sensorNumber >= 0xF4 && sensorNumber <= 0xF6)
+    {
+        const auto name = "Riser_" + std::to_string((sensorNumber - 0xF4) + 1) + "_Status";
+
+        try
+        {
+            switch (eventData[0])
+            {
+                case 0x02:
+                    event_state = "xyz.openbmc_project.SlotConn.State.DeviceState.installed";
+                    PropertyPath = "DeviceStatus";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.SlotConn.State",
+                                          PropertyPath, event_state);
+                    break;
+                default:
+                    return 1;
+                    break;
+            }
+        }
+        catch (std::exception& e)
+        {
+            log<level::ERR>(e.what());
+            return 1;
+        }
+    }
+    else if (sensorNumber == 0xF7)
+    {
+        std::string name = "NCSI_Cable";
+        try
+        {
+            switch (eventData[0])
+            {
+                case 0x00:
+                    event_state = "xyz.openbmc_project.Cable.State.CableState.ok";
+                    PropertyPath = "state";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.Cable.State",
+                                          PropertyPath, event_state);
+                    break;
+                case 0x01:
+                    event_state = "xyz.openbmc_project.Cable.State.CableState.error";
+                    PropertyPath = "state";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.Cable.State",
+                                          PropertyPath, event_state);
+                    break;
+                default:
+                    return 1;
+                    break;
+            }
+        }
+        catch (std::exception& e)
+        {
+            log<level::ERR>(e.what());
+            return 1;
+        }
+    }
+    else if (sensorNumber == 0xF8)
+    {
+        std::string name = "UPI_Error";
+        try
+        {
+            switch (eventData[0])
+            {
+                case 0x05:
+                    PropertyPath = "Configuration_Error";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.Cpu.CpuErr",
                                           PropertyPath, true);
                     break;
                 default:
@@ -798,16 +1071,67 @@ uint8_t LenovoSetSensorProperty(uint8_t sensorNumber,
     }
     else if (sensorNumber == 0xF9)
     {
-        std::string name = "UPI_Error";
+        std::string name = "FPGA_Corrupt";
         try
         {
             switch (eventData[0])
             {
-                case 0x05:
-                    PropertyPath = "Offset_5";
+                case 0x00:
+                    event_state = "xyz.openbmc_project.State.Boot.Progress.PostError.Unspecified";
+                    PropertyPath = "SysFirmwareErr";
                     ipmi::setDbusProperty(bus, OEMSensorService,
-                                          OEMSensorPath + name, OEMSensorIntf,
-                                          PropertyPath, true);
+                                          OEMSensorPath + name, "xyz.openbmc_project.State.Boot.Progress",
+                                          PropertyPath, event_state);
+                    break;
+                default:
+                    return 1;
+                    break;
+            }
+        }
+        catch (std::exception& e)
+        {
+            log<level::ERR>(e.what());
+            return 1;
+        }
+    }
+    else if (sensorNumber == 0xFA)
+    {
+        std::string name = "UEFI_Corrupt";
+        try
+        {
+            switch (eventData[0])
+            {
+                case 0x00:
+                    event_state = "xyz.openbmc_project.State.Boot.Progress.PostError.RomCorruption";
+                    PropertyPath = "SysFirmwareErr";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.State.Boot.Progress",
+                                          PropertyPath, event_state);
+                    break;
+                default:
+                    return 1;
+                    break;
+            }
+        }
+        catch (std::exception& e)
+        {
+            log<level::ERR>(e.what());
+            return 1;
+        }
+    }
+    else if (sensorNumber == 0xFB)
+    {
+        std::string name = "NVRAM_Corrupt";
+        try
+        {
+            switch (eventData[0])
+            {
+                case 0x00:
+                    event_state = "xyz.openbmc_project.State.Boot.Progress.PostError.Unspecified";
+                    PropertyPath = "SysFirmwareErr";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.State.Boot.Progress",
+                                          PropertyPath, event_state);
                     break;
                 default:
                     return 1;
@@ -822,39 +1146,15 @@ uint8_t LenovoSetSensorProperty(uint8_t sensorNumber,
     }
     else if (sensorNumber == 0xFC)
     {
-        std::string name = "NVRAM_Corrupt";
-        try
-        {
-            switch (eventData[0])
-            {
-                case 0x00:
-                    PropertyPath = "Offset_0";
-                    ipmi::setDbusProperty(bus, OEMSensorService,
-                                          OEMSensorPath + name, OEMSensorIntf,
-                                          PropertyPath, true);
-                    break;
-                default:
-                    return 1;
-                    break;
-            }
-        }
-        catch (std::exception& e)
-        {
-            log<level::ERR>(e.what());
-            return 1;
-        }
-    }
-    else if (sensorNumber == 0xFD)
-    {
         std::string name = "CPU_Exception";
         try
         {
             switch (eventData[0])
             {
                 case 0x01:
-                    PropertyPath = "Offset_1";
+                    PropertyPath = "SysFirmwareHang";
                     ipmi::setDbusProperty(bus, OEMSensorService,
-                                          OEMSensorPath + name, OEMSensorIntf,
+                                          OEMSensorPath + name, "xyz.openbmc_project.State.Boot.Progress",
                                           PropertyPath, true);
                     break;
                 default:

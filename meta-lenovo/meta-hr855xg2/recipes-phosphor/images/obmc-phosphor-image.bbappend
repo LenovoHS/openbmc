@@ -21,6 +21,7 @@ OBMC_IMAGE_EXTRA_INSTALL_append_hr855xg2 = " lenovo-pwr-sequence \
                                              lenovo-sensors \
                                              lenovo-acpi-state \
                                              usb-lan \
+                                             hr855xg2-fpga-util \
                                            "
                                            
 #IMAGE_FEATURES_remove_hr855xg2 = " ssh-server-dropbear"

@@ -2217,7 +2217,7 @@
             assert: true
             deassert: false
             type: bool
-    xyz.openbmc_project.Inventory.Item.Cpu:
+    xyz.openbmc_project.Cpu.CpuErr:
       Thermal_Trip:
         Offsets:
           1:
@@ -2236,8 +2236,26 @@
             assert: true
             deassert: false
             type: bool
+      Processor_Auto_Throttled:
+        Offsets:
+          10:
+            assert: true
+            deassert: false
+            type: bool
+      MC_Exception:
+        Offsets:
+          11:
+            assert: true
+            deassert: false
+            type: bool
+      MCERR:
+        Offsets:
+          12:
+            assert: true
+            deassert: false
+            type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU0_Status
+  path: /xyz/openbmc_project/OEMSensor/CPU0_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2255,7 +2273,7 @@
             assert: true
             deassert: false
             type: bool
-    xyz.openbmc_project.Inventory.Item.Cpu:
+    xyz.openbmc_project.Cpu.CpuErr:
       Thermal_Trip:
         Offsets:
           1:
@@ -2274,8 +2292,26 @@
             assert: true
             deassert: false
             type: bool
+      Processor_Auto_Throttled:
+        Offsets:
+          10:
+            assert: true
+            deassert: false
+            type: bool
+      MC_Exception:
+        Offsets:
+          11:
+            assert: true
+            deassert: false
+            type: bool
+      MCERR:
+        Offsets:
+          12:
+            assert: true
+            deassert: false
+            type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU1_Status
+  path: /xyz/openbmc_project/OEMSensor/CPU1_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2293,7 +2329,7 @@
             assert: true
             deassert: false
             type: bool
-    xyz.openbmc_project.Inventory.Item.Cpu:
+    xyz.openbmc_project.Cpu.CpuErr:
       Thermal_Trip:
         Offsets:
           1:
@@ -2312,8 +2348,26 @@
             assert: true
             deassert: false
             type: bool
+      Processor_Auto_Throttled:
+        Offsets:
+          10:
+            assert: true
+            deassert: false
+            type: bool
+      MC_Exception:
+        Offsets:
+          11:
+            assert: true
+            deassert: false
+            type: bool
+      MCERR:
+        Offsets:
+          12:
+            assert: true
+            deassert: false
+            type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU2_Status
+  path: /xyz/openbmc_project/OEMSensor/CPU2_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2331,7 +2385,7 @@
             assert: true
             deassert: false
             type: bool
-    xyz.openbmc_project.Inventory.Item.Cpu:
+    xyz.openbmc_project.Cpu.CpuErr:
       Thermal_Trip:
         Offsets:
           1:
@@ -2350,8 +2404,26 @@
             assert: true
             deassert: false
             type: bool
+      Processor_Auto_Throttled:
+        Offsets:
+          10:
+            assert: true
+            deassert: false
+            type: bool
+      MC_Exception:
+        Offsets:
+          11:
+            assert: true
+            deassert: false
+            type: bool
+      MCERR:
+        Offsets:
+          12:
+            assert: true
+            deassert: false
+            type: bool
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/CPU3_Status
+  path: /xyz/openbmc_project/OEMSensor/CPU3_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2362,8 +2434,8 @@
   entityID: 3
   entityInstance: 1
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_1:
+    xyz.openbmc_project.Cpu.CpuErr:
+      IERR:
         Offsets:
           1:
             assert: true
@@ -2381,8 +2453,8 @@
   entityID: 3
   entityInstance: 2
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_1:
+    xyz.openbmc_project.Cpu.CpuErr:
+      MCERR:
         Offsets:
           1:
             assert: true
@@ -2423,7 +2495,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM0_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM0_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2457,7 +2529,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM1_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM1_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2491,7 +2563,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM2_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM2_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2525,7 +2597,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM3_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM3_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2559,7 +2631,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM4_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM4_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2593,7 +2665,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM5_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM5_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2627,7 +2699,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM6_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM6_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2661,7 +2733,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM7_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM7_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2695,7 +2767,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM8_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM8_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2729,7 +2801,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM9_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM9_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2763,7 +2835,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM10_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM10_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2797,7 +2869,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM11_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM11_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2831,7 +2903,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM12_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM12_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2865,7 +2937,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM13_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM13_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2899,7 +2971,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM14_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM14_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2933,7 +3005,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM15_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM15_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -2967,7 +3039,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM16_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM16_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3001,7 +3073,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM17_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM17_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3035,7 +3107,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM18_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM18_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3069,7 +3141,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM19_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM19_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3103,7 +3175,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM20_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM20_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3137,7 +3209,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM21_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM21_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3171,7 +3243,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM22_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM22_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3205,7 +3277,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM23_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM23_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3239,7 +3311,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM24_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM24_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3273,7 +3345,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM25_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM25_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3307,7 +3379,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM26_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM26_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3341,7 +3413,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM27_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM27_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3375,7 +3447,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM28_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM28_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3409,7 +3481,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM29_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM29_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3443,7 +3515,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM30_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM30_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3477,7 +3549,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM31_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM31_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3511,7 +3583,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM32_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM32_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3545,7 +3617,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM33_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM33_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3579,7 +3651,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM34_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM34_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3613,7 +3685,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM35_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM35_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3647,7 +3719,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM36_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM36_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3681,7 +3753,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM37_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM37_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3715,7 +3787,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM38_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM38_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3749,7 +3821,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM39_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM39_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3783,7 +3855,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM40_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM40_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3817,7 +3889,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM41_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM41_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3851,7 +3923,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM42_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM42_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3885,7 +3957,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM43_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM43_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3919,7 +3991,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM44_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM44_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3953,7 +4025,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM45_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM45_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -3987,7 +4059,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM46_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM46_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4021,7 +4093,7 @@
             assert: xyz.openbmc_project.Memory.MemoryECC.ECCStatus.UE
             type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/inventory/system/chassis/motherboard/DIMM47_Status
+  path: /xyz/openbmc_project/OEMSensor/DIMM47_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4052,49 +4124,33 @@
   entityID: 49
   entityInstance: 1
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_4:
-        Offsets:
-          4:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_5:
-        Offsets:
-          5:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_7:
-        Offsets:
-          7:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_8:
-        Offsets:
-          8:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_10:
-        Offsets:
-          10:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_11:
-        Offsets:
-          11:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_15:
+    xyz.openbmc_project.PCIeDevice.PCIErr:
+      LastBootFail:
         Offsets:
           15:
             assert: true
             deassert: false
             type: bool
+      PCIStatus:
+        Offsets:
+          4:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.PERR
+            type: string
+          5:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.SERR
+            type: string
+          7:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.CE
+            type: string
+          8:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.UE
+            type: string
+          10:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.FE
+            type: string
+          11:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.Degraded
+            type: string
   mutability: Mutability::Write|Mutability::Read
   path: /xyz/openbmc_project/OEMSensor/PE1S1_Bus_Status
   readingType: assertion
@@ -4107,49 +4163,33 @@
   entityID: 49
   entityInstance: 2
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_4:
-        Offsets:
-          4:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_5:
-        Offsets:
-          5:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_7:
-        Offsets:
-          7:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_8:
-        Offsets:
-          8:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_10:
-        Offsets:
-          10:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_11:
-        Offsets:
-          11:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_15:
+    xyz.openbmc_project.PCIeDevice.PCIErr:
+      LastBootFail:
         Offsets:
           15:
             assert: true
             deassert: false
             type: bool
+      PCIStatus:
+        Offsets:
+          4:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.PERR
+            type: string
+          5:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.SERR
+            type: string
+          7:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.CE
+            type: string
+          8:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.UE
+            type: string
+          10:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.FE
+            type: string
+          11:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.Degraded
+            type: string
   mutability: Mutability::Write|Mutability::Read
   path: /xyz/openbmc_project/OEMSensor/PE1S2_Bus_Status
   readingType: assertion
@@ -4162,49 +4202,33 @@
   entityID: 49
   entityInstance: 3
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_4:
-        Offsets:
-          4:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_5:
-        Offsets:
-          5:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_7:
-        Offsets:
-          7:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_8:
-        Offsets:
-          8:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_10:
-        Offsets:
-          10:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_11:
-        Offsets:
-          11:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_15:
+    xyz.openbmc_project.PCIeDevice.PCIErr:
+      LastBootFail:
         Offsets:
           15:
             assert: true
             deassert: false
             type: bool
+      PCIStatus:
+        Offsets:
+          4:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.PERR
+            type: string
+          5:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.SERR
+            type: string
+          7:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.CE
+            type: string
+          8:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.UE
+            type: string
+          10:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.FE
+            type: string
+          11:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.Degraded
+            type: string
   mutability: Mutability::Write|Mutability::Read
   path: /xyz/openbmc_project/OEMSensor/PE1S3_Bus_Status
   readingType: assertion
@@ -4217,49 +4241,33 @@
   entityID: 49
   entityInstance: 4
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_4:
-        Offsets:
-          4:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_5:
-        Offsets:
-          5:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_7:
-        Offsets:
-          7:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_8:
-        Offsets:
-          8:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_10:
-        Offsets:
-          10:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_11:
-        Offsets:
-          11:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_15:
+    xyz.openbmc_project.PCIeDevice.PCIErr:
+      LastBootFail:
         Offsets:
           15:
             assert: true
             deassert: false
             type: bool
+      PCIStatus:
+        Offsets:
+          4:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.PERR
+            type: string
+          5:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.SERR
+            type: string
+          7:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.CE
+            type: string
+          8:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.UE
+            type: string
+          10:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.FE
+            type: string
+          11:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.Degraded
+            type: string
   mutability: Mutability::Write|Mutability::Read
   path: /xyz/openbmc_project/OEMSensor/PE1S4_Bus_Status
   readingType: assertion
@@ -4272,49 +4280,33 @@
   entityID: 49
   entityInstance: 5
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_4:
-        Offsets:
-          4:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_5:
-        Offsets:
-          5:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_7:
-        Offsets:
-          7:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_8:
-        Offsets:
-          8:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_10:
-        Offsets:
-          10:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_11:
-        Offsets:
-          11:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_15:
+    xyz.openbmc_project.PCIeDevice.PCIErr:
+      LastBootFail:
         Offsets:
           15:
             assert: true
             deassert: false
             type: bool
+      PCIStatus:
+        Offsets:
+          4:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.PERR
+            type: string
+          5:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.SERR
+            type: string
+          7:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.CE
+            type: string
+          8:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.UE
+            type: string
+          10:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.FE
+            type: string
+          11:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.Degraded
+            type: string
   mutability: Mutability::Write|Mutability::Read
   path: /xyz/openbmc_project/OEMSensor/PE1S5_Bus_Status
   readingType: assertion
@@ -4327,49 +4319,33 @@
   entityID: 49
   entityInstance: 6
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_4:
-        Offsets:
-          4:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_5:
-        Offsets:
-          5:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_7:
-        Offsets:
-          7:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_8:
-        Offsets:
-          8:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_10:
-        Offsets:
-          10:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_11:
-        Offsets:
-          11:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_15:
+    xyz.openbmc_project.PCIeDevice.PCIErr:
+      LastBootFail:
         Offsets:
           15:
             assert: true
             deassert: false
             type: bool
+      PCIStatus:
+        Offsets:
+          4:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.PERR
+            type: string
+          5:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.SERR
+            type: string
+          7:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.CE
+            type: string
+          8:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.UE
+            type: string
+          10:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.FE
+            type: string
+          11:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.Degraded
+            type: string
   mutability: Mutability::Write|Mutability::Read
   path: /xyz/openbmc_project/OEMSensor/PE2S1_Bus_Status
   readingType: assertion
@@ -4382,49 +4358,33 @@
   entityID: 49
   entityInstance: 7
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_4:
-        Offsets:
-          4:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_5:
-        Offsets:
-          5:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_7:
-        Offsets:
-          7:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_8:
-        Offsets:
-          8:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_10:
-        Offsets:
-          10:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_11:
-        Offsets:
-          11:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_15:
+    xyz.openbmc_project.PCIeDevice.PCIErr:
+      LastBootFail:
         Offsets:
           15:
             assert: true
             deassert: false
             type: bool
+      PCIStatus:
+        Offsets:
+          4:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.PERR
+            type: string
+          5:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.SERR
+            type: string
+          7:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.CE
+            type: string
+          8:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.UE
+            type: string
+          10:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.FE
+            type: string
+          11:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.Degraded
+            type: string
   mutability: Mutability::Write|Mutability::Read
   path: /xyz/openbmc_project/OEMSensor/PE2S2_Bus_Status
   readingType: assertion
@@ -4437,49 +4397,33 @@
   entityID: 49
   entityInstance: 8
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_4:
-        Offsets:
-          4:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_5:
-        Offsets:
-          5:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_7:
-        Offsets:
-          7:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_8:
-        Offsets:
-          8:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_10:
-        Offsets:
-          10:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_11:
-        Offsets:
-          11:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_15:
+    xyz.openbmc_project.PCIeDevice.PCIErr:
+      LastBootFail:
         Offsets:
           15:
             assert: true
             deassert: false
             type: bool
+      PCIStatus:
+        Offsets:
+          4:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.PERR
+            type: string
+          5:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.SERR
+            type: string
+          7:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.CE
+            type: string
+          8:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.UE
+            type: string
+          10:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.FE
+            type: string
+          11:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.Degraded
+            type: string
   mutability: Mutability::Write|Mutability::Read
   path: /xyz/openbmc_project/OEMSensor/PE2S3_Bus_Status
   readingType: assertion
@@ -4492,49 +4436,33 @@
   entityID: 49
   entityInstance: 9
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_4:
-        Offsets:
-          4:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_5:
-        Offsets:
-          5:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_7:
-        Offsets:
-          7:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_8:
-        Offsets:
-          8:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_10:
-        Offsets:
-          10:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_11:
-        Offsets:
-          11:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_15:
+    xyz.openbmc_project.PCIeDevice.PCIErr:
+      LastBootFail:
         Offsets:
           15:
             assert: true
             deassert: false
             type: bool
+      PCIStatus:
+        Offsets:
+          4:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.PERR
+            type: string
+          5:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.SERR
+            type: string
+          7:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.CE
+            type: string
+          8:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.UE
+            type: string
+          10:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.FE
+            type: string
+          11:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.Degraded
+            type: string
   mutability: Mutability::Write|Mutability::Read
   path: /xyz/openbmc_project/OEMSensor/PE2S4_Bus_Status
   readingType: assertion
@@ -4547,49 +4475,33 @@
   entityID: 49
   entityInstance: 10
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_4:
-        Offsets:
-          4:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_5:
-        Offsets:
-          5:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_7:
-        Offsets:
-          7:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_8:
-        Offsets:
-          8:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_10:
-        Offsets:
-          10:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_11:
-        Offsets:
-          11:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_15:
+    xyz.openbmc_project.PCIeDevice.PCIErr:
+      LastBootFail:
         Offsets:
           15:
             assert: true
             deassert: false
             type: bool
+      PCIStatus:
+        Offsets:
+          4:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.PERR
+            type: string
+          5:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.SERR
+            type: string
+          7:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.CE
+            type: string
+          8:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.UE
+            type: string
+          10:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.FE
+            type: string
+          11:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.Degraded
+            type: string
   mutability: Mutability::Write|Mutability::Read
   path: /xyz/openbmc_project/OEMSensor/PE2S5_Bus_Status
   readingType: assertion
@@ -4602,49 +4514,33 @@
   entityID: 49
   entityInstance: 11
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_4:
-        Offsets:
-          4:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_5:
-        Offsets:
-          5:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_7:
-        Offsets:
-          7:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_8:
-        Offsets:
-          8:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_10:
-        Offsets:
-          10:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_11:
-        Offsets:
-          11:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_15:
+    xyz.openbmc_project.PCIeDevice.PCIErr:
+      LastBootFail:
         Offsets:
           15:
             assert: true
             deassert: false
             type: bool
+      PCIStatus:
+        Offsets:
+          4:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.PERR
+            type: string
+          5:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.SERR
+            type: string
+          7:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.CE
+            type: string
+          8:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.UE
+            type: string
+          10:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.FE
+            type: string
+          11:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.Degraded
+            type: string
   mutability: Mutability::Write|Mutability::Read
   path: /xyz/openbmc_project/OEMSensor/PE3S1_Bus_Status
   readingType: assertion
@@ -4657,49 +4553,33 @@
   entityID: 49
   entityInstance: 12
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_4:
-        Offsets:
-          4:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_5:
-        Offsets:
-          5:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_7:
-        Offsets:
-          7:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_8:
-        Offsets:
-          8:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_10:
-        Offsets:
-          10:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_11:
-        Offsets:
-          11:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_15:
+    xyz.openbmc_project.PCIeDevice.PCIErr:
+      LastBootFail:
         Offsets:
           15:
             assert: true
             deassert: false
             type: bool
+      PCIStatus:
+        Offsets:
+          4:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.PERR
+            type: string
+          5:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.PCIState.SERR
+            type: string
+          7:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.CE
+            type: string
+          8:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.UE
+            type: string
+          10:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.FE
+            type: string
+          11:
+            assert: xyz.openbmc_project.PCIeDevice.PCIErr.BusState.Degraded
+            type: string
   mutability: Mutability::Write|Mutability::Read
   path: /xyz/openbmc_project/OEMSensor/PE3S2_Bus_Status
   readingType: assertion
@@ -4712,15 +4592,14 @@
   entityID: 49
   entityInstance: 1
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_2:
+    xyz.openbmc_project.SlotConn.State:
+      DeviceStatus:
         Offsets:
           2:
-            assert: true
-            deassert: false
-            type: bool
+            assert: xyz.openbmc_project.SlotConn.State.DeviceState.installed
+            type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE1S1_Status
+  path: /xyz/openbmc_project/OEMSensor/PE1S1_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4731,15 +4610,14 @@
   entityID: 49
   entityInstance: 2
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_2:
+    xyz.openbmc_project.SlotConn.State:
+      DeviceStatus:
         Offsets:
           2:
-            assert: true
-            deassert: false
-            type: bool
+            assert: xyz.openbmc_project.SlotConn.State.DeviceState.installed
+            type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE1S2_Status
+  path: /xyz/openbmc_project/OEMSensor/PE1S2_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4750,15 +4628,14 @@
   entityID: 49
   entityInstance: 3
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_2:
+    xyz.openbmc_project.SlotConn.State:
+      DeviceStatus:
         Offsets:
           2:
-            assert: true
-            deassert: false
-            type: bool
+            assert: xyz.openbmc_project.SlotConn.State.DeviceState.installed
+            type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE1S3_Status
+  path: /xyz/openbmc_project/OEMSensor/PE1S3_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4769,15 +4646,14 @@
   entityID: 49
   entityInstance: 4
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_2:
+    xyz.openbmc_project.SlotConn.State:
+      DeviceStatus:
         Offsets:
           2:
-            assert: true
-            deassert: false
-            type: bool
+            assert: xyz.openbmc_project.SlotConn.State.DeviceState.installed
+            type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE1S4_Status
+  path: /xyz/openbmc_project/OEMSensor/PE1S4_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4788,15 +4664,14 @@
   entityID: 49
   entityInstance: 5
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_2:
+    xyz.openbmc_project.SlotConn.State:
+      DeviceStatus:
         Offsets:
           2:
-            assert: true
-            deassert: false
-            type: bool
+            assert: xyz.openbmc_project.SlotConn.State.DeviceState.installed
+            type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE1S5_Status
+  path: /xyz/openbmc_project/OEMSensor/PE1S5_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4807,15 +4682,14 @@
   entityID: 49
   entityInstance: 6
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_2:
+    xyz.openbmc_project.SlotConn.State:
+      DeviceStatus:
         Offsets:
           2:
-            assert: true
-            deassert: false
-            type: bool
+            assert: xyz.openbmc_project.SlotConn.State.DeviceState.installed
+            type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE2S1_Status
+  path: /xyz/openbmc_project/OEMSensor/PE2S1_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4826,15 +4700,14 @@
   entityID: 49
   entityInstance: 7
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_2:
+    xyz.openbmc_project.SlotConn.State:
+      DeviceStatus:
         Offsets:
           2:
-            assert: true
-            deassert: false
-            type: bool
+            assert: xyz.openbmc_project.SlotConn.State.DeviceState.installed
+            type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE2S2_Status
+  path: /xyz/openbmc_project/OEMSensor/PE2S2_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4845,15 +4718,14 @@
   entityID: 49
   entityInstance: 8
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_2:
+    xyz.openbmc_project.SlotConn.State:
+      DeviceStatus:
         Offsets:
           2:
-            assert: true
-            deassert: false
-            type: bool
+            assert: xyz.openbmc_project.SlotConn.State.DeviceState.installed
+            type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE2S3_Status
+  path: /xyz/openbmc_project/OEMSensor/PE2S3_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4864,15 +4736,14 @@
   entityID: 49
   entityInstance: 9
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_2:
+    xyz.openbmc_project.SlotConn.State:
+      DeviceStatus:
         Offsets:
           2:
-            assert: true
-            deassert: false
-            type: bool
+            assert: xyz.openbmc_project.SlotConn.State.DeviceState.installed
+            type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE2S4_Status
+  path: /xyz/openbmc_project/OEMSensor/PE2S4_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4883,15 +4754,14 @@
   entityID: 49
   entityInstance: 10
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_2:
+    xyz.openbmc_project.SlotConn.State:
+      DeviceStatus:
         Offsets:
           2:
-            assert: true
-            deassert: false
-            type: bool
+            assert: xyz.openbmc_project.SlotConn.State.DeviceState.installed
+            type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE2S5_Status
+  path: /xyz/openbmc_project/OEMSensor/PE2S5_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4902,15 +4772,14 @@
   entityID: 49
   entityInstance: 11
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_2:
+    xyz.openbmc_project.SlotConn.State:
+      DeviceStatus:
         Offsets:
           2:
-            assert: true
-            deassert: false
-            type: bool
+            assert: xyz.openbmc_project.SlotConn.State.DeviceState.installed
+            type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE3S1_Status
+  path: /xyz/openbmc_project/OEMSensor/PE3S1_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -4921,15 +4790,14 @@
   entityID: 49
   entityInstance: 12
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_2:
+    xyz.openbmc_project.SlotConn.State:
+      DeviceStatus:
         Offsets:
           2:
-            assert: true
-            deassert: false
-            type: bool
+            assert: xyz.openbmc_project.SlotConn.State.DeviceState.installed
+            type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/PE3S2_Status
+  path: /xyz/openbmc_project/OEMSensor/PE3S2_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -5023,21 +4891,17 @@
   entityID: 11
   entityInstance: 1
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_0:
+    xyz.openbmc_project.SlotConn.State:
+      DeviceStatus:
         Offsets:
           0:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_1:
-        Offsets:
+            assert: xyz.openbmc_project.SlotConn.State.DeviceState.installed
+            type: string
           1:
-            assert: true
-            deassert: false
-            type: bool
+            assert: xyz.openbmc_project.SlotConn.State.DeviceState.None
+            type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/M2_Status
+  path: /xyz/openbmc_project/OEMSensor/M2_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -5048,15 +4912,14 @@
   entityID: 31
   entityInstance: 1
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_2:
+    xyz.openbmc_project.SlotConn.State:
+      DeviceStatus:
         Offsets:
           2:
-            assert: true
-            deassert: false
-            type: bool
+            assert: xyz.openbmc_project.SlotConn.State.DeviceState.installed
+            type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/Riser_1_Status
+  path: /xyz/openbmc_project/OEMSensor/Riser_1_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -5067,15 +4930,14 @@
   entityID: 31
   entityInstance: 2
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_2:
+    xyz.openbmc_project.SlotConn.State:
+      DeviceStatus:
         Offsets:
           2:
-            assert: true
-            deassert: false
-            type: bool
+            assert: xyz.openbmc_project.SlotConn.State.DeviceState.installed
+            type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/Riser_2_Status
+  path: /xyz/openbmc_project/OEMSensor/Riser_2_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -5086,15 +4948,14 @@
   entityID: 31
   entityInstance: 3
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_2:
+    xyz.openbmc_project.SlotConn.State:
+      DeviceStatus:
         Offsets:
           2:
-            assert: true
-            deassert: false
-            type: bool
+            assert: xyz.openbmc_project.SlotConn.State.DeviceState.installed
+            type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/Riser_3_Status
+  path: /xyz/openbmc_project/OEMSensor/Riser_3_Status
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -5105,21 +4966,17 @@
   entityID: 31
   entityInstance: 1
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_0:
+    xyz.openbmc_project.Cable.State:
+      state:
         Offsets:
           0:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_1:
-        Offsets:
+            assert: xyz.openbmc_project.Cable.State.CableState.ok
+            type: string
           1:
-            assert: true
-            deassert: false
-            type: bool
+            assert: xyz.openbmc_project.Cable.State.CableState.error
+            type: string
   mutability: Mutability::Write|Mutability::Read
-  path: /xyz/openbmc_project/FPGASensor/NCSI_Cable
+  path: /xyz/openbmc_project/OEMSensor/NCSI_Cable
   readingType: assertion
   sensorNamePattern: nameLeaf
   sensorReadingType: 111
@@ -5130,8 +4987,8 @@
   entityID: 3
   entityInstance: 1
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_5:
+    xyz.openbmc_project.Cpu.CpuErr:
+      Configuration_Error:
         Offsets:
           5:
             assert: true
@@ -5149,13 +5006,12 @@
   entityID: 34
   entityInstance: 1
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_0:
+    xyz.openbmc_project.State.Boot.Progress:
+      SysFirmwareErr:
         Offsets:
           0:
-            assert: true
-            deassert: false
-            type: bool
+            assert: xyz.openbmc_project.State.Boot.Progress.PostError.Unspecified
+            type: string
   mutability: Mutability::Write|Mutability::Read
   path: /xyz/openbmc_project/OEMSensor/FPGA_Corrupt
   readingType: assertion
@@ -5168,13 +5024,12 @@
   entityID: 34
   entityInstance: 1
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_0:
+    xyz.openbmc_project.State.Boot.Progress:
+      SysFirmwareErr:
         Offsets:
           0:
-            assert: true
-            deassert: false
-            type: bool
+            assert: xyz.openbmc_project.State.Boot.Progress.PostError.RomCorruption
+            type: string
   mutability: Mutability::Write|Mutability::Read
   path: /xyz/openbmc_project/OEMSensor/UEFI_Corrupt
   readingType: assertion
@@ -5187,13 +5042,12 @@
   entityID: 34
   entityInstance: 1
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_0:
+    xyz.openbmc_project.State.Boot.Progress:
+      SysFirmwareErr:
         Offsets:
           0:
-            assert: true
-            deassert: false
-            type: bool
+            assert: xyz.openbmc_project.State.Boot.Progress.PostError.Unspecified
+            type: string
   mutability: Mutability::Write|Mutability::Read
   path: /xyz/openbmc_project/OEMSensor/NVRAM_Corrupt
   readingType: assertion
@@ -5206,8 +5060,8 @@
   entityID: 34
   entityInstance: 1
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_1:
+    xyz.openbmc_project.State.Boot.Progress:
+      SysFirmwareHang:
         Offsets:
           1:
             assert: true
