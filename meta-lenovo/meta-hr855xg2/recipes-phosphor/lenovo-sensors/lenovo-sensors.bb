@@ -13,6 +13,7 @@ SRC_URI = "file://CMakeLists.txt \
            file://src/FPGASensorMain.cpp \
            file://src/OEMSensorMain.cpp \
            file://src/FPGASensor.cpp \
+           file://src/OEMSensor.cpp \
            file://src/Utils.cpp \
            file://service_files/xyz.openbmc_project.fpgasensor.service \
            file://service_files/xyz.openbmc_project.oemsensor.service \

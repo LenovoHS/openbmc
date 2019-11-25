@@ -47,7 +47,7 @@ huntergate (URL "https://github.com/ruslo/hunter/archive/v0.18.64.tar.gz" SHA1
 project (sensors CXX)
 
 set (FPGA_SRC_FILES src/Utils.cpp src/FPGASensor.cpp)
-set (OEM_SRC_FILES src/Utils.cpp)
+set (OEM_SRC_FILES src/Utils.cpp src/OEMSensor.cpp)
 
 set (EXTERNAL_PACKAGES Boost sdbusplus-project nlohmann-json)
 set (SENSOR_LINK_LIBS -lsystemd stdc++fs sdbusplus)

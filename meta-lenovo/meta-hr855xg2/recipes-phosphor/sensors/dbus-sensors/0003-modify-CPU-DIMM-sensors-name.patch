@@ -1,9 +1,8 @@
-diff -Nurd git/src/CPUSensorMain.cpp git_mod/src/CPUSensorMain.cpp
---- git/src/CPUSensorMain.cpp	2019-10-02 17:12:16.373615155 +0800
-+++ git_mod/src/CPUSensorMain.cpp	2019-10-02 17:16:10.611479607 +0800
-@@ -90,6 +90,58 @@
- constexpr auto IPMIPath = "/xyz/openbmc_project/Ipmi";
- constexpr auto IPMIIntf = "xyz.openbmc_project.Ipmi.Server";
+--- a/src/CPUSensorMain.cpp	2019-11-21 00:42:43.726902774 +0800
++++ b/src/CPUSensorMain.cpp	2019-11-21 00:45:35.569602311 +0800
+@@ -42,6 +42,58 @@
+ 
+ boost::container::flat_map<std::string, std::unique_ptr<CPUSensor>> gCpuSensors;
  
 +const std::map<std::string, std::string> g_DIMMmap =
 +{
@@ -57,16 +56,15 @@ diff -Nurd git/src/CPUSensorMain.cpp git_mod/src/CPUSensorMain.cpp
 +    { "DIMM F1 CPU4", "DIMM47"  }
 +};
 +
- uint8_t add_sel_event(const std::shared_ptr<sdbusplus::asio::connection>& bus, uint8_t snr_num, uint8_t snr_type,
-                       uint8_t ed1, uint8_t ed2, uint8_t ed3) 
+ enum State
  {
-@@ -313,8 +365,30 @@
-             std::string label;
+     OFF,  // host powered down
+@@ -263,7 +315,30 @@
              std::getline(labelFile, label);
              labelFile.close();
--
+ 
 -            std::string sensorName = label + " CPU" + std::to_string(cpuId);
-+            std::string sensorName; 
++            std::string sensorName;
 +            // Modify sensor name to "CPU[num]_Temp" & "DIMM[num]_Temp" for CPU/DIMM temps.
 +            if ( label.compare("Die") == 0 )
 +                sensorName = "CPU" + std::to_string(cpuId-1) + " Temp";
@@ -83,7 +81,7 @@ diff -Nurd git/src/CPUSensorMain.cpp git_mod/src/CPUSensorMain.cpp
 +                }
 +                else
 +                {
-+                    std::cerr << "DIMM " << temp_dimm_key << " not found in DIMM map list." << "\n"; 
++                    std::cerr << "DIMM " << temp_dimm_key << " not found in DIMM map list." << "\n";
 +                    std::cerr << "Use original label on DBUS. " << "\n";
 +                    sensorName = label + " CPU" + std::to_string(cpuId);
 +                }

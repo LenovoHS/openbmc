@@ -5,14 +5,14 @@
 #include <boost/container/flat_map.hpp>
 #include <filesystem>
 #include <fstream>
-#include <gpiod.hpp>
 #include <sdbusplus/asio/object_server.hpp>
+#include <string>
 
 struct OEMInfo
 {
     OEMInfo(const std::string& iface, const std::string& property,
             const std::string& ptype, const std::string& dfvalue) :
-        iface(iface), property(property), ptype(ptype), dfvalue(dfvalue)
+        iface(iface), property(property), ptype(ptype), dfvalue(dfvalue) 
     {
     }
     std::string iface;
@@ -28,14 +28,17 @@ struct OEMInfo
 
 struct OEMConfig
 {
-    OEMConfig(const uint8_t& snrnum, const uint8_t& snrtype,
-              const std::string& name, const std::vector<OEMInfo>& oeminfo) :
-        snrnum(snrnum), snrtype(snrtype), name(name), oeminfo(std::move(oeminfo))
+    OEMConfig(const uint8_t& snrnum, const uint8_t& snrtype, const std::string& name, 
+              const std::string& monitor, const std::string& exec, 
+              const std::vector<OEMInfo>& oeminfo) :
+        snrnum(snrnum), snrtype(snrtype), name(name), monitor(monitor), exec(exec), oeminfo(std::move(oeminfo))
     {
     }
     uint8_t snrnum;
     uint8_t snrtype;
     std::string name;
+    std::string monitor;
+    std::string exec;
     std::vector<OEMInfo> oeminfo;
 
     bool operator<(const OEMConfig& rhs) const
@@ -44,13 +47,24 @@ struct OEMConfig
     }
 };
 
-constexpr auto oemService = "org.openbmc.control.oem";
-constexpr auto oemRoot = "/org/openbmc/control/oem";
-constexpr auto oemInterface = "org.openbmc.control.oem";
-constexpr auto InventoryService = "xyz.openbmc_project.Inventory.Manager";
-constexpr auto InventoryPath = "/xyz/openbmc_project/inventory/system/chassis/motherboard/";
-constexpr auto InventoryItemIntf = "xyz.openbmc_project.Inventory.Item";
-constexpr auto PROP_INTF = "org.freedesktop.DBus.Properties";
-constexpr auto IPMIService = "xyz.openbmc_project.Ipmi.Host";
-constexpr auto IPMIPath = "/xyz/openbmc_project/Ipmi";
-constexpr auto IPMIIntf = "xyz.openbmc_project.Ipmi.Server";
+class OEMSensor
+{
+  public:
+    OEMSensor(boost::asio::io_service& io,
+               std::shared_ptr<sdbusplus::asio::connection>& conn,
+               OEMConfig & sensorconfig);
+    ~OEMSensor();
+
+    static constexpr unsigned int sensorPollMs = 2000;
+
+  private:
+    boost::asio::deadline_timer waitTimer;
+    std::shared_ptr<sdbusplus::asio::connection> mDbusConn;
+    OEMConfig mSnrConfig;
+
+    void setupRead(void);
+    void handleResponse(void);
+};
+
+extern boost::container::flat_map<std::string, std::unique_ptr<OEMSensor>>
+    gOemSensors;

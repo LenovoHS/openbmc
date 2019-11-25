@@ -41,6 +41,7 @@
 
 static constexpr bool DEBUG = false;
 
+boost::container::flat_map<std::string, std::unique_ptr<OEMSensor>> gOemSensors;
 namespace fs = std::filesystem;
 
 static constexpr const char* configPrefix =
@@ -113,6 +114,34 @@ bool getOemConfig(
                 uint64_t snrtype = std::visit(VariantToUnsignedIntVisitor(),
                                               findSnrType->second);
 
+                auto findMonitor = config.second.find("Monitor");
+                std::string monitor = "NA";
+                std::string exec = "NA";
+                if (findMonitor == config.second.end())
+                {
+                    std::cerr << "Can't find 'Monitor' setting in " << name << "\n";
+                    std::cerr << "Set 'Monitor' and 'Exec' as 'NA'" << "\n";
+                }
+                else
+                {
+                    monitor = std::visit(VariantToStringVisitor(), findMonitor->second);
+                    if (monitor == "oneshot" || monitor == "polling")
+                    {
+                        auto findExec = config.second.find("Exec");
+                        if (findExec == config.second.end())
+                        {
+                            std::cerr << "Can't find 'Exec' setting in " << name << "\n";
+                            continue;
+                        }
+                        exec = std::visit(VariantToStringVisitor(), findExec->second);
+                    }
+                    else
+                    {
+                        std::cerr << "Incorrect 'Monitor' setting in " << name << "\n";
+                        continue;
+                    }
+                }
+
                 std::vector<OEMInfo> oeminfoVector;
                 boost::container::flat_map<std::string, std::vector<OEMInfo>> ifaceList;
                 std::string OemIface = "";
@@ -147,13 +176,15 @@ bool getOemConfig(
 
                         if (DEBUG)
                         {
-                            std::cerr << "snrnum: " << snrnum << "\n";
-                            std::cerr << "snrtype: " << snrtype << "\n";
+                            std::cerr << "snrnum: " << static_cast<unsigned>(snrnum) << "\n";
+                            std::cerr << "snrtype: " << static_cast<unsigned>(snrtype) << "\n";
                             std::cerr << "name: " << name << "\n";
                             std::cerr << "iface: " << OemIface << "\n";
                             std::cerr << "property: " << OemProperty << "\n";
                             std::cerr << "ptype: " << OemPtype << "\n";
                             std::cerr << "dfvalue: " << OemDfvalue << "\n";
+                            std::cerr << "monitor: " << monitor << "\n";
+                            std::cerr << "exec: " << exec << "\n";
                             std::cerr << "type: " << type << "\n";
                         }
 
@@ -191,13 +222,39 @@ bool getOemConfig(
                                 iface->register_property(property, value,
                                                          sdbusplus::asio::PropertyPermission::readWrite);
                             }
+/*
+                            else if (oemsetting.ptype == "uint8_t")
+                            {
+                                uint8_t value = (uint8_t) oemsetting.dfvalue;
+                                iface->register_property(property, value,
+                                                         sdbusplus::asio::PropertyPermission::readWrite);
+                            }
+                            else if (oemsetting.ptype == "uint16_t")
+                            {
+                                uint16_t value = (uint16_t) oemsetting.dfvalue;
+                                iface->register_property(property, value,
+                                                         sdbusplus::asio::PropertyPermission::readWrite);
+                            }
+                            else if (oemsetting.ptype == "uint32_t")
+                            {
+                                uint32_t value = (uint32_t) oemsetting.dfvalue;
+                                iface->register_property(property, value,
+                                                         sdbusplus::asio::PropertyPermission::readWrite);
+                            }
+                            else if (oemsetting.ptype == "uint64_t")
+                            {
+                                uint64_t value = (uint64_t) oemsetting.dfvalue;
+                                iface->register_property(property, value,
+                                                         sdbusplus::asio::PropertyPermission::readWrite);
+                            }
+*/
                         }
                         iface->initialize();
                         sensorIfaces[ifacename] = std::move(iface);
                     }
                 }
 
-                oemConfigs.emplace(snrnum, snrtype, name, oeminfoVector);
+                oemConfigs.emplace(snrnum, snrtype, name, monitor, exec, oeminfoVector);
             }
         }
     }
@@ -213,6 +270,28 @@ bool getOemConfig(
 
     std::cerr << "oemConfigs is NULL\n";
     return false;
+}
+
+void detectOEMSensor(boost::asio::io_service& io,
+                     std::shared_ptr<sdbusplus::asio::connection>& systemBus,
+                     boost::container::flat_set<OEMConfig>& oemConfigs)
+{
+    for (auto& oemsensor : oemConfigs)
+    {
+        if (oemsensor.monitor != "NA")
+        {
+            gOemSensors[oemsensor.name] = std::make_unique<OEMSensor>(io, systemBus, oemsensor);
+        }
+    }
+
+    if (gOemSensors.size())
+    {
+        std::cerr << "Total number of OEM sensors for monitoring is " << oemConfigs.size() << "\n";
+    }
+    else
+    {
+        std::cerr << "No OEM sensors need to be monitored" << "\n";
+    }
 }
 
 int main()
@@ -231,8 +310,10 @@ int main()
                                std::shared_ptr<sdbusplus::asio::dbus_interface>>
         sensorIfaces;
 
-    getOemConfig(systemBus, oemConfigs, sensorConfigs, objectServer, sensorIfaces);
-
+    if (getOemConfig(systemBus, oemConfigs, sensorConfigs, objectServer, sensorIfaces))
+    {
+        detectOEMSensor(io, systemBus, oemConfigs);
+    }
     // callback to handle configuration change
     std::function<void(sdbusplus::message::message&)> eventHandler =
         [&](sdbusplus::message::message& message) {
@@ -242,8 +323,11 @@ int main()
                 return;
             }
 
-            std::cout << "rescan due to configuration change \n";
-            getOemConfig(systemBus, oemConfigs, sensorConfigs, objectServer, sensorIfaces);
+            std::cerr << "rescan due to configuration change \n";
+            if (getOemConfig(systemBus, oemConfigs, sensorConfigs, objectServer, sensorIfaces))
+            {
+                detectOEMSensor(io, systemBus, oemConfigs);
+            }
         };
 
     auto match = std::make_unique<sdbusplus::bus::match::match>(

@@ -1,7 +1,8 @@
 [Unit]
 Description=OEM Sensor
 StopWhenUnneeded=false
-After=logrotate.service xyz.openbmc_project.fpgasensor.service
+Requires=xyz.openbmc_project.EntityManager.service xyz.openbmc_project.Logging.IPMI.service phosphor-ipmi-host.service lenovo-pwr-sequence.service
+After=xyz.openbmc_project.EntityManager.service logrotate.service xyz.openbmc_project.Logging.IPMI.service phosphor-ipmi-host.service lenovo-pwr-sequence.service
 
 [Service]
 Restart=always
