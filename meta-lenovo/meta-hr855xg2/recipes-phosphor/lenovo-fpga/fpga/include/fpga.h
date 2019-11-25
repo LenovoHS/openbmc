@@ -467,6 +467,7 @@ struct fpga_global_data {
 	int fpga_read(fpga_cmd_t *cmd);
 
 	int altera_fpga_init(void);
+        int close_dev(int fd);
 
 	uint16_t fpga_block_to_addr( common_fpga_t *info, uint8_t block_id );
 	int fpga_transfer(spiInfo *info);
