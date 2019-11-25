@@ -1,0 +1,27 @@
+diff -Naur a/phosphor-dbus-interfaces/xyz/openbmc_project/Cable/State.interface.yaml b/phosphor-dbus-interfaces/xyz/openbmc_project/Cable/State.interface.yaml
+--- a/phosphor-dbus-interfaces/xyz/openbmc_project/Cable/State.interface.yaml	1970-01-01 08:00:00.000000000 +0800
++++ b/phosphor-dbus-interfaces/xyz/openbmc_project/Cable/State.interface.yaml	2019-11-22 14:37:01.725165864 +0800
+@@ -0,0 +1,23 @@
++description: >
++    Implement to provide Cable/Interconnect attributes.
++properties:
++    - name: state
++      type: enum[self.CableState]
++      default: None
++      description: >
++          The state is described in Cable status.
++
++enumerations:
++   - name: CableState
++     description: >
++       The operating device statuses.
++     values:
++       - name: None
++         description: >
++           There is nothing occurred.
++       - name: ok
++         description: >
++           Cable/Interconnect is connected.
++       - name: error
++         description: >
++           Configuration Error, incorrect Cable/Interconnect connected.

@@ -1,0 +1,71 @@
+diff -Naur a/phosphor-dbus-interfaces/xyz/openbmc_project/SlotConn/State.interface.yaml b/phosphor-dbus-interfaces/xyz/openbmc_project/SlotConn/State.interface.yaml
+--- a/phosphor-dbus-interfaces/xyz/openbmc_project/SlotConn/State.interface.yaml	1970-01-01 08:00:00.000000000 +0800
++++ b/phosphor-dbus-interfaces/xyz/openbmc_project/SlotConn/State.interface.yaml	2019-11-21 16:33:09.033757151 +0800
+@@ -0,0 +1,67 @@
++description: >
++    Implement to provide Slot/Connector attributes.
++properties:
++    - name: DeviceStatus
++      type: enum[self.DeviceState]
++      default: None
++      description: >
++          The state is described in Device status.
++
++    - name: SlotStatus
++      type: enum[self.SlotState]
++      default: None
++      description: >
++          The state is described in Slot status.
++
++    - name: fault
++      type: boolean
++      description: >
++          Whether or not the fault status is asserted.
++
++    - name: identify
++      type: boolean
++      description: >
++          Whether or not the identify status is asserted.
++
++    - name: interlock
++      type: boolean
++      description: >
++          Whether or not the interlock status is asserted.
++
++enumerations:
++   - name: DeviceState
++     description: >
++       The operating device statuses.
++     values:
++       - name: None
++         description: >
++           There is no error occurred.
++       - name: installed
++         description: >
++           Slot/Connector Device installed is detected.
++       - name: readyIn
++         description: >
++           Slot/Connector ready for Device Installation
++       - name: readyRm
++         description: >
++           Slot/Connector ready for Device Removal
++       - name: RmReq
++         description: >
++           Slot/Connector Device Removal Request
++
++   - name: SlotState
++     description: >
++       The operating slot statuses.
++     values:
++       - name: None
++         description: >
++           There is no error occurred.
++       - name: PowerOff
++         description: >
++           Slot power is off.
++       - name: Disable
++         description: >
++           Slot Disable.
++       - name: Spare
++         description: >
++           Slot holds spare device.

@@ -1,0 +1,73 @@
+diff -Naur a/phosphor-dbus-interfaces/xyz/openbmc_project/PCIeDevice/PCIErr.error.yaml b/phosphor-dbus-interfaces/xyz/openbmc_project/PCIeDevice/PCIErr.error.yaml
+--- a/phosphor-dbus-interfaces/xyz/openbmc_project/PCIeDevice/PCIErr.error.yaml	1970-01-01 08:00:00.000000000 +0800
++++ b/phosphor-dbus-interfaces/xyz/openbmc_project/PCIeDevice/PCIErr.error.yaml	2019-11-21 14:59:05.592462077 +0800
+@@ -0,0 +1,8 @@
++- name: PCIStatus
++  description: PCI PERR/SERR
++
++- name: BusStatus
++  description: Bus Correct/Uncorrect/Fatal/Degraded Error
++
++- name: LastBootFail
++  description: PCI Last Boot Fail is triggered
+diff -Naur a/phosphor-dbus-interfaces/xyz/openbmc_project/PCIeDevice/PCIErr.interface.yaml b/phosphor-dbus-interfaces/xyz/openbmc_project/PCIeDevice/PCIErr.interface.yaml
+--- a/phosphor-dbus-interfaces/xyz/openbmc_project/PCIeDevice/PCIErr.interface.yaml	1970-01-01 08:00:00.000000000 +0800
++++ b/phosphor-dbus-interfaces/xyz/openbmc_project/PCIeDevice/PCIErr.interface.yaml	2019-11-21 14:56:12.529807412 +0800
+@@ -0,0 +1,57 @@
++description: >
++    Implement to provide PCIe attributes.
++properties:
++    - name: PCIStatus
++      type: enum[self.PCIState]
++      default: ok
++      description: >
++          The state is described in PCI status.
++
++    - name: BusStatus
++      type: enum[self.BusState]
++      default: ok
++      description: >
++          The state is described in Bus status.
++
++    - name: LastBoot
++      type: boolean
++      description: >
++          Whether or not the Last Boot failure is triggered.
++
++enumerations:
++   - name: PCIState
++     description: >
++       The operating pci statuses.
++     values:
++       - name: ok
++         description: >
++           There is no error occurred.
++       - name: PERR
++         description: >
++           PCI PERR detected.
++       - name: SERR
++         description: >
++           PCI SERR detected.
++
++   - name: BusState
++     description: >
++       The operating bus statuses.
++     values:
++       - name: ok
++         description: >
++           There is no error occurred.
++       - name: TimeOut
++         description: >
++           Bus Timeout detected.
++       - name: CE
++         description: >
++           Bus Correct Error detected.
++       - name: UE
++         description: >
++           Bus Uncorrect Error detected.
++       - name: FE
++         description: >
++           Bus Fatal Error detected.
++       - name: Degraded
++         description: >
++           Bus operating in degraded performance state is detected.

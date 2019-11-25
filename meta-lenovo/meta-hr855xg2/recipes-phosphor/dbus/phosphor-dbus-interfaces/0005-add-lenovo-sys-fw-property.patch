@@ -1,0 +1,48 @@
+diff -Naur a/xyz/openbmc_project/State/Boot/Progress.interface.yaml b/xyz/openbmc_project/State/Boot/Progress.interface.yaml
+--- a/xyz/openbmc_project/State/Boot/Progress.interface.yaml	2019-11-21 14:05:02.445370825 +0800
++++ b/xyz/openbmc_project/State/Boot/Progress.interface.yaml	2019-11-22 16:15:51.295736557 +0800
+@@ -8,6 +8,17 @@
+       description: >
+         Current boot progress
+ 
++    - name: SysFirmwareErr
++      type: enum[self.PostError]
++      default: None
++      description: >
++        System Firmware Error
++
++    - name: SysFirmwareHang
++      type: boolean
++      description: >
++          Whether or not System Firmware Hang.
++
+ enumerations:
+    - name: ProgressStages
+      description: >
+@@ -31,3 +42,26 @@
+        - name: MotherboardInit
+          description: >
+            Motherboard/Basebord Initialization.
++
++   - name: PostError
++     description: >
++       The system firmware error is asserted.
++     values:
++       - name: None
++         description: >
++           There is no system firmware error.
++       - name: Unspecified
++         description: >
++           Unknown error.
++       - name: NoPhyicalMemory
++         description: >
++           No physical memroy is installed
++       - name: NoUsableMemory
++         description: >
++           No usable memory
++       - name: BoardFailure
++         description: >
++           Unrecoverable system board failure
++       - name: RomCorruption
++         description: >
++           Firmware ROM corruption
