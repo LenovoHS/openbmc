@@ -683,6 +683,12 @@ uint8_t LenovoSetSensorProperty(uint8_t sensorNumber,
                                           OEMSensorPath + name, "xyz.openbmc_project.Memory.MemoryECC",
                                           PropertyPath, event_state);
                     break;
+                case 0x04:
+                    PropertyPath = "Disabled";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.Memory.MemoryErr",
+                                          PropertyPath, true);
+                    break;
                 case 0x05:
                     PropertyPath = "isLoggingLimitReached";
                     ipmi::setDbusProperty(bus, OEMSensorService,

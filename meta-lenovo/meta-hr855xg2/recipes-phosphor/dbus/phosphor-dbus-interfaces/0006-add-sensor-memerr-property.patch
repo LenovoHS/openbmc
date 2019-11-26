@@ -1,0 +1,19 @@
+diff -Naur a/phosphor-dbus-interfaces/xyz/openbmc_project/Memory/MemoryErr.interface.yaml b/phosphor-dbus-interfaces/xyz/openbmc_project/Memory/MemoryErr.interface.yaml
+--- a/phosphor-dbus-interfaces/xyz/openbmc_project/Memory/MemoryErr.interface.yaml	1970-01-01 08:00:00.000000000 +0800
++++ b/phosphor-dbus-interfaces/xyz/openbmc_project/Memory/MemoryErr.interface.yaml	2019-11-26 11:50:22.027433574 +0800
+@@ -0,0 +1,15 @@
++description: >
++    Implement to provide memory error attributes.
++properties:
++    - name: Disabled
++      type: boolean
++      description: >
++          Memory Device Disable.
++    - name: Configuration_Error
++      type: boolean
++      description: >
++          Whether or not the Configuration Error is triggered.
++    - name: Memory_Auto_Throttled
++      type: boolean
++      description: >
++          Whether or not the Memory Auto Throttled is triggered.

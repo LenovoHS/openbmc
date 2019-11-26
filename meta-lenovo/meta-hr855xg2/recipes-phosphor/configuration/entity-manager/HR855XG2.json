@@ -346,6 +346,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -372,6 +378,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -398,6 +410,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -424,6 +442,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -450,6 +474,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -476,6 +506,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -502,6 +538,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -528,6 +570,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -554,6 +602,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -580,6 +634,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -606,6 +666,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -632,6 +698,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -658,6 +730,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -684,6 +762,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -710,6 +794,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -736,6 +826,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -762,6 +858,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -788,6 +890,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -814,6 +922,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -840,6 +954,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -866,6 +986,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -892,6 +1018,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -918,6 +1050,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -944,6 +1082,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -970,6 +1114,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -996,6 +1146,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -1022,6 +1178,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -1048,6 +1210,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -1074,6 +1242,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -1100,6 +1274,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -1126,6 +1306,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -1152,6 +1338,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -1178,6 +1370,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -1204,6 +1402,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -1230,6 +1434,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -1256,6 +1466,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -1282,6 +1498,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -1308,6 +1530,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -1334,6 +1562,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -1360,6 +1594,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -1386,6 +1626,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -1412,6 +1658,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -1438,6 +1690,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -1464,6 +1722,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -1490,6 +1754,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -1516,6 +1786,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -1542,6 +1818,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"
@@ -1568,6 +1850,12 @@
                     "Property": "state",
                     "Ptype": "string",
                     "Dfvalue": "xyz.openbmc_project.Memory.MemoryECC.ECCStatus.ok"
+                },
+                {
+                    "Iface": "xyz.openbmc_project.Memory.MemoryErr",
+                    "Property": "Disabled",
+                    "Ptype": "bool",
+                    "Dfvalue": "0"
                 }
             ],
             "Type": "Oem"

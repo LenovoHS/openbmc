@@ -261,7 +261,6 @@ int main(int argc, char* argv[])
     auto argv_snr = options["snr"];
     if (argv_snr != ArgumentParser::empty_string)
     {
-        std::cerr << "argv_snr: " << argv_snr << "\n";
         uint8_t snr = 0;
         if (0 == argv_snr.find("0x", 0))
         {

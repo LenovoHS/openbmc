@@ -9,4 +9,5 @@ SRC_URI += "file://0001-add-lenovo-cpu-status-property.patch \
             file://0003-add-lenovo-slot-conn-property.patch \
             file://0004-add-lenovo-cable-property.patch \
             file://0005-add-lenovo-sys-fw-property.patch \
+            file://0006-add-sensor-memerr-property.patch \
            "
