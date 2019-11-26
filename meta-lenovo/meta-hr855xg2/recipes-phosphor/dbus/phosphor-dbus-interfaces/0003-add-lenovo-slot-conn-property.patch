@@ -1,6 +1,6 @@
-diff -Naur a/phosphor-dbus-interfaces/xyz/openbmc_project/SlotConn/State.interface.yaml b/phosphor-dbus-interfaces/xyz/openbmc_project/SlotConn/State.interface.yaml
---- a/phosphor-dbus-interfaces/xyz/openbmc_project/SlotConn/State.interface.yaml	1970-01-01 08:00:00.000000000 +0800
-+++ b/phosphor-dbus-interfaces/xyz/openbmc_project/SlotConn/State.interface.yaml	2019-11-21 16:33:09.033757151 +0800
+diff -Naur a/xyz/openbmc_project/SlotConn/State.interface.yaml b/xyz/openbmc_project/SlotConn/State.interface.yaml
+--- a/xyz/openbmc_project/SlotConn/State.interface.yaml	1970-01-01 08:00:00.000000000 +0800
++++ b/xyz/openbmc_project/SlotConn/State.interface.yaml	2019-11-21 16:33:09.033757151 +0800
 @@ -0,0 +1,67 @@
 +description: >
 +    Implement to provide Slot/Connector attributes.

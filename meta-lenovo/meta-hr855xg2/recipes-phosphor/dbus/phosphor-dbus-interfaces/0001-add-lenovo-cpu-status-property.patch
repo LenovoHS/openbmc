@@ -1,6 +1,6 @@
-diff -Naur a/phosphor-dbus-interfaces/xyz/openbmc_project/Cpu/CpuErr.errors.yaml b/phosphor-dbus-interfaces/xyz/openbmc_project/Cpu/CpuErr.errors.yaml
---- a/phosphor-dbus-interfaces/xyz/openbmc_project/Cpu/CpuErr.errors.yaml	1970-01-01 08:00:00.000000000 +0800
-+++ b/phosphor-dbus-interfaces/xyz/openbmc_project/Cpu/CpuErr.errors.yaml	2019-11-21 14:11:27.819872048 +0800
+diff -Naur a/xyz/openbmc_project/Cpu/CpuErr.errors.yaml b/xyz/openbmc_project/Cpu/CpuErr.errors.yaml
+--- a/xyz/openbmc_project/Cpu/CpuErr.errors.yaml	1970-01-01 08:00:00.000000000 +0800
++++ b/xyz/openbmc_project/Cpu/CpuErr.errors.yaml	2019-11-21 14:11:27.819872048 +0800
 @@ -0,0 +1,20 @@
 +- name: IERR
 +  description: CPU IERR
@@ -22,9 +22,9 @@ diff -Naur a/phosphor-dbus-interfaces/xyz/openbmc_project/Cpu/CpuErr.errors.yaml
 +
 +- name: MCERR
 +  description: CPU Machine Check Error
-diff -Naur a/phosphor-dbus-interfaces/xyz/openbmc_project/Cpu/CpuErr.interface.yaml b/phosphor-dbus-interfaces/xyz/openbmc_project/Cpu/CpuErr.interface.yaml
---- a/phosphor-dbus-interfaces/xyz/openbmc_project/Cpu/CpuErr.interface.yaml	1970-01-01 08:00:00.000000000 +0800
-+++ b/phosphor-dbus-interfaces/xyz/openbmc_project/Cpu/CpuErr.interface.yaml	2019-11-21 14:11:27.819872048 +0800
+diff -Naur a/xyz/openbmc_project/Cpu/CpuErr.interface.yaml b/xyz/openbmc_project/Cpu/CpuErr.interface.yaml
+--- a/xyz/openbmc_project/Cpu/CpuErr.interface.yaml	1970-01-01 08:00:00.000000000 +0800
++++ b/xyz/openbmc_project/Cpu/CpuErr.interface.yaml	2019-11-21 14:11:27.819872048 +0800
 @@ -0,0 +1,31 @@
 +description: >
 +    Implement to provide CPU error attributes.

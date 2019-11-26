@@ -3,13 +3,6 @@
 
 FILESEXTRAPATHS_prepend_hr855xg2 := "${THISDIR}/${PN}:"
 
-#SRC_URI += "file://0001-implement-CPU_Status-and-DIMM_Status-sensor.patch \
-#            file://0002-add-service-dependency.patch \
-#            file://0003-modify-CPU-DIMM-sensors-name.patch \
-#            file://0004-modify-DIMM-discrete-sensors-name.patch \
-#            file://0005-use-DIMM-thresholds-from-configs.patch \
-#           "
-
 SRC_URI += "file://0003-modify-CPU-DIMM-sensors-name.patch \
             file://0005-use-DIMM-thresholds-from-configs.patch \
            "
