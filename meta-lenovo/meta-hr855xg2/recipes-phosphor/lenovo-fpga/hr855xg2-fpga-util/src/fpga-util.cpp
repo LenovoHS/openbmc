@@ -150,7 +150,8 @@ int CPU_Status_Presence(void)
 int DIMM_Status_Presence(void)
 {
     // DIMM Present by CPLD
-    uint64_t dimm_present = 0;
+    uint32_t dimm_present_l = 0;
+    uint32_t dimm_present_h = 0;
     for (uint8_t dimm_offset=6; dimm_offset<12; dimm_offset++)
     {
         uint8_t DIMM_FpgaBlock = 10;
@@ -161,13 +162,22 @@ int DIMM_Status_Presence(void)
             std::cerr << "Could not get fpga data\n";
         }
 
-        dimm_present |= ((uint64_t) res_data) << ((dimm_offset-6)*8);
+        if (dimm_offset <=9)
+        {
+            dimm_present_l |= ((unsigned long long) res_data) << ((dimm_offset-6)*8);
+        }
+        else
+        {
+            dimm_present_h |= ((unsigned long long) res_data) << ((dimm_offset-10)*8);
+        }
     }
 
-    std::cerr << "dimm_present: " << static_cast<unsigned>(dimm_present) << std::endl;
+    std::cerr << "dimm_present_l: " << static_cast<unsigned>(dimm_present_l) << std::endl;
+    std::cerr << "dimm_present_h: " << static_cast<unsigned>(dimm_present_h) << std::endl;
     for (uint64_t dimm_num=0; dimm_num<48; dimm_num++)
     {
         uint8_t phy_dimm_num = 0;
+        uint32_t dimm_present = 0;
 
         if (dimm_num < 24) // DIMM0 to DIMM23
         {
@@ -178,7 +188,16 @@ int DIMM_Status_Presence(void)
             phy_dimm_num = dimm_num;
         }
 
-        if (0 != ((dimm_present & (1 << dimm_num))))
+        if (dimm_num < 32)
+        {
+            dimm_present = dimm_present_l;
+        }
+        else
+        {
+            dimm_present = dimm_present_h;
+        }
+
+        if (0 != ((dimm_present & (1 << (dimm_num%32)))))
         {
             // Add SEL
             int retry = 3;
