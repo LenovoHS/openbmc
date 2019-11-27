@@ -1,4 +1,4 @@
-List of maintainers for ibm-pldm-oem 
+List of maintainers for lenovo-ipmi-oem
 ===============================
 
 How to use this list:
@@ -60,5 +60,7 @@ Design approval rules:
 START OF MAINTAINERS LIST
 -------------------------
 
-M:  Deepak Kodihalli <dkodihal@linux.vnet.ibm.com> <dkodihal!>
-M:  Tom Joseph <tomjose@linux.vnet.ibm.com> <tomjose>
+M:  LiuYonghui <liuyh21@lenovo.com> <Liu Yonghui>
+M:  Lisa Liu   <liuyj19@lenovo.com> <Lisa>
+M:  Payne Yang <pyang4@lenovo.com>  <Payne>
+M:  Ivan Li    <rli11@lenovo.com>   <Ivan>

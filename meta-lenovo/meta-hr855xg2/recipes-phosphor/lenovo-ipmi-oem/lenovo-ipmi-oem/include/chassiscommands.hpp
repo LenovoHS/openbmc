@@ -1,8 +1,8 @@
 /*
-// Copyright (c) 2019 Lenovo Corporation
-//
-
+// Copyright (c) 2019-present Lenovo
+// Licensed under BSD-3, see LICENSE file for details.
 */
+
 #include "status.hpp"
 #include <ipmid/api.h>
 #include <mapper.h>

@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# "Copyright (c) 2019-present Lenovo
-# Licensed under BSD-3, see COPYING.BSD file for details."
-
 AUTOCONF_FILES="Makefile.in aclocal.m4 ar-lib autom4te.cache compile \
         config.guess config.h.in config.sub configure depcomp install-sh \
         ltmain.sh missing *libtool test-driver"

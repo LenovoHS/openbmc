@@ -1,5 +1,6 @@
 /*
 // Copyright (c) 2017-2019 Intel Corporation
+// Copyright (C) 2019-present Lenovo
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,6 +13,13 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+//
+// Licensed under BSD-3, see LICENSE file for details.
+// Change by Lenovo (2019/Nov/01):
+// 1. Make Fru ID as we expect, without using hash value.
+// 2. Change to use json file to map sensor number, sensor type and sensor reading type from when getting SEL entries.   
+// 3. Set standard and OEM sensors property on DBus when executing add sel command. 
+//
 */
 #include <arpa/inet.h>
 #include <mapper.h>

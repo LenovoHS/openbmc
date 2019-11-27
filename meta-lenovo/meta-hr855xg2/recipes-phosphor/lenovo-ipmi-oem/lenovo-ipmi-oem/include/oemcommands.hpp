@@ -1,3 +1,8 @@
+/*
+// Copyright (c) 2019-present Lenovo
+// Licensed under BSD-3, see LICENSE file for details.
+*/
+
 #pragma once
 
 #include <ipmid/api.h>

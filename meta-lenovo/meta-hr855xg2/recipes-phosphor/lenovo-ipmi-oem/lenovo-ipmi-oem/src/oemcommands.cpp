@@ -1,3 +1,8 @@
+/*
+// Copyright (c) 2019-present Lenovo
+// Licensed under BSD-3, see LICENSE file for details.
+*/
+
 #include "../include/oemcommands.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 #include <array>
