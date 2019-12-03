@@ -1,0 +1,15 @@
+diff -Nurd git_ori/src/CPUSensor.cpp git/src/CPUSensor.cpp
+--- git_ori/src/CPUSensor.cpp	2019-11-27 16:39:16.404803725 +0800
++++ git/src/CPUSensor.cpp	2019-11-27 16:46:42.317736994 +0800
+@@ -135,9 +135,10 @@
+                                                 CPUSensor::sensorScaleFactor,
+                                                 dtsOffset))
+                     {
++                        // Do not update thresholds of DIMM, DIMM thresholds come from config file instead of attributes.
+                         if (!std::equal(thresholds.begin(), thresholds.end(),
+                                         newThresholds.begin(),
+-                                        newThresholds.end()))
++                                        newThresholds.end()) && (this->name.find("DIMM")) == std::string::npos)
+                         {
+                             thresholds = newThresholds;
+                             if (show)

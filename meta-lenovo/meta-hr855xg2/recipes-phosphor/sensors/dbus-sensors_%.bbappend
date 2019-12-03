@@ -5,6 +5,7 @@ FILESEXTRAPATHS_prepend_hr855xg2 := "${THISDIR}/${PN}:"
 
 SRC_URI += "file://0003-modify-CPU-DIMM-sensors-name.patch \
             file://0005-use-DIMM-thresholds-from-configs.patch \
+            file://0006-not-update-DIMM-thresholds-from-attr.patch \
            "
 
 # Overwrite the SYSTEMD_SERVICE_${PN} to select the services we want to use
