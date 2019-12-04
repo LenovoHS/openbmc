@@ -7,6 +7,19 @@ OBMC_IMAGE_EXTRA_INSTALL_append_hr855xg2 = " lenovo-pwr-sequence \
                                              pwr-button \
                                              cpu-caterr \
                                              int-fpga-bmc \
+                                             cpu-vr-bmc-alert-n \
+                                             ddr-vr-bmc-alert-n \
+                                             fm-pvccin-cpu1-pwr-in-alert-n \
+                                             fm-pvccin-cpu2-pwr-in-alert-n \
+                                             fm-pvccin-cpu3-pwr-in-alert-n \
+                                             fm-pvccin-cpu4-pwr-in-alert-n \
+                                             p12v-aux1-alert1-n \
+                                             p12v-aux2-alert1-n \
+                                             p12v-aux3-alert1-n \
+                                             pdb-alt-n \
+                                             riser1-vr-al-r \
+                                             riser2-vr-al-r \
+                                             riser3-vr-al-r \
                                              lenovo-ipmi-oem \
                                              lenovo-frus \
                                              fpga-version \

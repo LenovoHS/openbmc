@@ -1,0 +1,11 @@
+# "Copyright (c) 2019-present Lenovo
+# Licensed under BSD-3, see COPYING.BSD file for details."
+
+[Unit]
+Description=PVCCIN CPU4 PWR Alert Service
+StartLimitIntervalSec=0
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/env fm-pvccin-cpu4-pwr-in-alert-n.sh
+SyslogIdentifier=fm-pvccin-cpu4-pwr-in-alert-n

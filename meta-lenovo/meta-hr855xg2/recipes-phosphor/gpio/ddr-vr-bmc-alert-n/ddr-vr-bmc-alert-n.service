@@ -1,0 +1,11 @@
+# "Copyright (c) 2019-present Lenovo
+# Licensed under BSD-3, see COPYING.BSD file for details."
+
+[Unit]
+Description=DDR VR Alert Service
+StartLimitIntervalSec=0
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/env ddr-vr-bmc-alert-n.sh
+SyslogIdentifier=ddr-vr-bmc-alert-n

@@ -1,0 +1,11 @@
+# "Copyright (c) 2019-present Lenovo
+# Licensed under BSD-3, see COPYING.BSD file for details."
+
+[Unit]
+Description=PDB Alert Service
+StartLimitIntervalSec=0
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/env pdb-alt-n.sh
+SyslogIdentifier=pdb-alt-n

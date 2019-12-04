@@ -1,0 +1,8 @@
+# "Copyright (c) 2019-present Lenovo
+# Licensed under BSD-3, see COPYING.BSD file for details."
+
+DEVPATH=/dev/input/by-path/platform-gpio-keys-event
+KEY=210
+POLARITY=1
+TARGET=fm-pvccin-cpu1-pwr-in-alert-n.service
+EXTRA_ARGS=--continue

@@ -1,0 +1,8 @@
+# "Copyright (c) 2019-present Lenovo
+# Licensed under BSD-3, see COPYING.BSD file for details."
+
+DEVPATH=/dev/input/by-path/platform-gpio-keys-event
+KEY=41
+POLARITY=1
+TARGET=riser2-vr-al-r.service
+EXTRA_ARGS=--continue

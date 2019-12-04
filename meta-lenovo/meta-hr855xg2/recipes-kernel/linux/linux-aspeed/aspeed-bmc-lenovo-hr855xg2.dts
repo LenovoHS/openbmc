@@ -92,7 +92,85 @@
             label = "int-fpga-bmc";
             gpios = <&gpio ASPEED_GPIO(F, 5) GPIO_ACTIVE_LOW>;
             linux,code = <ASPEED_GPIO(F, 5)>;
-        };        
+        };
+
+        pdb-alt-n {
+            label = "pdb-alt-n";
+            gpios = <&gpio ASPEED_GPIO(AA, 1) GPIO_ACTIVE_LOW>;
+            linux,code = <ASPEED_GPIO(AA, 1)>;
+        };
+
+        p12v-aux1-alert1-n {
+            label = "p12v-aux1-alert1-n";
+            gpios = <&gpio ASPEED_GPIO(AA, 7) GPIO_ACTIVE_LOW>;
+            linux,code = <ASPEED_GPIO(AA, 7)>;
+        };
+
+        p12v-aux2-alert1-n {
+            label = "p12v-aux2-alert1-n";
+            gpios = <&gpio ASPEED_GPIO(J, 0) GPIO_ACTIVE_LOW>;
+            linux,code = <ASPEED_GPIO(J, 0)>;
+        };
+
+        p12v-aux3-alert1-n {
+            label = "p12v-aux3-alert1-n";
+            gpios = <&gpio ASPEED_GPIO(G, 5) GPIO_ACTIVE_LOW>;
+            linux,code = <ASPEED_GPIO(G, 5)>;
+        };
+
+        fm-pvccin-cpu1-pwr-in-alert-n {
+            label = "fm-pvccin-cpu1-pwr-in-alert-n";
+            gpios = <&gpio ASPEED_GPIO(AA, 2) GPIO_ACTIVE_LOW>;
+            linux,code = <ASPEED_GPIO(AA, 2)>;
+        };
+
+        fm-pvccin-cpu2-pwr-in-alert-n {
+            label = "fm-pvccin-cpu2-pwr-in-alert-n";
+            gpios = <&gpio ASPEED_GPIO(AA, 3) GPIO_ACTIVE_LOW>;
+            linux,code = <ASPEED_GPIO(AA, 3)>;
+        };
+
+        fm-pvccin-cpu3-pwr-in-alert-n {
+            label = "fm-pvccin-cpu3-pwr-in-alert-n";
+            gpios = <&gpio ASPEED_GPIO(Y, 0) GPIO_ACTIVE_LOW>;
+            linux,code = <ASPEED_GPIO(Y, 0)>;
+        };
+
+        fm-pvccin-cpu4-pwr-in-alert-n {
+            label = "fm-pvccin-cpu4-pwr-in-alert-n";
+            gpios = <&gpio ASPEED_GPIO(Y, 1) GPIO_ACTIVE_LOW>;
+            linux,code = <ASPEED_GPIO(Y, 1)>;
+        };
+
+        ddr-vr-bmc-alert-n {
+            label = "ddr-vr-bmc-alert-n";
+            gpios = <&gpio ASPEED_GPIO(L, 7) GPIO_ACTIVE_LOW>;
+            linux,code = <ASPEED_GPIO(L, 7)>;
+        };
+
+        cpu-vr-bmc-alert-n {
+            label = "cpu-vr-bmc-alert-n";
+            gpios = <&gpio ASPEED_GPIO(L, 6) GPIO_ACTIVE_LOW>;
+            linux,code = <ASPEED_GPIO(L, 6)>;
+        };
+
+        riser1-vr-al-r {
+            label = "riser1-vr-al-r";
+            gpios = <&gpio ASPEED_GPIO(AB, 1) GPIO_ACTIVE_LOW>;
+            linux,code = <ASPEED_GPIO(AB, 1)>;
+        };
+
+        riser2-vr-al-r {
+            label = "riser2-vr-al-r";
+            gpios = <&gpio ASPEED_GPIO(F, 1) GPIO_ACTIVE_LOW>;
+            linux,code = <ASPEED_GPIO(F, 1)>;
+        };
+
+        riser3-vr-al-r {
+            label = "riser3-vr-al-r";
+            gpios = <&gpio ASPEED_GPIO(A, 1) GPIO_ACTIVE_LOW>;
+            linux,code = <ASPEED_GPIO(A, 1)>;
+        };
 	};
     
 	pcie-slot {
@@ -692,13 +770,6 @@
 	
 };
 &gpio {
-
-	pin_gpio_a1 {
-		gpio-hog;
-		gpios = <ASPEED_GPIO(A, 1) GPIO_ACTIVE_LOW>;
-		output-high;
-		line-name = "BMC_EMMC_RST_N";
-	};
 
 	pin_gpio_b5 {
 		gpio-hog;
