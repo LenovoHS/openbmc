@@ -7,5 +7,6 @@ StartLimitIntervalSec=0
 
 [Service]
 Type=oneshot
+ExecStartPre=/usr/bin/env busctl set-property xyz.openbmc_project.State.Host /xyz/openbmc_project/state/host0 xyz.openbmc_project.State.Host CurrentHostState s xyz.openbmc_project.State.Host.HostState.Off
 ExecStart=/usr/bin/env pwr-button.sh
 SyslogIdentifier=pwr-button

@@ -1,0 +1,216 @@
+diff -Naur a/mainloop.cpp b/mainloop.cpp
+--- a/mainloop.cpp	2019-11-29 17:59:07.165040991 +0800
++++ b/mainloop.cpp	2019-12-02 18:51:44.250699517 +0800
+@@ -40,6 +40,12 @@
+ #include <string>
+ #include <unordered_set>
+ #include <xyz/openbmc_project/Sensor/Device/error.hpp>
++#include <boost/container/flat_map.hpp>
++#include <boost/algorithm/string/predicate.hpp>
++#include <sdbusplus/asio/connection.hpp>
++#include <sdbusplus/asio/object_server.hpp>
++#include <sdbusplus/message/types.hpp>
++#include <sdbusplus/timer.hpp>
+ 
+ using namespace phosphor::logging;
+ 
+@@ -75,6 +81,12 @@
+     Thresholds<CriticalObject>::alarmHi) Thresholds<CriticalObject>::alarmHi =
+     &CriticalObject::criticalAlarmHigh;
+ 
++static std::unique_ptr<phosphor::Timer> cacheTimer = nullptr;
++static std::unique_ptr<sdbusplus::bus::match::match> powerMatch = nullptr;
++static bool powerStatusOn = false;
++static boost::asio::io_service io; 
++static auto conn = std::make_shared<sdbusplus::asio::connection>(io);
++
+ void updateSensorInterfaces(InterfaceMap& ifaces, int64_t value)
+ {
+     for (auto& iface : ifaces)
+@@ -102,6 +114,83 @@
+     }
+ }
+ 
++void powerStatusSet()
++{
++    powerStatusOn = true;
++    return;
++}
++
++void createTimer()
++{
++    if (cacheTimer == nullptr)
++    {
++        cacheTimer = std::make_unique<phosphor::Timer>(powerStatusSet);
++    }
++}
++
++bool isPowerOn(void)
++{
++    if (!powerMatch)
++    {
++        throw std::runtime_error("Power Match Not Created");
++    }
++    return powerStatusOn;
++}
++
++void setupPowerMatch(sdbusplus::bus::bus& bus)
++{
++    if (powerMatch)
++    {
++        return;
++    }
++
++    powerMatch = std::make_unique<sdbusplus::bus::match::match>(
++        bus,
++        "type='signal',interface='org.freedesktop.DBus.Properties',path='/xyz/"
++        "openbmc_project/state/"
++        "host0',arg0='xyz.openbmc_project.State.Host'",
++       [](sdbusplus::message::message& message) {
++            std::string objectName;
++            boost::container::flat_map<std::string, std::variant<std::string>>
++                values;
++	    message.read(objectName, values);
++	    auto findState = values.find("CurrentHostState");
++	    if (findState != values.end())
++	    {
++	        bool on = boost::ends_with(
++                    std::get<std::string>(findState->second), "Running");
++		if (!on)
++                {
++		    cacheTimer->stop();
++                    powerStatusOn = false;
++                    return;
++                }
++		cacheTimer->start(std::chrono::duration_cast<std::chrono::microseconds>(
++                    std::chrono::seconds(10)));
++	    }
++	    else {
++		powerStatusOn = false;
++            }
++       });
++
++    conn->async_method_call(
++        [](boost::system::error_code ec,
++           const std::variant<std::string>& state) {
++            if (ec)
++            {
++                return;
++            }
++            powerStatusOn =
++                boost::ends_with(std::get<std::string>(state), "Running");
++        },
++        "xyz.openbmc_project.State.Host", 
++	"/xyz/openbmc_project/state/host0", 
++	"org.freedesktop.DBus.Properties", "Get",
++        "xyz.openbmc_project.State.Host", "CurrentHostState");
++
++    createTimer();
++}
++
+ std::string MainLoop::getID(SensorSet::container_t::const_reference sensor)
+ {
+     std::string id;
+@@ -386,6 +475,7 @@
+             _interval = std::strtoull(interval.c_str(), NULL, 10);
+         }
+     }
++    setupPowerMatch(_bus);
+ }
+ 
+ void MainLoop::read()
+@@ -430,6 +520,12 @@
+ 
+         try
+         {
++            if(sensor->pwrOnMonitor() && !isPowerOn())
++            {
++                statusIface->functional(false);
++                continue;
++            }
++
+             if (sensor->hasFaultFile())
+             {
+                 auto fault = _ioAccess->read(sensorSysfsType, sensorSysfsNum,
+@@ -556,6 +652,11 @@
+                 }
+             }
+ 
++            if(sensor->pwrOnMonitor() && !isPowerOn())
++            {
++		statusIface->functional(false);
++	        continue;    
++            }
+             updateSensorInterfaces(obj, value);
+         }
+         catch (const std::system_error& e)
+diff -Naur a/sensor.cpp b/sensor.cpp
+--- a/sensor.cpp	2019-11-29 17:59:12.841060757 +0800
++++ b/sensor.cpp	2019-12-02 16:47:41.580629699 +0800
+@@ -42,7 +42,7 @@
+                const hwmonio::HwmonIOInterface* ioAccess,
+                const std::string& devPath) :
+     _sensor(sensor),
+-    _ioAccess(ioAccess), _devPath(devPath), _scale(0), _hasFaultFile(false)
++    _ioAccess(ioAccess), _devPath(devPath), _scale(0), _hasFaultFile(false), _pwrOnMonitor(false)
+ {
+     auto chip = env::getEnv("GPIOCHIP", sensor);
+     auto access = env::getEnv("GPIO", sensor);
+@@ -71,6 +71,15 @@
+     auto senRmRCs = env::getEnv("REMOVERCS", sensor);
+     // Add sensor removal return codes defined per sensor
+     addRemoveRCs(senRmRCs);
++
++    auto pwrOnMon = env::getEnv("PWRONMON", sensor);
++    if (!pwrOnMon.empty())
++    {
++        if (pwrOnMon == "ON")
++        {
++            _pwrOnMonitor = true;
++        }
++    }
+ }
+ 
+ void Sensor::addRemoveRCs(const std::string& rcList)
+diff -Naur a/sensor.hpp b/sensor.hpp
+--- a/sensor.hpp	2019-11-29 17:59:17.365076330 +0800
++++ b/sensor.hpp	2019-11-29 17:58:27.128894173 +0800
+@@ -152,6 +152,16 @@
+         return _hasFaultFile;
+     }
+ 
++    /**
++     * @brief Get whether the sensor only need to be monitored in power on state or not.
++     *
++     * @return - Boolean on whether the sensor only need to be monitored in power on state
++     */
++    inline bool pwrOnMonitor(void) const
++    {
++        return _pwrOnMonitor;
++    }
++
+   private:
+     /** @brief Sensor object's identifiers */
+     SensorSet::key_type _sensor;
+@@ -173,6 +183,9 @@
+ 
+     /** @brief Tracks whether the sensor has a fault file or not. */
+     bool _hasFaultFile;
++
++    /** @brief Whether the sensor only need to be monitored in power on state or not. */
++    bool _pwrOnMonitor;
+ };
+ 
+ /**
+diff -Naur a/thresholds.hpp b/thresholds.hpp
+--- a/thresholds.hpp	2019-11-29 17:59:28.773114907 +0800
++++ b/thresholds.hpp	2019-12-03 17:21:45.435630143 +0800
+@@ -101,8 +101,6 @@
+         auto hi = stod(tHi) * std::pow(10, scale);
+         (*iface.*Thresholds<T>::setLo)(lo);
+         (*iface.*Thresholds<T>::setHi)(hi);
+-        (*iface.*Thresholds<T>::alarmLo)(value <= lo);
+-        (*iface.*Thresholds<T>::alarmHi)(value >= hi);
+         auto type = Thresholds<T>::type;
+         obj[type] = iface;
+     }

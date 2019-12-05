@@ -39,6 +39,7 @@ HR855XG2_ITEMS += "iio-hwmon.conf"
 HR855XG2_ITEMS += "iio-hwmon-battery.conf"
 
 SRC_URI += "file://0001-sensors-slow-readings.patch \
+            file://0002-add-poweron-monitor-feature.patch \
            "
 
 ENVS = "obmc/hwmon/{0}"
