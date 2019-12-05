@@ -1,0 +1,105 @@
+diff -Nurd git_ori/mainloop.cpp git/mainloop.cpp
+--- git_ori/mainloop.cpp	2019-12-05 15:14:37.684759082 +0800
++++ git/mainloop.cpp	2019-12-05 15:16:43.631496565 +0800
+@@ -478,6 +478,79 @@
+     setupPowerMatch(_bus);
+ }
+ 
++void MainLoop::updateFanTargets(InterfaceMap& ifaces, const SensorSet::key_type& sensor)
++{
++    std::string target_input = hwmon::entry::target;
++    // update input from different target types
++
++    uint32_t targetSpeed = 0;
++    namespace fs = std::filesystem;
++    std::string targetName = sensor.first;
++    std::string id = sensor.second;
++
++    auto search = ifaces.find(InterfaceType::FAN_PWM);
++    // look for FanPWM interface.
++    if (search != ifaces.end())
++    {
++        auto& FanPwmInt = std::any_cast<std::shared_ptr<hwmon::FanPwm>&>(ifaces[InterfaceType::FAN_PWM]);
++
++        using namespace std::literals;
++        std::string empty = ""s;
++        targetName = "pwm"s;
++        id = env::getEnv("PWM_TARGET", sensor);
++        if (id.empty())
++        {
++            id = sensor.second;
++        }
++        target_input = empty;
++
++        auto target_path_pwm = sysfs::make_sysfs_path(_ioAccess->path(), targetName, id, target_input);
++         if (fs::exists(target_path_pwm))
++        {
++            try
++            {
++                targetSpeed = _ioAccess->read(targetName, id, target_input,
++                   hwmonio::retries, hwmonio::delay);
++            }
++            catch (const std::system_error& e)
++            {
++                std::cerr << e.what() <<
++                " error reading from SysFs file, path: " <<
++                target_path_pwm << '\n';
++                return;
++            }
++            FanPwmInt->target(targetSpeed);
++        }
++    }
++
++    search = ifaces.find(InterfaceType::FAN_SPEED);
++    // look for FAN_SPEED interface.
++    if (search != ifaces.end())
++    {
++        auto& FanSpeedInt = std::any_cast<std::shared_ptr<hwmon::FanSpeed>&>(ifaces[InterfaceType::FAN_SPEED]);
++
++        auto target_path_fanspeed = sysfs::make_sysfs_path(_ioAccess->path(), targetName, id, target_input);
++
++        if (fs::exists(target_path_fanspeed))
++        {
++            try
++            {
++                targetSpeed = _ioAccess->read(targetName, id, target_input,
++                   hwmonio::retries, hwmonio::delay);
++            }
++            catch (const std::system_error& e)
++            {
++                std::cerr << e.what() <<
++                " error reading from SysFs file, path: " <<
++                target_path_fanspeed << '\n';
++                return;
++            }
++            FanSpeedInt->target(targetSpeed);
++        }
++    }
++    return;
++}
++
+ void MainLoop::read()
+ {
+     // TODO: Issue#3 - Need to make calls to the dbus sensor cache here to
+@@ -657,6 +730,8 @@
+ 		statusIface->functional(false);
+ 	        continue;    
+             }
++            updateFanTargets(obj, sensorSetKey);
++
+             updateSensorInterfaces(obj, value);
+         }
+         catch (const std::system_error& e)
+diff -Nurd git_ori/mainloop.hpp git/mainloop.hpp
+--- git_ori/mainloop.hpp	2019-12-05 15:14:37.636759566 +0800
++++ git/mainloop.hpp	2019-12-05 15:16:43.631496565 +0800
+@@ -88,6 +88,9 @@
+     /** @brief Set up D-Bus object state */
+     void init();
+ 
++    /** @brief Update Sensors' Targets interface if SysFs type is a fan. */
++    void updateFanTargets(InterfaceMap& ifaces, const SensorSet::key_type& sensor);
++
+     /** @brief sdbusplus bus client connection. */
+     sdbusplus::bus::bus _bus;
+     /** @brief sdbusplus freedesktop.ObjectManager storage. */
