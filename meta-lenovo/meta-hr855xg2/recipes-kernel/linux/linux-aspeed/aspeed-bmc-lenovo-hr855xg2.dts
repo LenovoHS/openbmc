@@ -877,10 +877,4 @@
 		line-name = "FW_PSU_ALERT_EN_N";
 	};
 	
-	pin_gpio_ac6 {
-		gpio-hog;
-		gpios = <ASPEED_GPIO(AC, 6) GPIO_ACTIVE_HIGH>;
-		output-high;
-		line-name = "ESPI_BMC_ALERT_N";
-	};
 };
