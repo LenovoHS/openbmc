@@ -94,7 +94,7 @@ namespace ipmi::sel::erase_time
         {
             timestamp = st.st_mtime;
         }
-
+        close(fd);
         return timestamp;
     }
 } // namespace ipmi::sel::erase_time
