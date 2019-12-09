@@ -7,7 +7,6 @@ DEPENDS_append_hr855xg2 = " hr855xg2-yaml-config"
 FILESEXTRAPATHS_append_hr855xg2 := "${THISDIR}/${PN}:"
 
 SRC_URI += "file://0001-fru-workaround.patch \
-            file://0004-fix-incorrect-watchdog-action-rsp.patch \
             file://0006-pwm-sensor.patch \
            "
 
