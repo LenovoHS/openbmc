@@ -2384,34 +2384,10 @@
             "Name": "Watchdog2",
             "Offset": [
                 {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_0",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_1",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_2",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_3",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
-                },
-                {
-                    "Iface": "xyz.openbmc_project.Sensor.Discrete.SpecificOffset",
-                    "Property": "Offset_8",
-                    "Ptype": "bool",
-                    "Dfvalue": "0"
+                    "Iface": "xyz.openbmc_project.State.Watchdog",
+                    "Property": "ExpireAction",
+                    "Ptype": "string",
+                    "Dfvalue": "xyz.openbmc_project.State.Watchdog.Action.Unknown"
                 }
             ],
             "Type": "Oem"

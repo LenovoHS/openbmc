@@ -969,6 +969,52 @@ uint8_t LenovoSetSensorProperty(uint8_t sensorNumber,
             return 1;
         }
     }
+    else if (sensorNumber == 0xF1)
+    {
+        std::string name = "Watchdog2";
+        try
+        {
+            switch (eventData[0])
+            {
+                case 0x00:
+                    event_state = "xyz.openbmc_project.State.Watchdog.Action.None";
+                    PropertyPath = "ExpireAction";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.State.Watchdog",
+                                          PropertyPath, event_state);
+                    break;
+                case 0x01:
+                    event_state = "xyz.openbmc_project.State.Watchdog.Action.HardReset";
+                    PropertyPath = "ExpireAction";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.State.Watchdog",
+                                          PropertyPath, event_state);
+                    break;
+                case 0x02:
+                    event_state = "xyz.openbmc_project.State.Watchdog.Action.PowerOff";
+                    PropertyPath = "ExpireAction";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.State.Watchdog",
+                                          PropertyPath, event_state);
+                    break;
+                case 0x03:
+                    event_state = "xyz.openbmc_project.State.Watchdog.Action.PowerCycle";
+                    PropertyPath = "ExpireAction";
+                    ipmi::setDbusProperty(bus, OEMSensorService,
+                                          OEMSensorPath + name, "xyz.openbmc_project.State.Watchdog",
+                                          PropertyPath, event_state);
+                    break;
+                default:
+                    return 1;
+                    break;
+            }
+        }
+        catch (std::exception& e)
+        {
+            log<level::ERR>(e.what());
+            return 1;
+        }
+    }
     else if (sensorNumber == 0xF3)
     {
         std::string name = "M2_Status";

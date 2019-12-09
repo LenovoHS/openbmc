@@ -5165,37 +5165,21 @@
   entityID: 46
   entityInstance: 1
   interfaces:
-    xyz.openbmc_project.Sensor.Discrete.SpecificOffset:
-      Offset_0:
+    xyz.openbmc_project.State.Watchdog:
+      ExpireAction:
         Offsets:
           0:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_1:
-        Offsets:
+            assert: xyz.openbmc_project.State.Watchdog.Action.None
+            type: string
           1:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_2:
-        Offsets:
+            assert: xyz.openbmc_project.State.Watchdog.Action.HardReset
+            type: string
           2:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_3:
-        Offsets:
+            assert: xyz.openbmc_project.State.Watchdog.Action.PowerOff
+            type: string
           3:
-            assert: true
-            deassert: false
-            type: bool
-      Offset_8:
-        Offsets:
-          5:
-            assert: true
-            deassert: false
-            type: bool
+            assert: xyz.openbmc_project.State.Watchdog.Action.PowerCycle
+            type: string
   mutability: Mutability::Write|Mutability::Read
   path: /xyz/openbmc_project/OEMSensor/Watchdog2
   readingType: assertion
