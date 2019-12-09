@@ -50,9 +50,9 @@ Witherspoon| ```meta-ibm/meta-witherspoon/conf```
 Romulus| ```meta-ibm/meta-romulus/conf```
 
 
-As an example target Palmetto
+As an example target Romulus
 ```
-export TEMPLATECONF=meta-ibm/meta-palmetto/conf
+export TEMPLATECONF=meta-ibm/meta-romulus/conf
 ```
 
 ### 4) Build
@@ -64,6 +64,12 @@ bitbake obmc-phosphor-image
 
 Additional details can be found in the [docs](https://github.com/openbmc/docs)
 repository.
+
+## OpenBMC Development
+
+The OpenBMC community maintains a set of tutorials new users can go through
+to get up to speed on OpenBMC development out
+[here](https://github.com/openbmc/docs/blob/master/development/README.md)
 
 ## Build Validation and Testing
 Commits submitted by members of the OpenBMC GitHub community are compiled and

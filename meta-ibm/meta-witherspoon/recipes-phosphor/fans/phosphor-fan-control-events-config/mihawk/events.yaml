@@ -301,6 +301,65 @@ actions:
           - altevents
 
 events:
+    - name: default_fan_floor_on_service_fail
+      precondition:
+          name: services_missing_owner
+          groups:
+              - name: zone0_ambient
+                interface: xyz.openbmc_project.Sensor.Value
+                property:
+                    name: Value
+                    type: int64_t
+          triggers:
+              - name: init
+                method: nameHasOwner
+                handler: setService
+              - name: signal
+                signal: nameOwnerChanged
+                handler: setService
+          events:
+              - name: default_fan_floor
+                groups:
+                    - name: zone0_ambient
+                      interface: xyz.openbmc_project.Sensor.Value
+                      property:
+                          name: Value
+                          type: int64_t
+                triggers:
+                    - name: timer
+                      interval: 5000000
+                      type: oneshot
+                actions:
+                    - name: default_floor_on_missing_owner
+    - name: high_speed_on_occ_service_fails
+      groups:
+          - name: occ0_object
+            interface: org.open_power.OCC.Status
+            property:
+                name: OccActive
+                type: bool
+          - name: occ1_object
+            interface: org.open_power.OCC.Status
+            property:
+                name: OccActive
+                type: bool
+      triggers:
+          - name: init
+            method: nameHasOwner
+            handler: setService
+          - name: signal
+            signal: nameOwnerChanged
+            handler: setService
+      actions:
+          - name: call_actions_based_on_timer
+            timer:
+                interval: 5000000
+                type: oneshot
+            actions:
+                - name: set_speed_on_missing_owner
+                  speed:
+                      value: 255
+                      type: uint64_t
     - name: missing_or_fails_before_high_speed_air
       groups:
           - name: air_cooled_zone0_fans
@@ -549,7 +608,7 @@ events:
                               name: Value
                               type: int64_t
                     property:
-                        value: 50000
+                        value: 55000
                         type: int64_t
                     factor:
                         value: 1000
@@ -565,10 +624,10 @@ events:
                               name: Value
                               type: int64_t
                     property:
-                        value: 47000
+                        value: 52000
                         type: int64_t
                     factor:
-                        value: 3000
+                        value: 1000
                         type: int64_t
                     delta:
                         value: 3
@@ -642,7 +701,7 @@ events:
                         value: 70000
                         type: int64_t
                     factor:
-                        value: 7000
+                        value: 4000
                         type: int64_t
                     delta:
                         value: 5
@@ -689,7 +748,7 @@ events:
                               name: Value
                               type: int64_t
                     property:
-                        value: 70
+                        value: 80
                         type: int64_t
                     factor:
                         value: 1
@@ -705,7 +764,7 @@ events:
                               name: Value
                               type: int64_t
                     property:
-                        value: 67
+                        value: 77
                         type: int64_t
                     factor:
                         value: 4
