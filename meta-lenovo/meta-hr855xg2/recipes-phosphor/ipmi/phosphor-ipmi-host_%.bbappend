@@ -8,6 +8,7 @@ FILESEXTRAPATHS_append_hr855xg2 := "${THISDIR}/${PN}:"
 
 SRC_URI += "file://0001-fru-workaround.patch \
             file://0006-pwm-sensor.patch \
+            file://0007-fix-assertion-type-sensor-disable.patch \
            "
 
 EXTRA_OECONF_append_hr855xg2 = " \

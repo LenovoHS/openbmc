@@ -1,0 +1,10 @@
+--- a/sensordatahandler.cpp	2019-12-10 10:12:35.820475109 +0800
++++ b/sensordatahandler.cpp	2019-12-10 13:51:45.234454032 +0800
+@@ -155,6 +155,7 @@
+         }
+     }
+ 
++    enableScanning(&response);
+     return response;
+ }
+ 
